@@ -1,27 +1,89 @@
+/* Navbar의 기본 스타일 */
 .navbar {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    background-color: #333;
-    padding: 10px;
-    color: white;
-  }
-  
-  .navbar ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    text-align: center;
-  }
-  
-  .navbar li {
-    display: inline;
-    margin-right: 10px;
-  }
-  
-  .navbar a {
-    color: white;
-    text-decoration: none;
-  }
-  
+  background-color: #3498db;
+  padding: 10px;
+  color: white;
+  display: flex;
+  justify-content: space-between; /* 로고와 메뉴를 좌우에 배치 */
+  align-items: center; /* 세로 중앙 정렬을 위해 추가 */
+}
+
+/* 로고 이미지의 스타일 */
+.logo {
+  width: 50px; /* 로고 이미지의 너비 설정 */
+  height: auto; /* 높이 자동 조정 */
+}
+
+/* Navbar 메뉴의 스타일 */
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+li {
+  margin-right: 15px;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
+
+.mobile-menu {
+  display: none;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.mobile-menu.open {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 60px; /* 로고와 메뉴 간의 간격을 조절 */
+  left: 0;
+  width: 100%;
+  background-color: #3498db;
+}
+
+.mobile-menu li {
+  margin-right: 0;
+}
+
+/* 모바일 화면에서 보여질 메뉴 아이콘의 스타일 */
+.mobile-menu-icon {
+  display: block;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+/* 모바일 화면에서 보여질 메뉴 아이콘을 클릭했을 때 나타날 드롭다운 메뉴의 스타일 */
+.mobile-menu-icon + ul {
+  display: none;
+}
+
+.mobile-menu-icon:checked + ul {
+  display: flex;
+  flex-direction: column; /* 세로로 나타나도록 변경 */
+  position: absolute;
+  top: 60px; /* 로고와 메뉴 간의 간격을 조절 */
+  left: 0;
+  width: 100%;
+  background-color: #3498db;
+}
+
+.mobile-menu-icon:checked + ul li {
+  margin-right: 0; /* 메뉴 간격을 없애서 세로로 나타나도록 함 */
+}
+
+/* 모바일 화면에서 로고가 중앙에 오도록 스타일 조정 */
+.navbar.mobile {
+  flex-direction: column;
+  align-items: center;
+}
+
+body.menu-open {
+  overflow: hidden; /* 스크롤을 막아 메뉴가 열린 상태에서는 스크롤이 되지 않도록 함 */
+}

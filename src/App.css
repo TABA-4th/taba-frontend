@@ -36,3 +36,28 @@
     transform: rotate(360deg);
   }
 }
+body {
+  margin: 0; /* 기본 margin 제거 */
+  padding: 0; /* 기본 padding 제거 */
+  display: flex;
+  justify-content: center; /* 가로 중앙 정렬 */
+  align-items: center; /* 세로 중앙 정렬 */
+  min-height: 100vh; /* 화면 전체 높이를 채우기 위해 */
+  background-color: #f0f0f0; /* 배경색 설정 */
+}
+
+.container {
+  background-color: #ffffff; /* 컨테이너 배경색 설정 */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* 그림자 추가 (선택사항) */
+  padding: 20px; /* 양쪽 여백 설정 (원하는 만큼 조절) */
+  max-width: 800px; /* 컨테이너의 최대 너비 설정 (원하는 만큼 조절) */
+  width: 80%; /* 화면 너비에 따라 조절 */
+}
+
+.content {
+  background-color: #e0f2f1; /* 밝은 민트색 배경 */
+  padding: 20px; /* 컨텐츠 주변 여백 설정 (원하는 만큼 조절) */
+  border-radius: 8px; /* 컨텐츠를 둥글게 만들기 (선택사항) */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* 그림자 추가 (선택사항) */
+  color: #ffffff; /* 텍스트 색상 설정 (흰색) */
+}

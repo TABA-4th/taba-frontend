@@ -7,7 +7,7 @@ ADD . /app
 # 경로를 /app으로 이동한 뒤에
 # ADD로 모든 파일을 /app으로 복사한다
 
-RUN npm install
+RUN npm install --legacy-peer-deps
 # yarn 이면 yarn install or yarn build
 # 에러가 발생하면 바꿔주기
 

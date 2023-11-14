@@ -1,7 +1,14 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link,NavLink } from 'react-router-dom';
 import { useMediaQuery } from 'react-responsive';
 import "./Navbar.css";
+import UserMenu from './UserMenu';
+
+function getLinkStyle({isActive}){
+  return {
+    textDecoration: isActive ? 'underline' : undefined,
+  }
+}
 
 const Navbar = () => {
   const [isMenuOpen, setMenuOpen] = useState(false);
@@ -19,31 +26,33 @@ const Navbar = () => {
 
   return (
     <nav className={`navbar ${isTabletOrMobile ? 'mobile' : ''}`}>
-      <Link to="/" className="logo-link">
+      <NavLink to="/" className="logo-link">
         <img
           src="/path/to/your/logo.png" // 로고 이미지의 경로로 수정
           alt="Logo"
           className="logo"
         />
-      </Link>
+      </NavLink>
       {isTabletOrMobile ? (
         <>
           <div className="mobile-menu-icon" onClick={handleMenuToggle}>
             ☰
           </div>
           <ul className={`mobile-menu ${isMenuOpen ? 'open' : ''}`}>
-            <li><Link to="/" onClick={handleMenuToggle}>Home</Link></li>
-            <li><Link to="/about" onClick={handleMenuToggle}>About</Link></li>
-            <li><Link to="/contact" onClick={handleMenuToggle}>Contact</Link></li>
+            <li><NavLink to="/" onClick={handleMenuToggle} style={getLinkStyle}>Home</NavLink></li>
+            <li><NavLink to="/about" onClick={handleMenuToggle} style={getLinkStyle}>About</NavLink></li>
+            <li><NavLink to="/contact" onClick={handleMenuToggle} style={getLinkStyle}>Contact</NavLink></li>
           </ul>
         </>
       ) : (
         <ul>
-          <li><Link to="/">Home</Link></li>
-          <li><Link to="/about">About</Link></li>
-          <li><Link to="/contact">Contact</Link></li>
+          <li><NavLink to="/" style={getLinkStyle}>Home</NavLink></li>
+          <li><NavLink to="/about" style={getLinkStyle}>About</NavLink></li>
+          <li><NavLink to="/contact" style={getLinkStyle}>Contact</NavLink></li>
         </ul>
+        
       )}
+            <UserMenu/>
     </nav>
   );
 }

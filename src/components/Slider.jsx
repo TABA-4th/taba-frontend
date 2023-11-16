@@ -23,7 +23,7 @@ max-width:100%;
 max-height:100%;
 `;
 
-const imgUrl = 'https://i.postimg.cc/ZYy40zqX/0c60c04f6b385.jpg';
+const imgUrl = 'https://i.postimg.cc/VN26km7R/image.png';
 
 const items = [
   { id: 1, url: imgUrl },
@@ -42,9 +42,11 @@ const items = [
 export default class SimpleSlider extends Component {
   render() {
     const settings = {
+      autoplay: true,
+      speed:3000,
+      autoplaySpeed: 10000,
       dots: true,
       infinite: true,
-      speed: 500,
       slidesToShow: 2,
       slidesToScroll: 1,
       arrows: false,
@@ -52,9 +54,8 @@ export default class SimpleSlider extends Component {
     };
     return (
       <Container>
-        <h2> Single Item</h2>
-        <StyledSlider {...settings}
-        >
+        <h2> 니모내모 기능 소개 </h2>
+        <StyledSlider {...settings}>
           {items.map(item => {
             return (
               <div key={item.id}>

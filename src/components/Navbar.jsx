@@ -35,21 +35,23 @@ const Navbar = () => {
         />
       </NavLink>
       {isTabletOrMobile ? (
-        <>
+        <div className="mobile-menu-align">
           <div className="mobile-menu-icon" onClick={handleMenuToggle}>
             ☰
           </div>
           <ul className={`mobile-menu ${isMenuOpen ? 'open' : ''}`}>
             <li><NavLink to="/" onClick={handleMenuToggle} style={getLinkStyle}>Home</NavLink></li>
             <li><NavLink to="/about" onClick={handleMenuToggle} style={getLinkStyle}>About</NavLink></li>
-            <li><NavLink to="/contact" onClick={handleMenuToggle} style={getLinkStyle}>Contact</NavLink></li>
+            <li><NavLink to="/magazine" onClick={handleMenuToggle} style={getLinkStyle}>Magazine</NavLink></li>
+            <li><NavLink to="/calender" onClick={handleMenuToggle} style={getLinkStyle}>Calender</NavLink></li>
           </ul>
-        </>
+        </div>
       ) : (
         <ul>
           <li><NavLink to="/" style={getLinkStyle}>Home</NavLink></li>
           <li><NavLink to="/about" style={getLinkStyle}>About</NavLink></li>
-          <li><NavLink to="/contact" style={getLinkStyle}>Contact</NavLink></li>
+          <li><NavLink to="/magazine" style={getLinkStyle}>Magazine</NavLink></li>
+          <li><NavLink to="/calender" style={getLinkStyle}>Calender</NavLink></li>
         </ul>
         
       )}

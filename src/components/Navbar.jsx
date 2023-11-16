@@ -7,6 +7,7 @@ import UserMenu from './UserMenu';
 function getLinkStyle({isActive}){
   return {
     textDecoration: isActive ? 'underline' : undefined,
+    
   }
 }
 
@@ -28,8 +29,8 @@ const Navbar = () => {
     <nav className={`navbar ${isTabletOrMobile ? 'mobile' : ''}`}>
       <NavLink to="/" className="logo-link">
         <img
-          src="/path/to/your/logo.png" // 로고 이미지의 경로로 수정
-          alt="Logo"
+          src='https://i.postimg.cc/DZpcNBqS/nimonemo-Logo-Img.png' // 로고 이미지의 경로
+          alt=""
           className="logo"
         />
       </NavLink>

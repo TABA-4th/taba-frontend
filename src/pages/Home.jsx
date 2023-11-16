@@ -1,9 +1,8 @@
 import React from 'react';
 import { useMediaQuery } from 'react-responsive';
-import Carousel from 'react-material-ui-carousel';
 import { Paper, Button,Container } from '@mui/material'
 import styles from './Home.module.css';
-
+import SimpleSlider from '../components/Slider'
 
 const Home = () => {
   const isMobile = useMediaQuery({ maxWidth: 899 });
@@ -12,19 +11,15 @@ const Home = () => {
 
   return (
     
-
     <div >
+      
       {isMobile && (
       <div>
         <div style={{ backgroundColor: '#2ecc71', color: 'white', padding: '10px' }}>
           <h2>Home - Mobile View</h2>
           <p>This is the content for smaller screens.</p>
         </div>
-        <Carousel className="imgList">
-        <Paper> <img src='https://i.postimg.cc/ZYy40zqX/0c60c04f6b385.jpg'></img> </Paper>
-          <Paper> <img src='https://i.postimg.cc/MK2xQ3MH/8dffaf3717ddd.png'></img> </Paper>
-        </Carousel>
-
+        <SimpleSlider></SimpleSlider>
         <Container className={styles.container}>
         <div className={styles.texts}>
           <h1 className={styles.heading}>
@@ -53,11 +48,7 @@ const Home = () => {
           <h2>Home - Tablet View</h2>
           <p>This is the content for medium-sized screens.</p>
         </div>
-        <Carousel className="imgList">
-        <Paper> <img src='https://i.postimg.cc/ZYy40zqX/0c60c04f6b385.jpg'></img> </Paper>
-          <Paper> <img src='https://i.postimg.cc/MK2xQ3MH/8dffaf3717ddd.png'></img> </Paper>
-        </Carousel>
-
+        <SimpleSlider></SimpleSlider>
         <Container className={styles.container}>
         <div className={styles.texts}>
           <h1 className={styles.heading}>
@@ -87,11 +78,7 @@ const Home = () => {
           <h2>Home - Desktop View</h2>
           <p>This is the content for larger screens.</p>
         </div>
-        <Carousel className="imgList">
-        <Paper> <img src='https://i.postimg.cc/ZYy40zqX/0c60c04f6b385.jpg'></img> </Paper>
-          <Paper> <img src='https://i.postimg.cc/MK2xQ3MH/8dffaf3717ddd.png'></img> </Paper>
-        </Carousel>
-
+        <SimpleSlider></SimpleSlider>
         <div className={styles.bg} />
       <Container className={styles.container}>
         <div className={styles.texts}>

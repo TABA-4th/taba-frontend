@@ -1,6 +1,6 @@
 /* Navbar의 기본 스타일 */
 .navbar {
-  background-color: #3498db;
+  background-color: #fff;
   padding: 10px;
   color: white;
   display: flex;
@@ -10,8 +10,13 @@
 
 /* 로고 이미지의 스타일 */
 .logo {
-  width: 50px; /* 로고 이미지의 너비 설정 */
+  width: 90px; /* 로고 이미지의 너비 설정 */
   height: auto; /* 높이 자동 조정 */
+}
+
+.logo-link {
+  display: flex;
+  flex-direction: row;
 }
 
 /* Navbar 메뉴의 스타일 */
@@ -28,7 +33,9 @@ li {
 
 a {
   text-decoration: none;
-  color: white;
+  color: black;
+  font-size: xx-large;
+  font-weight: 400;
 }
 
 .mobile-menu {
@@ -36,6 +43,10 @@ a {
   list-style: none;
   padding: 0;
   margin: 0;
+}
+
+.mobile-menu-align {
+  justify-content: space-between;
 }
 
 .mobile-menu.open {
@@ -54,6 +65,7 @@ a {
 
 /* 모바일 화면에서 보여질 메뉴 아이콘의 스타일 */
 .mobile-menu-icon {
+  color:black;
   display: block;
   font-size: 24px;
   cursor: pointer;

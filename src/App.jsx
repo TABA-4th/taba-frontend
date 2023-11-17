@@ -9,6 +9,8 @@ import WishlistPage from './pages/WishlistPage';
 import Calender from './pages/Calender';
 import Magazine from './pages/Magazine';
 import Survey from './pages/Survey';
+import LoginPage from './pages/login';
+import RegisterPage from './pages/register';
 
 function App() {
   return (
@@ -26,6 +28,8 @@ function App() {
               <Route path="*" element={<NotFound/>} />
               <Route path="/wishlist" element={<WishlistPage/>}/>
               <Route path="/survey" element={<Survey/>}/>
+              <Route path="/login" element={<LoginPage/>}/>
+              <Route path="/register" element={<RegisterPage/>}/>
             </Routes>
           </div>
         </Router>

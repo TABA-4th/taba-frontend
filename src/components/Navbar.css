@@ -56,7 +56,8 @@ a {
   top: 60px; /* 로고와 메뉴 간의 간격을 조절 */
   left: 0;
   width: 100%;
-  background-color: #3498db;
+  background-color: #96cbee;
+  overflow:hidden;
 }
 
 .mobile-menu li {

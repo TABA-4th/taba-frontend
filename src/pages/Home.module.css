@@ -48,13 +48,6 @@
     max-width: 418px;
   }
 
-  .start {
-    justify-content: center;
-    text-align: center;
-    margin:auto;
-    display:block;
-    color:black;
-  }
   
   @media (max-width: 840px) {
     .container {

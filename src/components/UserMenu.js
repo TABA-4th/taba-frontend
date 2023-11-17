@@ -29,8 +29,8 @@ function UserMenu() {
       {isOpen && (
         <ul className={styles.popup}>
           <Link to='/wishlist'><li>위시리스트</li></Link>
-          <li className={styles.disabled}>회원가입</li>
-          <li className={styles.disabled}>로그인</li>
+          <Link to='/register'><li>회원가입</li></Link>
+          <Link to='/login'><li>로그인</li></Link>
         </ul>
       )}
     </div>

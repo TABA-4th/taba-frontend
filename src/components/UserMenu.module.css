@@ -28,6 +28,7 @@ ul.popup {
   box-shadow: var(--box-shadow);
   border-radius: 5px 0 5px 5px;
   overflow: hidden;
+  z-index: 999999;
 }
 
 ul.popup {

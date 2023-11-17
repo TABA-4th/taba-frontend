@@ -8,6 +8,7 @@ import NotFound from './pages/NotFound';
 import WishlistPage from './pages/WishlistPage';
 import Calender from './pages/Calender';
 import Magazine from './pages/Magazine';
+import Survey from './pages/Survey';
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
               <Route path="/magazine" element={<Magazine/>} />
               <Route path="*" element={<NotFound/>} />
               <Route path="/wishlist" element={<WishlistPage/>}/>
+              <Route path="/survey" element={<Survey/>}/>
             </Routes>
           </div>
         </Router>

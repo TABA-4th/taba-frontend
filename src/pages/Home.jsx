@@ -2,7 +2,8 @@ import React from 'react';
 import { useMediaQuery } from 'react-responsive';
 import { Paper, Button,Container } from '@mui/material'
 import styles from './Home.module.css';
-import SimpleSlider from '../components/Slider'
+import MainSlider from '../components/MainSlider'
+import SubSlider from '../components/SubSlider';
 
 const Home = () => {
   const isMobile = useMediaQuery({ maxWidth: 899 });
@@ -19,7 +20,7 @@ const Home = () => {
           <h2>Home - Mobile View</h2>
           <p>This is the content for smaller screens.</p>
         </div>
-        <SimpleSlider></SimpleSlider>
+        <MainSlider></MainSlider>
         <Container className={styles.container}>
         <div className={styles.texts}>
           <h1 className={styles.heading}>
@@ -32,14 +33,14 @@ const Home = () => {
             <br />
             지금 함께 시작해보실래요?
           </p>
-          <div>
-            <Button variant="contained">지금 시작하기</Button>
-          </div>
-        </div>
-        <div className={styles.figure}>
-          <img src='https://i.postimg.cc/Rh4mRbR1/84de2705-ad75-49d0-b8fa-366deaf1b37f.webp' alt="그래프, 모니터, 윈도우, 자물쇠, 키보드" />
         </div>
       </Container>
+
+      <SubSlider></SubSlider>
+      <div>
+          <Button variant="contained" href="/survey" style={{ display:'block' }}>지금 시작하기</Button>
+      </div>
+
         </div>
       )}
       {isTablet && (
@@ -48,7 +49,7 @@ const Home = () => {
           <h2>Home - Tablet View</h2>
           <p>This is the content for medium-sized screens.</p>
         </div>
-        <SimpleSlider></SimpleSlider>
+        <MainSlider></MainSlider>
         <Container className={styles.container}>
         <div className={styles.texts}>
           <h1 className={styles.heading}>
@@ -61,14 +62,13 @@ const Home = () => {
             <br />
             지금 함께 시작해보실래요?
           </p>
-          <div>
-            <Button variant="contained">지금 시작하기</Button>
-          </div>
-        </div>
-        <div className={styles.figure}>
-          <img src='https://i.postimg.cc/Rh4mRbR1/84de2705-ad75-49d0-b8fa-366deaf1b37f.webp' alt="그래프, 모니터, 윈도우, 자물쇠, 키보드" />
         </div>
       </Container>
+
+      <SubSlider></SubSlider>
+      <div>
+          <Button variant="contained" href="/survey" style={{ display:'block',width:'80%' }}>지금 시작하기</Button>
+      </div>
         </div>
       )}
       {isDesktop && (
@@ -78,7 +78,7 @@ const Home = () => {
           <h2>Home - Desktop View</h2>
           <p>This is the content for larger screens.</p>
         </div>
-        <SimpleSlider></SimpleSlider>
+        <MainSlider></MainSlider>
         <div className={styles.bg} />
       <Container className={styles.container}>
         <div className={styles.texts}>
@@ -92,15 +92,13 @@ const Home = () => {
             <br />
             지금 함께 시작해보실래요?
           </p>
-          <div>
-            <Button variant="contained">지금 시작하기</Button>
-          </div>
-        </div>
-        <div className={styles.figure}>
-          <img src='https://i.postimg.cc/Rh4mRbR1/84de2705-ad75-49d0-b8fa-366deaf1b37f.webp' />
         </div>
       </Container>
 
+      <SubSlider></SubSlider>
+      <div>
+          <Button variant="contained" href="/survey" style={{ display:'block',width:'80%' }}>지금 시작하기</Button>
+      </div>
         </div>
       )}
     </div>

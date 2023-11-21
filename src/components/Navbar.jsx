@@ -11,7 +11,7 @@ function getLinkStyle({isActive}){
   }
 }
 
-const Navbar = () => {
+const Navbar = ({ isLoggedIn, handleLogout }) => {
   const [isMenuOpen, setMenuOpen] = useState(false);
 
   const isDesktopOrLaptop = useMediaQuery({
@@ -55,7 +55,7 @@ const Navbar = () => {
         </ul>
         
       )}
-            <UserMenu/>
+            <UserMenu isLoggedIn={isLoggedIn} handleLogout={handleLogout}/>
     </nav>
   );
 }

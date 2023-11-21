@@ -11,7 +11,7 @@ function getLinkStyle({isActive}){
   }
 }
 
-const Navbar = () => {
+const Navbar = ({ isLoggedIn, handleLogout }) => {
   const [isMenuOpen, setMenuOpen] = useState(false);
 
   const isDesktopOrLaptop = useMediaQuery({
@@ -29,7 +29,7 @@ const Navbar = () => {
     <nav className={`navbar ${isTabletOrMobile ? 'mobile' : ''}`}>
       <NavLink to="/" className="logo-link">
         <img
-          src='https://i.postimg.cc/DZpcNBqS/nimonemo-Logo-Img.png' // 로고 이미지의 경로
+          src='https://i.postimg.cc/L6GRwLWv/nimobig.png' // 로고 이미지의 경로
           alt=""
           className="logo"
         />
@@ -55,7 +55,7 @@ const Navbar = () => {
         </ul>
         
       )}
-            <UserMenu/>
+            <UserMenu isLoggedIn={isLoggedIn} handleLogout={handleLogout}/>
     </nav>
   );
 }

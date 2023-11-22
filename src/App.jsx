@@ -27,27 +27,27 @@ function App() {
 
   return (
     <div className='wrap'>
-      <div className="main-contents">
-        <div className='content'>
-        <Router>
-          <Navbar isLoggedIn={isLoggedIn} handleLogout={handleLogout} />
-          <div>
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/about" element={isLoggedIn ? <About /> : <Navigate to="/" />} />
-              <Route path="/calender" element={isLoggedIn ? <Calender/> : <Navigate to="/" />} />
-              <Route path="/magazine" element={isLoggedIn ? <Magazine/> : <Navigate to="/" />} />
-              <Route path="*" element={<NotFound/>} />
-              <Route path="/wishlist" element={isLoggedIn ? <WishlistPage/> : <Navigate to="/" />} />
-              <Route path="/survey" element={isLoggedIn ? <Survey/> : <Navigate to="/" />} />
-              <Route path="/login" element={<LoginPage setIsLoggedIn={setIsLoggedIn} handleLogout={handleLogout} />} />
-              <Route path="/register" element={<RegisterPage/>}/>
-              <Route path="/register_success" element={<Register_success/>}/>
-            </Routes>
+      <Router>
+        <Navbar isLoggedIn={isLoggedIn} handleLogout={handleLogout} />
+        <div className="main-contents">
+          <div className='content'>
+            <div>
+              <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/about" element={isLoggedIn ? <About /> : <Navigate to="/" />} />
+                <Route path="/calender" element={isLoggedIn ? <Calender/> : <Navigate to="/" />} />
+                <Route path="/magazine" element={isLoggedIn ? <Magazine/> : <Navigate to="/" />} />
+                <Route path="*" element={<NotFound/>} />
+                <Route path="/wishlist" element={isLoggedIn ? <WishlistPage/> : <Navigate to="/" />} />
+                <Route path="/survey" element={isLoggedIn ? <Survey/> : <Navigate to="/" />} />
+                <Route path="/login" element={<LoginPage setIsLoggedIn={setIsLoggedIn} handleLogout={handleLogout} />} />
+                <Route path="/register" element={<RegisterPage/>}/>
+                <Route path="/register_success" element={<Register_success/>}/>
+              </Routes>
+            </div>
           </div>
-        </Router>
         </div>
-      </div>
+      </Router>
     </div>
   );
 }

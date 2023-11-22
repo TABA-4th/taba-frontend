@@ -4,8 +4,8 @@ import { useMediaQuery } from 'react-responsive';
 
 const Calender = () => {
   const isMobile = useMediaQuery({ maxWidth: 899 });
-  const isTablet = useMediaQuery({ minWidth: 900, maxWidth: 1199 });
-  const isDesktop = useMediaQuery({ minWidth: 1200 });
+  const isTablet = useMediaQuery({ minWidth: 900, maxWidth: 1423 });
+  const isDesktop = useMediaQuery({ minWidth: 1424 });
 
   return (
     <div >

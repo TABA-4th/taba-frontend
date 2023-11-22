@@ -6,14 +6,16 @@
   background-color: transparent;
   border: none;
   cursor: pointer;
-  padding: 0;
-  
+  float: right;
+  padding-left: 17em;
+  padding-right: 3em;
+  padding-bottom: 1em;
 }
 
 
 .iconButton img {
-  width: 30px;
-  height: 30px;
+  width: 43px;
+  height: 43px;
 }
 
 ul.popup {
@@ -41,11 +43,12 @@ ul.popup li {
   font-size:15px;
   padding: 15px 19px;
   font-family: var(--noto-sans);
-  color:aqua;
+  color:black;
 }
 
 ul.popup li:hover {
   background-color: #f4f4f4;
+  color: #7EBFFF;
   cursor: pointer;
 }
 

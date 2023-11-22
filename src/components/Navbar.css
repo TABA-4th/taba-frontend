@@ -1,7 +1,7 @@
 /* Navbar의 기본 스타일 */
 .navbar {
   background-color: #fff;
-  padding: 10px;
+  padding: 20px;
   color: white;
   display: flex;
   justify-content: space-between; /* 로고와 메뉴를 좌우에 배치 */
@@ -10,8 +10,11 @@
 
 /* 로고 이미지의 스타일 */
 .logo {
-  width: 90px; /* 로고 이미지의 너비 설정 */
+  width: 120px; /* 로고 이미지의 너비 설정 */
   height: auto; /* 높이 자동 조정 */
+  margin-left: 100px;
+  margin-right: 100px;
+  right: 10;
 }
 
 .logo-link {
@@ -39,10 +42,14 @@ a {
 }
 
 .mobile-menu {
+  width: 100%;
+  height: 200%;
+  background: #fff;
   display: none;
   list-style: none;
   padding: 0;
   margin: 0;
+  z-index: 999;
 }
 
 .mobile-menu-align {
@@ -53,10 +60,10 @@ a {
   display: flex;
   flex-direction: column;
   position: absolute;
-  top: 60px; /* 로고와 메뉴 간의 간격을 조절 */
+  top: 110px; /* 로고와 메뉴 간의 간격을 조절 */
   left: 0;
   width: 100%;
-  background-color: #96cbee;
+  padding-bottom: 30px;
   overflow:hidden;
 }
 
@@ -66,9 +73,12 @@ a {
 
 /* 모바일 화면에서 보여질 메뉴 아이콘의 스타일 */
 .mobile-menu-icon {
-  color:black;
+  color:#808080;
+  position: fixed;
+  top: 5%;
+  right: 5%;
   display: block;
-  font-size: 24px;
+  font-size: 28px;
   cursor: pointer;
 }
 
@@ -94,9 +104,9 @@ a {
 /* 모바일 화면에서 로고가 중앙에 오도록 스타일 조정 */
 .navbar.mobile {
   flex-direction: column;
-  align-items: center;
+  margin-left: 0;
 }
 
 body.menu-open {
-  overflow: hidden; /* 스크롤을 막아 메뉴가 열린 상태에서는 스크롤이 되지 않도록 함 */
+  /* overflow: hidden; 스크롤을 막아 메뉴가 열린 상태에서는 스크롤이 되지 않도록 함 */
 }

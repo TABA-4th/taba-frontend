@@ -1,0 +1,41 @@
+/* Signup.css */
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between; /* 양쪽 정렬 추가 */
+    width: 450px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  label {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 10px;
+    width: 100%; /* 부모인 form에 따라가도록 width 100% 설정 */
+  }
+  
+  label > span {
+    width: 30%;
+    margin-right: 10px;
+    justify-content: space-between;
+  }
+  
+  input {
+    width: 70%;
+    padding: 8px;
+    margin-bottom: 10px;
+  }
+  
+  button {
+    width: 40%;
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+  }
+  

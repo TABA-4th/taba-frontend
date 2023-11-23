@@ -6,9 +6,11 @@ import Home from './pages/Home';
 import About from './pages/About';
 import NotFound from './pages/NotFound';
 import WishlistPage from './pages/WishlistPage';
-import Calender from './pages/Calender';
 import Magazine from './pages/Magazine';
 import Survey from './pages/Survey';
+import SignupForm from './pages/Signup';
+import CalendarPage from './pages/CalendarPage';
+
 
 function App() {
   return (
@@ -21,11 +23,12 @@ function App() {
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/about" element={<About />} />
-              <Route path="/calender" element={<Calender/>} />
+              <Route path="/calendar" element={<CalendarPage/>} />
               <Route path="/magazine" element={<Magazine/>} />
               <Route path="*" element={<NotFound/>} />
               <Route path="/wishlist" element={<WishlistPage/>}/>
               <Route path="/survey" element={<Survey/>}/>
+              <Route path="/signup" element={<SignupForm />}/>
             </Routes>
           </div>
         </Router>

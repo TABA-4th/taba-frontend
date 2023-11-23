@@ -6,9 +6,11 @@ import Home from './pages/Home';
 import About from './pages/About';
 import NotFound from './pages/NotFound';
 import WishlistPage from './pages/WishlistPage';
-import Calender from './pages/Calender';
 import Magazine from './pages/Magazine';
 import Survey from './pages/Survey';
+import SignupForm from './pages/Signup';
+import CalendarPage from './pages/CalendarPage';
+
 import LoginPage from './pages/login';
 import RegisterPage from './pages/register';
 import Register_success from './pages/Register_success';
@@ -35,7 +37,7 @@ function App() {
               <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/about" element={isLoggedIn ? <About /> : <Navigate to="/" />} />
-                <Route path="/calender" element={isLoggedIn ? <Calender/> : <Navigate to="/" />} />
+                <Route path="/calender" element={isLoggedIn ? <CalendarPage/> : <Navigate to="/" />} />
                 <Route path="/magazine" element={isLoggedIn ? <Magazine/> : <Navigate to="/" />} />
                 <Route path="*" element={<NotFound/>} />
                 <Route path="/wishlist" element={isLoggedIn ? <WishlistPage/> : <Navigate to="/" />} />

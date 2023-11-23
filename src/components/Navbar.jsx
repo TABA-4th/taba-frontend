@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link,NavLink } from 'react-router-dom';
+import { Link , NavLink } from 'react-router-dom';
 import { useMediaQuery } from 'react-responsive';
 import "./Navbar.css";
 import UserMenu from './UserMenu';
@@ -50,7 +50,7 @@ const Navbar = ({ isLoggedIn, handleLogout }) => {
         />
       </NavLink>
       {isTabletOrMobile ? (
-        <div className="mobile-menu-align">
+        <>
           <div className="mobile-menu-icon" onClick={handleMenuToggle}>
             ☰
           </div>
@@ -60,7 +60,7 @@ const Navbar = ({ isLoggedIn, handleLogout }) => {
             <li><NavLink to="/magazine" onClick={handleMenuToggle} style={getResponsiveLinkStyle}>Magazine</NavLink></li>
             <li><NavLink to="/calender" onClick={handleMenuToggle} style={getResponsiveLinkStyle}>Calender</NavLink></li>
           </ul>
-        </div>
+        </>
       ) : (
         <ul>
           <li><NavLink to="/" style={getLinkStyle}>Home</NavLink></li>

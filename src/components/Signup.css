@@ -8,7 +8,6 @@ form {
     width: 450px;
     margin: 0 auto;
     padding: 20px;
-    border: 1px solid #000;
   }
   
   label {
@@ -32,7 +31,7 @@ form {
   }
   
   button {
-    width: 100%;
+    width: 40%;
     padding: 10px;
     background-color: #007bff;
     color: #fff;

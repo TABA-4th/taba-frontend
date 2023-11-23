@@ -47,7 +47,10 @@ export default class SubSlider extends Component {
     };
     return (
       <Container>
-        <h2> 니모내모 기능 소개 </h2>
+        <h2 style={{
+              justifyContent: "center", 
+              textAlign: "center"
+            }}> 니모내모 기능 소개 </h2>
         <StyledSlider {...settings}>
           {items.map(item => {
             return (

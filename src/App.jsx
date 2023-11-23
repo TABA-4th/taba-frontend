@@ -36,7 +36,7 @@ function App() {
             <div>
               <Routes>
                 <Route path="/" element={<Home />} />
-                <Route path="/about" element={isLoggedIn ? <About /> : <Navigate to="/" />} />
+                <Route path="/about" element={<About />} />
                 <Route path="/calender" element={isLoggedIn ? <CalendarPage/> : <Navigate to="/" />} />
                 <Route path="/magazine" element={isLoggedIn ? <Magazine/> : <Navigate to="/" />} />
                 <Route path="*" element={<NotFound/>} />

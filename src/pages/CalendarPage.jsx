@@ -22,7 +22,7 @@ function getDiagnoseData (memberId = '') {
   return diagnoseData;
 };
 
-const CalenderPage = () => {
+const CalendarPage = () => {
   const isMobile = useMediaQuery({ maxWidth: 899 });
   const isTablet = useMediaQuery({ minWidth: 900, maxWidth: 1423 });
   const isDesktop = useMediaQuery({ minWidth: 1424 });
@@ -58,4 +58,4 @@ const CalenderPage = () => {
   );
 }
 
-export default Calender;
+export default CalendarPage;

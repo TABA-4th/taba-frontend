@@ -4,6 +4,7 @@ import { Paper, Button,Container } from '@mui/material'
 import styles from './Home.module.css';
 import MainSlider from '../components/MainSlider'
 import SubSlider from '../components/SubSlider';
+import { Link} from 'react-router-dom';
 
 const Home = () => {
   const isMobile = useMediaQuery({ maxWidth: 899 });
@@ -96,8 +97,8 @@ const Home = () => {
       </Container>
 
       <SubSlider></SubSlider>
-      <div>
-          <Button variant="contained" href="/survey" style={{ display:'block',width:'80%' }}>지금 시작하기</Button>
+      <div className={styles.startTxt}>
+          <Link to='/survey' ><div className={styles.startTxt}>지금 시작하기</div></Link>
       </div>
         </div>
       )}

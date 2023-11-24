@@ -7,12 +7,12 @@ import About from './pages/About';
 import NotFound from './pages/NotFound';
 import WishlistPage from './pages/WishlistPage';
 import Magazine from './pages/Magazine';
-import Survey from './pages/Survey';
 import SignupForm from './pages/Signup';
 import CalendarPage from './pages/CalendarPage';
 import LoginPage from './pages/login';
 import RegisterPage from './pages/register';
 import Register_success from './pages/Register_success';
+import SurveyPage from './pages/Survey';
 
 function App() {
 
@@ -40,7 +40,7 @@ function App() {
                 <Route path="/magazine" element={isLoggedIn ? <Magazine/> : <Navigate to="/" />} />
                 <Route path="*" element={<NotFound/>} />
                 <Route path="/wishlist" element={isLoggedIn ? <WishlistPage/> : <Navigate to="/" />} />
-                <Route path="/survey" element={isLoggedIn ? <SurveyPage/> : <Navigate to="/" />} />
+                <Route path="/survey" element={<SurveyPage/>} />
                 <Route path="/login" element={<LoginPage setIsLoggedIn={setIsLoggedIn} handleLogout={handleLogout} />} />
                 <Route path="/register" element={<RegisterPage/>}/>
                 <Route path="/register_success" element={<Register_success/>}/>

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link , NavLink } from 'react-router-dom';
+import { Link,NavLink } from 'react-router-dom';
 import { useMediaQuery } from 'react-responsive';
 import "./Navbar.css";
 import UserMenu from './UserMenu';
@@ -11,8 +11,8 @@ function getLinkStyle({isActive}){
     color: isActive? '#7EBFFF' : 'black',
     fontWeight: isActive? 700 : 'normal',
     fontSize: '30px',
-    marginLeft: '25px',
-    marginRight: '25px',
+    //marginLeft: '25px',
+    //marginRight: '25px',
   }
 }
 
@@ -43,31 +43,46 @@ const Navbar = ({ isLoggedIn, handleLogout }) => {
   return (
     <nav className={`navbar ${isTabletOrMobile ? 'mobile' : ''}`}>
       <NavLink to="/" className="logo-link">
-        <img
-          src='https://i.postimg.cc/L6GRwLWv/nimobig.png' // 로고 이미지의 경로
-          alt=""
-          className="logo"
-        />
+        <img src='https://i.postimg.cc/L6GRwLWv/nimobig.png' alt="로고" className="logo" />
       </NavLink>
       {isTabletOrMobile ? (
-        <>
-          <div className="mobile-menu-icon" onClick={handleMenuToggle}>
+        <div className="mobile-menu-align">
+          <div className={"mobile-menu-icon mobileMenuIcon"} onClick={handleMenuToggle}>
             ☰
           </div>
           <ul className={`mobile-menu ${isMenuOpen ? 'open' : ''}`}>
-            <li><NavLink to="/" onClick={handleMenuToggle} style={getResponsiveLinkStyle}>Home</NavLink></li>
+            <li ><NavLink to="/" onClick={handleMenuToggle} style={getResponsiveLinkStyle}>Home</NavLink></li>
             <li><NavLink to="/about" onClick={handleMenuToggle} style={getResponsiveLinkStyle}>About</NavLink></li>
-            <li><NavLink to="/magazine" onClick={handleMenuToggle} style={getResponsiveLinkStyle}>Magazine</NavLink></li>
-            <li><NavLink to="/calender" onClick={handleMenuToggle} style={getResponsiveLinkStyle}>Calender</NavLink></li>
+            {isLoggedIn ? (
+              <>
+                <li><NavLink to="/magazine" onClick={handleMenuToggle} style={getResponsiveLinkStyle}>Magazine</NavLink></li>
+                <li><NavLink to="/calender" onClick={handleMenuToggle} style={getResponsiveLinkStyle}>Calender</NavLink></li>
+              </>
+            ) : (
+              <>
+                <li><NavLink to="/register" onClick={handleMenuToggle} style={getResponsiveLinkStyle}>Register</NavLink></li>
+                <li><NavLink to="/login" onClick={handleMenuToggle} style={getResponsiveLinkStyle}>Login</NavLink></li>
+              </>
+            )}
           </ul>
-        </>
+        </div>
       ) : (
-        <ul>
+        <ul className='navLinks'>
           <li><NavLink to="/" style={getLinkStyle}>Home</NavLink></li>
           <li><NavLink to="/about" style={getLinkStyle}>About</NavLink></li>
-          <li><NavLink to="/magazine" style={getLinkStyle}>Magazine</NavLink></li>
-          <li><NavLink to="/calender" style={getLinkStyle}>Calender</NavLink></li>
-          <UserMenu isLoggedIn={isLoggedIn} handleLogout={handleLogout}/>
+          {isLoggedIn ? (
+            <>
+              <li><NavLink to="/magazine" style={getLinkStyle}>Magazine</NavLink></li>
+              <li><NavLink to="/calender" style={getLinkStyle}>Calender</NavLink></li>
+              <div className="userMenu">
+              <UserMenu isLoggedIn={isLoggedIn} handleLogout={handleLogout}/>
+              </div>
+            </>
+          ) : (
+            <div className="userMenu">
+            <UserMenu isLoggedIn={isLoggedIn} handleLogout={handleLogout}/>
+          </div>
+          )}
         </ul>
       )}
     </nav>

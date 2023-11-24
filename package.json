@@ -19,6 +19,7 @@
     "moment": "^2.29.4",
     "node-sass": "^9.0.0",
     "react": "^18.2.0",
+    "react-awesome-button": "^7.0.5",
     "react-bootstrap": "^2.9.1",
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.48.2",

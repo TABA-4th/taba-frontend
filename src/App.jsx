@@ -10,7 +10,6 @@ import Magazine from './pages/Magazine';
 import Survey from './pages/Survey';
 import SignupForm from './pages/Signup';
 import CalendarPage from './pages/CalendarPage';
-
 import LoginPage from './pages/login';
 import RegisterPage from './pages/register';
 import Register_success from './pages/Register_success';

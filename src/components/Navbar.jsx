@@ -51,7 +51,7 @@ const Navbar = ({ isLoggedIn, handleLogout }) => {
             ☰
           </div>
           <ul className={`mobile-menu ${isMenuOpen ? 'open' : ''}`}>
-            <li ><NavLink to="/" onClick={handleMenuToggle} style={getResponsiveLinkStyle}>Home</NavLink></li>
+            <li><NavLink to="/" onClick={handleMenuToggle} style={getResponsiveLinkStyle}>Home</NavLink></li>
             <li><NavLink to="/about" onClick={handleMenuToggle} style={getResponsiveLinkStyle}>About</NavLink></li>
             {isLoggedIn ? (
               <>
@@ -68,21 +68,29 @@ const Navbar = ({ isLoggedIn, handleLogout }) => {
         </div>
       ) : (
         <ul className='navLinks'>
-          <li><NavLink to="/" style={getLinkStyle}>Home</NavLink></li>
-          <li><NavLink to="/about" style={getLinkStyle}>About</NavLink></li>
-          {isLoggedIn ? (
-            <>
-              <li><NavLink to="/magazine" style={getLinkStyle}>Magazine</NavLink></li>
-              <li><NavLink to="/calender" style={getLinkStyle}>Calender</NavLink></li>
-              <div className="userMenu">
-              <UserMenu isLoggedIn={isLoggedIn} handleLogout={handleLogout}/>
-              </div>
-            </>
-          ) : (
-            <div className="userMenu">
-            <UserMenu isLoggedIn={isLoggedIn} handleLogout={handleLogout}/>
-          </div>
-          )}
+            {isLoggedIn ? (
+              <>
+                <div className='login-menu'>  
+                  <li><NavLink to="/" style={getLinkStyle}>Home</NavLink></li>
+                  <li><NavLink to="/about" style={getLinkStyle}>About</NavLink></li>
+                  <li><NavLink to="/magazine" style={getLinkStyle}>Magazine</NavLink></li>
+                  <li><NavLink to="/calender" style={getLinkStyle}>Calender</NavLink></li>
+                </div>
+                <div className="userMenu">
+                  <UserMenu isLoggedIn={isLoggedIn} handleLogout={handleLogout}/>
+                </div>
+              </>
+              ) : (
+              <>
+                <div className='logout-menu'>
+                  <li><NavLink to="/" style={getLinkStyle}>Home</NavLink></li>
+                  <li><NavLink to="/about" style={getLinkStyle}>About</NavLink></li>
+                </div>
+                <div className="userMenu">
+                    <UserMenu isLoggedIn={isLoggedIn} handleLogout={handleLogout}/>
+                </div>
+              </>
+            )}
         </ul>
       )}
     </nav>

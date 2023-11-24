@@ -40,7 +40,7 @@ function App() {
                 <Route path="/magazine" element={isLoggedIn ? <Magazine/> : <Navigate to="/" />} />
                 <Route path="*" element={<NotFound/>} />
                 <Route path="/wishlist" element={isLoggedIn ? <WishlistPage/> : <Navigate to="/" />} />
-                <Route path="/survey" element={isLoggedIn ? <Survey/> : <Navigate to="/" />} />
+                <Route path="/survey" element={isLoggedIn ? <SurveyPage/> : <Navigate to="/" />} />
                 <Route path="/login" element={<LoginPage setIsLoggedIn={setIsLoggedIn} handleLogout={handleLogout} />} />
                 <Route path="/register" element={<RegisterPage/>}/>
                 <Route path="/register_success" element={<Register_success/>}/>

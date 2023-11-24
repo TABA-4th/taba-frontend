@@ -4,6 +4,8 @@ import { Paper, Button,Container } from '@mui/material'
 import styles from './Home.module.css';
 import MainSlider from '../components/MainSlider'
 import SubSlider from '../components/SubSlider';
+import { AwesomeButton } from "react-awesome-button";
+import 'react-awesome-button/dist/styles.css';
 import { Link} from 'react-router-dom';
 
 const Home = () => {
@@ -38,9 +40,9 @@ const Home = () => {
       </Container>
 
       <SubSlider></SubSlider>
-      <div>
-          <Button variant="contained" href="/survey" style={{ display:'block' }}>지금 시작하기</Button>
-      </div>
+      <div style={{justifyContent: "center", textAlign: "center"}}>
+      <AwesomeButton type="secondary" href='/login'> 지금 시작하기 </AwesomeButton>
+        </div>
 
         </div>
       )}
@@ -67,9 +69,9 @@ const Home = () => {
       </Container>
 
       <SubSlider></SubSlider>
-      <div>
-          <Button variant="contained" href="/survey" style={{ display:'block',width:'80%' }}>지금 시작하기</Button>
-      </div>
+      <div style={{justifyContent: "center", textAlign: "center"}}>
+      <AwesomeButton type="secondary" href='/login'> 지금 시작하기 </AwesomeButton>
+        </div>
         </div>
       )}
       {isDesktop && (
@@ -97,9 +99,9 @@ const Home = () => {
       </Container>
 
       <SubSlider></SubSlider>
-      <div className={styles.startTxt}>
-          <Link to='/survey' ><div className={styles.startTxt}>지금 시작하기</div></Link>
-      </div>
+        <div style={{justifyContent: "center", textAlign: "center"}}>
+      <AwesomeButton type="secondary" href='/login'> 지금 시작하기 </AwesomeButton>
+        </div>
         </div>
       )}
     </div>

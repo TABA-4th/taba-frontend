@@ -54,7 +54,7 @@ const RegisterPage = () => {
 
     return (
         <div>
-            <h3> 회원가입 페이지 </h3>
+            <h3 style={{justifyContent: "center", textAlign: "center"}}> 회원가입 페이지 </h3>
             <form onSubmit={handleSubmit(onSubmit)}>
                 <input className={styles.input} {...register("name")} placeholder="name" />
                 <input className={styles.input} {...register("nickname")} placeholder="nickname" />

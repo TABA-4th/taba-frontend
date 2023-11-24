@@ -40,13 +40,14 @@ const LoginPage = ({ setIsLoggedIn, handleLogout }) => {
 
   return (
     <div>
-      <h3> 로그인 페이지 </h3>
+      <h3 style={{justifyContent: "center", textAlign: "center"}}> 로그인 페이지 </h3>
       <form onSubmit={handleSubmit(onSubmit)}>
         <input className={styles.input}{...register("nickname")} placeholder="nickname" />
         <input className={styles.input} type="password" {...register("password")} placeholder="password" />
         <input className={styles.inputsub} type="submit" />
       </form>
       {loginResult && <p>{loginResult}</p>} {/* 로그인 결과 표시 */}
+
     </div>
   );
 

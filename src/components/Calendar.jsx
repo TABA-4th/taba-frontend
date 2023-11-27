@@ -7,22 +7,41 @@ import dayGridPlugin from '@fullcalendar/daygrid';
 */
 
 const Calendar = (props) => {
-  const { diagnoseData } = props; // props로부터 diagnoseData를 추출
+  const { diagnoseData, nickname } = props; // props로부터 diagnoseData를 추출
 
   const [defaultView, setDefaultView] = useState('dayGridMonth');
 
   const handleDateClick = (info) => {
-    if (info.event.extendedProps && info.event.extendedProps.diagnoseResult) {
-      alert(`검사 결과 : ${info.event.extendedProps.diagnoseResult}`);
+    console.log(info.event.extendedProps.diagnosisResult);
+    if (info.event.extendedProps && info.event.extendedProps.diagnosisResult) {
+      alert(`검사 결과 : ${info.event.extendedProps.diagnosisResult}`);
       // 여기서 새로운 팝업을 띄우거나, 새로운 페이지로 넘어가는 작업 등 추가 가능.
     }
   };
 
+  const formatDiagnosisDate = (dateString) => {
+    const date = new Date(dateString);
+    const year = date.getFullYear();
+    const month = (date.getMonth() + 1).toString().padStart(2, '0');
+    const day = date.getDate().toString().padStart(2, '0');
+    return `${year}-${month}-${day}`;
+  };
+
+  const formatDiagnosisResult = (data) => {
+    return `${nickname} 님의 검사결과\n `+
+      `findDeadSkinCells: ${data.findDeadSkinCells}\n` +
+      `excessSebum: ${data.excessSebum}\n` +
+      `erythemaBetweenHairFollicles: ${data.erythemaBetweenHairFollicles}\n` +
+      `dandruff: ${data.dandruff}\n` +
+      `hairLoss: ${data.hairLoss}\n` +
+      `erythemaPustules: ${data.erythemaPustules}\n`;
+  };
+
   const events = diagnoseData.map(data => ({
     title: '두피 자가진단 검사결과',
-    date: data.diagnoseDate,
+    date: formatDiagnosisDate(data.diagnosisDate),
     extendedProps: {
-      diagnoseResult: data.diagnoseResult
+      diagnosisResult: formatDiagnosisResult(data),
     },
   }));
 

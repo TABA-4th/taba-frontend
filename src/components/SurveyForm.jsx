@@ -35,7 +35,7 @@ function SurveyForm() {
 
     try {
       // Axios를 사용하여 백엔드 엔드포인트에 POST 요청을 보냅니다.
-      const response = await axios.post('여러분의_백엔드_엔드포인트', data);
+      const response = await axios.post('http://43.201.53.253:3000/', data);
   
       // 응답을 필요에 따라 처리합니다.
       console.log(response.data); // 백엔드에서 반환한 데이터가 있다고 가정합니다.

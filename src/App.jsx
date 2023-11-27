@@ -10,7 +10,7 @@ import CalendarPage from "./pages/CalendarPage";
 import LoginPage from "./pages/login";
 import RegisterPage from "./pages/register";
 import Register_success from "./pages/Register_success";
-import SurveyPage from "./pages/SurveyPage";  
+import SurveyPage from "./pages/Survey";  
 import { AuthProvider } from "./functions/AuthContext";
 import AuthRoute from "./pages/AuthRoute";
 import Empty from "./pages/empty";

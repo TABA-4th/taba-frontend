@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useMediaQuery } from 'react-responsive';
 import Calendar from '../components/Calendar';
+import axios from "axios";
 
 /*
   CalendarPage에서 받아야하는 
@@ -27,7 +28,43 @@ const CalendarPage = () => {
   const isTablet = useMediaQuery({ minWidth: 900, maxWidth: 1423 });
   const isDesktop = useMediaQuery({ minWidth: 1424 });
 
-  const diagnoseData = getDiagnoseData();
+  //const nickname = sessionStorage.getItem("nickname"); // sessionStorage에서 nickname을 가져옴
+  const nickname = "jungwoo";
+  const [diagnoseData, setDiagnoseData] = useState([]);
+  const [currentDate, setCurrentDate] = useState(new Date()); // 현재 보여지는 달을 저장하는 state
+
+
+  useEffect(() => {
+    const fetchDiagnoseData = async () => {
+      try {
+        const response = await axios.post(
+          "http://13.113.206.129:8081/diagnosis/result",
+          {
+            nickname,
+            date: formatDate(currentDate), // 현재 보여지는 달의 날짜를 전송
+          }
+        );
+        //alert(`데이터 성공적으로 받아왔음. ${response.data.toString}`);
+        setDiagnoseData(response.data);
+      } catch (error) {
+        console.error("Error fetching diagnose data:", error);
+        alert(`데이터 불러오기 실패. ${nickname}, ${formatDate(currentDate)}`);
+      }
+    };
+
+    fetchDiagnoseData();
+  }, [currentDate]); // currentDate가 변경될 때마다 fetchDiagnoseData 실행
+
+  const handleDateClick = (info) => {
+    // FullCalendar에서 dateClick 이벤트가 발생하면 현재 보여지는 달을 업데이트
+    setCurrentDate(info.date);
+  };
+
+  const formatDate = (date) => {
+    const year = date.getFullYear();
+    const month = (date.getMonth() + 1).toString().padStart(2, '0'); // 0-indexed month를 1-indexed로 변환
+    return `${year}/${month}`;
+  };
 
   return (
     <div >
@@ -52,7 +89,7 @@ const CalendarPage = () => {
     </div>,
         <div>
       <h1>Calendar Page</h1>
-      <Calendar diagnoseData={diagnoseData} />
+      <Calendar diagnoseData={diagnoseData} handleDateClick={handleDateClick} nickname={nickname}/>
     </div>
 
   );

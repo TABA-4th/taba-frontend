@@ -14,6 +14,7 @@ export const AuthProvider = ({ children }) => {
   const logout = () => {
     sessionStorage.removeItem("accessToken");
     sessionStorage.removeItem("refreshToken");
+    sessionStorage.removeItem("nickname"); // 닉네임도 세션 스토리지에서 제거
     setIsLoggedIn(false);
     console.log("login status is false")
   };

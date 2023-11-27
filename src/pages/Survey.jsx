@@ -1,5 +1,15 @@
 import React, { useState } from 'react';
+//import  { useForm, SubmitHandler } from "react-hook-form";
+import SurveyForm from '../components/SurveyForm';
 
+const SurveyPage = () => {
+  return (
+    <div>
+      <SurveyForm />
+    </div>
+  );
+}
+/*
 function Survey() {
   // 설문 조사 질문과 답변을 관리하는 state
   const [surveyData, setSurveyData] = useState([
@@ -13,9 +23,8 @@ function Survey() {
     { question: '(선택)샴푸구매시 고려하는 부분은 무엇인가요?', answers: ['가격', '효능']},
     // 추가적인 질문 및 답변항목은 필요에 따라 추가 혹은 변경.
   ]);
-  /*
-    다수선택가능, 단답형 등을 추가하려면 추가적인 코드 수정이 필요함.
-  */
+  //  다수선택가능, 단답형 등을 추가하려면 추가적인 코드 수정이 필요함.
+  
 
 
   // 사용자가 선택한 답변을 저장하는 state
@@ -64,3 +73,6 @@ function Survey() {
 };
 
 export default Survey;
+*/
+
+export default SurveyPage;

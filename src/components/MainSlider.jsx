@@ -39,7 +39,7 @@ export default class MainSlider extends Component {
       autoplaySpeed: 5000,
       dots: true,
       infinite: true,
-      slidesToShow: 1,
+      slidesToShow: 2,
       slidesToScroll: 1,
       arrows: false,
       centerMode: true,

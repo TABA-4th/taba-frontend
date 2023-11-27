@@ -23,10 +23,13 @@ const LoginPage = () => {
       sessionStorage.setItem("accessToken", accessToken);
       sessionStorage.setItem("refreshToken", refreshToken);
 
+      sessionStorage.setItem("nickname", formData.nickname);
+
       login(); // 로그인 상태 업데이트
       setLoginResult("로그인 성공!"); // 로그인 성공 메시지 설정
 
       navigate("/"); // 홈페이지로 이동
+      //로그인 정보 key 값 nickname을 session storage에다 저장.
     } catch (error) {
       console.error("Error during login:", error);
       setLoginResult("로그인 실패. 다시 시도해주세요."); // 로그인 실패 메시지 설정

@@ -17,6 +17,9 @@ import ProfilePage from "views/examples/ProfilePage.js";
 import RegisterPage from "views/examples/RegisterPage";
 import CalendarPage from "views/examples/CalendarPage";
 
+import PublicRoute from "components/Functions/PublicRoute";
+import ProtectedRoute from "components/Functions/ProtectedRoute";
+
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
 root.render(
@@ -27,10 +30,10 @@ root.render(
       <Route path="/" element={<Index />} />
       <Route path="/nucleo-icons" element={<NucleoIcons />} />
       <Route path="/landing" element={<LandingPage />} />
-      <Route path="/profile" element={<ProfilePage />} />
-      <Route path="/login" element={<LoginPage />} />
-      <Route path="/register" element={<RegisterPage/>}/>
-      <Route path="/calendar" element={<CalendarPage/>}/>
+      <Route path="/login" element={<PublicRoute><LoginPage /></PublicRoute>} />
+      <Route path="/register" element={<PublicRoute><RegisterPage /></PublicRoute>} />
+      <Route path="/profile" element={<ProtectedRoute><ProfilePage /></ProtectedRoute>} />
+      <Route path="/calendar" element={<ProtectedRoute><CalendarPage /></ProtectedRoute>} />
 
       <Route path="*" element={<Navigate to="/" replace />} />
     </Routes>

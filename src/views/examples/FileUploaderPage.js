@@ -10,7 +10,7 @@ import {
 } from "reactstrap";
 
 // core components
-import ExamplesNavbar from "components/Navbars/ExamplesNavbar.js";
+import IndexNavbar from "components/Navbars/IndexNavbar";
 import DefaultFooter from "components/Footers/DefaultFooter.js";  
 
 function FileUploaderPage() {
@@ -78,7 +78,7 @@ function FileUploaderPage() {
 
   return (
     <>
-    <ExamplesNavbar />
+    <IndexNavbar />
     <div style={{width:"100%", height:"75px", backgroundColor:"#40CBEA"}} />
     <div className="wrapper">
       

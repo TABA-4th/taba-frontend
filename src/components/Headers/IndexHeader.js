@@ -39,8 +39,8 @@ function IndexHeader() {
               className="n-logo"
               src={require("assets/img/now-logo.png")}
             ></img>
-            <h1 className="h1-seo">니모네모</h1>
-            <h3>니모네모에 오신것을 환영합니다</h3>
+            <h1 className="h1-seo">니모내모</h1>
+            <h3>니모내모에 오신것을 환영합니다</h3>
           </div>
           <h6 className="category category-absolute">
             기능 소개는 아래에 있습니다.

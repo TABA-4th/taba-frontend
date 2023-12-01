@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import axios from 'axios';
 import FileUpload from 'components/Functions/FileUpload';
+import { useNavigate } from 'react-router-dom';
 
 // reactstrap components
 import {
@@ -14,6 +15,9 @@ import IndexNavbar from "components/Navbars/IndexNavbar";
 import DefaultFooter from "components/Footers/DefaultFooter.js";  
 
 function FileUploaderPage() {
+
+  // 페이지 이동을 위한 navigate 
+  const navigate = useNavigate();
 
   const [URLThumbnail, setURLThumbnail] = useState();
 
@@ -33,13 +37,13 @@ function FileUploaderPage() {
     const uploadImage = files[0];
     let nickname = sessionStorage.getItem('nickname');
 
-
     createImageURL(uploadImage);
 
     if (uploadImage) {
+
       let formData = new FormData();
       formData.append('file', uploadImage);
-      formData.append('nickname', 'yourNickname');
+      formData.append('nickname', nickname);
 
       axios({
         method:'post',
@@ -52,6 +56,7 @@ function FileUploaderPage() {
       .then(function(response){
         // 업로드 성공 시 실행할 코드
         console.log('이미지 업로드 성공');
+        navigate(`/result`);
       })
       .catch(function(error){
         // 업로드 실패 시 실행할 코드

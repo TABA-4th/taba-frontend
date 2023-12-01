@@ -36,7 +36,7 @@ root.render(
       <Route path="/register" element={<PublicRoute><RegisterPage /></PublicRoute>} />
       <Route path="/profile" element={<ProtectedRoute><ProfilePage /></ProtectedRoute>} />
       <Route path="/calendar" element={<ProtectedRoute><CalendarPage /></ProtectedRoute>} />
-      <Route path="/file-upload" element={<FileUploaderPage />} />
+      <Route path="/file-upload" element={<ProtectedRoute><FileUploaderPage /></ProtectedRoute>} />
       <Route path="/result" element={<ResultPage />} />
 
       <Route path="*" element={<Navigate to="/" replace />} />

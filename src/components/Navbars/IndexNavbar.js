@@ -1,5 +1,6 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React,{useContext} from "react";
+import { Link,useNavigate  } from "react-router-dom";
+import { AuthContext } from "components/Functions/AuthContext";
 // reactstrap components
 import {
   Button,
@@ -20,6 +21,13 @@ import {
 function IndexNavbar() {
   const [navbarColor, setNavbarColor] = React.useState("navbar-transparent");
   const [collapseOpen, setCollapseOpen] = React.useState(false);
+  const { isLoggedIn , logout } = useContext(AuthContext); // 로그인, 로그아웃 함수 가져오기
+  const navigate = useNavigate(); // useNavigate hook 사용
+  const handleLogout = () => {
+    logout(); // 로그아웃 처리
+    navigate("/"); // 홈페이지로 리디렉션
+  };
+
   React.useEffect(() => {
     const updateNavbarColor = () => {
       if (
@@ -83,45 +91,67 @@ function IndexNavbar() {
             navbar
           >
             <Nav navbar>
-              <NavItem>
-                <NavLink
-                  href="/landing"
-                >
-                  <p>landing page 이동 </p>
-                </NavLink>
-              </NavItem>
-              <NavItem>
-                <NavLink
-                  href="/profile"
-                >
-                  <p>profile page 이동 </p>
-                </NavLink>
-              </NavItem>
-              <UncontrolledDropdown nav>
-                <DropdownToggle
-                  caret
-                  color="default"
-                  href="#pablo"
-                  nav
-                  onClick={(e) => e.preventDefault()}
-                >
+            <NavItem>
+              <NavLink href="/">Home</NavLink>
+            </NavItem>
+            <NavItem>
+              <NavLink href="/landing">Landing</NavLink>
+            </NavItem>
+              {isLoggedIn ? (
+                // 로그인한 사용자에게 보여줄 항목
+                <>
+                  <NavItem>
+                    <NavLink href="/profile">Profile</NavLink>
+                  </NavItem>
+                  <NavItem>
+                    <NavLink href="/calendar">Calendar</NavLink>
+                  </NavItem>
+                </>
+              ) : (
+                // 로그인하지 않은 사용자에게 보여줄 항목
+                <>
+                  <NavItem>
+                    <NavLink href="/login">Login</NavLink>
+                  </NavItem>
+                  <NavItem>
+                    <NavLink href="/register">Register</NavLink>
+                  </NavItem>
+                </>
+              )}
+            <UncontrolledDropdown nav>
+                <DropdownToggle caret color="default" href="#pablo" nav onClick={(e) => e.preventDefault()}>
                   <i className="now-ui-icons design_app mr-1"></i>
-                  <p>유저메뉴</p>
+                  <p>User Menu</p>
                 </DropdownToggle>
                 <DropdownMenu>
-                  <DropdownItem to="/" tag={Link}>
-                    <i className="now-ui-icons business_chart-pie-36 mr-1"></i>
-                    모든 컴포넌트 들 
-                  </DropdownItem>
-                  <DropdownItem
-                    href="https://demos.creative-tim.com/now-ui-kit-react/#/documentation/introduction?ref=nukr-index-navbar"
-                    target="_blank"
-                  >
-                    <i className="now-ui-icons design_bullet-list-67 mr-1"></i>
-                    도큐멘테이션
-                  </DropdownItem>
+                  {isLoggedIn ? (
+                    // 로그인한 사용자에게 보여줄 항목
+                    <>
+                      <DropdownItem to="/profile" tag={Link}>
+                        Profile
+                      </DropdownItem>
+                      <DropdownItem onClick={handleLogout}>
+                        Logout
+                      </DropdownItem>
+                    </>
+                  ) : (
+                    // 로그인하지 않은 사용자에게 보여줄 기본 항목
+                    <>
+                      <DropdownItem to="/" tag={Link}>
+                        <i className="now-ui-icons business_chart-pie-36 mr-1"></i>
+                        All components
+                      </DropdownItem>
+                      <DropdownItem
+                        href="https://demos.creative-tim.com/now-ui-kit-react/#/documentation/introduction?ref=nukr-index-navbar"
+                        target="_blank"
+                      >
+                        <i className="now-ui-icons design_bullet-list-67 mr-1"></i>
+                        Documentation
+                      </DropdownItem>
+                    </>
+                  )}
                 </DropdownMenu>
-              </UncontrolledDropdown>
+            </UncontrolledDropdown>
          
             </Nav>
           </Collapse>

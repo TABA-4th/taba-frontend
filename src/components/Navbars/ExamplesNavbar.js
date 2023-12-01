@@ -19,6 +19,7 @@ import {
 function ExamplesNavbar() {
   const [navbarColor, setNavbarColor] = React.useState("navbar-transparent");
   const [collapseOpen, setCollapseOpen] = React.useState(false);
+  
   React.useEffect(() => {
     const updateNavbarColor = () => {
       if (
@@ -79,6 +80,9 @@ function ExamplesNavbar() {
               </DropdownItem>
               <DropdownItem href="/login" >
                 login 페이지 이동
+              </DropdownItem>
+              <DropdownItem href="/calender" >
+                calender 페이지 이동
               </DropdownItem>
               <DropdownItem divider></DropdownItem>
               <DropdownItem href="#pablo" onClick={(e) => e.preventDefault()}>

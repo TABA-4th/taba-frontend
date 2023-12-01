@@ -16,9 +16,8 @@
     } from "reactstrap";
 
     // core components
-    import ExamplesNavbar from "components/Navbars/ExamplesNavbar.js";
-    //import ProfilePageHeader from "components/Headers/ProfilePageHeader.js";
-    import ProfileMypageHeader from "components/Headers/ProfileMypage";
+    import IndexNavbar from "components/Navbars/IndexNavbar";
+    import ProfilePageHeader from "components/Headers/ProfilePageHeader.js";
     import DefaultFooter from "components/Footers/DefaultFooter.js";
 
     function CalendarPage() {
@@ -34,11 +33,12 @@
         document.body.classList.remove("sidebar-collapse");
         };
     }, []);
+
     return (
         <>
-        <ExamplesNavbar />
-        <ProfileMypageHeader />
-        <div className="wrapper" style={{width: '70%', margin: '0 auto'}}>
+        <IndexNavbar />
+        <ProfilePageHeader />
+        <div className="wrapper" style={{width: '80%', margin: '0 auto'}}>
             <br></br>
             <div className="section" style={{margin: '0 auto'}}>
                 <Calendar />

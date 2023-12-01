@@ -11,7 +11,7 @@ import {
 
 
 // core components
-import ExamplesNavbar from "components/Navbars/ExamplesNavbar.js";
+import IndexNavbar from "components/Navbars/IndexNavbar";
 import DefaultFooter from "components/Footers/DefaultFooter.js";  
 
 function ResultPage () {
@@ -31,7 +31,7 @@ function ResultPage () {
 
   return (
     <>
-      <ExamplesNavbar />
+      <IndexNavbar />
       <div style={{width:"100%", height:"75px", backgroundColor:"#40CBEA"}} /> {/*NavBar 스타일링*/}
       <div className="wrapper">
         <div className="section">

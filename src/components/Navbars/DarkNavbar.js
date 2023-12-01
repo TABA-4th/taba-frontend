@@ -100,7 +100,7 @@ function DarkNavbar() {
               NIMONAEMO
             </NavbarBrand>
             <UncontrolledTooltip target="#navbar-brand">
-              <span style={{color: 'black'}}></span>Designed by?
+              <span style={{color: 'black'}}></span>Designed by TEAM NIMONAEMO
             </UncontrolledTooltip>
             <button
               className="navbar-toggler navbar-toggler"

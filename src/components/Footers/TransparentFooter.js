@@ -12,26 +12,18 @@ function TransparentFooter() {
           <ul>
             <li>
               <a
-                href="https://www.creative-tim.com?ref=nukr-transparent-footer"
-                target="_blank"
+                href="/"
+                target="_self"
               >
-                Creative Tim
+                Nimonaemo
               </a>
             </li>
             <li>
               <a
-                href="http://presentation.creative-tim.com?ref=nukr-transparent-footer"
+                href="https://github.com/TABA-4th"
                 target="_blank"
               >
                 About Us
-              </a>
-            </li>
-            <li>
-              <a
-                href="http://blog.creative-tim.com?ref=nukr-transparent-footer"
-                target="_blank"
-              >
-                Blog
               </a>
             </li>
           </ul>
@@ -39,19 +31,11 @@ function TransparentFooter() {
         <div className="copyright" id="copyright">
           © {new Date().getFullYear()}, Designed by{" "}
           <a
-            href="https://www.invisionapp.com?ref=nukr-transparent-footer"
+            href="https://github.com/TABA-4th/taba-frontend"
             target="_blank"
           >
-            Invision
+            Nimonaemo FE
           </a>
-          . Coded by{" "}
-          <a
-            href="https://www.creative-tim.com?ref=nukr-transparent-footer"
-            target="_blank"
-          >
-            Creative Tim
-          </a>
-          .
         </div>
       </Container>
     </footer>

@@ -6,6 +6,8 @@ import { Row, Col, Button, ButtonGroup } from 'reactstrap';
 import HaircareProductCard from "views/index-sections/HaircareProductCard";
 import ProductHeader from "components/Headers/ProductHeader";
 import ExamplesNavbar from "components/Navbars/ExamplesNavbar";
+import IndexNavbar from "components/Navbars/IndexNavbar";
+
 
 function HaircareProductPage() {
   const [productInfo, setProductInfo] = useState([]);
@@ -91,7 +93,8 @@ function HaircareProductPage() {
 
   return (
     <>
-      <ExamplesNavbar />
+      <IndexNavbar />
+      <div style={{width:"100%", height:"75px", backgroundColor:"#40CBEA"}} />
       <ProductHeader />
       <br></br>
 

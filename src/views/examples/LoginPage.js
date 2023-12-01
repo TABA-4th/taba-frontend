@@ -125,18 +125,19 @@ function LoginPage() {
                     />
                   )}
                 />
-                    <Input type="submit" />
-
+                {/* <Input type="submit" /> */}
                   </CardBody>
                   <CardFooter className="text-center">
-                    <Button
-                      block
-                      className="btn-round"
-                      color="info"
-                      size="lg"
-                    >
-                      Get Started
-                    </Button>
+                  <Button
+                    block
+                    className="btn-round"
+                    color="info"
+                    size="lg"
+                    type="submit"
+                  >
+                    지금 시작하기
+                  </Button>
+
                     <div className="pull-left">
                       <h6>
                         <a

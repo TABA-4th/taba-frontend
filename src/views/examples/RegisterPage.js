@@ -24,12 +24,14 @@ import IndexNavbar from "components/Navbars/IndexNavbar";
 import TransparentFooter from "components/Footers/TransparentFooter.js";
 
 function RegisterPage() {
-  const { register, handleSubmit, watch,control } = useForm();
+  const { register, handleSubmit, watch, control, formState: { errors } } = useForm();
   const [data, setData] = useState("");
   const signupToken = useSignupToken(); // useSignupToken 훅을 사용하여 토큰 가져오기
   const [smsSent, setSmsSent] = useState(false);
   const [smsToken, setSmsToken] = useState("");
   const navigate = useNavigate();  // 회원가입 성공시 페이지 이동시킬 useNavigate 훅
+  
+  const password = watch("password"); // 현재 입력된 비밀번호 값을 추적합니다.
 
   React.useEffect(() => {
     document.body.classList.add("login-page");
@@ -99,89 +101,100 @@ function RegisterPage() {
             <Col className="ml-auto mr-auto" md="4">
               <Card className="card-login card-plain">
                 <form action="" className="form" method="" onSubmit={handleSubmit(onSubmit)}>
-                  <CardHeader className="text-center">
-                    <div className="logo-container">
-                      <img
-                        alt="..."
-                        src={require("assets/img/now-logo.png")}
-                      ></img>
-                    </div>
-                  </CardHeader>
-                  <CardBody>
-                  <Controller
-                    name="name"
-                    control={control}
-                    defaultValue=""
-                    render={({ field }) => (
-                      <Input
-                        {...field}
-                        type="text"
-                        placeholder="name"
-                      />
-                    )}
-                  />
+                    <CardHeader className="text-center">
+                      <div className="logo-container">
+                        <img
+                          alt="..."
+                          src={require("assets/img/now-logo.png")}
+                        ></img>
+                      </div>
+                    </CardHeader>
+                    <CardBody>
                     <Controller
-                    name="nickname"
-                    control={control}
-                    defaultValue=""
-                    render={({ field }) => (
-                      <Input
-                        {...field}
-                        type="text"
-                        placeholder="nickname"
-                      />
-                    )}
-                  />
-
-                  <Controller
-                    name="phone"
-                    control={control}
-                    defaultValue=""
-                    render={({ field }) => (
-                      <Input
-                        {...field}
-                        type="phone"
-                        placeholder="phone"
-                      />
-                    )}
-                  />
-                    {!smsSent && <Button  onClick={requestSmsToken}>SMS 인증 요청</Button>}
-                {smsSent && (
-                    <>
+                      name="name"
+                      control={control}
+                      defaultValue=""
+                      render={({ field }) => (
                         <Input
-                            type="text"
-                            value={smsToken}
-                            onChange={(e) => setSmsToken(e.target.value)}
-                            placeholder="SMS 인증번호 입력"
+                          {...field}
+                          type="text"
+                          placeholder="name"
                         />
-                        <Button onClick={verifySmsToken}>SMS 인증 확인</Button>
-                    </>
-                )}
+                      )}
+                    />
+                      <Controller
+                      name="nickname"
+                      control={control}
+                      defaultValue=""
+                      render={({ field }) => (
+                        <Input
+                          {...field}
+                          type="text"
+                          placeholder="nickname"
+                        />
+                      )}
+                    />
+
+                    <Controller
+                      name="phone"
+                      control={control}
+                      defaultValue=""
+                      render={({ field }) => (
+                        <Input
+                          {...field}
+                          type="phone"
+                          placeholder="phone"
+                        />
+                      )}
+                    />
+                      {!smsSent && <Button  onClick={requestSmsToken}>SMS 인증 요청</Button>}
+                      {smsSent && (
+                        <>
+                            <Input
+                                type="text"
+                                value={smsToken}
+                                onChange={(e) => setSmsToken(e.target.value)}
+                                placeholder="SMS 인증번호 입력"
+                            />
+                            <Button onClick={verifySmsToken}>SMS 인증 확인</Button>
+                        </>
+                  )}
 
                   <Controller
                     name="password"
                     control={control}
                     defaultValue=""
                     render={({ field }) => (
-                      <Input
-                        {...field}
-                        type="password"
-                        placeholder="password"
-                      />
+                      <Input {...field} type="password" placeholder="Password" />
                     )}
                   />
+                  {/* 비밀번호 확인 필드 */}
+                  <Controller
+                    name="passwordConfirm"
+                    control={control}
+                    defaultValue=""
+                    rules={{ 
+                      validate: value =>
+                        value === password || "The passwords do not match"
+                    }}
+                    render={({ field }) => (
+                      <Input {...field} type="password" placeholder="Confirm Password" />
+                    )}
+                  />
+                  {errors.passwordConfirm && <p>{errors.passwordConfirm.message}</p>}
 
-                    <Input type="submit" />
+                    
                   </CardBody>
                   <CardFooter className="text-center">
-                    <Button
-                      block
-                      className="btn-round"
-                      color="info"
-                      size="lg"
-                    >
-                      Get Started
-                    </Button>
+                  <Button
+                    block
+                    className="btn-round"
+                    color="info"
+                    size="lg"
+                    type="submit"
+                  >
+                    지금 시작하기
+                  </Button>
                     <div className="pull-left">
                       <h6>
                         <a

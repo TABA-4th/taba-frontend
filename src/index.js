@@ -18,6 +18,8 @@ import RegisterPage from "views/examples/RegisterPage";
 import CalendarPage from "views/examples/CalendarPage";
 import SurveyPage from "views/examples/SurveyPage";
 import HaircareProductPage from "views/examples/HaircareProductPage";
+import FileUploaderPage from "views/examples/FileUploaderPage";
+import ResultPage from "views/examples/ResultPage";
 
 import PublicRoute from "components/Functions/PublicRoute";
 import ProtectedRoute from "components/Functions/ProtectedRoute";
@@ -36,9 +38,11 @@ root.render(
       <Route path="/register" element={<PublicRoute><RegisterPage /></PublicRoute>} />
       <Route path="/profile" element={<ProtectedRoute><ProfilePage /></ProtectedRoute>} />
       <Route path="/calendar" element={<ProtectedRoute><CalendarPage /></ProtectedRoute>} />
+      <Route path="/file-upload" element={<ProtectedRoute><FileUploaderPage /></ProtectedRoute>} />
+      <Route path="/result" element={<ResultPage />} />
 
-      <Route path="/survey" element={<SurveyPage/>}/>
-      <Route path="/product" element={<HaircareProductPage />}/>
+      <Route path="/survey" element={<ProtectedRoute><SurveyPage/></ProtectedRoute>}/>
+      <Route path="/product" element={<PublicRoute><HaircareProductPage /></PublicRoute>}/>
 
       <Route path="*" element={<Navigate to="/" replace />} />
     </Routes>

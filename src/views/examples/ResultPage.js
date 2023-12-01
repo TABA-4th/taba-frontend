@@ -16,19 +16,21 @@ import DefaultFooter from "components/Footers/DefaultFooter.js";
 
 function ResultPage () {
 
-    React.useEffect(() => {
-        document.body.classList.add("landing-page");
-        document.body.classList.add("sidebar-collapse");
-        document.documentElement.classList.remove("nav-open");
-        window.scrollTo(0, 0);
-        document.body.scrollTop = 0;
-        return function cleanup() {
-          document.body.classList.remove("landing-page");
-          document.body.classList.remove("sidebar-collapse");
-        };
-      }, []);
+  React.useEffect(() => {
+    document.body.classList.add("landing-page");
+    document.body.classList.add("sidebar-collapse");
+    document.documentElement.classList.remove("nav-open");
+    window.scrollTo(0, 0);
+    document.body.scrollTop = 0;
+    return function cleanup() {
+      document.body.classList.remove("landing-page");
+      document.body.classList.remove("sidebar-collapse");
+    };
+    }, []);
 
-
+  // 세션 스토리지에서 nickname 가져오기
+  const nickname = sessionStorage.getItem('nickname');
+    
   return (
     <>
       <IndexNavbar />
@@ -38,9 +40,9 @@ function ResultPage () {
             <Container className="mx-auto" >
                 <Row>
                 <Col className="ml-auto mr-auto text-center" md="10">
-                    <h1 className="title">ooo님의 두피 검사 결과입니다! </h1>
-                    <br /><br /><br /><br />
-                    
+                  <h2 className="title">{nickname}님의 두피 검사 결과입니다! </h2>
+
+                  <br /><br /><br /><br />
                 </Col>
                 </Row>
             </Container>

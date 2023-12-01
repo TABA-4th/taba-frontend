@@ -3,24 +3,16 @@ import FullCalendar from '@fullcalendar/react';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import axios from 'axios';
 
-function getDiagnoseData (memberId = '') {
-  const diagnoseData = [
-    {diagnoseDate : '2023-11-29', diagnoseResult : '검사결과2'},
-    {diagnoseDate : '2023-11-26', diagnoseResult : '검사결과1'},
-    {diagnoseDate : '2023-11-01', diagnoseResult : '검사결과3'},
-    {diagnoseDate : '2023-12-12', diagnoseResult : '검사결과4'},
-    {diagnoseDate : '2023-10-18', diagnoseResult : '검사결과5'},
-  ];
-  // memberID를 통해 백엔드 DB로부터 검사결과를 불러와, 디스트럭쳐화 해서 검사결과를 받아와야함.
-  /**
-   * diagnoseDate : 'YYYY-MM-DD' (검사일)
-   * diagnoseResult : '검사결과' (검사결과, 임시표시)
-   */
-  return diagnoseData;
-};
+
+// memberID를 통해 백엔드 DB로부터 검사결과를 불러와, 디스트럭쳐화 해서 검사결과를 받아와야함.
+/**
+* diagnoseDate : 'YYYY-MM-DD' (검사일)
+* diagnoseResult : '검사결과' (검사결과, 임시표시)
+*/
+
 
 const Calendar = () => {
-  const nickname = "jungwoo";
+  const nickname = sessionStorage.getItem("nickname");
   const [diagnoseData, setDiagnoseData] = useState([]);
   const [currentDate, setCurrentDate] = useState(new Date()); // 현재 보여지는 달을 저장하는 state
   const [defaultView, setDefaultView] = useState('dayGridMonth');

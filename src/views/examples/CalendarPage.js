@@ -17,7 +17,8 @@
 
     // core components
     import ExamplesNavbar from "components/Navbars/ExamplesNavbar.js";
-    import ProfilePageHeader from "components/Headers/ProfilePageHeader.js";
+    //import ProfilePageHeader from "components/Headers/ProfilePageHeader.js";
+    import ProfileMypageHeader from "components/Headers/ProfileMypage";
     import DefaultFooter from "components/Footers/DefaultFooter.js";
 
     function CalendarPage() {
@@ -36,16 +37,15 @@
     return (
         <>
         <ExamplesNavbar />
-        <div className="wrapper">
-            <ProfilePageHeader />
+        <ProfileMypageHeader />
+        <div className="wrapper" style={{width: '70%', margin: '0 auto'}}>
             <br></br>
             <div className="section" style={{margin: '0 auto'}}>
                 <Calendar />
             </div>
 
-
-            <DefaultFooter />
         </div>
+        <DefaultFooter />
         </>
     );
     }

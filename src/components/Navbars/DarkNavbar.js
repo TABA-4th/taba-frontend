@@ -16,8 +16,8 @@ import {
   UncontrolledTooltip,
 } from "reactstrap";
 
-function ExamplesNavbar() {
-  const [navbarColor, setNavbarColor] = React.useState("navbar-transparent");
+function DarkNavbar() {
+  const [navbarColor, setNavbarColor] = React.useState("");
   const [collapseOpen, setCollapseOpen] = React.useState(false);
   React.useEffect(() => {
     const updateNavbarColor = () => {
@@ -30,7 +30,7 @@ function ExamplesNavbar() {
         document.documentElement.scrollTop < 400 ||
         document.body.scrollTop < 400
       ) {
-        setNavbarColor("navbar-transparent");
+        setNavbarColor("");
       }
     };
     window.addEventListener("scroll", updateNavbarColor);
@@ -64,8 +64,8 @@ function ExamplesNavbar() {
               <span className="button-bar"></span>
               <span className="button-bar"></span>
             </DropdownToggle>
-            <DropdownMenu aria-labelledby="navbarDropdown">
-              <DropdownItem header tag="a">
+            <DropdownMenu aria-labelledby="navbarDropdown" style={{color: 'black'}}>
+              <DropdownItem header tag="a" >
                 Dropdown header
               </DropdownItem>
               <DropdownItem href="/" >
@@ -95,11 +95,12 @@ function ExamplesNavbar() {
               href="/landing"
               target="_self"
               id="navbar-brand"
+              style={{color: 'black'}}
             >
               NIMONAEMO
             </NavbarBrand>
             <UncontrolledTooltip target="#navbar-brand">
-              Design by
+              <span style={{color: 'black'}}></span>Designed by?
             </UncontrolledTooltip>
             <button
               className="navbar-toggler navbar-toggler"
@@ -122,12 +123,12 @@ function ExamplesNavbar() {
           >
             <Nav navbar>
               <NavItem>
-                <NavLink to="/" tag={Link}>
+                <NavLink to="/" tag={Link} style={{color: 'black'}}>
                   Home 페이지로 돌아가기
                 </NavLink>
               </NavItem>
               <NavItem>
-                <NavLink href="https://github.com/creativetimofficial/now-ui-kit-react/issues?ref=creativetim">
+                <NavLink href="https://github.com/creativetimofficial/now-ui-kit-react/issues?ref=creativetim" style={{color: 'black'}}>
                   이슈가 있을떄 참고 페이지
                 </NavLink>
               </NavItem>
@@ -139,4 +140,4 @@ function ExamplesNavbar() {
   );
 }
 
-export default ExamplesNavbar;
+export default DarkNavbar;

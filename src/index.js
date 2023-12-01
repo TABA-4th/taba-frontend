@@ -16,6 +16,8 @@ import LandingPage from "views/examples/LandingPage.js";
 import ProfilePage from "views/examples/ProfilePage.js";
 import RegisterPage from "views/examples/RegisterPage";
 import CalendarPage from "views/examples/CalendarPage";
+import SurveyPage from "views/examples/SurveyPage";
+import HaircareProductPage from "views/examples/HaircareProductPage";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
@@ -31,6 +33,8 @@ root.render(
       <Route path="/login" element={<LoginPage />} />
       <Route path="/register" element={<RegisterPage/>}/>
       <Route path="/calendar" element={<CalendarPage/>}/>
+      <Route path="/survey" element={<SurveyPage/>}/>
+      <Route path="/product" element={<HaircareProductPage />}/>
 
       <Route path="*" element={<Navigate to="/" replace />} />
     </Routes>

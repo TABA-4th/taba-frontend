@@ -16,7 +16,7 @@
     } from "reactstrap";
 
     // core components
-    import ExamplesNavbar from "components/Navbars/ExamplesNavbar.js";
+    import IndexNavbar from "components/Navbars/IndexNavbar";
     import ProfilePageHeader from "components/Headers/ProfilePageHeader.js";
     import DefaultFooter from "components/Footers/DefaultFooter.js";
 
@@ -35,7 +35,7 @@
     }, []);
     return (
         <>
-        <ExamplesNavbar />
+        <IndexNavbar />
         <div className="wrapper">
             <ProfilePageHeader />
             <br></br>

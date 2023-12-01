@@ -33,19 +33,19 @@
         document.body.classList.remove("sidebar-collapse");
         };
     }, []);
+
     return (
         <>
         <IndexNavbar />
-        <div className="wrapper">
-            <ProfilePageHeader />
+        <ProfilePageHeader />
+        <div className="wrapper" style={{width: '80%', margin: '0 auto'}}>
             <br></br>
             <div className="section" style={{margin: '0 auto'}}>
                 <Calendar />
             </div>
 
-
-            <DefaultFooter />
         </div>
+        <DefaultFooter />
         </>
     );
     }

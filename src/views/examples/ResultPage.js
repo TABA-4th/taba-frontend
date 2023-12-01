@@ -41,7 +41,6 @@ function ResultPage () {
                 <Row>
                 <Col className="ml-auto mr-auto text-center" md="10">
                   <h2 className="title">{nickname}님의 두피 검사 결과입니다! </h2>
-
                   <br /><br /><br /><br />
                 </Col>
                 </Row>

@@ -19,6 +19,8 @@ import Notifications from "./index-sections/Notifications.js";
 import Typography from "./index-sections/Typography.js";
 import Javascript from "./index-sections/Javascript.js";
 import Carousel from "./index-sections/Carousel.js";
+import CarouselM1 from "./index-sections/CarouselM1.js";
+import CarouselM2 from "./index-sections/CarouselM2.js";
 import NucleoIcons from "./index-sections/NucleoIcons.js";
 import CompleteExamples from "./index-sections/CompleteExamples.js";
 import SignUp from "./index-sections/SignUp.js";
@@ -43,12 +45,11 @@ function Index() {
       <div className="wrapper">
         <IndexHeader />
         <div className="main">
-
-          <Typography />
-          
-          <Carousel />
-
           <CompleteExamples />
+          <CarouselM1/>
+          <Tabs/>
+          <CarouselM2/>
+
 
         </div>
         <DarkFooter />

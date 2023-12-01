@@ -137,16 +137,8 @@ function IndexNavbar() {
                   ) : (
                     // 로그인하지 않은 사용자에게 보여줄 기본 항목
                     <>
-                      <DropdownItem to="/" tag={Link}>
-                        <i className="now-ui-icons business_chart-pie-36 mr-1"></i>
-                        All components
-                      </DropdownItem>
-                      <DropdownItem
-                        href="https://demos.creative-tim.com/now-ui-kit-react/#/documentation/introduction?ref=nukr-index-navbar"
-                        target="_blank"
-                      >
-                        <i className="now-ui-icons design_bullet-list-67 mr-1"></i>
-                        Documentation
+                      <DropdownItem to="/login" tag={Link}>
+                        Login
                       </DropdownItem>
                     </>
                   )}

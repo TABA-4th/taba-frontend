@@ -34,10 +34,10 @@ function DefaultFooter() {
         <div className="copyright" id="copyright">
           © {new Date().getFullYear()}, Designed by{" "}
           <a
-            href="https://github.com/siwooJang"
+            href="https://github.com/TABA-4th/taba-frontend"
             target="_blank"
           >
-            siwooJang
+            Nimonaemo FE
           </a>
         </div>
       </Container>

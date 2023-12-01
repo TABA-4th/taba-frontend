@@ -69,7 +69,7 @@ function IndexNavbar() {
               Nimonaemo
             </NavbarBrand>
             <UncontrolledTooltip target="#navbar-brand">
-              Designed by siwooJang
+              Designed by Team NIMONAEMO
             </UncontrolledTooltip>
             <button
               className="navbar-toggler navbar-toggler"

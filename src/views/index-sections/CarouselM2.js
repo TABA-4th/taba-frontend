@@ -16,18 +16,15 @@ import {
 const items = [
   {
     src: require("assets/img/M2 (1).png"),
-    altText: "나에게 꼭 맞는 샴푸 추천!",
-    caption: "나에게 꼭 맞는 샴푸 추천!"
+
   },
   {
     src: require("assets/img/M2 (2).png"),
-    altText: "두피 케어 린스 추천!",
-    caption: "두피 케어 린스 추천!"
+
   },
   {
     src: require("assets/img/M2 (3).png"),
-    altText: "자세한 진단을 위해 디바이스를 추천해 드려요!",
-    caption: "자세한 진단을 위해 디바이스를 추천해 드려요!"
+
   }
 ];
 

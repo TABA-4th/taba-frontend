@@ -24,234 +24,46 @@ function Tabs() {
     <>
       <div className="section section-tabs">
         <Container>
+        <h2 className="title">Nimonaemo Magazine</h2>
+        <br/><br/><br/>
           <Row>
             <Col className="ml-auto mr-auto" md="10" xl="6">
-              <p className="category">Tabs with Icons on Card</p>
+              <p className="category">3개월에 한 번 맞는 탈모 치료 주사</p>
               <Card>
                 <CardHeader>
-                  <Nav className="justify-content-center" role="tablist" tabs>
-                    <NavItem>
-                      <NavLink
-                        className={iconPills === "1" ? "active" : ""}
-                        href="#pablo"
-                        onClick={(e) => {
-                          e.preventDefault();
-                          setIconPills("1");
-                        }}
-                      >
-                        <i className="now-ui-icons objects_umbrella-13"></i>
-                        Home
-                      </NavLink>
-                    </NavItem>
-                    <NavItem>
-                      <NavLink
-                        className={iconPills === "2" ? "active" : ""}
-                        href="#pablo"
-                        onClick={(e) => {
-                          e.preventDefault();
-                          setIconPills("2");
-                        }}
-                      >
-                        <i className="now-ui-icons shopping_cart-simple"></i>
-                        Profile
-                      </NavLink>
-                    </NavItem>
-                    <NavItem>
-                      <NavLink
-                        className={iconPills === "3" ? "active" : ""}
-                        href="#pablo"
-                        onClick={(e) => {
-                          e.preventDefault();
-                          setIconPills("3");
-                        }}
-                      >
-                        <i className="now-ui-icons shopping_shop"></i>
-                        Messages
-                      </NavLink>
-                    </NavItem>
-                    <NavItem>
-                      <NavLink
-                        className={iconPills === "4" ? "active" : ""}
-                        href="#pablo"
-                        onClick={(e) => {
-                          e.preventDefault();
-                          setIconPills("4");
-                        }}
-                      >
-                        <i className="now-ui-icons ui-2_settings-90"></i>
-                        Settings
-                      </NavLink>
-                    </NavItem>
-                  </Nav>
+                <img src="https://i.postimg.cc/kXy9fkLc/mg8.png" alt="Mountains" width="600" height="400"/>
                 </CardHeader>
                 <CardBody>
-                  <TabContent
-                    className="text-center"
-                    activeTab={"iconPills" + iconPills}
-                  >
                     <TabPane tabId="iconPills1">
                       <p>
-                        I think that’s a responsibility that I have, to push
-                        possibilities, to show people, this is the level that
-                        things could be at. So when you get something that has
-                        the name Kanye West on it, it’s supposed to be pushing
-                        the furthest possibilities. I will be the leader of a
-                        company that ends up being worth billions of dollars,
-                        because I got the answers. I understand culture. I am
-                        the nucleus.
+                      원형탈모를 일으키는 원인을 찾았다. 가상기억 T세포에서 유래한 
+                      면역세포군이 원인으로, 새로운 치료 전략도 제시했다.
                       </p>
                     </TabPane>
-                    <TabPane tabId="iconPills2">
-                      <p>
-                        I will be the leader of a company that ends up being
-                        worth billions of dollars, because I got the answers. I
-                        understand culture. I am the nucleus. I think that’s a
-                        responsibility that I have, to push possibilities, to
-                        show people, this is the level that things could be at.
-                        I think that’s a responsibility that I have, to push
-                        possibilities, to show people, this is the level that
-                        things could be at.
-                      </p>
-                    </TabPane>
-                    <TabPane tabId="iconPills3">
-                      <p>
-                        I think that’s a responsibility that I have, to push
-                        possibilities, to show people, this is the level that
-                        things could be at. So when you get something that has
-                        the name Kanye West on it, it’s supposed to be pushing
-                        the furthest possibilities. I will be the leader of a
-                        company that ends up being worth billions of dollars,
-                        because I got the answers. I understand culture. I am
-                        the nucleus.
-                      </p>
-                    </TabPane>
-                    <TabPane tabId="iconPills4">
-                      <p>
-                        "I will be the leader of a company that ends up being
-                        worth billions of dollars, because I got the answers. I
-                        understand culture. I am the nucleus. I think that’s a
-                        responsibility that I have, to push possibilities, to
-                        show people, this is the level that things could be at."
-                      </p>
-                    </TabPane>
-                  </TabContent>
                 </CardBody>
               </Card>
             </Col>
             <Col className="ml-auto mr-auto" md="10" xl="6">
-              <p className="category">Tabs with Background on Card</p>
+              <p className="category">국내 연구진, 원형탈모 원인 찾았다</p>
               <Card>
                 <CardHeader>
-                  <Nav
-                    className="nav-tabs-neutral justify-content-center"
-                    data-background-color="blue"
-                    role="tablist"
-                    tabs
-                  >
-                    <NavItem>
-                      <NavLink
-                        className={pills === "1" ? "active" : ""}
-                        href="#pablo"
-                        onClick={(e) => {
-                          e.preventDefault();
-                          setPills("1");
-                        }}
-                      >
-                        Home
-                      </NavLink>
-                    </NavItem>
-                    <NavItem>
-                      <NavLink
-                        className={pills === "2" ? "active" : ""}
-                        href="#pablo"
-                        onClick={(e) => {
-                          e.preventDefault();
-                          setPills("2");
-                        }}
-                      >
-                        Profile
-                      </NavLink>
-                    </NavItem>
-                    <NavItem>
-                      <NavLink
-                        className={pills === "3" ? "active" : ""}
-                        href="#pablo"
-                        onClick={(e) => {
-                          e.preventDefault();
-                          setPills("3");
-                        }}
-                      >
-                        Messages
-                      </NavLink>
-                    </NavItem>
-                    <NavItem>
-                      <NavLink
-                        className={pills === "4" ? "active" : ""}
-                        href="#pablo"
-                        onClick={(e) => {
-                          e.preventDefault();
-                          setPills("4");
-                        }}
-                      >
-                        Settings
-                      </NavLink>
-                    </NavItem>
-                  </Nav>
+                <img src="https://i.postimg.cc/4dtRtMzp/mg7.jpg" alt="Mountains" width="600" height="400"/>
                 </CardHeader>
                 <CardBody>
-                  <TabContent
-                    className="text-center"
-                    activeTab={"pills" + pills}
-                  >
+                  
                     <TabPane tabId="pills1">
                       <p>
-                        I think that’s a responsibility that I have, to push
-                        possibilities, to show people, this is the level that
-                        things could be at. So when you get something that has
-                        the name Kanye West on it, it’s supposed to be pushing
-                        the furthest possibilities. I will be the leader of a
-                        company that ends up being worth billions of dollars,
-                        because I got the answers. I understand culture. I am
-                        the nucleus.
+                      전 세계인의 공통 관심, ‘탈모’ 정말 정복할 수 없을까?
+                      ‘탈모’ 정복에 나섰다! ‘원형 탈모’ 치료제 등 신제품 등장, 글로벌 탈모 치료제 동향
                       </p>
                     </TabPane>
-                    <TabPane tabId="pills2">
-                      <p>
-                        I will be the leader of a company that ends up being
-                        worth billions of dollars, because I got the answers. I
-                        understand culture. I am the nucleus. I think that’s a
-                        responsibility that I have, to push possibilities, to
-                        show people, this is the level that things could be at.
-                        I think that’s a responsibility that I have, to push
-                        possibilities, to show people, this is the level that
-                        things could be at.
-                      </p>
-                    </TabPane>
-                    <TabPane tabId="pills3">
-                      <p>
-                        I think that’s a responsibility that I have, to push
-                        possibilities, to show people, this is the level that
-                        things could be at. So when you get something that has
-                        the name Kanye West on it, it’s supposed to be pushing
-                        the furthest possibilities. I will be the leader of a
-                        company that ends up being worth billions of dollars,
-                        because I got the answers. I understand culture. I am
-                        the nucleus.
-                      </p>
-                    </TabPane>
-                    <TabPane tabId="pills4">
-                      <p>
-                        "I will be the leader of a company that ends up being
-                        worth billions of dollars, because I got the answers. I
-                        understand culture. I am the nucleus. I think that’s a
-                        responsibility that I have, to push possibilities, to
-                        show people, this is the level that things could be at."
-                      </p>
-                    </TabPane>
-                  </TabContent>
                 </CardBody>
               </Card>
+             
             </Col>
+            
+            <Col><a href="/magazine"><h2><br/><br/>탈모 관련 자료 보러 가기</h2></a></Col>
+            
           </Row>
         </Container>
       </div>

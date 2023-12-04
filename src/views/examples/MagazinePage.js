@@ -62,11 +62,8 @@ function MagazinePage() {
               <Col className="ml-auto mr-auto text-center" md="8">
                 <h2 className="title">Nimonaemo Magazine</h2>
                 <h5 className="description">
-                  According to the National Oceanic and Atmospheric
-                  Administration, Ted, Scambos, NSIDClead scentist, puts the
-                  potentially record low maximum sea ice extent tihs year down
-                  to low ice extent in the Pacific and a late drop in ice extent
-                  in the Barents Sea.
+                  니모내모 매거진에서는 두피와 관련된 유용한 정보들을 알려드립니다! <br/><br/>
+                  두피와 관련된 기사들이 아래에 있으니 원하시는 정보를 찾아보세요!
                 </h5>
               </Col>
             </Row>
@@ -79,65 +76,58 @@ function MagazinePage() {
                     className="image-container image-left"
                     style={{
                       backgroundImage:
-                        "url(" + require("assets/img/login.jpg") + ")"
+                        "url(" + require("assets/img/mg3.png") + ")"
                     }}
                   >
-                    <p className="blockquote blockquote-info">
-                      "Over the span of the satellite record, Arctic sea ice has
-                      been declining significantly, while sea ice in the
-                      Antarctichas increased very slightly" <br></br>
-                      <br></br>
-                      <small>-NOAA</small>
-                    </p>
+
                   </div>
                   <div
                     className="image-container"
                     style={{
                       backgroundImage:
-                        "url(" + require("assets/img/bg3.jpg") + ")"
+                        "url(" + require("assets/img/mg1.png") + ")"
                     }}
                   ></div>
                 </Col>
+                <br/><br/>
                 <Col md="5">
                   <div
                     className="image-container image-right"
                     style={{
                       backgroundImage:
-                        "url(" + require("assets/img/bg1.jpg") + ")"
+                        "url(" + require("assets/img/mg2.png") + ")"
                     }}
                   ></div>
+                  <br/><br/><br/><br/>
                   <h3>
-                    So what does the new record for the lowest level of winter
-                    ice actually mean
+                    지루성 두피염 약의 종류
                   </h3>
                   <p>
-                    The Arctic Ocean freezes every winter and much of the
-                    sea-ice then thaws every summer, and that process will
-                    continue whatever happens with climate change. Even if the
-                    Arctic continues to be one of the fastest-warming regions of
-                    the world, it will always be plunged into bitterly cold
-                    polar dark every winter. And year-by-year, for all kinds of
-                    natural reasons, there’s huge variety of the state of the
-                    ice.
+                  지루성 두피염 약의 종류는 기능과 형태에 따라 다양합니다.
+
+                  보통 피부과에 방문하게 되면 약 처방을 받는데,
+
+                  이때 처방받는 약에는 균 증식을 억제하기 위한 항생제, 항진균제가 있으며
+
+                  즉각적인 증상을 해결하기 위한(특히 가려움을 완화하기 위한) 항히스타민제, 스테로이드가 있습니다.
+
+                  이 약들은 증상이 심할 경우 반드시 처방받아먹어야 하며,
+
+                  처방을 받기 위해서는 병원에 꼭 방문해야 합니다.
+
+                  하지만 이 단계 전에 한 가지 쉽게 접할 수 있는 약이 있습니다
                   </p>
                   <p>
-                    For a start, it does not automatically follow that a record
-                    amount of ice will melt this summer. More important for
-                    determining the size of the annual thaw is the state of the
-                    weather as the midnight sun approaches and temperatures
-                    rise. But over the more than 30 years of satellite records,
-                    scientists have observed a clear pattern of decline,
-                    decade-by-decade.
+                  바로 '일반의약품'에 해당하는 약인데요,
+
+                  이의 경우 의사의 처방전 없이 약국에서 쉽게 구매가 가능합니다.
                   </p>
                   <p>
-                    The Arctic Ocean freezes every winter and much of the
-                    sea-ice then thaws every summer, and that process will
-                    continue whatever happens with climate change. Even if the
-                    Arctic continues to be one of the fastest-warming regions of
-                    the world, it will always be plunged into bitterly cold
-                    polar dark every winter. And year-by-year, for all kinds of
-                    natural reasons, there’s huge variety of the state of the
-                    ice.
+                  일반적으로 '일반의약품'에 해당하는 지루성 두피염 약은 샴푸의 형태로 나옵니다.
+
+                  잉? 약 달라고 했더니 왜 샴푸를 주는 거야?
+
+                  라고 생각하실 수 있는데, 이는 '일반의약품'이란 타이틀을 받은 약이니 안심하셔도됩니다!
                   </p>
                 </Col>
               </Row>
@@ -147,13 +137,15 @@ function MagazinePage() {
             {isMobile ? <> <Row>
               <Col md={{ size: 6, offset: 3 }} xs="12">
                 <Card className="mb-3">
-                  <img src="https://i.postimg.cc/vH82QrKc/img13.png" alt="Mountains" style={{ width: "100%", height: "auto" }}/>
+                  <a href="https://m.health.chosun.com/svc/news_view.html?contid=2023091801650"><img src="https://i.postimg.cc/t4SbHFqn/mg4.jpg" alt="Mountains" style={{ width: "100%", height: "auto" }}/></a>
                   <CardBody>
-                    <CardTitle tag="h4">Card title</CardTitle>
+                    <CardTitle tag="h4">탈모의 계절 가을? 모발 '꽉'잡는 탈모 관리법</CardTitle>
                     <CardText>
-                      This is a wider card with supporting text below as a natural
-                      lead-in to additional content. This content is a little bit
-                      longer.
+                    가을철 환절기가 다가오며
+                    평소보다 많이 빠지는 머리카락 때문에
+                    고민하는 사람들이 많은데요.
+                    왜 가을만 되면 탈모가 유독 심해지는 걸까요?
+                    가을철 탈모 원인과 예방·관리법에 대해 알아봅니다.
                     </CardText>
                     <CardText>
                       <small className="text-muted">Last updated 3 mins ago</small>
@@ -164,13 +156,28 @@ function MagazinePage() {
 
               <Col md={{ size: 6, offset: 3 }} xs="12">
                 <Card className="mb-3">
-                  <img src="https://i.postimg.cc/vH82QrKc/img13.png" alt="Mountains" style={{ width: "100%", height: "auto" }}/>
+                  <a href="https://www.pharmnews.com/news/articleView.html?idxno=220705"><img src="https://i.postimg.cc/CxL0tcgV/mg5.jpg" alt="Mountains" style={{ width: "100%", height: "auto" }}/></a>
                   <CardBody>
-                    <CardTitle tag="h4">Card title</CardTitle>
+                    <CardTitle tag="h4">염증 억제 항체 이용 차세대 ‘원형탈모’ 치료제</CardTitle>
                     <CardText>
-                      This is a wider card with supporting text below as a natural
-                      lead-in to additional content. This content is a little bit
-                      longer.
+                    '원형탈모' 치료제 국내 최초 허가 소식에 이어 , 
+                    탈모 하나로만 파이프라인을 다수 보유하고 있는 에피바이오텍이 범부처 재생의료사업단 과제에 선정됐다. 
+
+                    </CardText>
+                    <CardText>
+                      <small className="text-muted">Last updated 2 mins ago</small>
+                    </CardText>
+                  </CardBody>
+                </Card>
+              </Col>
+
+              <Col md={{ size: 6, offset: 3 }} xs="12">
+                <Card className="mb-3">
+                  <a href="https://newsroom.daewoong.co.kr/archives/21352"><img src="https://i.postimg.cc/g01Pxd6Y/mg6.jpg" alt="Mountains" style={{ width: "100%", height: "auto" }}/></a>
+                  <CardBody>
+                    <CardTitle tag="h4">자가 체크부터 예방법까지 탈모의 모든 것</CardTitle>
+                    <CardText>
+                    탈모로 걱정하는 분들을 위해 탈모 자가 체크부터 유형과 치료제 등 탈모에 대한 모든 것을 함께 살펴보겠습니다
                     </CardText>
                     <CardText>
                       <small className="text-muted">Last updated 3 mins ago</small>
@@ -181,13 +188,12 @@ function MagazinePage() {
 
               <Col md={{ size: 6, offset: 3 }} xs="12">
                 <Card className="mb-3">
-                  <img src="https://i.postimg.cc/vH82QrKc/img13.png" alt="Mountains" style={{ width: "100%", height: "auto" }}/>
+                <a href="https://newsroom.daewoong.co.kr/archives/21620"><img src="https://i.postimg.cc/4dtRtMzp/mg7.jpg" alt="Mountains" style={{ width: "100%", height: "auto" }}/></a>
                   <CardBody>
-                    <CardTitle tag="h4">Card title</CardTitle>
+                    <CardTitle tag="h4">3개월에 한 번 맞는 탈모 치료 주사</CardTitle>
                     <CardText>
-                      This is a wider card with supporting text below as a natural
-                      lead-in to additional content. This content is a little bit
-                      longer.
+                    전 세계인의 공통 관심, ‘탈모’ 정말 정복할 수 없을까?
+                    ‘탈모’ 정복에 나섰다! ‘원형 탈모’ 치료제 등 신제품 등장, 글로벌 탈모 치료제 동향
                     </CardText>
                     <CardText>
                       <small className="text-muted">Last updated 3 mins ago</small>
@@ -198,30 +204,12 @@ function MagazinePage() {
 
               <Col md={{ size: 6, offset: 3 }} xs="12">
                 <Card className="mb-3">
-                  <img src="https://i.postimg.cc/vH82QrKc/img13.png" alt="Mountains" style={{ width: "100%", height: "auto" }}/>
+                  <a href="https://www.docdocdoc.co.kr/news/articleView.html?idxno=3007397"><img src="https://i.postimg.cc/kXy9fkLc/mg8.png" alt="Mountains" style={{ width: "100%", height: "auto" }}/></a>
                   <CardBody>
-                    <CardTitle tag="h4">Card title</CardTitle>
+                    <CardTitle tag="h4">국내 연구진, 원형탈모 원인 찾았다</CardTitle>
                     <CardText>
-                      This is a wider card with supporting text below as a natural
-                      lead-in to additional content. This content is a little bit
-                      longer.
-                    </CardText>
-                    <CardText>
-                      <small className="text-muted">Last updated 3 mins ago</small>
-                    </CardText>
-                  </CardBody>
-                </Card>
-              </Col>
-
-              <Col md={{ size: 6, offset: 3 }} xs="12">
-                <Card className="mb-3">
-                  <img src="https://i.postimg.cc/vH82QrKc/img13.png" alt="Mountains" style={{ width: "100%", height: "auto" }}/>
-                  <CardBody>
-                    <CardTitle tag="h4">Card title</CardTitle>
-                    <CardText>
-                      This is a wider card with supporting text below as a natural
-                      lead-in to additional content. This content is a little bit
-                      longer.
+                    원형탈모를 일으키는 원인을 찾았다. 가상기억 T세포에서 유래한 
+                    면역세포군이 원인으로, 새로운 치료 전략도 제시했다.
                     </CardText>
                     <CardText>
                       <small className="text-muted">Last updated 3 mins ago</small>
@@ -231,29 +219,12 @@ function MagazinePage() {
               </Col>
               <Col md={{ size: 6, offset: 3 }} xs="12">
                 <Card className="mb-3">
-                  <img src="https://i.postimg.cc/vH82QrKc/img13.png" alt="Mountains" style={{ width: "100%", height: "auto" }}/>
+                <a href="https://kafah.or.kr/27/?q=YToyOntzOjQ6InBhZ2UiO2k6NDtzOjEyOiJrZXl3b3JkX3R5cGUiO3M6MzoiYWxsIjt9&bmode=view&idx=1169599&t=board"><img src="https://i.postimg.cc/JhsL7t06/mg9.jpg" alt="Mountains" style={{ width: "100%", height: "auto" }}/></a>
                   <CardBody>
-                    <CardTitle tag="h4">Card title</CardTitle>
+                    <CardTitle tag="h4">탈모 방지에 좋은 음식 4</CardTitle>
                     <CardText>
-                      This is a wider card with supporting text below as a natural
-                      lead-in to additional content. This content is a little bit
-                      longer.
-                    </CardText>
-                    <CardText>
-                      <small className="text-muted">Last updated 3 mins ago</small>
-                    </CardText>
-                  </CardBody>
-                </Card>
-              </Col>
-              <Col md={{ size: 6, offset: 3 }} xs="12">
-                <Card className="mb-3">
-                  <img src="https://i.postimg.cc/vH82QrKc/img13.png" alt="Mountains" style={{ width: "100%", height: "auto" }}/>
-                  <CardBody>
-                    <CardTitle tag="h4">Card title</CardTitle>
-                    <CardText>
-                      This is a wider card with supporting text below as a natural
-                      lead-in to additional content. This content is a little bit
-                      longer.
+                    탈모 방지에 좋은 음식은 뭐가 있을까? <br/>
+                    탈모 예방을 도와주는 성분들을 찾아보자!
                     </CardText>
                     <CardText>
                       <small className="text-muted">Last updated 3 mins ago</small>
@@ -262,13 +233,15 @@ function MagazinePage() {
                 </Card>
               </Col>
             </Row></> : <> <Card className="mb-3" style={style}>
-            <img src="https://i.postimg.cc/vH82QrKc/img13.png" alt="Mountains" width="600" height="400"/>
+            <a href="https://m.health.chosun.com/svc/news_view.html?contid=2023091801650"><img src="https://i.postimg.cc/t4SbHFqn/mg4.jpg" alt="Mountains" width="600" height="400"/></a>
               <CardBody>
-                <CardTitle tag="h4">Card title</CardTitle>
+                <CardTitle tag="h4">탈모의 계절 가을? 모발 '꽉'잡는 탈모 관리법</CardTitle>
                 <CardText>
-                  This is a wider card with supporting text below as a natural
-                  lead-in to additional content. This content is a little bit
-                  longer.
+                가을철 환절기가 다가오며
+                    평소보다 많이 빠지는 머리카락 때문에
+                    고민하는 사람들이 많은데요.
+                    왜 가을만 되면 탈모가 유독 심해지는 걸까요?
+                    가을철 탈모 원인과 예방·관리법에 대해 알아봅니다.
                 </CardText>
                 <CardText>
                   <small className="text-muted">Last updated 3 mins ago</small>
@@ -278,43 +251,12 @@ function MagazinePage() {
 
 
             <Card className="mb-3" style={style}>
-            <img src="https://i.postimg.cc/vH82QrKc/img13.png" alt="Mountains" width="600" height="400"/>
+            <a href="https://www.pharmnews.com/news/articleView.html?idxno=220705"><img src="https://i.postimg.cc/CxL0tcgV/mg5.jpg" alt="Mountains" width="600" height="400"/></a>
               <CardBody>
-                <CardTitle tag="h4">Card title</CardTitle>
+                <CardTitle tag="h4">염증 억제 항체 이용 차세대 ‘원형탈모’ 치료제</CardTitle>
                 <CardText>
-                  This is a wider card with supporting text below as a natural
-                  lead-in to additional content. This content is a little bit
-                  longer.
-                </CardText>
-                <CardText>
-                  <small className="text-muted">Last updated 3 mins ago</small>
-                </CardText>
-              </CardBody>
-            </Card>
-
-            <hr/><hr/>
-            <Card className="mb-3" style={style}>
-            <img src="https://i.postimg.cc/vH82QrKc/img13.png" alt="Mountains" width="600" height="400"/>
-              <CardBody>
-                <CardTitle tag="h4">Card title</CardTitle>
-                <CardText>
-                  This is a wider card with supporting text below as a natural
-                  lead-in to additional content. This content is a little bit
-                  longer.
-                </CardText>
-                <CardText>
-                  <small className="text-muted">Last updated 3 mins ago</small>
-                </CardText>
-              </CardBody>
-            </Card>
-            <Card className="mb-3" style={style}>
-            <img src="https://i.postimg.cc/vH82QrKc/img13.png" alt="Mountains" width="600" height="400"/>
-              <CardBody>
-                <CardTitle tag="h4">Card title</CardTitle>
-                <CardText>
-                  This is a wider card with supporting text below as a natural
-                  lead-in to additional content. This content is a little bit
-                  longer.
+                    '원형탈모' 치료제 국내 최초 허가 소식에 이어 , 
+                    탈모 하나로만 파이프라인을 다수 보유하고 있는 에피바이오텍이 범부처 재생의료사업단 과제에 선정됐다. 
                 </CardText>
                 <CardText>
                   <small className="text-muted">Last updated 3 mins ago</small>
@@ -324,13 +266,11 @@ function MagazinePage() {
 
             <hr/><hr/>
             <Card className="mb-3" style={style}>
-            <img src="https://i.postimg.cc/vH82QrKc/img13.png" alt="Mountains" width="600" height="400"/>
+            <a href="https://newsroom.daewoong.co.kr/archives/21352"><img src="https://i.postimg.cc/g01Pxd6Y/mg6.jpg" alt="Mountains" width="600" height="400"/></a>
               <CardBody>
-                <CardTitle tag="h4">Card title</CardTitle>
+                <CardTitle tag="h4">자가 체크부터 예방법까지 탈모의 모든 것</CardTitle>
                 <CardText>
-                  This is a wider card with supporting text below as a natural
-                  lead-in to additional content. This content is a little bit
-                  longer.
+                탈모로 걱정하는 분들을 위해 탈모 자가 체크부터 유형과 치료제 등 탈모에 대한 모든 것을 함께 살펴보겠습니다
                 </CardText>
                 <CardText>
                   <small className="text-muted">Last updated 3 mins ago</small>
@@ -338,13 +278,41 @@ function MagazinePage() {
               </CardBody>
             </Card>
             <Card className="mb-3" style={style}>
-            <img src="https://i.postimg.cc/vH82QrKc/img13.png" alt="Mountains" width="600" height="400"/>
+            <a href="https://newsroom.daewoong.co.kr/archives/21620"><img src="https://i.postimg.cc/4dtRtMzp/mg7.jpg" alt="Mountains" width="600" height="400"/></a>
               <CardBody>
-                <CardTitle tag="h4">Card title</CardTitle>
+                <CardTitle tag="h4">3개월에 한 번 맞는 탈모 치료 주사</CardTitle>
                 <CardText>
-                  This is a wider card with supporting text below as a natural
-                  lead-in to additional content. This content is a little bit
-                  longer.
+                전 세계인의 공통 관심, ‘탈모’ 정말 정복할 수 없을까?
+                ‘탈모’ 정복에 나섰다! ‘원형 탈모’ 치료제 등 신제품 등장, 글로벌 탈모 치료제 동향
+                </CardText>
+                <CardText>
+                  <small className="text-muted">Last updated 3 mins ago</small>
+                </CardText>
+              </CardBody>
+            </Card>
+
+            <hr/><hr/>
+            <Card className="mb-3" style={style}>
+            <a href="https://www.docdocdoc.co.kr/news/articleView.html?idxno=3007397"><img src="https://i.postimg.cc/kXy9fkLc/mg8.png" alt="Mountains" width="600" height="400"/></a>
+              <CardBody>
+                <CardTitle tag="h4">국내 연구진, 원형탈모 원인 찾았다</CardTitle>
+                <CardText>
+                원형탈모를 일으키는 원인을 찾았다. 가상기억 T세포에서 유래한 
+                면역세포군이 원인으로, 새로운 치료 전략도 제시했다.
+
+                </CardText>
+                <CardText>
+                  <small className="text-muted">Last updated 3 mins ago</small>
+                </CardText>
+              </CardBody>
+            </Card>
+            <Card className="mb-3" style={style}>
+            <a href="https://kafah.or.kr/27/?q=YToyOntzOjQ6InBhZ2UiO2k6NDtzOjEyOiJrZXl3b3JkX3R5cGUiO3M6MzoiYWxsIjt9&bmode=view&idx=1169599&t=board"><img src="https://i.postimg.cc/JhsL7t06/mg9.jpg" alt="Mountains" width="600" height="400"/></a>
+              <CardBody>
+                <CardTitle tag="h4"> 탈모 방지에 좋은 음식 4</CardTitle>
+                <CardText>
+                탈모 방지에 좋은 음식은 뭐가 있을까? <br/>
+                탈모 예방을 도와주는 성분들을 찾아보자!
                 </CardText>
                 <CardText>
                   <small className="text-muted">Last updated 3 mins ago</small>

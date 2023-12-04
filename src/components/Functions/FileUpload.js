@@ -8,14 +8,16 @@ const FileUpload = ({ label, onChange }) => {
     };
 
     const btnStyle = {
-      background:"#FFCAF8",
-      border:"1px solid #FFCAF8",
+      background:"#2ca8ff",
+      border:"1px solid #2ca8ff",
       width:"400px",
       height:"80px",
       color: "white",
       fontWeight:1000,
-      fontSize:"30px"
+      fontSize:"30px",
     }
+
+    
     
 
   return (

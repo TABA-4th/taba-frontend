@@ -103,7 +103,7 @@ function ExamplesNavbar() {
               NIMONAEMO
             </NavbarBrand>
             <UncontrolledTooltip target="#navbar-brand">
-              Design by
+              Design by TEAM NIMONAEMO
             </UncontrolledTooltip>
             <button
               className="navbar-toggler navbar-toggler"

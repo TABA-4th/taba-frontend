@@ -39,7 +39,7 @@ function ProductHeader() {
           </div> */}
           <h1 className="title">당신의 두피특성에 딱 맞는 샴푸 추천!</h1>
           <h6>표시되는 가격은 프로모션 및 쇼핑몰 사정 상 실제가격과 일부 차이가 있을 수 있음을 알려드립니다.</h6>
-          {/*<p className="category">Photographer</p>*/}
+          {/*<p className="category">Photographer</p>*/} 
           
           {/* 여기다가 총 검사건수
           <div className="content">

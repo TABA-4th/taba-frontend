@@ -26,6 +26,9 @@ import CompleteExamples from "./index-sections/CompleteExamples.js";
 import SignUp from "./index-sections/SignUp.js";
 import Examples from "./index-sections/Examples.js";
 import Download from "./index-sections/Download.js";
+import DefaultFooter from "components/Footers/DefaultFooter.js";
+import TransparentFooter from "components/Footers/TransparentFooter.js";
+import DarkNavbar from "components/Navbars/DarkNavbar.js";
 
 function Index() {
   React.useEffect(() => {
@@ -52,7 +55,9 @@ function Index() {
 
 
         </div>
-        <DarkFooter />
+
+        <DefaultFooter/>
+
       </div>
     </>
   );

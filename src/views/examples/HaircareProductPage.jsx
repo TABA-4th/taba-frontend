@@ -101,7 +101,7 @@ function HaircareProductPage() {
   return (
     <>
       <IndexNavbar />
-      <div style={{width:"100%", height:"75px", backgroundColor:"#40CBEA"}} />
+      <div style={{width:"100%", height:"75px", backgroundColor:"#ffffff"}} />
       <ProductHeader />
       <br></br>
       {/* <Col md={{size: 6, offset: 3}}> */}

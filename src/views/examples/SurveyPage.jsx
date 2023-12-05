@@ -10,7 +10,7 @@ const SurveyPage = () => {
   return (
     <>
     <IndexNavbar />
-    <div style={{width:"100%", height:"75px", backgroundColor:"#40CBEA"}} />
+    <div style={{width:"100%", height:"75px", backgroundColor:"#ffffff"}} />
     {/*<ProfilePageHeader />*/}
     <br></br>
     <div className="wrapper" style={{width: '70%', margin: 'auto'}}>

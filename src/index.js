@@ -44,7 +44,7 @@ root.render(
       <Route path="/magazine" element={<MagazinePage/>} />
 
       <Route path="/survey" element={<ProtectedRoute><SurveyPage/></ProtectedRoute>}/>
-      <Route path="/product" element={<PublicRoute><HaircareProductPage /></PublicRoute>}/>
+      <Route path="/product" element={<HaircareProductPage/>}/>
 
       <Route path="*" element={<Navigate to="/" replace />} />
     </Routes>

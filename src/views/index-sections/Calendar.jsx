@@ -2,20 +2,66 @@ import React, { useState, useEffect } from 'react';
 import FullCalendar from '@fullcalendar/react';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import axios from 'axios';
-
-
-// memberID를 통해 백엔드 DB로부터 검사결과를 불러와, 디스트럭쳐화 해서 검사결과를 받아와야함.
-/**
-* diagnoseDate : 'YYYY-MM-DD' (검사일)
-* diagnoseResult : '검사결과' (검사결과, 임시표시)
-*/
-
+import { Button, Modal, ModalHeader, ModalBody, ModalFooter, Form, FormGroup, Label, Input, InputGroup } from 'reactstrap';
 
 const Calendar = () => {
   const nickname = sessionStorage.getItem("nickname");
   const [diagnoseData, setDiagnoseData] = useState([]);
   const [currentDate, setCurrentDate] = useState(new Date()); // 현재 보여지는 달을 저장하는 state
   const [defaultView, setDefaultView] = useState('dayGridMonth');
+
+  //검사결과 모달 관련
+  const [modalOpen, setModalOpen] = useState(false);
+  const toggleModal = () => setModalOpen(!modalOpen);
+  const [selectedDiagnoseResult, setSelectedDiagnoseResult] = useState(null);
+  const handleButtonClick = (diagnosisData) => {
+    //history.push(`/new-page/${diagnosisDate}`);
+    //위 부분은 검사결과 페이지에 데이터를 보내기 위한 매커니즘임.
+    alert(formatDiagnosisResult(diagnosisData));
+  };
+
+  const offcanvasBody = () => {
+    return (
+      <div>
+      {selectedDiagnoseResult &&
+        selectedDiagnoseResult.map((result, index) => (
+          <div key={index} className="text-center" style={{ display: 'flex', alignItems: 'center' }}>
+            <Button
+              color="success"
+              onClick={() => handleButtonClick(result)}
+            >
+              상세 검사결과 조회하기
+            </Button>
+            <p style={{ marginLeft: '10px', verticalAlign: 'middle', marginBottom: '0' }}>검사시간 : {result.diagnosisDate}</p>
+          </div>
+        ))}
+    </div>
+    );
+  };
+
+  //이벤트 추가 모달 관련
+  const [addEventModalOpen, setAddEventModalOpen] = useState(false);
+  const [selectedDate, setSelectedDate] = useState(null);
+  const [permChecked, setPermChecked] = useState(false);
+  const [dyeChecked, setDyeChecked] = useState(false);
+  const toggleAddEventModal = () => setAddEventModalOpen(!addEventModalOpen);
+  const handleAddEvent = async () => {
+    try {
+      // You need to replace 'your-backend-endpoint' with the actual endpoint URL
+      alert(`dye: ${dyeChecked}, perm: ${permChecked}`)
+      await axios.post("your-backend-endpoint", {
+        nickname,
+        date: selectedDate,
+        perm: permChecked,
+        dye: dyeChecked,
+      });
+      
+      toggleAddEventModal();
+    } catch (error) {
+      console.error("Error adding event:", error);
+      // Handle error if needed
+    }
+  };
 
   useEffect(() => {
     const fetchDiagnoseData = async () => {
@@ -43,24 +89,13 @@ const Calendar = () => {
       const year = date.getFullYear();
       const month = (date.getMonth() + 1).toString().padStart(2, '0'); // 0-indexed month를 1-indexed로 변환
       return `${year}/${month}`;
-  };
+  };  // 백엔드 엔드포인트로 'YYYY-MM'형식으로 쿼리문을 날려주기 위한 포멧팅.
 
   const handleMonthChange = (info) => {
-    // Extract the year and month from the clicked date
     const year = info.view.currentStart.getFullYear();
     const month = (info.view.currentStart.getMonth() + 1).toString().padStart(2, '0');
-
-    // Update the currentDate state to trigger useEffect
     setCurrentDate(new Date(`${year}/${month}`));
-  };
-
-  const handleDateClick = (info) => { // 해당날짜에 뜬 검사결과데이터를 클릭했을 경우
-    console.log(info.event.extendedProps.diagnosisResult);
-    if (info.event.extendedProps && info.event.extendedProps.diagnosisResult) {
-      alert(`검사 결과 : ${info.event.extendedProps.diagnosisResult}`);
-      // 여기서 새로운 팝업을 띄우거나, 새로운 페이지로 넘어가는 작업 등 추가 가능.
-    }
-  };
+  };  // <prev> , <next> month가 클릭될 경우 달이 바뀌게 함.
 
   const formatDiagnosisDate = (dateString) => {
     const date = new Date(dateString);
@@ -68,28 +103,49 @@ const Calendar = () => {
     const month = (date.getMonth() + 1).toString().padStart(2, '0');
     const day = date.getDate().toString().padStart(2, '0');
     return `${year}-${month}-${day}`;
-  };
+  };  // 날짜 데이터 문자열화
 
   const formatDiagnosisResult = (data) => {
     return `${nickname} 님의 검사결과\n `+
+      `DiagnosisDate: ${data.diagnosisDate}\n` +
       `findDeadSkinCells: ${data.findDeadSkinCells}\n` +
       `excessSebum: ${data.excessSebum}\n` +
       `erythemaBetweenHairFollicles: ${data.erythemaBetweenHairFollicles}\n` +
       `dandruff: ${data.dandruff}\n` +
       `hairLoss: ${data.hairLoss}\n` +
       `erythemaPustules: ${data.erythemaPustules}\n`;
-  };
+  };  // 데이터 문자열화
 
-  const events = diagnoseData.map(data => ({
-    title: '두피 자가진단 검사결과',
-    date: formatDiagnosisDate(data.diagnosisDate),
-    extendedProps: {
-      diagnosisResult: formatDiagnosisResult(data),
-    },
-  }));
+  const handleDateClick = (info) => {
+    if (info.event) {
+      const results = info.event.extendedProps.diagnosisResults;
+      setSelectedDiagnoseResult(results);
+      toggleModal();
+    }
+  };  // 날짜 클릭했을때..
+
+  const events = diagnoseData.reduce((accumulator, data) => {
+    const existingEvent = accumulator.find((event) => event.date === formatDiagnosisDate(data.diagnosisDate));
+    if (existingEvent) {
+      existingEvent.extendedProps.diagnosisResults.push(data);
+    } else {
+      console.log([data]);
+      accumulator.push({
+        title: '검사결과 있음',
+        date: formatDiagnosisDate(data.diagnosisDate),
+        extendedProps: {
+          diagnosisResults: [data],
+        },
+      });
+    }
+    return accumulator;
+  }, []);
 
   return (
     <div>
+
+      <Button onClick={toggleAddEventModal}>Add Event</Button>
+
       <FullCalendar
         defaultView={defaultView}
         plugins={[dayGridPlugin]}
@@ -97,6 +153,57 @@ const Calendar = () => {
         events={events}
         datesSet={handleMonthChange}
       />
+
+      {/* Modal for adding events */}
+      <Modal isOpen={addEventModalOpen} toggle={toggleAddEventModal}>
+        <ModalHeader toggle={toggleAddEventModal}>참고사항 기록하기</ModalHeader>
+        <ModalBody>
+          <Form>
+            <FormGroup>
+              <Label for="date">Date</Label>
+              <Input
+                type="date"
+                id="date"
+                value={selectedDate}
+                onChange={(e) => setSelectedDate(e.target.value)}
+              />
+            </FormGroup>
+
+            <FormGroup check>
+              <Label check>
+                <Input
+                  type="checkbox"
+                  checked={permChecked}
+                  onChange={() => setPermChecked(!permChecked)}
+                />
+                <span className="form-check-sign"></span>파마
+              </Label>
+            </FormGroup>
+            <FormGroup check>
+              <Label check>
+                <Input
+                  type="checkbox"
+                  checked={dyeChecked}
+                  onChange={() => setDyeChecked(!dyeChecked)}
+                />
+                <span className="form-check-sign"></span>염색
+              </Label>
+            </FormGroup>
+          </Form>
+        </ModalBody>
+        <ModalFooter>
+          <Button color="primary" onClick={handleAddEvent}>Add</Button>{' '}
+          <Button color="secondary" onClick={toggleAddEventModal}>Cancel</Button>
+        </ModalFooter>
+      </Modal>
+
+      {/* 상세 검사결과 모달 */}
+      <Modal isOpen={modalOpen} toggle={toggleModal}>
+        <ModalHeader toggle={toggleModal}>검사결과 상세</ModalHeader>
+        <ModalBody>{offcanvasBody()}</ModalBody>
+        <ModalFooter>
+        </ModalFooter>
+      </Modal>
     </div>
   );
 };

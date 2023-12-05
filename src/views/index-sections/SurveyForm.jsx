@@ -114,7 +114,7 @@ function SurveyForm() {
             추천 받겠습니다
           </Button>
         </div>
-      </Modal>
+        </Modal>
       
       
       <h1>검사전 설문</h1>

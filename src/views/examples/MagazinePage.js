@@ -179,11 +179,12 @@ function MagazinePage() {
 
               <Col md={{ size: 6, offset: 3 }} xs="12">
                 <Card className="mb-3">
-                  <a href="https://newsroom.daewoong.co.kr/archives/21352"><img src="https://i.postimg.cc/g01Pxd6Y/mg6.jpg" alt="Mountains" style={{ width: "100%", height: "auto" }}/></a>
+                  <a href="http://chakom.org/bbs/board.php?bo_table=know&wr_id=64&sfl=mb_id%2C1&stx=mus456"><img src="https://i.postimg.cc/TP6vbQhW/mg9.jpg" alt="Mountains" style={{ width: "100%", height: "auto" }}/></a>
                   <CardBody>
-                    <CardTitle tag="h4">자가 체크부터 예방법까지 탈모의 모든 것</CardTitle>
+                    <CardTitle tag="h4">두피 건강에 좋은 음식들</CardTitle>
                     <CardText>
-                    탈모로 걱정하는 분들을 위해 탈모 자가 체크부터 유형과 치료제 등 탈모에 대한 모든 것을 함께 살펴보겠습니다
+                    두피 질환에 좋은 음식들은 무엇이 있을까요? <br/>
+                    두피 질환 개선에 도움을 주는 음식들을 살펴봅시다!
                     </CardText>
                     <CardText>
                       <small className="text-muted">Last updated 3 mins ago</small>
@@ -225,12 +226,12 @@ function MagazinePage() {
               </Col>
               <Col md={{ size: 6, offset: 3 }} xs="12">
                 <Card className="mb-3">
-                <a href="https://kafah.or.kr/27/?q=YToyOntzOjQ6InBhZ2UiO2k6NDtzOjEyOiJrZXl3b3JkX3R5cGUiO3M6MzoiYWxsIjt9&bmode=view&idx=1169599&t=board"><img src="https://i.postimg.cc/JhsL7t06/mg9.jpg" alt="Mountains" style={{ width: "100%", height: "auto" }}/></a>
+                <a href="https://doctornow.co.kr/content/magazine/9f33fb53d4de438cad1ddc40c8792f07"><img src="https://i.postimg.cc/qR1P9Tw8/mg6.jpg" alt="Mountains" style={{ width: "100%", height: "auto" }}/></a>
                   <CardBody>
-                    <CardTitle tag="h4">탈모 방지에 좋은 음식 4</CardTitle>
+                    <CardTitle tag="h4">머리를 잘 감는데도 비듬이 생기는 이유?</CardTitle>
                     <CardText>
-                    탈모 방지에 좋은 음식은 뭐가 있을까? <br/>
-                    탈모 예방을 도와주는 성분들을 찾아보자!
+                    비듬이 생기는 원인에는 무엇이 있을까요? <br/>
+                    비듬 예방 치료법과 일상 속 비듬 최소화 방법을 알아봐요!
                     </CardText>
                     <CardText>
                       <small className="text-muted">Last updated 3 mins ago</small>
@@ -272,11 +273,12 @@ function MagazinePage() {
 
             <hr/><hr/>
             <Card className="mb-3" style={style}>
-            <a href="https://newsroom.daewoong.co.kr/archives/21352"><img src="https://i.postimg.cc/g01Pxd6Y/mg6.jpg" alt="Mountains" width="600" height="400"/></a>
+            <a href="http://chakom.org/bbs/board.php?bo_table=know&wr_id=64&sfl=mb_id%2C1&stx=mus456"><img src="https://i.postimg.cc/TP6vbQhW/mg9.jpg" alt="Mountains" width="600" height="400"/></a>
               <CardBody>
-                <CardTitle tag="h4">자가 체크부터 예방법까지 탈모의 모든 것</CardTitle>
+                <CardTitle tag="h4">두피 건강에 좋은 음식들</CardTitle>
                 <CardText>
-                탈모로 걱정하는 분들을 위해 탈모 자가 체크부터 유형과 치료제 등 탈모에 대한 모든 것을 함께 살펴보겠습니다
+                두피 질환에 좋은 음식들은 무엇이 있을까요? <br/>
+                    두피 질환 개선에 도움을 주는 음식들을 살펴봅시다!
                 </CardText>
                 <CardText>
                   <small className="text-muted">Last updated 3 mins ago</small>
@@ -313,12 +315,12 @@ function MagazinePage() {
               </CardBody>
             </Card>
             <Card className="mb-3" style={style}>
-            <a href="https://kafah.or.kr/27/?q=YToyOntzOjQ6InBhZ2UiO2k6NDtzOjEyOiJrZXl3b3JkX3R5cGUiO3M6MzoiYWxsIjt9&bmode=view&idx=1169599&t=board"><img src="https://i.postimg.cc/JhsL7t06/mg9.jpg" alt="Mountains" width="600" height="400"/></a>
+            <a href="https://doctornow.co.kr/content/magazine/9f33fb53d4de438cad1ddc40c8792f07"><img src="https://i.postimg.cc/qR1P9Tw8/mg6.jpg" alt="Mountains" width="600" height="400"/></a>
               <CardBody>
-                <CardTitle tag="h4"> 탈모 방지에 좋은 음식 4</CardTitle>
+                <CardTitle tag="h4"> 머리를 잘 감는데도 비듬이 생기는 이유?</CardTitle>
                 <CardText>
-                탈모 방지에 좋은 음식은 뭐가 있을까? <br/>
-                탈모 예방을 도와주는 성분들을 찾아보자!
+                비듬이 생기는 원인에는 무엇이 있을까요? <br/>
+                비듬 예방 치료법과 일상 속 비듬 최소화 방법을 알아봐요!
                 </CardText>
                 <CardText>
                   <small className="text-muted">Last updated 3 mins ago</small>

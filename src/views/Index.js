@@ -29,6 +29,7 @@ import Download from "./index-sections/Download.js";
 import DefaultFooter from "components/Footers/DefaultFooter.js";
 import TransparentFooter from "components/Footers/TransparentFooter.js";
 import DarkNavbar from "components/Navbars/DarkNavbar.js";
+import Introduction from "./index-sections/Introduction.js";
 
 function Index() {
   React.useEffect(() => {
@@ -49,6 +50,8 @@ function Index() {
         <IndexHeader />
         <div className="main">
           <CompleteExamples />
+          <Introduction/>
+
           <CarouselM1/>
           <Tabs/>
           <CarouselM2/>

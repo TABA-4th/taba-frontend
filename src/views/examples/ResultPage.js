@@ -79,7 +79,7 @@ function ResultPage () {
   return (
     <>
       <IndexNavbar />
-      <div style={{width:"100%", height:"75px", backgroundColor:"#2ca8ff"}} /> {/*NavBar 스타일링*/}
+      <div style={{width:"100%", height:"75px", backgroundColor:'#9ce8ee'}} /> {/*NavBar 스타일링*/}
       <div className="wrapper">
         <div className="section">
             <Container className="mx-auto" >

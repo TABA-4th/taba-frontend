@@ -13,6 +13,7 @@ import {
   Container,
   Row,
   Col,
+  Button,
 } from "reactstrap";
 
 // core components
@@ -60,9 +61,17 @@ function Tabs() {
                 </CardBody>
               </Card>
              
+
             </Col>
-            
-            <Col><a href="/magazine"><h2><br/><br/>탈모 관련 자료 보러 가기</h2></a></Col>
+
+            <Col className="ml-auto mr-auto" md="10" xl="8">
+            <a href="/magazine" className="justify-content-center"><Button style={{ backgroundColor: '#9ce8ee', color: 'white',width:'100%',fontSize:'24px',fontWeight:'bold' }} href="/magazine"
+                      block
+                      className="btn-round"
+                      size="lg"
+                    >두피 기사 확인</Button></a></Col>
+
+
             
           </Row>
         </Container>

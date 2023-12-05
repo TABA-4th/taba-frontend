@@ -58,7 +58,7 @@ function CarouselSection() {
       <div className="section" id="carousel">
         <Container>
           <div className="title">
-            <h3 style={{textAlign:"center"}}>니모내모 핵심 기능 3가지</h3>
+            <h3 style={{color: 'black',fontSize:'30px',textAlign:'center',fontWeight:'bold'}}>니모내모 핵심 기능 3가지</h3>
           </div>
           <Row className="justify-content-center">
             <Col lg="8" md="12">

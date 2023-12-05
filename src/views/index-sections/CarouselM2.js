@@ -110,10 +110,9 @@ function CarouselSection() {
                 </a>
               </Carousel>
               <br/><br/><br/>
-              <Button href="/file-upload"
+              <Button style={{ backgroundColor: '#9ce8ee', color: 'white',fontSize:'24px',fontWeight:'bold' }} href="/survey"
                       block
                       className="btn-round"
-                      color="info"
                       size="lg"
                     >
                       지금 시작하러 가기

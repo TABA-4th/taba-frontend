@@ -58,20 +58,17 @@ function IndexNavbar() {
           }}
         />
       ) : null}
-      <Navbar className={"fixed-top " + navbarColor} expand="lg" >
+      <Navbar className={"fixed-top " + navbarColor} expand="lg" style={{ backgroundColor: '#9ce8ee', color: 'white'}}>
         <Container>
           <div className="navbar-translate" >
             <NavbarBrand
               href="/"
               target="_self"
               id="navbar-brand"
-              style={{color: 'black',fontSize:'30px',fontWeight:'bold'}}
+              style={{color: 'white',fontSize:'30px',fontWeight:'bold'}}
             >
               Nimonaemo
             </NavbarBrand>
-            <UncontrolledTooltip target="#navbar-brand" style={{color: 'black',fontSize:'20px'}}>
-              Designed by Team NIMONAEMO
-            </UncontrolledTooltip>
             <button
               className="navbar-toggler navbar-toggler"
               onClick={() => {
@@ -93,36 +90,36 @@ function IndexNavbar() {
           >
             <Nav navbar>
             <NavItem>
-              <NavLink href="/" style={{color: 'black',fontSize:'20px'}}>Home</NavLink>
+              <NavLink href="/" style={{color: 'white',fontSize:'20px'}}>Home</NavLink>
             </NavItem>
             <NavItem>
-              <NavLink href="/magazine" style={{color: 'black',fontSize:'20px'}}>Magazine</NavLink>
+              <NavLink href="/magazine" style={{color: 'white',fontSize:'20px'}}>Magazine</NavLink>
+            </NavItem>
+            <NavItem>
+                    <NavLink href="/product" style={{color: 'white',fontSize:'20px'}}>Product</NavLink>
             </NavItem>
               {isLoggedIn ? (
                 // 로그인한 사용자에게 보여줄 항목
                 <>
                   <NavItem>
-                    <NavLink href="/profile" style={{color: 'black',fontSize:'20px'}}>Profile</NavLink>
-                  </NavItem>
-                  <NavItem>
-                    <NavLink href="/calendar" style={{color: 'black',fontSize:'20px'}}>Calendar</NavLink>
+                    <NavLink href="/mypage" style={{color: 'white',fontSize:'20px'}}>Mypage</NavLink>
                   </NavItem>
                 </>
               ) : (
                 // 로그인하지 않은 사용자에게 보여줄 항목
                 <>
                   <NavItem>
-                    <NavLink href="/login" style={{color: 'black',fontSize:'20px'}}>Login</NavLink>
+                    <NavLink href="/login" style={{color: 'white',fontSize:'20px'}}>Login</NavLink>
                   </NavItem>
                   <NavItem>
-                    <NavLink href="/register" style={{color: 'black',fontSize:'20px'}}>Register</NavLink>
+                    <NavLink href="/register" style={{color: 'white',fontSize:'20px'}}>Register</NavLink>
                   </NavItem>
                 </>
               )}
-            <UncontrolledDropdown nav>
+            <UncontrolledDropdown nav style={{color: 'white'}}>
                 <DropdownToggle caret color="default" href="#pablo" nav onClick={(e) => e.preventDefault()}>
                   <i className="now-ui-icons design_app mr-1"></i>
-                  <p style={{color: 'black',fontSize:'20px'}}>User Menu</p>
+                  <p style={{color: 'white',fontSize:'20px'}}>User Menu</p>
                 </DropdownToggle>
                 <DropdownMenu>
                   {isLoggedIn ? (

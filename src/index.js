@@ -25,6 +25,7 @@ import MagazinePage from 'views/examples/MagazinePage';
 import PublicRoute from "components/Functions/PublicRoute";
 import ProtectedRoute from "components/Functions/ProtectedRoute";
 
+
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
 root.render(
@@ -41,7 +42,7 @@ root.render(
       <Route path="/calendar" element={<ProtectedRoute><CalendarPage /></ProtectedRoute>} />
       <Route path="/file-upload" element={<ProtectedRoute><FileUploaderPage /></ProtectedRoute>} />
       <Route path="/result" element={<ResultPage />} />
-      <Route path="/magazine" element={<MagazinePage/>} />
+      <Route path="/mypage" element={<MagazinePage/>} />
 
       <Route path="/survey" element={<ProtectedRoute><SurveyPage/></ProtectedRoute>}/>
       <Route path="/product" element={<HaircareProductPage/>}/>

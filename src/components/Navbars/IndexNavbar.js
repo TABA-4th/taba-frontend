@@ -95,7 +95,7 @@ function IndexNavbar() {
               <NavLink href="/">Home</NavLink>
             </NavItem>
             <NavItem>
-              <NavLink href="/landing">Landing</NavLink>
+              <NavLink href="/magazine">Magazine</NavLink>
             </NavItem>
               {isLoggedIn ? (
                 // 로그인한 사용자에게 보여줄 항목

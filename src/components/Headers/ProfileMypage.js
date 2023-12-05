@@ -1,11 +1,24 @@
 import React from "react";
 import { Container } from "reactstrap";
-
+import axios from 'axios';
 
 const userName = sessionStorage.getItem("nickname");
 
 function ProfileMypageHeader() {
   let pageHeader = React.createRef();
+  const [diagnosisCount, setDiagnosisCount] = React.useState(0);
+
+  const totalDiagnosisResult = async() => {
+    try {
+      const response = await axios.post(
+        `http://13.113.206.129:8081/diagnosis/count?nickname=${userName}`
+      );
+      setDiagnosisCount(response.data.total);
+    } catch(error) {
+      console.log(`데이터 반환 실패`);
+      setDiagnosisCount(-1);
+    }
+  }
 
   React.useEffect(() => {
     if (window.innerWidth > 991) {
@@ -20,6 +33,13 @@ function ProfileMypageHeader() {
       };
     }
   });
+
+  React.useEffect(() => {
+    totalDiagnosisResult();
+  }, []);
+
+
+
   return (
     <>
       <div
@@ -32,31 +52,30 @@ function ProfileMypageHeader() {
             backgroundImage: "url(" + require("assets/img/bg5.jpg") + ")"  // 헤더 부분 배경 이미지
           }}
           ref={pageHeader}
-        ></div>
+        >
+        </div>
         <Container>
           <div className="photo-container">
             <img alt="..." src={require("assets/img/ryan.jpg")}></img>
           </div>
-          <h3 className="title">{userName}</h3>
+          {/* <p>(배경이미지를 레벨아이콘으로?)</p> */}
+          <h3 className="title" style={{}}>{userName}</h3>
           {/*<p className="category">Photographer</p>*/}
           
-          {/* 여기다가 총 검사건수
           <div className="content">
             <div className="social-description">
+              <h2>{diagnosisCount}</h2>
+              <p>누적 두피검사수</p>
+            </div>
+            {/* <div className="social-description">
               <h2>26</h2>
               <p>Comments</p>
-            </div>
-
-            
-            <div className="social-description">
-              <h2>26</h2>
-              <p>Comments</p>
-            </div>
+            </div> 
             <div className="social-description">
               <h2>48</h2>
               <p>Bookmarks</p>
-            </div>
-          </div> */}
+            </div> */}
+          </div>
         </Container>
       </div>
     </>

@@ -17,7 +17,7 @@
 
     // core components
     import IndexNavbar from "components/Navbars/IndexNavbar";
-    import ProfilePageHeader from "components/Headers/ProfilePageHeader.js";
+    import ProfileMypageHeader from "components/Headers/ProfileMypage";
     import DefaultFooter from "components/Footers/DefaultFooter.js";
 
     function CalendarPage() {
@@ -37,7 +37,7 @@
     return (
         <>
         <IndexNavbar />
-        <ProfilePageHeader />
+        <ProfileMypageHeader />
         <div className="wrapper" style={{width: '80%', margin: '0 auto'}}>
             <br></br>
             <div className="section" style={{margin: '0 auto'}}>

@@ -39,10 +39,10 @@ root.render(
       <Route path="/login" element={<PublicRoute><LoginPage /></PublicRoute>} />
       <Route path="/register" element={<PublicRoute><RegisterPage /></PublicRoute>} />
       <Route path="/profile" element={<ProtectedRoute><ProfilePage /></ProtectedRoute>} />
-      <Route path="/calendar" element={<ProtectedRoute><CalendarPage /></ProtectedRoute>} />
+      <Route path="/mypage" element={<ProtectedRoute><CalendarPage /></ProtectedRoute>} />
       <Route path="/file-upload" element={<ProtectedRoute><FileUploaderPage /></ProtectedRoute>} />
       <Route path="/result" element={<ResultPage />} />
-      <Route path="/mypage" element={<MagazinePage/>} />
+      <Route path="/magazine" element={<MagazinePage/>} />
 
       <Route path="/survey" element={<ProtectedRoute><SurveyPage/></ProtectedRoute>}/>
       <Route path="/product" element={<HaircareProductPage/>}/>

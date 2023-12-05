@@ -104,6 +104,10 @@ function IndexNavbar() {
                   <NavItem>
                     <NavLink href="/mypage" style={{color: 'white',fontSize:'20px'}}>Mypage</NavLink>
                   </NavItem>
+                  <NavItem>
+                    <NavLink href="/login" onClick={handleLogout} style={{color: 'white',fontSize:'20px'}}>Logout</NavLink>
+                  </NavItem>
+
                 </>
               ) : (
                 // 로그인하지 않은 사용자에게 보여줄 항목
@@ -114,20 +118,18 @@ function IndexNavbar() {
                   <NavItem>
                     <NavLink href="/register" style={{color: 'white',fontSize:'20px'}}>Register</NavLink>
                   </NavItem>
+
                 </>
               )}
-            <UncontrolledDropdown nav style={{color: 'white'}}>
+            {/* <UncontrolledDropdown nav style={{color: 'white'}}>
                 <DropdownToggle caret color="default" href="#pablo" nav onClick={(e) => e.preventDefault()}>
                   <i className="now-ui-icons design_app mr-1"></i>
-                  <p style={{color: 'white',fontSize:'20px'}}>User Menu</p>
+                  <p style={{color: 'white',fontSize:'20px'}}>User</p>
                 </DropdownToggle>
                 <DropdownMenu>
                   {isLoggedIn ? (
                     // 로그인한 사용자에게 보여줄 항목
                     <>
-                      <DropdownItem to="/profile" tag={Link} style={{color: 'black',fontSize:'20px'}}>
-                        Profile
-                      </DropdownItem>
                       <DropdownItem onClick={handleLogout} style={{color: 'black',fontSize:'20px'}}>
                         Logout
                       </DropdownItem>
@@ -138,10 +140,13 @@ function IndexNavbar() {
                       <DropdownItem to="/login" tag={Link} style={{color: 'black',fontSize:'20px'}}>
                         Login
                       </DropdownItem>
+                      <DropdownItem to="/register" tag={Link} style={{color: 'black',fontSize:'20px'}}>
+                        Register
+                      </DropdownItem>
                     </>
                   )}
                 </DropdownMenu>
-            </UncontrolledDropdown>
+            </UncontrolledDropdown> */}
          
             </Nav>
           </Collapse>

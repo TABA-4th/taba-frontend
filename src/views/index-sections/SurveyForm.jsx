@@ -81,6 +81,17 @@ function SurveyForm() {
     setShowModal(false);
   };
 
+  const btnStyle = {
+    background:"#90d8de",
+    border:"1px solid #fff",
+    width:"100%",
+    height:"50px",
+    color: "#fff",
+    fontWeight:600,
+    fontSize:"14px",
+    textAlign: "center"
+  }
+
   return (
     <div style={{display:'flex'}}>
       <Form onSubmit={handleSubmit(onSubmit)}>
@@ -117,7 +128,7 @@ function SurveyForm() {
         </Modal>
       
       
-      <h1>검사전 설문</h1>
+      <h1 className='title'>✔ 설문 조사</h1>
       <p style={{justifyContent: 'center', width: '100%'}}>보다 정확한 진단을 위해 필요하니 응답해주시면 감사하겠습니다.<br></br>
       <span style={{color:'red'}}>별 표시( * )가 있는 항목은 필수응답 항목입니다.</span></p>
       <br></br>
@@ -279,7 +290,13 @@ function SurveyForm() {
       </div>
       <br></br>
 
-      <Button color="info" type="submit" size="lg" style={{width: '100%'}}>제출</Button>
+      <Button 
+        type="submit" 
+        block
+        className="btn-icon btn-round" 
+        style={btnStyle}>
+        SUBMIT
+      </Button>
       </Form>
 
     </div>

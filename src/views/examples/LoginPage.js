@@ -73,34 +73,38 @@ function LoginPage() {
     };
   }, []);
 
+  const btnStyle = {
+    background:"#fff",
+    border:"1px solid #fff",
+    width:"310px",
+    height:"40px",
+    color: "#90d8de",
+    fontWeight:600,
+    fontSize:"14px",
+    
+  }
+
+  const divisionLine = {
+    borderTop: "1px solid #fff",
+    margin: "30px 0px", 
+  }
+
   
 
   return (
     <>
       <IndexNavbar />
-      <div className="page-header clear-filter" filter-color="blue">
-        <div
-          className="page-header-image"
-          style={{
-            backgroundImage: "url(" + require("assets/img/login.jpg") + ")"
-          }}
-        ></div>
+      <div style={{width:"100%", height:"75px", backgroundColor:"#90d8de"}} />
+      <div className="content" style={{background:"linear-gradient(#90d8de 75%, white)"}}>
         <div className="content">
           <Container>
-            <Col className="ml-auto mr-auto" md="4">
+            <Col className="ml-auto mr-auto text-center" md="4">
               <Card className="card-login card-plain">
-              <form className="form" onSubmit={handleSubmit(onSubmit)}>
-                  <CardHeader className="text-center">
-                    <div className="logo-container">
-                      <img
-                        alt="..."
-                        src={require("assets/img/now-logo.png")}
-                      ></img>
-                    </div>
-                  </CardHeader>
-                  <CardBody>
-
-                  <Controller
+                <form className="form" onSubmit={handleSubmit(onSubmit)}>
+                <br /><br /><br /><br />
+                <h5 className="title" style={{color:"white", textAlign:"center"}}> LOG IN </h5>
+                <CardBody>
+                <Controller
                   name="nickname"
                   control={control}
                   defaultValue=""
@@ -109,9 +113,10 @@ function LoginPage() {
                       {...field}
                       type="text"
                       placeholder="nickname"
+                      style={{height:"40px", fontSize:"20px", fontWeight:"500", textAlign:"center"}}
                     />
                   )}
-                />
+                /><br />
 
                 <Controller
                   name="password"
@@ -122,6 +127,7 @@ function LoginPage() {
                       {...field}
                       type="password"
                       placeholder="password"
+                      style={{height:"40px", fontSize:"20px", fontWeight:"500", textAlign:"center"}}
                     />
                   )}
                 />
@@ -130,25 +136,29 @@ function LoginPage() {
                   <CardFooter className="text-center">
                   <Button
                     block
-                    className="btn-round"
-                    color="info"
-                    size="lg"
+                    className="btn-icon btn-round" 
+                    style={btnStyle}
                     type="submit"
                   >
-                    지금 시작하기
+                    LOGIN
                   </Button>
-
-                    <div className="pull-left">
-                      <h6>
-                        <a
-                          className="link"
-                          href="/register"
-                        >
-                          Create Account
-                        </a>
-                      </h6>
-                    </div>
+                  <div style={divisionLine} />
                   </CardFooter>
+                  <div>
+                    <a
+                      style={{fontSize:"18px", fontWeight:"700"}}
+                      className="link"
+                      href="/register"
+                    >
+                      CREATE AN ACCOUNT
+                    </a>
+                    <br /><br />
+                    <div style={{color:"#fff"}}>
+                      Register to receive a personalized scalp analysis and 
+                      faster recommendations for shampoo and scalp care devices.
+                    </div>
+                  </div>
+                  <br /><br /><br /><br /><br />
                 </form>
               </Card>
             </Col>

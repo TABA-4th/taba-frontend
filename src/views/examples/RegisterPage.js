@@ -84,31 +84,35 @@ function RegisterPage() {
       }
   };
 
+  const btnStyle = {
+    background:"#fff",
+    border:"1px solid #fff",
+    width:"310px",
+    height:"40px",
+    color: "#90d8de",
+    fontWeight:700,
+    fontSize:"15px",
+    paddingTop: "10px"
+  }
+
+  const divisionLine = {
+    borderTop: "1px solid #fff",
+    margin: "30px 0px", 
+  }
+
   
 
   return (
     <>
       <IndexNavbar />
-      <div className="page-header clear-filter" filter-color="blue">
-        <div
-          className="page-header-image"
-          style={{
-            backgroundImage: "url(" + require("assets/img/login.jpg") + ")"
-          }}
-        ></div>
-        <div className="content">
+      <div style={{width:"100%", height:"75px", backgroundColor:"#90d8de"}} />
+        <div className="content" style={{background:"linear-gradient(#90d8de 55%, #9ddee3 78%, white)"}}>
           <Container>
-            <Col className="ml-auto mr-auto" md="4">
+            <Col className="ml-auto mr-auto text-center" md="10">
               <Card className="card-login card-plain">
                 <form action="" className="form" method="" onSubmit={handleSubmit(onSubmit)}>
-                    <CardHeader className="text-center">
-                      <div className="logo-container">
-                        <img
-                          alt="..."
-                          src={require("assets/img/now-logo.png")}
-                        ></img>
-                      </div>
-                    </CardHeader>
+                    <br /><br />
+                    <h5 className="title" style={{color:"white", textAlign:"center"}}> CREATE AN ACCOUNT </h5>
                     <CardBody>
                     <Controller
                       name="name"
@@ -119,9 +123,10 @@ function RegisterPage() {
                           {...field}
                           type="text"
                           placeholder="name"
+                          style={{height:"40px", fontSize:"20px", fontWeight:"500", textAlign:"center"}}
                         />
                       )}
-                    />
+                    /><br />
                       <Controller
                       name="nickname"
                       control={control}
@@ -131,9 +136,10 @@ function RegisterPage() {
                           {...field}
                           type="text"
                           placeholder="nickname"
+                          style={{height:"40px", fontSize:"20px", fontWeight:"500", textAlign:"center"}}
                         />
                       )}
-                    />
+                    /><br />
 
                     <Controller
                       name="phone"
@@ -144,30 +150,48 @@ function RegisterPage() {
                           {...field}
                           type="phone"
                           placeholder="phone"
+                          style={{height:"40px", fontSize:"20px", fontWeight:"500", textAlign:"center"}}
                         />
                       )}
-                    />
-                      {!smsSent && <Button  onClick={requestSmsToken}>SMS 인증 요청</Button>}
+                    /><br />
+                      {!smsSent && 
+                        <Button 
+                          block
+                          className="btn-icon btn-round" 
+                          href="#pablo"
+                          style={btnStyle}
+                          onClick={requestSmsToken}>
+                          Request for SMS Verification
+                        </Button>}
                       {smsSent && (
                         <>
                             <Input
                                 type="text"
                                 value={smsToken}
                                 onChange={(e) => setSmsToken(e.target.value)}
-                                placeholder="SMS 인증번호 입력"
+                                style={{height:"40px", fontSize:"20px", fontWeight:"500", textAlign:"center"}}
+                                placeholder="Enter the verification code."
                             />
-                            <Button onClick={verifySmsToken}>SMS 인증 확인</Button>
+                            <Button 
+                              block
+                              className="btn-icon btn-round" 
+                              
+                              style={btnStyle}
+                              onClick={verifySmsToken}>SMS 인증 확인</Button>
                         </>
                   )}
-
+                  <br />
                   <Controller
                     name="password"
                     control={control}
                     defaultValue=""
                     render={({ field }) => (
-                      <Input {...field} type="password" placeholder="Password" />
+                      <Input {...field} 
+                        type="password" 
+                        placeholder="Password" 
+                        style={{height:"40px", fontSize:"20px", fontWeight:"500", textAlign:"center"}}/>
                     )}
-                  />
+                  /><br />
                   {/* 비밀번호 확인 필드 */}
                   <Controller
                     name="passwordConfirm"
@@ -178,7 +202,10 @@ function RegisterPage() {
                         value === password || "The passwords do not match"
                     }}
                     render={({ field }) => (
-                      <Input {...field} type="password" placeholder="Confirm Password" />
+                      <Input {...field} 
+                        type="password" 
+                        placeholder="Confirm Password"
+                        style={{height:"40px", fontSize:"20px", fontWeight:"500", textAlign:"center"}} />
                     )}
                   />
                   {errors.passwordConfirm && <p>{errors.passwordConfirm.message}</p>}
@@ -187,32 +214,39 @@ function RegisterPage() {
                   </CardBody>
                   <CardFooter className="text-center">
                   <Button
+                    style={btnStyle}
                     block
                     className="btn-round"
                     color="info"
                     size="lg"
                     type="submit"
                   >
-                    지금 시작하기
+                    REGISTER
                   </Button>
-                    <div className="pull-left">
-                      <h6>
-                        <a
-                          className="link"
-                          href="/login"
-                        >
-                          Go to Login
-                        </a>
-                      </h6>
+                  <div style={divisionLine} />
+                  <div>
+                    <a
+                      style={{fontSize:"18px", fontWeight:"700"}}
+                      className="link"
+                      href="/login"
+                    >
+                      GO TO LOGIN
+                    </a>
+                    <br /><br />
+                    <div style={{color:"#fff"}}>
+                      Secure your account with a simple click.<br /> 
+                      Login hassle-free!
                     </div>
+                  </div>
                   </CardFooter>
                 </form>
               </Card>
             </Col>
+            
           </Container>
+          <br /><br /><br /><br />
         </div>
         <TransparentFooter />
-      </div>
     </>
   );
 }

@@ -24,12 +24,11 @@ function ProductHeader() {
     <>
       <div
         className="page-header clear-filter page-header-small"
-        filter-color="blue"
       >
         <div
           className="page-header-image"
           style={{
-            backgroundImage: "url(" + require("assets/img/bg5.jpg") + ")"  // 헤더 부분 배경 이미지
+            backgroundImage: "url(" + require("assets/img/shampoo.jpg") + ")"  // 헤더 부분 배경 이미지
           }}
           ref={pageHeader}
         ></div>
@@ -37,6 +36,7 @@ function ProductHeader() {
           {/* <div className="photo-container">
             <img alt="..." src={require("assets/img/ryan.jpg")}></img>
           </div> */}
+          <br /><br />
           <h1 className="title">당신의 두피특성에 딱 맞는 샴푸 추천!</h1>
           <h6>표시되는 가격은 프로모션 및 쇼핑몰 사정 상 실제가격과 일부 차이가 있을 수 있음을 알려드립니다.</h6>
           {/*<p className="category">Photographer</p>*/} 

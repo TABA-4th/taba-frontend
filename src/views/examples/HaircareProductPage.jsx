@@ -1,7 +1,7 @@
 // Import necessary components
 import React, { useState, useEffect } from "react";
 import axios from 'axios';
-import { Row, Col, Button, ButtonGroup } from 'reactstrap';
+import { Row, Col, Button, ButtonGroup, Container } from 'reactstrap';
 //import DarkNavbar from 'components/Navbars/DarkNavbar';
 import HaircareProductCard from "views/index-sections/HaircareProductCard";
 import ProductHeader from "components/Headers/ProductHeader";
@@ -98,6 +98,20 @@ function HaircareProductPage() {
 
   }, []);
 
+  const searchBtn = {
+    background:"#90d8de",
+    border:"1px solid #fff",
+    width:"170px",
+    height:"51px",
+    fontWeight: "#fff",
+    fontWeight:700,
+    fontSize:"17px",
+    paddingTop: "15px",
+    borderRadius: "13px",
+  }
+
+  
+
   return (
     <>
       <IndexNavbar />
@@ -113,15 +127,23 @@ function HaircareProductPage() {
               key={button}
               color={buttonStates[button].isActive ? 'primary' : 'secondary'}
               onClick={() => handleButtonClick(button)}
-              style={{margin: '10px'}}
+              style={{
+                margin: '10px', 
+                borderRadius: '13px', 
+                fontWeight: 700,
+                fontSize: '15px',
+              }}
             >
               {buttonStates[button].text}
             </Button>
           ))}
         </ButtonGroup>
 
-        <Button color="info" onClick={handleSearchClick} size="lg">
-          검색하기
+        <Button 
+          style={searchBtn}
+          onClick={handleSearchClick} 
+          size="lg">
+          검색
         </Button>
         <hr style={{ width: '70%', margin: '20px auto', border: '1px solid #ddd' }} />
       </div>

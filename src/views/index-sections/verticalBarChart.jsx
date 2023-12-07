@@ -20,7 +20,7 @@ const COLORS_DIC = {
   erythema_pustules: '#ff429a',
 };
 
-const UserJoinChart = (props) => {
+const VBarChart = (props) => {
   console.log("이 아래는 UserJoinChart");
   console.log(props.graphData);
   if (!props.graphData || Object.keys(props.graphData).length === 0) {
@@ -33,7 +33,7 @@ const UserJoinChart = (props) => {
 
   const data = [
     {
-      name: "건성",
+      name: "미세각질",
       value: props.graphData.dry
     },
     {
@@ -82,7 +82,7 @@ const CustomTooltip = ({ active, payload }) => {
     // Customize the tooltip content based on your logic
     switch (dataKey) {
       case 'value':
-        tooltipContent = `비듬: ${getSeverity(value)}`;
+        tooltipContent = `${dataKey.name}: ${getSeverity(value)}`;
         break;
       // Add more cases for other data keys if needed
 
@@ -102,11 +102,11 @@ const CustomTooltip = ({ active, payload }) => {
 
 const getColor = (value) => {
   // Define your color logic based on the value
-  if (value <= 1) {
+  if (value <=1) {
     return '#66B2FF'; // sky
-  } else if (value == 2) {
+  } else if (value <= 2) {
     return '#33FF99'; // Green
-  } else if (value == 3) {
+  } else if (value <= 3) {
     return '#FF6666'; // warning
   } else {
     return '#FF6666'; // red
@@ -117,11 +117,11 @@ const getSeverity = (value) => {
   // Define your logic to determine the severity based on the value
   if (value == 0) {
     return '양호';
-  } else if (value == 1) {
+  } else if (value <= 1) {
     return '경증';
-  } else if (value == 2) {
+  } else if (value <= 2) {
     return '중증';
-  } else if (value == 3) {
+  } else if (value <= 3) {
     return '심각';
   } else {
     return 'N/A';
@@ -132,4 +132,4 @@ const ChartWrapper = styled.div`
   height: 260px;
 `;
 
-export default UserJoinChart;
+export default VBarChart;

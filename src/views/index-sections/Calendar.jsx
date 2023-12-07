@@ -3,19 +3,22 @@ import FullCalendar from '@fullcalendar/react';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import axios from 'axios';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter, Form, FormGroup, Label, Input, InputGroup } from 'reactstrap';
+import Cookies from 'js-cookie';
 
 const Calendar = () => {
   const nickname = sessionStorage.getItem("nickname");
-  const [diagnoseData, setDiagnoseData] = useState([]);
+  const [diagnoseData, setDiagnoseData] = useState([]);       // 진단데이터 ( 받아오는 데이터임 )
   const [currentDate, setCurrentDate] = useState(new Date()); // 현재 보여지는 달을 저장하는 state
   const [defaultView, setDefaultView] = useState('dayGridMonth');
+  const accessToken = Cookies.get('access-token');
+  const refreshToken = Cookies.get('refresh-token');
 
   //검사결과 모달 관련
-  const [modalOpen, setModalOpen] = useState(false);
-  const toggleModal = () => setModalOpen(!modalOpen);
+  const [diagnosisModalOpen, setdiagnosisModalOpen] = useState(false);
+  const toggleModal = () => setdiagnosisModalOpen(!diagnosisModalOpen);
   const [selectedDiagnoseResult, setSelectedDiagnoseResult] = useState(null);
+
   const handleButtonClick = (diagnosisData) => {
-    //history.push(`/new-page/${diagnosisDate}`);
     sessionStorage.setItem('imgUrl', diagnosisData.imageUrl);
     sessionStorage.setItem('dry', diagnosisData.findDeadSkinCells);
     sessionStorage.setItem('greasy', diagnosisData.excessSebum);
@@ -53,18 +56,23 @@ const Calendar = () => {
   const [dyeChecked, setDyeChecked] = useState(false);
   const toggleAddEventModal = () => setAddEventModalOpen(!addEventModalOpen);
   const handleAddEvent = async () => {
+    let formData = new FormData();
+    formData.append('DATE', selectedDate);
+    formData.append('PERM_FLAG', permChecked);
+    formData.append('DYE_FLAG', dyeChecked);
     try {
-      // You need to replace 'your-backend-endpoint' with the actual endpoint URL
-      alert(`dye: ${dyeChecked}, perm: ${permChecked}`)
-      await axios.post("your-backend-endpoint", {
-        nickname,
-        date: selectedDate,
-        perm: permChecked,
-        dye: dyeChecked,
-      });
-      
+      console.log(selectedDate);
+      console.log(typeof(selectedDate));
+      const headers = {
+        headers: {
+          Authorization: `Bearer ${accessToken}`,
+        },
+      };
+      await axios.post(`http://13.113.206.129:8081/hairstatus`, formData, headers);
       toggleAddEventModal();
+      window.location.reload();
     } catch (error) {
+      alert("Error adding Event");
       console.error("Error adding event:", error);
       // Handle error if needed
     }
@@ -84,10 +92,9 @@ const Calendar = () => {
         setDiagnoseData(response.data);
       } catch (error) {
         console.error("Error fetching diagnose data:", error);
-              alert(`데이터 불러오기 실패. ${nickname}, ${formatDate(currentDate)}`);
+        // alert(`데이터 불러오기 실패. ${nickname}, ${formatDate(currentDate)}`);
       }
     };
-  
     fetchDiagnoseData();
   }, [currentDate]); // currentDate가 변경될 때마다 fetchDiagnoseData 실행
   
@@ -112,17 +119,7 @@ const Calendar = () => {
     return `${year}-${month}-${day}`;
   };  // 날짜 데이터 문자열화
 
-  const formatDiagnosisResult = (data) => {
-    return `${nickname} 님의 검사결과\n `+
-      `ImageUrl : ${data.imageUrl}\n` + 
-      `DiagnosisDate: ${data.diagnosisDate}\n` +
-      `findDeadSkinCells: ${data.findDeadSkinCells}\n` +
-      `excessSebum: ${data.excessSebum}\n` +
-      `erythemaBetweenHairFollicles: ${data.erythemaBetweenHairFollicles}\n` +
-      `dandruff: ${data.dandruff}\n` +
-      `hairLoss: ${data.hairLoss}\n` +
-      `erythemaPustules: ${data.erythemaPustules}\n`;
-  };  // 데이터 문자열화
+
 
   const handleDateClick = (info) => {
     if (info.event) {
@@ -205,7 +202,7 @@ const Calendar = () => {
       </Modal>
 
       {/* 상세 검사결과 모달 */}
-      <Modal isOpen={modalOpen} toggle={toggleModal}>
+      <Modal isOpen={diagnosisModalOpen} toggle={toggleModal}>
         <ModalHeader toggle={toggleModal}>검사결과 상세</ModalHeader>
         <ModalBody>{offcanvasBody()}</ModalBody>
         <ModalFooter>
@@ -231,4 +228,18 @@ export default Calendar;
     display (선택적): 이벤트를 표시하는 방법을 나타내는 문자열.
     classNames (선택적): 이벤트에 적용할 CSS 클래스를 나타내는 문자열 또는 문자열 배열.
     
+*/
+
+/*
+  const formatDiagnosisResult = (data) => {
+    return `${nickname} 님의 검사결과\n `+
+      `ImageUrl : ${data.imageUrl}\n` + 
+      `DiagnosisDate: ${data.diagnosisDate}\n` +
+      `findDeadSkinCells: ${data.findDeadSkinCells}\n` +
+      `excessSebum: ${data.excessSebum}\n` +
+      `erythemaBetweenHairFollicles: ${data.erythemaBetweenHairFollicles}\n` +
+      `dandruff: ${data.dandruff}\n` +
+      `hairLoss: ${data.hairLoss}\n` +
+      `erythemaPustules: ${data.erythemaPustules}\n`;
+  };  // 데이터 문자열화
 */

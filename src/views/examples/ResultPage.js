@@ -1,10 +1,8 @@
 import React from 'react';
 import axios from 'axios';
-// import RenderResultGraph from 'views/index-sections/RenderGraph';
-// import RadarChartWithTooltips from 'views/index-sections/Graph_develop';
-import ResultGraph from 'views/index-sections/Chart_develop';
-import UserJoinChart from 'views/index-sections/Chart_develop_vertical';
-// import Example from 'views/index-sections/Chart_develop_vertical';
+
+import ResultGraph from 'views/index-sections/ResultChart';
+import VBarChart from 'views/index-sections/verticalBarChart';
 
 
 // reactstrap components
@@ -18,12 +16,7 @@ import {
 import IndexNavbar from "components/Navbars/IndexNavbar";
 import DefaultFooter from "components/Footers/DefaultFooter.js";  
 
-const dry = sessionStorage.getItem('dry');
-const greasy = sessionStorage.getItem('greasy');
-const erythemaBetweenHairFollicles = sessionStorage.getItem('erythema_between_hairFollicles');
-const dandruff = sessionStorage.getItem('dandruff');
-const loss = sessionStorage.getItem('loss');
-const erythemaPustules = sessionStorage.getItem('erythema_pustules');
+
 
 const divisionLine = {
   borderTop: "5px solid #F0F0F0",
@@ -42,6 +35,12 @@ function ClearSessionItem() {
 }
 
 function renderGraphData() {
+  const dry = sessionStorage.getItem('dry');
+  const greasy = sessionStorage.getItem('greasy');
+  const erythemaBetweenHairFollicles = sessionStorage.getItem('erythema_between_hairFollicles');
+  const dandruff = sessionStorage.getItem('dandruff');
+  const loss = sessionStorage.getItem('loss');
+  const erythemaPustules = sessionStorage.getItem('erythema_pustules');
   const Data = {
     "dry" : dry,
     "greasy" : greasy,
@@ -50,9 +49,28 @@ function renderGraphData() {
     "loss" : loss,
     "erythema_pustules" : erythemaPustules
   };
-  console.log('데이터!');
-  console.log(Data);
-  
+  // console.log('데이터!');
+  // console.log(Data);
+  return Data;
+}
+
+function renderAvgGraphData() {
+  const avgDry = sessionStorage.getItem('avgDry');
+  const avgGreasy = sessionStorage.getItem('avgGreasy');
+  const avgErythemaBetweenHairFollicles = sessionStorage.getItem('avgErythema_between_hairFollicles');
+  const avgDandruff = sessionStorage.getItem('avgDandruff');
+  const avgLoss = sessionStorage.getItem('avgLoss');
+  const avgErythemaPustules = sessionStorage.getItem('avgErythema_pustules');
+  const Data = {
+    "dry" : avgDry,
+    "greasy" : avgGreasy,
+    "erythema_between_hair_follicles" : avgErythemaBetweenHairFollicles,
+    "dandruff" : avgDandruff,
+    "loss" : avgLoss,
+    "erythema_pustules" : avgErythemaPustules
+  };
+  // console.log('데이터!');
+  // console.log(Data);
   return Data;
 }
 
@@ -145,13 +163,11 @@ function ResultPage () {
                       </div>
                       <div className="wrapper text-center" style={{margin:'0 auto'}}>
                         <div style={{justifyContent: 'center', display: 'flex'}}>
-                          <UserJoinChart graphData={renderGraphData()}/>
+                          <VBarChart graphData={renderGraphData()}/>
                         </div>
                         <div style={divisionLine}></div>
                         <div style={{justifyContent: 'center', display: 'flex'}}>
-                          {/* <RenderResultGraph graphRenderData={renderGraphData()}/> */}
-                          {/* <RadarChartWithTooltips graphData={renderGraphData()}/> */}
-                          <ResultGraph graphData={renderGraphData()}/>
+                          <ResultGraph graphData={renderGraphData()} avgGraphData={renderAvgGraphData()}/>
                         </div>
 
                       </div>

@@ -4,21 +4,24 @@ import DarkNavbar from 'components/Navbars/DarkNavbar';
 import ProfilePageHeader from "components/Headers/ProfilePageHeader.js";
 import IndexNavbar from 'components/Navbars/IndexNavbar';
 import DefaultFooter from "components/Footers/DefaultFooter.js";
+import { Container, Col } from 'reactstrap';
 
 
 const SurveyPage = () => {
   return (
     <>
     <IndexNavbar />
-    <div style={{width:"100%", height:"75px", backgroundColor:"#40CBEA"}} />
+    <div style={{width:"100%", height:"75px", backgroundColor:'#9ce8ee'}} />
     {/*<ProfilePageHeader />*/}
-    <br></br>
-    <div className="wrapper" style={{width: '70%', margin: '0 auto', justifyContent: 'center'}}>
-        <br></br>
-        <div className="section" style={{margin: '0 auto'}}>
-          <SurveyForm />
-        </div>
-
+    <div className="content">
+      <Container style={{paddingLeft: "15%", paddingRight: "15%"}}>
+        <Col className="ml-auto mr-auto text-center" md="10">
+          <br></br>
+          <div className="section">
+            <SurveyForm />
+          </div>
+        </Col>
+      </Container>
     </div>
     <DefaultFooter />
     </>

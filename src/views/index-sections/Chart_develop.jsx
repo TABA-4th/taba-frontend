@@ -57,10 +57,16 @@ function ResultGraph(props) {
         suggestedMin: -1,
         suggestedMax: 4,
         reverse: true,
+        pointLabels: {
+          font: {
+            size: 20, // Adjust the font size as needed
+          },
+        },
       },
     },
     animation: true,
   };
+  
   const chartStyle = {
     width: '500px', // Set the width of the chart
     height: '500px', // Set the height of the chart

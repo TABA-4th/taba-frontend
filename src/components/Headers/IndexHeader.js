@@ -2,7 +2,7 @@
 import React from "react";
 
 // reactstrap components
-import { Container } from "reactstrap";
+import { Container,Button } from "reactstrap";
 // core components
 
 function IndexHeader() {
@@ -27,24 +27,17 @@ function IndexHeader() {
       <div className="page-header clear-filter" filter-color="blue">
         <div
           className="page-header-image"
-          style={{
-            backgroundImage: "url(" + require("assets/img/header.jpg") + ")" // 헤더 부분 배경 이미지
-          }}
           ref={pageHeader}
         ></div>
         <Container>
           <div className="content-center brand">
-            <img
-              alt="..."
-              className="n-logo"
-              src={require("assets/img/now-logo.png")}
-            ></img>
-            <h1 className="h1-seo">니모내모</h1>
-            <h3>니모내모에 오신것을 환영합니다</h3>
+            <h1 className="h1-seo">n i m o n e m o</h1>
           </div>
-          <h6 className="category category-absolute">
-            기능 소개는 아래에 있습니다.
-          </h6>
+          <a href='/survey'>
+          <h1 className="category category-absolute" style={{color:'white'}}>
+            바로 시작하기!
+          </h1></a>
+
         </Container>
       </div>
     </>

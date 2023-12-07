@@ -3,6 +3,9 @@ import axios from 'axios';
 // import RenderResultGraph from 'views/index-sections/RenderGraph';
 // import RadarChartWithTooltips from 'views/index-sections/Graph_develop';
 import ResultGraph from 'views/index-sections/Chart_develop';
+import UserJoinChart from 'views/index-sections/Chart_develop_vertical';
+// import Example from 'views/index-sections/Chart_develop_vertical';
+
 
 // reactstrap components
 import {
@@ -21,6 +24,12 @@ const erythemaBetweenHairFollicles = sessionStorage.getItem('erythema_between_ha
 const dandruff = sessionStorage.getItem('dandruff');
 const loss = sessionStorage.getItem('loss');
 const erythemaPustules = sessionStorage.getItem('erythema_pustules');
+
+const divisionLine = {
+  borderTop: "5px solid #F0F0F0",
+  margin: "30px 0px", 
+}
+
 
 function ClearSessionItem() {
   sessionStorage.removeItem("erythema_between_hairFollicles");
@@ -88,7 +97,7 @@ function ResultPage () {
     boxShadow: "0 5px 100px 3px #E8E8E8",
     borderRadius: "30px",
     width: "900px",
-    height: "1200px",
+    height: "1400px",
     paddingLeft: "30px",
     paddingRight: "30px",
     paddingBottom: "30px",
@@ -110,7 +119,7 @@ function ResultPage () {
   return (
     <>
       <IndexNavbar />
-      <div style={{width:"100%", height:"75px", backgroundColor:"#2ca8ff"}} /> {/*NavBar 스타일링*/}
+      <div style={{width:"100%", height:"75px", backgroundColor:'#9ce8ee'}} /> {/*NavBar 스타일링*/}
       <div className="wrapper">
         <div className="section">
             <Container className="mx-auto" >
@@ -123,7 +132,7 @@ function ResultPage () {
                       <h3 className='title'>{formattedDate} </h3>
                       <img src={url} width={"300px"} style={{ borderRadius: '30px', boxShadow: "0 2px 10px 3px #E1E1E1" }}></img>
                       <br />
-                      <h3 className='title'>{nickname}님의 결과입니다.</h3>
+                      <h3 className='title'>{nickname}님의 두피진단 결과입니다.</h3>
                       <div>
                         {/* <h5>
                           미세 각질: {dry} <br />
@@ -136,10 +145,15 @@ function ResultPage () {
                       </div>
                       <div className="wrapper text-center" style={{margin:'0 auto'}}>
                         <div style={{justifyContent: 'center', display: 'flex'}}>
+                          <UserJoinChart graphData={renderGraphData()}/>
+                        </div>
+                        <div style={divisionLine}></div>
+                        <div style={{justifyContent: 'center', display: 'flex'}}>
                           {/* <RenderResultGraph graphRenderData={renderGraphData()}/> */}
                           {/* <RadarChartWithTooltips graphData={renderGraphData()}/> */}
                           <ResultGraph graphData={renderGraphData()}/>
                         </div>
+
                       </div>
                     </div>
                   </div>

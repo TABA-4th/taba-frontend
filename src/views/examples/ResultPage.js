@@ -1,5 +1,11 @@
 import React from 'react';
 import axios from 'axios';
+// import RenderResultGraph from 'views/index-sections/RenderGraph';
+// import RadarChartWithTooltips from 'views/index-sections/Graph_develop';
+import ResultGraph from 'views/index-sections/Chart_develop';
+import UserJoinChart from 'views/index-sections/Chart_develop_vertical';
+// import Example from 'views/index-sections/Chart_develop_vertical';
+
 
 // reactstrap components
 import {
@@ -12,8 +18,45 @@ import {
 import IndexNavbar from "components/Navbars/IndexNavbar";
 import DefaultFooter from "components/Footers/DefaultFooter.js";  
 
-function ResultPage () {
+const dry = sessionStorage.getItem('dry');
+const greasy = sessionStorage.getItem('greasy');
+const erythemaBetweenHairFollicles = sessionStorage.getItem('erythema_between_hairFollicles');
+const dandruff = sessionStorage.getItem('dandruff');
+const loss = sessionStorage.getItem('loss');
+const erythemaPustules = sessionStorage.getItem('erythema_pustules');
 
+const divisionLine = {
+  borderTop: "5px solid #F0F0F0",
+  margin: "30px 0px", 
+}
+
+
+function ClearSessionItem() {
+  sessionStorage.removeItem("erythema_between_hairFollicles");
+  sessionStorage.removeItem("greasy");
+  sessionStorage.removeItem("dry");
+  sessionStorage.removeItem("dandruff");
+  sessionStorage.removeItem("loss");
+  sessionStorage.removeItem("erythema_pustules");
+  sessionStorage.removeItem("imgUrl");
+}
+
+function renderGraphData() {
+  const Data = {
+    "dry" : dry,
+    "greasy" : greasy,
+    "erythema_between_hair_follicles" : erythemaBetweenHairFollicles,
+    "dandruff" : dandruff,
+    "loss" : loss,
+    "erythema_pustules" : erythemaPustules
+  };
+  console.log('데이터!');
+  console.log(Data);
+  
+  return Data;
+}
+
+function ResultPage () {
   React.useEffect(() => {
     document.body.classList.add("landing-page");
     document.body.classList.add("sidebar-collapse");
@@ -41,12 +84,9 @@ function ResultPage () {
     4: loss (탈모)
     5: erythema pustules (모낭 홍반 농포)
   */
-  const dry = sessionStorage.getItem('dry');
-  const greasy = sessionStorage.getItem('greasy');
-  const erythemaBetweenHairFollicles = sessionStorage.getItem('erythema_between_hairFollicles');
-  const dandruff = sessionStorage.getItem('dandruff');
-  const loss = sessionStorage.getItem('loss');
-  const erythemaPustules = sessionStorage.getItem('erythema_pustules');
+
+
+
 
   // 현재 날짜 출력하기
   const today = new Date();
@@ -57,7 +97,7 @@ function ResultPage () {
     boxShadow: "0 5px 100px 3px #E8E8E8",
     borderRadius: "30px",
     width: "900px",
-    height: "900px",
+    height: "1400px",
     paddingLeft: "30px",
     paddingRight: "30px",
     paddingBottom: "30px",
@@ -92,18 +132,28 @@ function ResultPage () {
                       <h3 className='title'>{formattedDate} </h3>
                       <img src={url} width={"300px"} style={{ borderRadius: '30px', boxShadow: "0 2px 10px 3px #E1E1E1" }}></img>
                       <br />
-                      <h3 className='title'>{nickname}님의 결과입니다.</h3>
+                      <h3 className='title'>{nickname}님의 두피진단 결과입니다.</h3>
                       <div>
-                        <h5>
+                        {/* <h5>
                           미세 각질: {dry} <br />
                           피지 과다: {greasy} <br />
                           모낭 사이 홍반: {erythemaBetweenHairFollicles} <br />
                           비듬: {dandruff}<br />
                           탈모: {loss} <br />
                           모낭 홍반 농포: {erythemaPustules} <br />
+                        </h5> */}
+                      </div>
+                      <div className="wrapper text-center" style={{margin:'0 auto'}}>
+                        <div style={{justifyContent: 'center', display: 'flex'}}>
+                          <UserJoinChart graphData={renderGraphData()}/>
+                        </div>
+                        <div style={divisionLine}></div>
+                        <div style={{justifyContent: 'center', display: 'flex'}}>
+                          {/* <RenderResultGraph graphRenderData={renderGraphData()}/> */}
+                          {/* <RadarChartWithTooltips graphData={renderGraphData()}/> */}
+                          <ResultGraph graphData={renderGraphData()}/>
+                        </div>
 
-                        </h5>
-                        
                       </div>
                     </div>
                   </div>
@@ -115,6 +165,7 @@ function ResultPage () {
       </div>
       <br /><br /><br />
       <DefaultFooter />
+      {/* {ClearSessionItem()} */}
     </>
   );
 }

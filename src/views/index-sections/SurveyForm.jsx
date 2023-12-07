@@ -49,6 +49,7 @@ function SurveyForm() {
     axios.post('http://3.34.182.50:5000/survey', formData)
       .then(function(response) {
         console.log('설문조사 업로드 성공');
+        window.location.href = '/file-upload';
       })
       .catch(function(error) {
         console.log('설문조사 업로드 실패', error);
@@ -63,7 +64,6 @@ function SurveyForm() {
      */
   };  // '제출' 버튼을 클릭했을때 발생하는 것들.
 
-  const handleModalClose = () => setShowModal(false);
 
   useEffect(() => {
     if (watch('questRecommend') == 0) {

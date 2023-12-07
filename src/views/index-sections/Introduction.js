@@ -44,7 +44,7 @@ function Introduction() {
               <p className="category" style={{color:'white',fontSize:'20px'}}>나이 연령대를 먼저 입력해 주세요</p>
               <Card>
                 <CardHeader>
-                <img src="https://i.postimg.cc/kXy9fkLc/mg8.png" alt="Mountains" style={{ width: "100%", height: "auto" }}/>
+                <img src="https://i.postimg.cc/HsPq1vG7/image-23.png" alt="Mountains" style={{ width: "100%", height: "auto" }}/>
                 </CardHeader>
                 <CardBody>
                     <TabPane >
@@ -59,7 +59,7 @@ function Introduction() {
               <p className="category" style={{color:'white',fontSize:'20px'}}>두피 사진을 업로드 해 주세요!</p>
               <Card>
                 <CardHeader>
-                <img src="https://i.postimg.cc/4dtRtMzp/mg7.jpg" alt="Mountains" style={{ width: "100%", height: "auto" }}/>
+                <img src="https://i.postimg.cc/T3LZdjGN/image-24.png" alt="Mountains" style={{ width: "100%", height: "auto" }}/>
                 </CardHeader>
                 <CardBody>
                   
@@ -78,7 +78,7 @@ function Introduction() {
               <p className="category" style={{color:'white',fontSize:'20px'}}>나에게 맞는 제품들을 추천해드립니다</p>
               <Card>
                 <CardHeader>
-                <img src="https://i.postimg.cc/4dtRtMzp/mg7.jpg" alt="Mountains" style={{ width: "100%", height: "auto" }}/>
+                <img src="https://i.postimg.cc/Wb4BKLyv/image-25.png" alt="Mountains" style={{ width: "100%", height: "auto" }}/>
                 </CardHeader>
                 <CardBody>
                   
@@ -98,7 +98,7 @@ function Introduction() {
             <p className="category" style={{color:'white',fontSize:'20px'}}>나이 연령대를 먼저 입력해 주세요</p>
               <Card>
                 <CardHeader>
-                <img src="https://i.postimg.cc/kXy9fkLc/mg8.png" alt="Mountains" width="600" height="400"/>
+                <img src="https://i.postimg.cc/HsPq1vG7/image-23.png" alt="Mountains" width="600" height="400"/>
                 </CardHeader>
                 <CardBody>
                     <TabPane >
@@ -113,7 +113,7 @@ function Introduction() {
             <p className="category" style={{color:'white',fontSize:'20px'}}>두피 사진을 업로드 해 주세요!</p>
               <Card>
                 <CardHeader>
-                <img src="https://i.postimg.cc/4dtRtMzp/mg7.jpg" alt="Mountains" width="600" height="400"/>
+                <img src="https://i.postimg.cc/T3LZdjGN/image-24.png" alt="Mountains" width="600" height="400"/>
                 </CardHeader>
                 <CardBody>
                     <TabPane>
@@ -129,7 +129,7 @@ function Introduction() {
             <p className="category" style={{color:'white',fontSize:'20px'}}>나에게 맞는 제품들을 추천해드립니다</p>
               <Card>
                 <CardHeader>
-                <img src="https://i.postimg.cc/4dtRtMzp/mg7.jpg" alt="Mountains" width="600" height="400"/>
+                <img src="https://i.postimg.cc/Wb4BKLyv/image-25.png" alt="Mountains" width="600" height="400"/>
                 </CardHeader>
                 <CardBody>
                     <TabPane>

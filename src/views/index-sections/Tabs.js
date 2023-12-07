@@ -25,7 +25,7 @@ function Tabs() {
     <>
       <div className="section section-tabs">
         <Container>
-        <h2 className="title">Nimonaemo Magazine</h2>
+        <h2 className="title">Nimonemo Magazine</h2>
         <br/><br/><br/>
           <Row>
             <Col className="ml-auto mr-auto" md="10" xl="6">

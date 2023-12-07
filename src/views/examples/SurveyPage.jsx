@@ -13,7 +13,7 @@ const SurveyPage = () => {
     <div style={{width:"100%", height:"75px", backgroundColor:"#40CBEA"}} />
     {/*<ProfilePageHeader />*/}
     <br></br>
-    <div className="wrapper" style={{width: '70%', margin: 'auto'}}>
+    <div className="wrapper" style={{width: '70%', margin: '0 auto', justifyContent: 'center'}}>
         <br></br>
         <div className="section" style={{margin: '0 auto'}}>
           <SurveyForm />

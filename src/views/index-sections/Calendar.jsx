@@ -16,8 +16,15 @@ const Calendar = () => {
   const [selectedDiagnoseResult, setSelectedDiagnoseResult] = useState(null);
   const handleButtonClick = (diagnosisData) => {
     //history.push(`/new-page/${diagnosisDate}`);
-    //위 부분은 검사결과 페이지에 데이터를 보내기 위한 매커니즘임.
-    alert(formatDiagnosisResult(diagnosisData));
+    sessionStorage.setItem('imgUrl', diagnosisData.imageUrl);
+    sessionStorage.setItem('dry', diagnosisData.findDeadSkinCells);
+    sessionStorage.setItem('greasy', diagnosisData.excessSebum);
+    sessionStorage.setItem('erythema_between_hairFollicles', diagnosisData.erythemaBetweenHairFollicles);
+    sessionStorage.setItem('dandruff', diagnosisData.dandruff);
+    sessionStorage.setItem('loss', diagnosisData.hairLoss);
+    sessionStorage.setItem('erythema_pustules', diagnosisData.erythemaPustules);
+    // alert(formatDiagnosisResult(diagnosisData));
+    window.location.href = '/result';
   };
 
   const offcanvasBody = () => {
@@ -61,7 +68,7 @@ const Calendar = () => {
       console.error("Error adding event:", error);
       // Handle error if needed
     }
-  };
+  };  // 파마&염색여부 추가기능.
 
   useEffect(() => {
     const fetchDiagnoseData = async () => {
@@ -107,6 +114,7 @@ const Calendar = () => {
 
   const formatDiagnosisResult = (data) => {
     return `${nickname} 님의 검사결과\n `+
+      `ImageUrl : ${data.imageUrl}\n` + 
       `DiagnosisDate: ${data.diagnosisDate}\n` +
       `findDeadSkinCells: ${data.findDeadSkinCells}\n` +
       `excessSebum: ${data.excessSebum}\n` +
@@ -143,7 +151,6 @@ const Calendar = () => {
 
   return (
     <div>
-
       <Button onClick={toggleAddEventModal}>Add Event</Button>
 
       <FullCalendar

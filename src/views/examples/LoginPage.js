@@ -4,6 +4,7 @@ import { useForm,Controller } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { AuthContext } from "components/Functions/AuthContext";
+import Cookies from 'js-cookie';
 
 // reactstrap components
 import {
@@ -47,6 +48,9 @@ function LoginPage() {
       const { accessToken, refreshToken } = response.data;
       sessionStorage.setItem("accessToken", accessToken);
       sessionStorage.setItem("refreshToken", refreshToken);
+      Cookies.set('access-token', accessToken);
+      Cookies.set('refresh-token', refreshToken);
+      
 
       sessionStorage.setItem("nickname", formData.nickname);
 

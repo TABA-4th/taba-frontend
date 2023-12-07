@@ -36,7 +36,7 @@ function SurveyForm() {
   // 폼을 작성하기 위한 메서드 집합들.
   
   const onSubmit = async (data) => {
-    alert(JSON.stringify(data));
+    // alert(JSON.stringify(data));
     let formData = new FormData();
     formData.append("nickname", nickname);
     formData.append("gender", data.questGender);
@@ -45,6 +45,9 @@ function SurveyForm() {
     formData.append("perm_term", data.questPermTerm);
     formData.append("dye_term", data.questDyeTerm);
     formData.append("recommend_or_not", data.questRecommend);
+    
+    sessionStorage.setItem("recommend_or_not", data.questRecommend);
+    sessionStorage.setItem("old", data.questOld);
 
     axios.post('http://3.34.182.50:5000/survey', formData)
       .then(function(response) {

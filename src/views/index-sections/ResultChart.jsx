@@ -17,9 +17,11 @@ function ResultGraph(props) {
   // Radar 차트에 표시할 데이터
   const userName = sessionStorage.getItem("nickname");
   const graphData = props.graphData;
+  const avgGraphData = props.avgGraphData;
+  const avgOld = `${sessionStorage.getItem("old")} 평균`;
   // console.log(graphData);
   const data = {
-    labels: ['미세각질', '피지', '모낭간 홍반', '비듬', '탈모', '모낭홍반농포'],
+    labels: ['미세각질', '피지과다', '모낭간 홍반', '비듬', '탈모', '모낭홍반농포'],
     datasets: [
       {
         label: userName,
@@ -36,6 +38,23 @@ function ResultGraph(props) {
           graphData["dandruff"],
           graphData["loss"],
           graphData["erythema_pustules"],
+        ],
+      },
+      {
+        label: avgOld,
+        backgroundColor: 'rgba(192, 75, 192, 0.2)',
+        borderColor: 'rgba(192, 75, 192, 1)',
+        pointBackgroundColor: 'rgba(192, 75, 192, 1)',
+        pointBorderColor: '#eee',
+        pointHoverBackgroundColor: '#eee',
+        pointHoverBorderColor: 'rgba(192, 75, 192, 1)',
+        data: [
+          avgGraphData["dry"],
+          avgGraphData["greasy"],
+          avgGraphData["erythema_between_hair_follicles"],
+          avgGraphData["dandruff"],
+          avgGraphData["loss"],
+          avgGraphData["erythema_pustules"],
         ],
       },
       // {

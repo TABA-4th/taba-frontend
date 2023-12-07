@@ -86,12 +86,22 @@ function FileUploaderPage() {
           sessionStorage.setItem('loss', response.data.class[4]);
           sessionStorage.setItem('erythema_pustules',response.data.class[5]);
 
+          sessionStorage.setItem('avgDry', response.data.avgClass[0]);
+          sessionStorage.setItem('avgGreasy', response.data.avgClass[1]);
+          sessionStorage.setItem('avgErythema_between_hairFollicles', response.data.avgClass[2]);
+          sessionStorage.setItem('avgDandruff', response.data.avgClass[3]);
+          sessionStorage.setItem('avgLoss', response.data.avgClass[4]);
+          sessionStorage.setItem('avgErythema_pustules',response.data.avgClass[5]);
+
+          alert(response.data.avgClass);
+
         });
 
       console.log('이미지 업로드 성공');
       navigate(`/result`);
       setLoading(false);
     } catch (error) {
+      alert('이미지 업로드 실패');
       console.error('이미지 업로드 실패', error);
     } finally {
       setLoading(false);

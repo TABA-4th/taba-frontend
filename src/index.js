@@ -34,8 +34,6 @@ root.render(
   <AuthProvider>
     <Routes>
       <Route path="/" element={<Index />} />
-      <Route path="/nucleo-icons" element={<NucleoIcons />} />
-      <Route path="/landing" element={<LandingPage />} />
       <Route path="/login" element={<PublicRoute><LoginPage /></PublicRoute>} />
       <Route path="/register" element={<PublicRoute><RegisterPage /></PublicRoute>} />
       <Route path="/profile" element={<ProtectedRoute><ProfilePage /></ProtectedRoute>} />

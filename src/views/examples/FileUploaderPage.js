@@ -137,7 +137,7 @@ function FileUploaderPage() {
   return (
     <>
     <IndexNavbar />
-
+    <div style={{width:"100%", height:"80px", backgroundColor:"#9ce8ee"}} />
     <div className="wrapper">
       <div className="section">
         <Container className="mx-auto" >

@@ -27,13 +27,13 @@ function MagazinePageHeader() {
         <div
           className="page-header-image"
           style={{
-            backgroundImage: "url(" + require("assets/img/bg12.jpg") + ")" // 헤더 부분 배경 이미지
+            backgroundImage: "url(" + require("assets/img/bluehair.jpg") + ")" // 헤더 부분 배경 이미지
           }}
           ref={pageHeader}
         ></div>
         <div className="content-center">
           <Container>
-            <h1 className="title">NIMONAEMO MAGAZINE</h1>
+            <h1 className="title">NIMONEMO MAGAZINE</h1>
             <div className="text-center">
             </div>
           </Container>

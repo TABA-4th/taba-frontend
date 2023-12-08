@@ -18,7 +18,7 @@ function DefaultFooter() {
                 href="/"
                 target="_self"
               >
-                Nimonaemo
+                Nimonemo
               </a>
             </li>
             <li>
@@ -37,7 +37,7 @@ function DefaultFooter() {
             href="https://github.com/TABA-4th/taba-frontend"
             target="_blank"
           >
-            Nimonaemo FE
+            Nimonemo FE
           </a>
         </div>
       </Container>

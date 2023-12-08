@@ -98,18 +98,6 @@ function HaircareProductPage() {
 
   }, []);
 
-  const searchBtn = {
-    background:"#90d8de",
-    border:"1px solid #fff",
-    width:"170px",
-    height:"51px",
-    fontWeight: "#fff",
-    fontWeight:700,
-    fontSize:"17px",
-    paddingTop: "15px",
-    borderRadius: "13px",
-  }
-
   
 
   return (
@@ -140,7 +128,17 @@ function HaircareProductPage() {
         </ButtonGroup>
 
         <Button 
-          style={searchBtn}
+          style={{
+            background:"#90d8de",
+            border:"1px solid #fff",
+            width:"170px",
+            height:"51px",
+            fontWeight: "#fff",
+            fontWeight:700,
+            fontSize:"17px",
+            paddingTop: "15px",
+            borderRadius: "13px",
+          }}
           onClick={handleSearchClick} 
           size="lg">
           검색

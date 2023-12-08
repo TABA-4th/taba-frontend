@@ -15,8 +15,7 @@ import {
 // core components
 import IndexNavbar from "components/Navbars/IndexNavbar";
 import DefaultFooter from "components/Footers/DefaultFooter.js";  
-
-
+import ProductCard from 'views/index-sections/ProductCard';
 
 const divisionLine = {
   borderTop: "5px solid #F0F0F0",
@@ -114,7 +113,7 @@ function ResultPage () {
   const imgBox = {
     boxShadow: "0 5px 100px 3px #E8E8E8",
     borderRadius: "30px",
-    width: "900px",
+    width: "1200px",
     height: "1400px",
     paddingLeft: "30px",
     paddingRight: "30px",
@@ -132,6 +131,7 @@ function ResultPage () {
     fontWeight:1000,
     fontSize:"30px",
   }
+  
   
     
   return (
@@ -176,9 +176,13 @@ function ResultPage () {
 
                 </Col>
                 </Row>
+                <br /><br /><br /><br />
+                <hr/><hr/>
+                <ProductCard/>
             </Container>
         </div>
       </div>
+      
       <br /><br /><br />
       <DefaultFooter />
       {/* {ClearSessionItem()} */}

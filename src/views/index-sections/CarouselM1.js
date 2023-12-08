@@ -57,9 +57,29 @@ function CarouselSection() {
     <>
       <div className="section" id="carousel">
         <Container>
+          <br /><br /><br />
           <div className="title">
-            <h3 style={{color: 'black',fontSize:'30px',textAlign:'center',fontWeight:'bold'}}>니모내모 핵심 기능 3가지</h3>
+            <p
+            style={{
+              color: "#71D0D7",
+              textAlign: "center",
+              fontSize: "30px",
+              fontWeight: "600",
+            }}
+            >
+              AI를 통한 두피 상태 체크, 나만의 두피 캘린더, 맞춤형 제품 추천 
+            </p>
+            <div 
+              style={{
+                color: 'black',
+                fontSize:'50px',
+                textAlign:'center',
+                fontWeight:'700'
+              }}>
+              니모내모의 핵심 기능
+            </div>
           </div>
+          <br /><br /><br />
           <Row className="justify-content-center">
             <Col lg="8" md="12">
               <Carousel
@@ -114,6 +134,7 @@ function CarouselSection() {
             </Col>
           </Row>
         </Container>
+        <br /><br /><br /><br /><br />
       </div>
     </>
   );

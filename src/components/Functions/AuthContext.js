@@ -19,6 +19,7 @@ export const AuthProvider = ({ children }) => {
   // js-cookie를 사용하여 쿠키 삭제
   Cookies.remove('access-token');
   Cookies.remove('refresh-token');
+  Cookies.remove('nickname');
   console.log("login status is false")
   };
 

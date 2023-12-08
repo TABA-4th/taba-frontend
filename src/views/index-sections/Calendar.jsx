@@ -148,7 +148,17 @@ const Calendar = () => {
 
   return (
     <div>
-      <Button onClick={toggleAddEventModal}>Add Event</Button>
+      <Button onClick={toggleAddEventModal} style={{
+  background:"#90d8de",
+  border:"1px solid #fff",
+  width:"150px",
+  height:"51px",
+  fontWeight: "#fff",
+  fontWeight:700,
+  fontSize:"17px",
+  paddingTop: "15px",
+  borderRadius: "13px",
+}}>Add Event</Button>
 
       <FullCalendar
         defaultView={defaultView}
@@ -160,11 +170,11 @@ const Calendar = () => {
 
       {/* Modal for adding events */}
       <Modal isOpen={addEventModalOpen} toggle={toggleAddEventModal}>
-        <ModalHeader toggle={toggleAddEventModal}>참고사항 기록하기</ModalHeader>
+        <ModalHeader toggle={toggleAddEventModal} >참고사항 기록하기</ModalHeader>
         <ModalBody>
           <Form>
             <FormGroup>
-              <Label for="date">Date</Label>
+              <Label for="date" >Date</Label>
               <Input
                 type="date"
                 id="date"

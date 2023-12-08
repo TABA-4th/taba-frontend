@@ -97,7 +97,7 @@ function ProfileMypageHeader() {
         </div>
         <Container>
           <div className="photo-container">
-            <img alt="..." src={require("assets/img/ryan.jpg")}></img>
+            <img alt="..." src={require("assets/img/logo.jpg")}></img>
           </div>
           {/* <p>(배경이미지를 레벨아이콘으로?)</p> */}
           <h3 className="title" style={{}}>{userName} 님</h3>

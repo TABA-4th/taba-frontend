@@ -60,7 +60,7 @@ function MagazinePage() {
           <Container>
             <Row>
               <Col className="ml-auto mr-auto text-center" md="8">
-                <h2 className="title">Nimonaemo Magazine</h2>
+                <h2 className="title">니모내모 매거진</h2>
                 <h4>
                   니모내모 매거진에서는 두피와 관련된 유용한 정보들을 알려드립니다! 
                   두피와 관련된 기사들이 아래에 있으니 원하시는 정보를 찾아보세요!

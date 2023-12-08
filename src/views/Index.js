@@ -51,16 +51,11 @@ function Index() {
         <div className="main">
           <CompleteExamples />
           <Introduction/>
-
           <CarouselM1/>
           <Tabs/>
           <CarouselM2/>
-
-
         </div>
-
         <DefaultFooter/>
-
       </div>
     </>
   );

@@ -82,7 +82,7 @@ function MagazinePage() {
 
           
             <Row className="justify-content-md-center">
-            <img src=" https://taba-image.s3.ap-northeast-2.amazonaws.com/magazine/post-1+(1).png" alt="Mountains" style={{ width: "70%", height: "auto" }}/>
+            <img src="https://i.postimg.cc/SKwTQcvr/pexels-mikhail-nilov-6964103.jpg" alt="Mountains" style={{ width: "70%", height: "auto" }}/>
             <Col className="text-center" lg="8" md="12">
               <h4>
               <br/><br/>
@@ -101,7 +101,7 @@ function MagazinePage() {
               하지만 이 단계 전에 한 가지 쉽게 접할 수 있는 약이 있습니다.<br/><br/>
               </h4>
             </Col>
-            <img src="https://taba-image.s3.ap-northeast-2.amazonaws.com/magazine/post-1+(2).png" alt="Mountains" style={{ width: "70%", height: "auto" }}/>
+            <img src="https://i.postimg.cc/8zdPmbhF/pexels-jeshootscom-576831.jpg" alt="Mountains" style={{ width: "70%", height: "auto" }}/>
             <Col className="text-center" lg="8" md="12">
               <h4>
               <br/><br/>
@@ -110,7 +110,7 @@ function MagazinePage() {
               이의 경우 의사의 처방전 없이 약국에서 쉽게 구매가 가능합니다.<br/><br/>
               </h4>
             </Col>
-            <img src=" https://taba-image.s3.ap-northeast-2.amazonaws.com/magazine/post-1+(3).png" alt="Mountains" style={{ width: "70%", height: "auto" }}/>
+            <img src="https://i.postimg.cc/5yMfzY65/pexels-sora-shimazaki-5938352.jpg" alt="Mountains" style={{ width: "70%", height: "auto" }}/>
             <Col className="text-center" lg="8" md="12">
               <h4 ><br/><br/>
               일반적으로 '일반의약품'에 해당하는 지루성 두피염 약은 샴푸의 형태로 나옵니다.<br/><br/>
@@ -143,7 +143,8 @@ function MagazinePage() {
             {isMobile ? <> <Row>
               <Col md={{ size: 6, offset: 3 }} xs="12">
                 <Card className="mb-3">
-                  <a href="https://m.health.chosun.com/svc/news_view.html?contid=2023091801650"><img src="https://i.postimg.cc/t4SbHFqn/mg4.jpg" alt="Mountains" style={{ width: "100%", height: "auto" }}/></a>
+                  <a href="https://m.health.chosun.com/svc/news_view.html?contid=2023091801650">
+                    <img src="https://i.postimg.cc/05ttbgFj/pexels-tim-gouw-52608.jpg" alt="Mountains" style={{ width: "100%", height: "auto" }}/></a>
                   <CardBody>
                     <CardTitle tag="h4">탈모의 계절 가을? 모발 '꽉'잡는 탈모 관리법</CardTitle>
                     <CardText>
@@ -162,7 +163,7 @@ function MagazinePage() {
 
               <Col md={{ size: 6, offset: 3 }} xs="12">
                 <Card className="mb-3">
-                  <a href="https://www.pharmnews.com/news/articleView.html?idxno=220705"><img src="https://i.postimg.cc/CxL0tcgV/mg5.jpg" alt="Mountains" style={{ width: "100%", height: "auto" }}/></a>
+                  <a href="https://www.pharmnews.com/news/articleView.html?idxno=220705"><img src="https://i.postimg.cc/05ttbgFj/pexels-tim-gouw-52608.jpg" alt="Mountains" style={{ width: "100%", height: "auto" }}/></a>
                   <CardBody>
                     <CardTitle tag="h4">염증 억제 항체 이용 차세대 ‘원형탈모’ 치료제</CardTitle>
                     <CardText>

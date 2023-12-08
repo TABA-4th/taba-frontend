@@ -1,4 +1,5 @@
 import React, { createContext, useState } from "react";
+import Cookies from 'js-cookie';
 
 export const AuthContext = createContext();
 
@@ -12,11 +13,14 @@ export const AuthProvider = ({ children }) => {
   };
 
   const logout = () => {
-    sessionStorage.removeItem("accessToken");
-    sessionStorage.removeItem("refreshToken");
-    sessionStorage.removeItem("nickname"); // 닉네임도 세션 스토리지에서 제거
-    setIsLoggedIn(false);
-    console.log("login status is false")
+  // 세션 스토리지에서 모든 항목 삭제
+  sessionStorage.clear();
+
+  // js-cookie를 사용하여 쿠키 삭제
+  Cookies.remove('access-token');
+  Cookies.remove('refresh-token');
+  Cookies.remove('nickname');
+  console.log("login status is false")
   };
 
   return (

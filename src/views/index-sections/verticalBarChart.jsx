@@ -53,7 +53,7 @@ const VBarChart = (props) => {
       value: props.graphData.loss
     },
     {
-      name: "모낭간 홍반",
+      name: "모낭간 홍반 농포",
       value: props.graphData.erythema_pustules
     },
   ];

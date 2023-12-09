@@ -49,9 +49,11 @@ function SurveyForm() {
     sessionStorage.setItem("recommend_or_not", data.questRecommend);
     sessionStorage.setItem("old", data.questOld);
 
-    axios.post('http://3.34.182.50:5000/survey', formData)
+    await axios.post('http://3.34.182.50:5000/survey', formData)
       .then(function(response) {
         console.log('설문조사 업로드 성공');
+        // alert(formData);
+
         window.location.href = '/file-upload';
       })
       .catch(function(error) {
@@ -113,7 +115,7 @@ function SurveyForm() {
             color="secondary"
             type="button"
             onClick={() => {
-              handleNoButtonClick();
+              handleYesButtonClick();
               setShowModal(false);
             }}>
             받지 않겠습니다

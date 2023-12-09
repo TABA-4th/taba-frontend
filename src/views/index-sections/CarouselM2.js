@@ -120,13 +120,20 @@ function CarouselSection() {
               </Carousel>
               <br/><br/><br/>
               <Button 
-                style={{ backgroundColor: '#9ce8ee', color: 'white', fontSize:'34px',fontWeight:'bold', height: "100px", paddingTop: "30px" }} 
+                style={{ 
+                  backgroundColor: '#9ce8ee', 
+                  color: 'white', 
+                  fontSize:'34px', 
+                  fontWeight:'bold', 
+                  height: "auto", 
+                  paddingTop: "30px" 
+                }} 
                 href="/survey"
                 block
                 className="btn-round"                  
                 size="lg"
               >
-                지금 바로 시작해보세요!
+                니모내모 시작하기
               </Button>
             </Col>
           </Row>

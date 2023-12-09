@@ -24,20 +24,20 @@ function IndexHeader() {
 
   return (
     <>
-      <div className="page-header clear-filter" filter-color="blue">
+      <div className="page-header clear-filter">
         <div
-          className="page-header-image"
+          className="page-header-image "
+          style={{
+            backgroundImage: "url(" + require("assets/img/header.png") + ")" // 헤더 부분 배경 이미지
+          }}
           ref={pageHeader}
         ></div>
         <Container>
-          <div className="content-center brand">
-            <h1 className="h1-seo">n i m o n e m o</h1>
-          </div>
           <a href='/survey'>
-          <h1 className="category category-absolute" style={{color:'white'}}>
-            바로 시작하기!
-          </h1></a>
-
+            <h3 className="category category-absolute" style={{color:'white'}}>
+              바로 시작해보세요!
+            </h3>
+          </a>
         </Container>
       </div>
     </>

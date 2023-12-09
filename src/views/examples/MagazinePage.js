@@ -67,63 +67,76 @@ function MagazinePage() {
                 </h4>
               </Col>
             </Row>
-            <div className="separator separator-primary">            <Row>
-              <Col className="ml-auto mr-auto text-center" md="8">
-                <h4 className="title">약국에서 쉽게 살 수 있는 지루성 두피염 약</h4>
-                <h4 >
-                안녕하세요 니모내모입니다!<br/><br/>
+            <div className="separator separator-primary">            
+              <Row>
+                <Col className="ml-auto mr-auto text-center" md="8">
+                  <h4 className="title">약국에서 쉽게 살 수 있는 지루성 두피염 약</h4>
+                  <h4 >
+                    안녕하세요 니모내모입니다!<br/><br/>
 
-                피부과 방문 원인 1위를 차지할 정도로 많은 사람이 겪는 질환, 지루성 두피염! <br/><br/>
+                    피부과 방문 원인 1위를 차지할 정도로 많은 사람이 겪는 질환, 지루성 두피염! <br/><br/>
 
-                이번에는 <strong >약국에서 쉽게 살 수 있는 지루성 두피염 약</strong>에 대해 이야기해볼까 합니다.
-                </h4>
-              </Col>
-            </Row></div>
+                    이번에는 <strong >약국에서 쉽게 살 수 있는 지루성 두피염 약</strong>에 대해 이야기해볼까 합니다.<br/><br/>
+                  </h4>
+                </Col>
+              </Row>
+            </div>
+              <Row className="justify-content-md-center">
+                <Col className="text-center" lg="8" md="12">
+                  <img 
+                    src="https://i.postimg.cc/SKwTQcvr/pexels-mikhail-nilov-6964103.jpg" 
+                    alt="Mountains" 
+                    style={{ width: "70%", height: "auto",  }}
+                  />
+                  <h4>
+                    <br/><br/>
+                    지루성 두피염 약의 종류는 기능과 형태에 따라 다양합니다. <br/><br/>
 
-          
-            <Row className="justify-content-md-center">
-            <img src="https://i.postimg.cc/SKwTQcvr/pexels-mikhail-nilov-6964103.jpg" alt="Mountains" style={{ width: "70%", height: "auto" }}/>
-            <Col className="text-center" lg="8" md="12">
-              <h4>
-              <br/><br/>
-               지루성 두피염 약의 종류는 기능과 형태에 따라 다양합니다. <br/><br/>
+                    보통 피부과에 방문하게 되면 약 처방을 받는데,<br/><br/>
 
-              보통 피부과에 방문하게 되면 약 처방을 받는데,<br/><br/>
+                    이때 처방받는 약에는 균 증식을 억제하기 위한 <strong>항생제, 항진균제</strong>가 있으며<br/><br/>
 
-              이때 처방받는 약에는 균 증식을 억제하기 위한 <strong>항생제, 항진균제</strong>가 있으며<br/><br/>
+                    즉각적인 증상을 해결하기 위한(특히 가려움을 완화하기 위한) <strong>항히스타민제, 스테로이드</strong>가 있습니다.<br/><br/>
 
-              즉각적인 증상을 해결하기 위한(특히 가려움을 완화하기 위한) <strong>항히스타민제, 스테로이드</strong>가 있습니다.<br/><br/>
+                    이 약들은 증상이 심할 경우 반드시 처방받아먹어야 하며,<br/><br/>
 
-              이 약들은 증상이 심할 경우 반드시 처방받아먹어야 하며,<br/><br/>
+                    처방을 받기 위해서는 병원에 꼭 방문해야 합니다.<br/><br/>
 
-              처방을 받기 위해서는 병원에 꼭 방문해야 합니다.<br/><br/>
+                    하지만 이 단계 전에 한 가지 쉽게 접할 수 있는 약이 있습니다.<br/><br/>
+                  </h4>
+                </Col>
+                <Col className="text-center" lg="8" md="12">
+                  <img 
+                    src="https://i.postimg.cc/8zdPmbhF/pexels-jeshootscom-576831.jpg" 
+                    alt="Mountains" 
+                    style={{ width: "70%", height: "auto" }}
+                  />
+                  <h4>
+                    <br/><br/>
+                    바로 <strong>'일반의약품'</strong>에 해당하는 약인데요,<br/><br/>
 
-              하지만 이 단계 전에 한 가지 쉽게 접할 수 있는 약이 있습니다.<br/><br/>
-              </h4>
-            </Col>
-            <img src="https://i.postimg.cc/8zdPmbhF/pexels-jeshootscom-576831.jpg" alt="Mountains" style={{ width: "70%", height: "auto" }}/>
-            <Col className="text-center" lg="8" md="12">
-              <h4>
-              <br/><br/>
-              바로 <strong>'일반의약품'</strong>에 해당하는 약인데요,<br/><br/>
+                    이의 경우 의사의 처방전 없이 약국에서 쉽게 구매가 가능합니다.<br/><br/>
+                  </h4>
+                </Col>
+                <Col className="text-center" lg="8" md="12">
+                  <img 
+                    src="https://i.postimg.cc/5yMfzY65/pexels-sora-shimazaki-5938352.jpg" 
+                    alt="Mountains" 
+                    style={{ width: "70%", height: "auto" }}
+                  />
+                  <h4 >
+                    <br/><br/>
+                    일반적으로 '일반의약품'에 해당하는 지루성 두피염 약은 샴푸의 형태로 나옵니다.<br/><br/>
 
-              이의 경우 의사의 처방전 없이 약국에서 쉽게 구매가 가능합니다.<br/><br/>
-              </h4>
-            </Col>
-            <img src="https://i.postimg.cc/5yMfzY65/pexels-sora-shimazaki-5938352.jpg" alt="Mountains" style={{ width: "70%", height: "auto" }}/>
-            <Col className="text-center" lg="8" md="12">
-              <h4 ><br/><br/>
-              일반적으로 '일반의약품'에 해당하는 지루성 두피염 약은 샴푸의 형태로 나옵니다.<br/><br/>
+                    잉? 약 달라고 했더니 왜 샴푸를 주는 거야?<br/><br/>
 
-              잉? 약 달라고 했더니 왜 샴푸를 주는 거야?<br/><br/>
-
-              라고 생각하실 수 있는데, 이는 '일반의약품'이란 타이틀을 받은 약이니 안심하셔도됩니다!<br/><br/>
-
-              <a href="https://www.youtube.com/watch?v=YXzrUE1qUwc">전체내용보기</a>
-              </h4>
-            </Col>
-
-          </Row>
+                    라고 생각하실 수 있는데, 이는 '일반의약품'이란 타이틀을 받은 약이니 안심하셔도됩니다!<br/><br/>
+                    <a href="https://www.youtube.com/watch?v=YXzrUE1qUwc">
+                      전체내용보기
+                    </a>
+                  </h4>
+                </Col>
+              </Row>
           <br></br>
           <br></br>
           <br></br>

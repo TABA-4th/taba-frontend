@@ -270,21 +270,17 @@ const getDetailResult = async (d) => {
 
   return (
     <div>
-<<<<<<< HEAD
-      <Button onClick={toggleAddEventModal} color="primary">염색&파마 기록하기</Button>
-=======
       <Button onClick={toggleAddEventModal} style={{
-  background:"#90d8de",
-  border:"1px solid #fff",
-  width:"150px",
-  height:"51px",
-  fontWeight: "#fff",
-  fontWeight:700,
-  fontSize:"17px",
-  paddingTop: "15px",
-  borderRadius: "13px",
-}}>Add Event</Button>
->>>>>>> 3edfa6ce3e9d6f15bcbc0184235594d6381575a3
+        background:"#90d8de",
+        border:"1px solid #fff",
+        width:"200px",
+        height:"51px",
+        fontWeight: "#fff",
+        fontWeight: '700',
+        fontSize:"13px",
+        paddingTop: "15px",
+        borderRadius: "13px",
+      }}>파마&염색 기록하기</Button>
 
       <FullCalendar
         defaultView={defaultView}
@@ -300,11 +296,7 @@ const getDetailResult = async (d) => {
         <ModalBody>
           <Form>
             <FormGroup>
-<<<<<<< HEAD
               <Label for="date">날짜</Label>
-=======
-              <Label for="date" >Date</Label>
->>>>>>> 3edfa6ce3e9d6f15bcbc0184235594d6381575a3
               <Input
                 type="date"
                 id="date"

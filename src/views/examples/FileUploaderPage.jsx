@@ -16,13 +16,11 @@ import IndexNavbar from "components/Navbars/IndexNavbar";
 import DefaultFooter from "components/Footers/DefaultFooter.js";  
 
 function FileUploaderPage() {
-
   // 페이지 이동을 위한 navigate 
   const navigate = useNavigate();
 
   // 로딩 스피너
   const [loading, setLoading] = useState(false);
-
   const [URLThumbnail, setURLThumbnail] = useState();
 
   const createImageURL = (fileBlob) => {  // createObjectURL 방식
@@ -44,74 +42,39 @@ function FileUploaderPage() {
     createImageURL(uploadImage);
 
     if (uploadImage) {
-
       let formData = new FormData();
       formData.append('file', uploadImage);
       formData.append('nickname', nickname);
-      
-    try {
-      setLoading(true);
-      await axios.post('http://3.34.182.50:5000/image', formData, {
-        headers: {
-          'Content-Type': 'multipart/form-data',
-        },
-      })
-        .then(response => {
+      try {
+        setLoading(true);
+        await axios.post('http://3.34.182.50:5000/image', formData, {
+          headers: {
+            'Content-Type': 'multipart/form-data',
+          },
+        })
+          .then(response => {
 
-          // 이미지 url 
-          console.log(response.data.url);
-          sessionStorage.setItem('imgUrl',response.data.url);
+            // 이미지 url 
+            console.log(response.data.url);
+            sessionStorage.setItem('diagnosisData', JSON.stringify(response.data));
+            alert(response.data.class);
 
-          // 검사 결과 변수 
-          /* 
-            0: dry (미세 각질)
-            1: greasy (피지 과다)
-            2: erythema between hair follicles (모낭 사이 홍반)
-            3: dandruff (비듬)
-            4: loss (탈모)
-            5: erythema pustules (모낭 홍반 농포)
-          */
-
-          console.log('미세 각질', response.data.class[0]);
-          console.log('피지 과다', response.data.class[1]);
-          console.log('모낭 사이 홍반', response.data.class[2]);
-          console.log('비듬', response.data.class[3]);
-          console.log('탈모', response.data.class[4]);
-          console.log('모낭 홍반 농포', response.data.class[5]);
-
-          sessionStorage.setItem('dry', response.data.class[0]);
-          sessionStorage.setItem('greasy', response.data.class[1]);
-          sessionStorage.setItem('erythema_between_hairFollicles', response.data.class[2]);
-          sessionStorage.setItem('dandruff', response.data.class[3]);
-          sessionStorage.setItem('loss', response.data.class[4]);
-          sessionStorage.setItem('erythema_pustules',response.data.class[5]);
-
-          sessionStorage.setItem('avgDry', response.data.avgClass[0]);
-          sessionStorage.setItem('avgGreasy', response.data.avgClass[1]);
-          sessionStorage.setItem('avgErythema_between_hairFollicles', response.data.avgClass[2]);
-          sessionStorage.setItem('avgDandruff', response.data.avgClass[3]);
-          sessionStorage.setItem('avgLoss', response.data.avgClass[4]);
-          sessionStorage.setItem('avgErythema_pustules',response.data.avgClass[5]);
-
-          alert(response.data.avgClass);
-
-        });
-
-      console.log('이미지 업로드 성공');
-      navigate(`/result`);
-      setLoading(false);
-    } catch (error) {
-      alert('이미지 업로드 실패');
-      console.error('이미지 업로드 실패', error);
-    } finally {
-      setLoading(false);
+          });
+        console.log('이미지 업로드 성공');
+        navigate(`/result`);
+        setLoading(false);
+      } catch (error) {
+        alert('이미지 업로드 실패');
+        console.error('이미지 업로드 실패', error);
+      } finally {
+        setLoading(false);
+      }
+    } else {
+      console.error('이미지를 선택해주세요.');
     }
-  } else {
-    console.error('이미지를 선택해주세요.');
-  }
 
   };
-  
+
   React.useEffect(() => {
     document.body.classList.add("landing-page");
     document.body.classList.add("sidebar-collapse");
@@ -141,8 +104,6 @@ function FileUploaderPage() {
     backgroundColor: "white",
     paddingBottom: "10px",
   }
-
-  
 
   return (
     <>
@@ -197,10 +158,12 @@ function FileUploaderPage() {
             </Col>
           </Container>
         </div>
-      </div>
-      <DefaultFooter />
+    </div>
+    <DefaultFooter />
     </>
   );
 }
 
 export default FileUploaderPage;
+
+//            

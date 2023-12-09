@@ -1,46 +1,68 @@
 import React from 'react';
 import axios from 'axios';
-
 import ResultGraph from 'views/index-sections/ResultChart';
 import VBarChart from 'views/index-sections/verticalBarChart';
-
-
-// reactstrap components
 import {
     Container,
     Row,
     Col,
   } from "reactstrap";
-
-// core components
 import IndexNavbar from "components/Navbars/IndexNavbar";
 import DefaultFooter from "components/Footers/DefaultFooter.js";  
-
-
 
 const divisionLine = {
   borderTop: "5px solid #F0F0F0",
   margin: "30px 0px", 
 }
 
-
 function ClearSessionItem() {
-  sessionStorage.removeItem("erythema_between_hairFollicles");
-  sessionStorage.removeItem("greasy");
-  sessionStorage.removeItem("dry");
-  sessionStorage.removeItem("dandruff");
-  sessionStorage.removeItem("loss");
-  sessionStorage.removeItem("erythema_pustules");
-  sessionStorage.removeItem("imgUrl");
+  sessionStorage.removeItem('diagnosisData');
+  sessionStorage.removeItem('diagnosisDate');
 }
 
-function renderGraphData() {
-  const dry = sessionStorage.getItem('dry');
-  const greasy = sessionStorage.getItem('greasy');
-  const erythemaBetweenHairFollicles = sessionStorage.getItem('erythema_between_hairFollicles');
-  const dandruff = sessionStorage.getItem('dandruff');
-  const loss = sessionStorage.getItem('loss');
-  const erythemaPustules = sessionStorage.getItem('erythema_pustules');
+  /* 
+    FileUpload로 부터 받은 response.DATA JSON파일에 들어있는 데이터의 파일구조
+    └ㅡㅡDATA.class
+        0: dry (미세 각질)
+        1: greasy (피지 과다)
+        2: erythema between hair follicles (모낭 사이 홍반)
+        3: dandruff (비듬)
+        4: loss (탈모)
+        5: erythema pustules (모낭 홍반 농포)
+    └ㅡㅡDATA.avgClass
+        0: dry (미세 각질)
+        1: greasy (피지 과다)
+        2: erythema between hair follicles (모낭 사이 홍반)
+        3: dandruff (비듬)
+        4: loss (탈모)
+        5: erythema pustules (모낭 홍반 농포)
+    └ㅡ DATA.각항목 ()
+      DANDRUFF: %f   => 비듬 상위퍼센트
+      ERYTHEMA_BETWEEN_HAIR_FOLLICLES: %f => 모낭간 홍반 %백분률
+      ERYTHEMA_PUSTULES: %f       => 모낭 홍반 농포 %백분률
+      EXCESS_SEBUM: %f            => 피지 과다 % 백분률
+      FINE_DEAD_SKIN_CELLS: %f    => 미세각질 % 백분률
+      HAIR_LOSS: %f               => 탈모 % 백분률
+      total : %f                  => 종합성적 % 백분률
+    └ㅡ DATA.각항목 ()     => 샴푸제품 추천 내용 관련
+      dermatitis: false
+      dry: false
+      greasy: true
+      loss: false
+      neutral: true
+      sensitive: false
+    └ㅡ DATA.각항목 ()
+      msg: "Data saved to database successfully"
+      url: " URL "
+  */
+
+function renderGraphData(DATA) {
+  const dry = DATA.class[0];
+  const greasy = DATA.class[1];
+  const erythemaBetweenHairFollicles = DATA.class[2];
+  const dandruff = DATA.class[3];
+  const loss = DATA.class[4];
+  const erythemaPustules = DATA.class[5];
   const Data = {
     "dry" : dry,
     "greasy" : greasy,
@@ -54,13 +76,15 @@ function renderGraphData() {
   return Data;
 }
 
-function renderAvgGraphData() {
-  const avgDry = sessionStorage.getItem('avgDry');
-  const avgGreasy = sessionStorage.getItem('avgGreasy');
-  const avgErythemaBetweenHairFollicles = sessionStorage.getItem('avgErythema_between_hairFollicles');
-  const avgDandruff = sessionStorage.getItem('avgDandruff');
-  const avgLoss = sessionStorage.getItem('avgLoss');
-  const avgErythemaPustules = sessionStorage.getItem('avgErythema_pustules');
+
+
+function renderAvgGraphData(DATA) {
+  const avgDry = DATA.avgClass[0];
+  const avgGreasy = DATA.avgClass[1];
+  const avgErythemaBetweenHairFollicles = DATA.avgClass[2];
+  const avgDandruff = DATA.avgClass[3];
+  const avgLoss = DATA.avgClass[4];
+  const avgErythemaPustules = DATA.avgClass[5];
   const Data = {
     "dry" : avgDry,
     "greasy" : avgGreasy,
@@ -75,6 +99,14 @@ function renderAvgGraphData() {
 }
 
 function ResultPage () {
+  // const [isCollapsed, setCollapsed] = useState(true);
+  // const toggleCollapse = () => {
+  //   setCollapsed(!isCollapsed);
+  // };
+    // 세션 스토리지에서 nickname 가져오기
+  const nickname = sessionStorage.getItem('nickname');
+  const diagnosisData = JSON.parse(sessionStorage.getItem('diagnosisData'));
+
   React.useEffect(() => {
     document.body.classList.add("landing-page");
     document.body.classList.add("sidebar-collapse");
@@ -87,11 +119,11 @@ function ResultPage () {
     };
     }, []);
 
-  // 세션 스토리지에서 nickname 가져오기
-  const nickname = sessionStorage.getItem('nickname');
+
+  console.log(diagnosisData.url);
 
   // 세션 스토리지에서 이미지 URL 가져오기
-  const url = sessionStorage.getItem('imgUrl');
+  const url = diagnosisData.url;
 
   // 세션 스토리지에서 검사 결과 가져오기
   /* 
@@ -103,19 +135,17 @@ function ResultPage () {
     5: erythema pustules (모낭 홍반 농포)
   */
 
-
-
-
   // 현재 날짜 출력하기
   const today = new Date();
   const formattedDate = `${today.getFullYear()}. ${today.getMonth() + 1}. ${today.getDate()}`;
+  // const formattedDate = sessionStorage.getItem('diagnosisDate');
 
   // 박스 안에 글 넣기
   const imgBox = {
     boxShadow: "0 5px 100px 3px #E8E8E8",
     borderRadius: "30px",
     width: "900px",
-    height: "1400px",
+    minHeight: "1400px",
     paddingLeft: "30px",
     paddingRight: "30px",
     paddingBottom: "30px",
@@ -132,8 +162,7 @@ function ResultPage () {
     fontWeight:1000,
     fontSize:"30px",
   }
-  
-    
+      
   return (
     <>
       <IndexNavbar />
@@ -147,27 +176,17 @@ function ResultPage () {
                   <br /><br />
                   <div style = {{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
                     <div style={imgBox}>
-                      <h3 className='title'>{formattedDate} </h3>
+                      <h3 className='title'>검사일시 : {formattedDate} </h3>
                       <img src={url} width={"300px"} style={{ borderRadius: '30px', boxShadow: "0 2px 10px 3px #E1E1E1" }}></img>
                       <br />
                       <h3 className='title'>{nickname}님의 두피진단 결과입니다.</h3>
-                      <div>
-                        {/* <h5>
-                          미세 각질: {dry} <br />
-                          피지 과다: {greasy} <br />
-                          모낭 사이 홍반: {erythemaBetweenHairFollicles} <br />
-                          비듬: {dandruff}<br />
-                          탈모: {loss} <br />
-                          모낭 홍반 농포: {erythemaPustules} <br />
-                        </h5> */}
-                      </div>
                       <div className="wrapper text-center" style={{margin:'0 auto'}}>
                         <div style={{justifyContent: 'center', display: 'flex'}}>
-                          <VBarChart graphData={renderGraphData()}/>
+                          <VBarChart graphData={renderGraphData(diagnosisData)}/>
                         </div>
                         <div style={divisionLine}></div>
-                        <div style={{justifyContent: 'center', display: 'flex'}}>
-                          <ResultGraph graphData={renderGraphData()} avgGraphData={renderAvgGraphData()}/>
+                        <div style={{ justifyContent: 'center', display: 'flex' }}>
+                          <ResultGraph graphData={renderGraphData(diagnosisData)} avgGraphData={renderAvgGraphData(diagnosisData)} />
                         </div>
 
                       </div>
@@ -181,7 +200,7 @@ function ResultPage () {
       </div>
       <br /><br /><br />
       <DefaultFooter />
-      {/* {ClearSessionItem()} */}
+      {ClearSessionItem()}
     </>
   );
 }

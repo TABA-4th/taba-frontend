@@ -28,8 +28,11 @@ function Tabs() {
             style={{
               textAlign: "center",
               background: "#9ce8ee",
-              height: "400px",                
-              paddingTop: "110px",
+              height: "auto",                
+              paddingTop: "130px",
+              paddingBottom: "130px",
+              paddingLeft: "5%",
+              paddingRight: "5%"
             }} 
             >
             <div 
@@ -40,10 +43,11 @@ function Tabs() {
             }}>
               nimonemo magazine
             </div>
+            <br />
             <div
               style={{
                 fontSize: "28px",
-                fontWeight: "400",
+                fontWeight: "600",
               }}
             >
               니모내모가 들려주는 두피 이야기

@@ -11,7 +11,7 @@ function CompleteExamples() {
     boxShadow: "0 5px 80px 3px #E1E1E1",
     borderRadius: "100px",
     width: "100%",
-    height: "1000px",
+    height: "auto",
     paddingLeft: "30px",
     paddingRight: "30px",
     paddingBottom: "30px",

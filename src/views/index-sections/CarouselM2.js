@@ -53,11 +53,20 @@ function CarouselSection() {
   };
   return (
     <>
-      <div className="section" id="carousel">
+      <div className="section" id="carousel" style={{background: "#F7F7F7"}}>
+        <br /><br /><br /><br />
         <Container>
           <div className="title">
-          <h3 style={{textAlign:"center"}}>지금 바로 니모내모를 시작해보세요!</h3>
+            <div 
+              style={{
+                textAlign:"center",
+                fontSize: "60px",
+              }}
+            >
+              지금 바로 니모내모를 시작해보세요!
+            </div>
           </div>
+          <br /><br /><br /><br /><br />
           <Row className="justify-content-center">
             <Col lg="8" md="12">
               <Carousel
@@ -110,15 +119,25 @@ function CarouselSection() {
                 </a>
               </Carousel>
               <br/><br/><br/>
-              <Button style={{ backgroundColor: '#9ce8ee', color: 'white',fontSize:'24px',fontWeight:'bold' }} href="/survey"
-                      block
-                      className="btn-round"
-                      size="lg"
-                    >
-                      지금 시작하러 가기
-                    </Button>
+              <Button 
+                style={{ 
+                  backgroundColor: '#9ce8ee', 
+                  color: 'white', 
+                  fontSize:'34px', 
+                  fontWeight:'bold', 
+                  height: "auto", 
+                  paddingTop: "30px" 
+                }} 
+                href="/survey"
+                block
+                className="btn-round"                  
+                size="lg"
+              >
+                니모내모 시작하기
+              </Button>
             </Col>
           </Row>
+          <br /><br /><br /><br /><br />
         </Container>
       </div>
     </>

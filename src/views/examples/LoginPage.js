@@ -80,7 +80,7 @@ function LoginPage() {
   const btnStyle = {
     background:"#fff",
     border:"1px solid #fff",
-    width:"310px",
+    width:"100%",
     height:"40px",
     color: "#90d8de",
     fontWeight:600,

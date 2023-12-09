@@ -1,7 +1,7 @@
 // Import necessary components
 import React, { useState, useEffect } from "react";
 import axios from 'axios';
-import { Row, Col, Button, ButtonGroup } from 'reactstrap';
+import { Row, Col, Button, ButtonGroup, Container } from 'reactstrap';
 //import DarkNavbar from 'components/Navbars/DarkNavbar';
 import HaircareProductCard from "views/index-sections/HaircareProductCard";
 import ProductHeader from "components/Headers/ProductHeader";
@@ -98,56 +98,162 @@ function HaircareProductPage() {
 
   }, []);
 
+  
+
   return (
     <>
-      <IndexNavbar />
-      <div style={{width:"100%", height:"75px", backgroundColor:'#9ce8ee'}} />
-      <ProductHeader />
-      <br></br>
-      {/* <Col md={{size: 6, offset: 3}}> */}
-      <div className="wrapper text-center" style={{width: '100%', margin: '0 auto', alignContent: 'center'}} >
-        <ButtonGroup style={{width: 'auto'}}>
-          {Object.keys(buttonStates).map((button) => (
-            <Button
-              size={isMobile ? 'rg' : 'lg'}
-              key={button}
-              color={buttonStates[button].isActive ? 'primary' : 'secondary'}
-              onClick={() => handleButtonClick(button)}
-              style={{margin: '10px'}}
-            >
-              {buttonStates[button].text}
-            </Button>
-          ))}
-        </ButtonGroup>
-
-        <Button color="info" onClick={handleSearchClick} size="lg">
-          검색하기
-        </Button>
-        <hr style={{ width: '70%', margin: '20px auto', border: '1px solid #ddd' }} />
-      </div>
-
-      <br></br>
-
-      <div className="wrapper text-center" style={{ width: '70%', margin: 'auto' }}>
-        {rows.length === 0 ? (
-          <img src={noContentsImgURL} alt={"No Contents"}/>
-        ) : (
-          <div>
-            <h3>{comment}</h3>
-            {rows.map((row, rowIndex) => (
-              <Row key={rowIndex}>
-                {row.map((product, index) => (
-                  <Col key={index} md={4}>
-                    <HaircareProductCard productInfo={product} />
-                  </Col>
-                ))}
-              </Row>
-            ))}
-            
+      {isMobile ? 
+        <>
+          <IndexNavbar />
+          <div className="wrapper">
+            <ProductHeader />
+            <div className="section section-about-us">
+              <Container>
+                <Row>
+                <div className="wrapper text-center" style={{width: '100%', alignContent: 'center'}} >
+                  <ButtonGroup style={{width: '100%'}}>
+                            {Object.keys(buttonStates).map((button) => (
+                              <Button
+                                size={isMobile ? 'rg' : 'lg'}
+                                key={button}
+                                color={buttonStates[button].isActive ? 'primary' : 'secondary'}
+                                onClick={() => handleButtonClick(button)}
+                                style={{
+                                  width: "8px",
+                                  margin: '2px', 
+                                  borderRadius: '13px', 
+                                  fontWeight: 700,
+                                  fontSize: '15px',
+                                }}
+                              >
+                                {buttonStates[button].text}
+                              </Button>
+                            ))}
+                      </ButtonGroup>
+    
+                      <Button 
+                        style={{
+                          background:"#90d8de",
+                          border:"1px solid #fff",
+                          width:"170px",
+                          height:"51px",
+                          fontWeight: "#fff",
+                          fontWeight:700,
+                          fontSize:"17px",
+                          paddingTop: "15px",
+                          borderRadius: "13px",
+                        }}
+                        onClick={handleSearchClick} 
+                        size="lg">
+                        검색
+                      </Button>
+                      <hr style={{ width: '70%', margin: '20px auto', border: '1px solid #ddd' }} />
+                    </div>
+    
+                    <br></br>
+    
+                    <div className="wrapper text-center" style={{ width: '70%', margin: 'auto' }}>
+                      {rows.length === 0 ? (
+                        <img src={noContentsImgURL} alt={"No Contents"}/>
+                      ) : (
+                        <div>
+                          <h3>{comment}</h3>
+                          {rows.map((row, rowIndex) => (
+                            <Row key={rowIndex}>
+                              {row.map((product, index) => (
+                                <Col key={index} md={4}>
+                                  <HaircareProductCard productInfo={product} />
+                                </Col>
+                              ))}
+                            </Row>
+                          ))}
+                      </div>
+                    )}
+                  </div>
+                                
+                </Row>
+              </Container>
+            </div>        
+            <DefaultFooter />
           </div>
-        )}
-      </div>
-      <DefaultFooter />
+        </>
+
+        : 
+        <>
+          <IndexNavbar />
+            <div className="wrapper">
+            <ProductHeader />
+            <div className="section section-about-us">
+              <Container>
+                <Row>
+                <div className="wrapper text-center" style={{width: '100%', alignContent: 'center'}} >
+                  <ButtonGroup style={{width: '100%'}}>
+                            {Object.keys(buttonStates).map((button) => (
+                              <Button
+                                size={isMobile ? 'rg' : 'lg'}
+                                key={button}
+                                color={buttonStates[button].isActive ? 'primary' : 'secondary'}
+                                onClick={() => handleButtonClick(button)}
+                                style={{
+                                  margin: '10px', 
+                                  borderRadius: '13px', 
+                                  fontWeight: 700,
+                                  fontSize: '15px',
+                                }}
+                              >
+                                {buttonStates[button].text}
+                              </Button>
+                            ))}
+                      </ButtonGroup>
+
+                      <Button 
+                        style={{
+                          background:"#90d8de",
+                          border:"1px solid #fff",
+                          width:"170px",
+                          height:"51px",
+                          fontWeight: "#fff",
+                          fontWeight:700,
+                          fontSize:"17px",
+                          paddingTop: "15px",
+                          borderRadius: "13px",
+                        }}
+                        onClick={handleSearchClick} 
+                        size="lg">
+                        검색
+                      </Button>
+                      <hr style={{ width: '70%', margin: '20px auto', border: '1px solid #ddd' }} />
+                    </div>
+
+                    <br></br>
+
+                    <div className="wrapper text-center" style={{ width: '70%', margin: 'auto' }}>
+                      {rows.length === 0 ? (
+                        <img src={noContentsImgURL} alt={"No Contents"}/>
+                      ) : (
+                        <div>
+                          <h3>{comment}</h3>
+                          {rows.map((row, rowIndex) => (
+                            <Row key={rowIndex}>
+                              {row.map((product, index) => (
+                                <Col key={index} md={4}>
+                                  <HaircareProductCard productInfo={product} />
+                                </Col>
+                              ))}
+                            </Row>
+                          ))}
+                      </div>
+                    )}
+                  </div>
+
+                </Row>
+              </Container>
+            </div>        
+          <DefaultFooter />
+        </div>
+      </>
+      }
+      
     </>
   );
 }

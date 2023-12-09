@@ -15,7 +15,7 @@ function TransparentFooter() {
                 href="/"
                 target="_self"
               >
-                Nimonaemo
+                Nimonemo
               </a>
             </li>
             <li>
@@ -34,7 +34,7 @@ function TransparentFooter() {
             href="https://github.com/TABA-4th/taba-frontend"
             target="_blank"
           >
-            Nimonaemo FE
+            Nimonemo FE
           </a>
         </div>
       </Container>

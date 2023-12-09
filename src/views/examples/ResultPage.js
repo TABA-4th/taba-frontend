@@ -9,6 +9,10 @@ import {
   } from "reactstrap";
 import IndexNavbar from "components/Navbars/IndexNavbar";
 import DefaultFooter from "components/Footers/DefaultFooter.js";  
+<<<<<<< HEAD
+=======
+import ProductCard from 'views/index-sections/ProductCard';
+>>>>>>> 3edfa6ce3e9d6f15bcbc0184235594d6381575a3
 
 const divisionLine = {
   borderTop: "5px solid #F0F0F0",
@@ -144,8 +148,13 @@ function ResultPage () {
   const imgBox = {
     boxShadow: "0 5px 100px 3px #E8E8E8",
     borderRadius: "30px",
+<<<<<<< HEAD
     width: "900px",
     minHeight: "1400px",
+=======
+    width: "1200px",
+    height: "1400px",
+>>>>>>> 3edfa6ce3e9d6f15bcbc0184235594d6381575a3
     paddingLeft: "30px",
     paddingRight: "30px",
     paddingBottom: "30px",
@@ -162,7 +171,13 @@ function ResultPage () {
     fontWeight:1000,
     fontSize:"30px",
   }
+<<<<<<< HEAD
       
+=======
+  
+  
+    
+>>>>>>> 3edfa6ce3e9d6f15bcbc0184235594d6381575a3
   return (
     <>
       <IndexNavbar />
@@ -195,9 +210,13 @@ function ResultPage () {
 
                 </Col>
                 </Row>
+                <br /><br /><br /><br />
+                <hr/><hr/>
+                <ProductCard/>
             </Container>
         </div>
       </div>
+      
       <br /><br /><br />
       <DefaultFooter />
       {ClearSessionItem()}

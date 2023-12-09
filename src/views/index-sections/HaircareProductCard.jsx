@@ -13,7 +13,7 @@ import { Row, Col } from 'reactstrap';
 const HaircareProductCard = ({productInfo}) => {
 
     return (
-        <Card style={{ height: '95%' }}>
+        <Card style={{ height: '95%', borderRadius: '13px' }}>
           <CardBody>
             <Row style={{ height: '20%' }}>
               <Col>
@@ -35,8 +35,17 @@ const HaircareProductCard = ({productInfo}) => {
                       border: '1px solid #DDDDDD',
                     }}
                   ></hr>
-                  <p style={{ marginBottom: '10px' }}>가격: {productInfo.price.toLocaleString()} 원</p>
-                  <Button href={productInfo.purchaseUrl} color="info">
+                  <p style={{ marginBottom: '10px', fontWeight: '500', }}> ₩ {productInfo.price.toLocaleString()}</p>
+                  <Button 
+                    href={productInfo.purchaseUrl} 
+                    style={{
+                      background:"pink", 
+                      fontWeight:"600", 
+                      fontSize: "15px", 
+                      borderRadius: "13px",
+
+                    }}
+                  >
                     구매링크
                   </Button>
                 </CardText>

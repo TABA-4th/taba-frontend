@@ -67,7 +67,7 @@ function IndexNavbar() {
               id="navbar-brand"
               style={{color: 'white',fontSize:'30px',fontWeight:'bold'}}
             >
-              Nimonaemo
+              Nimonemo
             </NavbarBrand>
             <button
               className="navbar-toggler navbar-toggler"

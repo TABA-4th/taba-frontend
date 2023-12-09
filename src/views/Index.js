@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 
 // reactstrap components
 // import {
@@ -43,25 +43,44 @@ function Index() {
       document.body.classList.remove("sidebar-collapse");
     };
   });
+
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 992);
+
+
   return (
     <>
-      <IndexNavbar />
-      <div className="wrapper">
-        <IndexHeader />
-        <div className="main">
-          <CompleteExamples />
-          <Introduction/>
-
-          <CarouselM1/>
-          <Tabs/>
-          <CarouselM2/>
-
-
-        </div>
-
-        <DefaultFooter/>
-
-      </div>
+      {isMobile ? 
+        <>
+          <IndexNavbar />
+          <div className="wrapper">
+            <IndexHeader />
+            <div className="main">
+              <CompleteExamples />
+              <Introduction/>
+              <CarouselM1/>
+              <Tabs/>
+              <CarouselM2/>
+            </div>
+            <DefaultFooter/>
+          </div>
+        </>
+        : 
+        <>
+          <IndexNavbar />
+          <div className="wrapper">
+            <IndexHeader />
+            <div className="main">
+              <CompleteExamples />
+              <Introduction/>
+              <CarouselM1/>
+              <Tabs/>
+              <CarouselM2/>
+            </div>
+            <DefaultFooter/>
+          </div>
+        </>
+      }
+      
     </>
   );
 }

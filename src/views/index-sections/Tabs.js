@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 
 // reactstrap components
 import {
@@ -19,6 +19,20 @@ import {
 // core components
 
 function Tabs() {
+
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 992);
+
+  useEffect(()=> {
+    // 화면 크기 변경 감지 함수
+    const handleResize = () => {setIsMobile(window.innerWidth <= 992);};
+    // 이벤트 리스너 등록
+    window.addEventListener('resize', handleResize);
+
+    return function cleanup() {
+        window.removeEventListener('resize', handleResize);
+      };
+  },[]);
+
   const [iconPills, setIconPills] = React.useState("1");
   const [pills, setPills] = React.useState("1");
   return (
@@ -34,8 +48,30 @@ function Tabs() {
               paddingLeft: "5%",
               paddingRight: "5%"
             }} 
+        >
+          {isMobile?
+            <>
+              <div 
+              style={{
+                fontSize:"30px", 
+                fontWeight: "550", 
+                color:'#3F4E4D',
+            }}>
+              nimonemo magazine
+            </div>
+            <br />
+            <div
+              style={{
+                fontSize: "20px",
+                fontWeight: "600",
+              }}
             >
-            <div 
+              니모내모가 들려주는 두피 이야기
+            </div>
+            </>
+            :
+            <>
+              <div 
               style={{
                 fontSize:"70px", 
                 fontWeight: "550", 
@@ -52,6 +88,8 @@ function Tabs() {
             >
               니모내모가 들려주는 두피 이야기
             </div>
+            </>
+          }
         </div>
         
         <Container>

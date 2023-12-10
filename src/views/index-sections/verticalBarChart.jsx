@@ -53,15 +53,15 @@ const VBarChart = (props) => {
       value: props.graphData.loss
     },
     {
-      name: "모낭간 홍반 농포",
+      name: "모낭간 홍반농포",
       value: props.graphData.erythema_pustules
     },
   ];
 
   return (
-    <BarChart layout="vertical" width={500} height={300} data={data}>
+    <BarChart layout="vertical" width={500} height={300} data={data} style={{fontSize:'larger', fontWeight:"1000"}}>
       <CartesianGrid strokeDasharray="3 3" stroke="#f5f5f5" />
-      <YAxis dataKey="name" type="category" tickLine={false} axisLine={false} />
+      <YAxis dataKey="name" type="category" tickLine={false} axisLine={false} width={100}/>
       <XAxis type="number" tickLine={false} axisLine={false} domain={[0, 4]} />
       <Tooltip content={CustomTooltip} />
       <Bar dataKey="value" barSize={20} minPointSize={-1}>

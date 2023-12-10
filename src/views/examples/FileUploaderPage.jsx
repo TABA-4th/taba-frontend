@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import axios from 'axios';
 import FileUpload from 'components/Functions/FileUpload';
+import FileUploadMobileView from 'components/Functions/FileUploadMobileView';
 import { useNavigate } from 'react-router-dom';
 import LoadingSpinner from 'views/index-sections/LoadingSpinner';
 
@@ -18,6 +19,9 @@ import DefaultFooter from "components/Footers/DefaultFooter.js";
 function FileUploaderPage() {
   // 페이지 이동을 위한 navigate 
   const navigate = useNavigate();
+
+  // 모바일 뷰
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 592);
 
   // 로딩 스피너
   const [loading, setLoading] = useState(false);
@@ -81,9 +85,14 @@ function FileUploaderPage() {
     document.documentElement.classList.remove("nav-open");
     window.scrollTo(0, 0);
     document.body.scrollTop = 0;
+    // 화면 크기 변경 감지 함수
+    const handleResize = () => {setIsMobile(window.innerWidth <= 992);};
+    // 이벤트 리스너 등록
+    window.addEventListener('resize', handleResize);
     return function cleanup() {
       document.body.classList.remove("landing-page");
       document.body.classList.remove("sidebar-collapse");
+      window.removeEventListener('resize', handleResize);
     };
   }, []);
 
@@ -92,6 +101,17 @@ function FileUploaderPage() {
     borderRadius: "10px",
     width: "630px",
     height: "450px",
+    paddingLeft: "30px",
+    paddingRight: "30px",
+    paddingBottom: "30px",
+    paddingTop: "10px",
+  }
+
+  const mobileImgBox = {
+    boxShadow: "0 5px 80px 3px #E1E1E1",
+    borderRadius: "10px",
+    width: "630px",
+    height: "auto",
     paddingLeft: "30px",
     paddingRight: "30px",
     paddingBottom: "30px",
@@ -107,59 +127,127 @@ function FileUploaderPage() {
 
   return (
     <>
-    <IndexNavbar />
-    <div style={{width:"100%", height:"80px", backgroundColor:"#9ce8ee"}} />
-    <div className="wrapper">
-      <div className="section">
-        <Container className="mx-auto" >
-            <Col className="ml-auto mr-auto text-center" md="20">  
-              <h2 className="title" >
-                나의 두피 상태를 확인해보고 싶다면? <br /> 두피 사진을 올려주세요!
-              </h2>
-              <br />
-
-              <div style = {{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-
-                <div style = {imgBox} >
-                  <h3 className="title" >
-                    💡업로드 Tip💡<br />
-                  </h3>
-
-                  <div style={explainImg}>
-
-                    <div>
-                      <h4 style={{fontWeight:"1000"}}>
-                        🙆‍♀️ 이런 고화질 사진일수록 좋아요
-                      </h4>
-                      <img src='https://i.postimg.cc/KvtQ1zPg/scalp1.jpg' width={"210px"} height={"160px"} style={{ borderRadius: '10px', boxShadow: "0 2px 10px 3px #E1E1E1", }}/>
+      { isMobile ?
+        <>
+          <IndexNavbar />
+          <div style={{width:"100%", height:"80px", backgroundColor:"#9ce8ee"}} />
+          <div className="wrapper" >
+            <div className="section">
+              <Container className="mx-auto" >
+                  <Col className="ml-auto mr-auto text-center" md="8">  
+                    <h5 className="title" >
+                      나의 두피 상태를 확인해보고 싶다면? <br /> 두피 사진을 올려주세요!
+                    </h5>
+                    <br />
+      
+                    <div style = {{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                      <div style = {mobileImgBox} >
+                        <h5 className="title" >
+                          💡업로드 Tip💡<br />
+                        </h5>
+      
+                        <div style={explainImg}>
+                          <div>
+                            <h6 style={{fontWeight:"1000"}}>
+                              🙆‍♀️ 이런 고화질 사진일수록 좋아요
+                            </h6>
+                            <img 
+                              src='https://i.postimg.cc/KvtQ1zPg/scalp1.jpg' 
+                              width="120px"
+                              style={{ borderRadius: '10px', boxShadow: "0 2px 10px 3px #E1E1E1", }}
+                            />
+                          </div>
+      
+                          <div>
+                            <h6 style={{fontWeight:"1000"}}>
+                              🙅‍♀️ 더 높은 화질로 사진 찍어주세요
+                            </h6>
+                            <img 
+                              src='https://i.postimg.cc/SR68xnBS/scalp2.jpg' 
+                              width="120px"
+                              style={{ borderRadius: '10px', boxShadow: "0 2px 10px 3px #E1E1E1" }}
+                            />
+                          </div>
+                        </div>
+                      </div>
                     </div>
-
                     <div>
-                      <h4 style={{fontWeight:"1000"}}>
-                        🙅‍♀️ 더 높은 화질로 사진 찍어주세요
-                      </h4>
-                      <img src='https://i.postimg.cc/SR68xnBS/scalp2.jpg' width={"210px"} height={"160px"} style={{ borderRadius: '10px', boxShadow: "0 2px 10px 3px #E1E1E1" }}/>
+                      {URLThumbnail ? (
+                        <img src={URLThumbnail} alt="thumbnail" />
+                      ) : (
+                        ""
+                      )}
+                      <br /><br /><br />
+                      {loading? <LoadingSpinner /> : ''}
+                      <FileUploadMobileView 
+                        label="두피 사진 올리기" 
+                        onChange={onImageChange} 
+                      />
+                      <br /><br />
                     </div>
-
-                  </div>
-
-                </div>
-
+                  </Col>
+                </Container>
               </div>
-              {URLThumbnail ? (
-                <img src={URLThumbnail} alt="thumbnail" />
-              ) : (
-                ""
-              )}
-              <br /><br /><br />
-              {loading? <LoadingSpinner /> : ''}
-              <FileUpload label="두피 사진 올리기" onChange={onImageChange} />
-              <br /><br />
-            </Col>
-          </Container>
-        </div>
-    </div>
-    <DefaultFooter />
+          </div>
+          <br /><br /><br /><br /><br /><br />
+          <DefaultFooter />
+        </>
+        :
+        <>
+          <IndexNavbar />
+          <div style={{width:"100%", height:"80px", backgroundColor:"#9ce8ee"}} />
+          <div className="wrapper">
+            <div className="section">
+              <Container className="mx-auto" >
+                  <Col className="ml-auto mr-auto text-center" md="20">  
+                    <h2 className="title" >
+                      나의 두피 상태를 확인해보고 싶다면? <br /> 두피 사진을 올려주세요!
+                    </h2>
+                    <br />
+
+                    <div style = {{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+
+                      <div style = {imgBox} >
+                        <h3 className="title" >
+                          💡업로드 Tip💡<br />
+                        </h3>
+                        <div style={explainImg}>
+                          <div>
+                            <h4 style={{fontWeight:"1000"}}>
+                              🙆‍♀️ 이런 고화질 사진일수록 좋아요
+                            </h4>
+                            <img src='https://i.postimg.cc/KvtQ1zPg/scalp1.jpg' width={"210px"} height={"160px"} style={{ borderRadius: '10px', boxShadow: "0 2px 10px 3px #E1E1E1", }}/>
+                          </div>
+
+                          <div>
+                            <h4 style={{fontWeight:"1000"}}>
+                              🙅‍♀️ 더 높은 화질로 사진 찍어주세요
+                            </h4>
+                            <img src='https://i.postimg.cc/SR68xnBS/scalp2.jpg' width={"210px"} height={"160px"} style={{ borderRadius: '10px', boxShadow: "0 2px 10px 3px #E1E1E1" }}/>
+                          </div>
+
+                        </div>
+
+                      </div>
+
+                    </div>
+                    {URLThumbnail ? (
+                      <img src={URLThumbnail} alt="thumbnail" />
+                    ) : (
+                      ""
+                    )}
+                    <br /><br /><br />
+                    {loading? <LoadingSpinner /> : ''}
+                    <FileUpload label="두피 사진 올리기" onChange={onImageChange} />
+                    <br /><br />
+                  </Col>
+                </Container>
+              </div>
+          </div>
+          <DefaultFooter />
+        </>
+      }
+    
     </>
   );
 }

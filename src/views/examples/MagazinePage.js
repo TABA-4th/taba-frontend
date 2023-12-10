@@ -130,9 +130,100 @@ function MagazinePage() {
 
                     잉? 약 달라고 했더니 왜 샴푸를 주는 거야?<br/><br/>
 
-                    라고 생각하실 수 있는데, 이는 '일반의약품'이란 타이틀을 받은 약이니 안심하셔도됩니다!<br/><br/>
+                    라고 생각하실 수 있는데, 이는 <strong>'일반의약품'</strong>이란 타이틀을 받은 약이니 안심하셔도됩니다!<br/><br/>
+                  </h4>
+                </Col>
+                <Col className="text-center" lg="8" md="12">
+                  <img 
+                    src="https://i.postimg.cc/7ZPjnfbM/medical-5459633-1280.png" 
+                    alt="Mountains" 
+                    style={{ width: "70%", height: "auto" }}
+                  />
+                  <h4 >
+                    <br/><br/>
+                    보통 약국에서 쉽게 구매할 수 있는 지루성 두피염 약은 '항진균제'에 해당합니다.<br/><br/>
+
+                    이는 말라세지아 효모균 증식을 억제하기 위한 제품인데요,<br/><br/>
+
+                    주로 끝이 '록스'로 끝나곤 합니다.<br/><br/>
+
+                  </h4>
+                </Col>
+                <Col className="text-center" lg="8" md="12">
+                  <img 
+                    src="https://i.postimg.cc/6qL1dXXm/thermometer-1539191-1280.jpg" 
+                    alt="Mountains" 
+                    style={{ width: "70%", height: "auto" }}
+                  />
+                  <h4 >
+                    <br/><br/>
+                    그리고 그중 케토코나졸 2%가 가장 많이 사용됩니다.<br/><br/>
+
+                    물론 이는 약사의 의견에 따라 권유되며,<br/><br/>
+
+                    사용자가 원하는 사용감, 성능 등에 따라 의약품을 선택할 수 있으니<br/><br/>
+
+                    몇 번 사용해 보신 이력이 있거나 주변의 추천이 있었다면<br/><br/>
+
+                    해당 의약품을 사용해 보시는 것을 권장합니다.<br/><br/>
+                  </h4>
+                </Col>
+                <Col className="text-center" lg="8" md="12">
+                  <img 
+                    src="https://i.postimg.cc/RhzD60jt/cream-4713579-1280.jpg" 
+                    alt="Mountains" 
+                    style={{ width: "70%", height: "auto" }}
+                  />
+                  <h4 >
+                    <br/><br/>
+                    약용 샴푸는 특정 효과를 위해 상품화된 제품이라서<br/><br/>
+
+                    일반 샴푸처럼 쓰면 그 효과가 매우 떨어집니다.<br/><br/>
+
+                    일단, 약용 샴푸는 <strong>일주일에 1~2회 사용을 권장</strong>합니다.<br/><br/>
+
+                    매일 사용한다고 해서 큰 효과를 얻지도 못할뿐더러<br/><br/>
+
+                    두피에 큰 자극이 될 수 있기 때문입니다.<br/><br/>
+                    <img 
+                    src="https://i.postimg.cc/W3Zy1Zfj/woman-3288365-1280.jpg" 
+                    alt="Mountains" 
+                    style={{ width: "70%", height: "auto" }}
+                    />
+                    <br/><br/>
+                    일반적인 사용법은<br/><br/>
+
+                    <strong>약을 짜서 거품을 잘 낸 후에 두피에 골고루 마사지하듯 바른 후</strong><br/><br/>
+
+                    <strong>3~5분 방치한 후 헹궈주어야 합니다.</strong><br/><br/>
+
+                    여기서 약 효과를 극대화하겠다고 5분 이상을 방치하면 오히려 나빠질 수 있으니<br/><br/>
+
+                    권장 사용 방법을 잘 지키며 사용하는 게 중요하다고 할 수 있습니다.<br/><br/>
+                  </h4>
+                </Col>
+                <Col className="text-center" lg="8" md="12">
+                  <img 
+                    src="https://i.postimg.cc/3rg6MgvF/medical-5459631-1280.png" 
+                    alt="Mountains" 
+                    style={{ width: "70%", height: "auto" }}
+                  />
+                  <h4 >
+                    <br/><br/>
+                    지루성 두피염이란 병 자체가 일생생활에 빈번히 이루어지는 나쁜 습관에 의해 시작되는 경우가 많아<br/><br/>
+
+                    약만으론 절대 해결할 수 없습니다.<br/><br/>
+
+                    재발 없는 지루성 두피염 치료는 홈 케어가 반드시 필요합니다.<br/><br/>
+
+                    선택이 아닌 '필수'란 겁니다!<br/><br/>
+
+                    그러니 지난번에 알려드린 홈 케어 방법을 반드시 병행하며 치료하시기 바랍니다.<br/><br/>
+
+                    완벽한 두피 관리를 위해 니모내모가 앞장서겠습니다 +_+ <br/><br/><br/><br/>
+
                     <a href="https://www.youtube.com/watch?v=YXzrUE1qUwc">
-                      전체내용보기
+                      출처
                     </a>
                   </h4>
                 </Col>
@@ -176,7 +267,7 @@ function MagazinePage() {
 
               <Col md={{ size: 6, offset: 3 }} xs="12">
                 <Card className="mb-3">
-                  <a href="https://www.pharmnews.com/news/articleView.html?idxno=220705"><img src="https://i.postimg.cc/05ttbgFj/pexels-tim-gouw-52608.jpg" alt="Mountains" style={{ width: "100%", height: "auto" }}/></a>
+                  <a href="https://www.pharmnews.com/news/articleView.html?idxno=220705"><img src="https://i.postimg.cc/ryBr4rn3/hair-6361059-1921.jpg" alt="Mountains" style={{ width: "100%", height: "auto" }}/></a>
                   <CardBody>
                     <CardTitle tag="h4">염증 억제 항체 이용 차세대 ‘원형탈모’ 치료제</CardTitle>
                     <CardText>
@@ -254,7 +345,7 @@ function MagazinePage() {
                 </Card>
               </Col>
             </Row></> : <> <Card className="mb-3" style={style}>
-            <a href="https://m.health.chosun.com/svc/news_view.html?contid=2023091801650"><img src="https://i.postimg.cc/t4SbHFqn/mg4.jpg" alt="Mountains" width="600" height="400"/></a>
+            <a href="https://m.health.chosun.com/svc/news_view.html?contid=2023091801650"><img src="https://i.postimg.cc/05ttbgFj/pexels-tim-gouw-52608.jpg" alt="Mountains" width="600" height="400"/></a>
               <CardBody>
                 <CardTitle tag="h4">탈모의 계절 가을? 모발 '꽉'잡는 탈모 관리법</CardTitle>
                 <CardText>
@@ -272,7 +363,7 @@ function MagazinePage() {
 
 
             <Card className="mb-3" style={style}>
-            <a href="https://www.pharmnews.com/news/articleView.html?idxno=220705"><img src="https://i.postimg.cc/CxL0tcgV/mg5.jpg" alt="Mountains" width="600" height="400"/></a>
+            <a href="https://www.pharmnews.com/news/articleView.html?idxno=220705"><img src="https://i.postimg.cc/ryBr4rn3/hair-6361059-1921.jpg" alt="Mountains" width="600" height="400"/></a>
               <CardBody>
                 <CardTitle tag="h4">염증 억제 항체 이용 차세대 ‘원형탈모’ 치료제</CardTitle>
                 <CardText>

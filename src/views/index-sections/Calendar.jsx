@@ -44,7 +44,8 @@ function format2Json(d){
     HAIR_LOSS: rowDataArray[6],
     total : rowDataArray[0],
     url : d.imageUrl,
-    diagnosisDate: d.diagnosisDate
+    diagnosisDate: d.diagnosisDate,
+    old : `${d.old}대`,
   };
 
   return JSONData;

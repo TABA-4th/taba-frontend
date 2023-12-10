@@ -3,7 +3,7 @@ import axios from 'axios';
 import ResultGraph from 'views/index-sections/ResultChart';
 import VBarChart from 'views/index-sections/verticalBarChart';
 import {
-    Collapse, Button, CardBody, Card,
+    Collapse, Button, CardBody, Card, CardTitle, UncontrolledTooltip,
     Container,
     Row,
     Col,
@@ -17,14 +17,44 @@ const divisionLine = {
   margin: "30px 0px", 
 }
 
-function ClearSessionItem() {
-  sessionStorage.removeItem('diagnosisData');
-  sessionStorage.removeItem('diagnosisDate');
-  sessionStorage.removeItem('recommend_or_not');
+  // 박스 안에 글 넣기
+const imgBox = {
+  boxShadow: "0 5px 100px 3px #E8E8E8",
+  borderRadius: "30px",
+  width: "1200px",
+  minHeight: "800px",
+  paddingLeft: "30px",
+  paddingRight: "30px",
+  paddingBottom: "30px",
+  paddingTop: "30px",
 }
 
-function renderRankText(d) {
+const mobileImgBox = {
+  boxShadow: "0 5px 100px 3px #E8E8E8",
+  borderRadius: "30px",
+  width: "100%",
+  minHeight: "800px",
+  paddingLeft: "30px",
+  paddingRight: "30px",
+  paddingBottom: "30px",
+  paddingTop: "30px",
+}
 
+// 버튼
+const btnStyle = {
+  background:"#2ca8ff",
+  border:"1px solid #2ca8ff",
+  width:"400px",
+  height:"80px",
+  color: "white",
+  fontWeight:1000,
+  fontSize:"30px",
+}
+
+function ClearSessionItem() {
+  sessionStorage.removeItem('diagnosisData');
+  sessionStorage.removeItem('recommend_or_not');
+  sessionStorage.removeItem('old');
 }
 
 function recommendBaseData(d) {
@@ -52,7 +82,7 @@ function renderGraphData(DATA) {
     "erythema_between_hair_follicles" : erythemaBetweenHairFollicles,
     "dandruff" : dandruff,
     "loss" : loss,
-    "erythema_pustules" : erythemaPustules
+    "erythema_pustules" : erythemaPustules,
   };
   // console.log('데이터!');
   // console.log(Data);
@@ -72,17 +102,29 @@ function renderAvgGraphData(DATA) {
     "erythema_between_hair_follicles" : avgErythemaBetweenHairFollicles,
     "dandruff" : avgDandruff,
     "loss" : avgLoss,
-    "erythema_pustules" : avgErythemaPustules
+    "erythema_pustules" : avgErythemaPustules,
   };
   // console.log('데이터!');
   // console.log(Data);
   return Data;
 }
 
-function ResultPage () {
-  const [collapseIsOpen, setCollapseIsOpen] = useState(false);
-  const toggle = () => setCollapseIsOpen(!collapseIsOpen);
+const renderRankText = (d) => {
+  return (
+    <>
+      <h4> 미세각질 항목은 <span style={{color: 'red'}}>상위 {d.FINE_DEAD_SKIN_CELLS}%</span>입니다.</h4>
+      <h4> 피지과다 항목은 <span style={{color: 'red'}}>상위 {d.EXCESS_SEBUM}%</span>입니다.</h4>
+      <h4> 모낭간 홍반 항목 <span style={{color: 'red'}}>상위 {d.ERYTHEMA_BETWEEN_HAIR_FOLLICLES}%</span>입니다.</h4>
+      <h4> 비듬 항목은 상위 <span style={{color: 'red'}}>상위 {d.DANDRUFF}%</span>입니다.</h4>
+      <h4> 탈모위험성 항목은 <span style={{color: 'red'}}>상위 {d.HAIR_LOSS}%</span>입니다.</h4>
+      <h4> 모낭간 홍반농포 항목은 <span style={{color: 'red'}}>상위 {d.ERYTHEMA_PUSTULES}%</span>입니다.</h4>
+    </>
+  );
+}
 
+function ResultPage () {
+  const [collapseIsOpen, setCollapseIsOpen] = useState(false);  // 콜랍스 효과를 위한 스테이트 훅
+  const toggle = () => setCollapseIsOpen(!collapseIsOpen);
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 992);
 
     // 세션 스토리지에서 nickname 가져오기
@@ -90,6 +132,9 @@ function ResultPage () {
   const diagnosisData = JSON.parse(sessionStorage.getItem('diagnosisData'));
   const recommendation = sessionStorage.getItem('recommend_or_not');
 
+  // 사진업로드 -> 결과화면 & 마이페이지 -> 결과화면에서 넘겨주는 데이터가 서로 다르니.. 어쩔수 없는 부분이긴한데
+  const old = diagnosisData.old ? diagnosisData.old : sessionStorage.getItem('old');
+  const url = diagnosisData.url;
 
   React.useEffect(() => {
     document.body.classList.add("landing-page");
@@ -108,64 +153,21 @@ function ResultPage () {
     };
     }, []);
 
-
-  console.log(diagnosisData.url);
-
-  // 세션 스토리지에서 이미지 URL 가져오기
-  const url = diagnosisData.url;
-
-  // 세션 스토리지에서 검사 결과 가져오기
-  /* 
-    0: dry (미세 각질)
-    1: greasy (피지 과다)
-    2: erythema between hair follicles (모낭 사이 홍반)
-    3: dandruff (비듬)
-    4: loss (탈모)
-    5: erythema pustules (모낭 홍반 농포)
-  */
+  // console.log(diagnosisData.url);
 
   // 현재 날짜 출력하기
   const today = new Date();
-  const formattedDate = `${today.getFullYear()}. ${today.getMonth() + 1}. ${today.getDate()}`;
+  const formattedDate = diagnosisData.diagnosisDate ? diagnosisData.diagnosisDate : `${today.getFullYear()}. ${today.getMonth() + 1}. ${today.getDate()}`;
   // const formattedDate = sessionStorage.getItem('diagnosisDate');
-
-  // 박스 안에 글 넣기
-  const imgBox = {
-    boxShadow: "0 5px 100px 3px #E8E8E8",
-    borderRadius: "30px",
-    width: "1200px",
-    minHeight: "800px",
-    paddingLeft: "30px",
-    paddingRight: "30px",
-    paddingBottom: "30px",
-    paddingTop: "30px",
-  }
-
-  const mobileImgBox = {
-    boxShadow: "0 5px 100px 3px #E8E8E8",
-    borderRadius: "30px",
-    width: "100%",
-    minHeight: "800px",
-    paddingLeft: "30px",
-    paddingRight: "30px",
-    paddingBottom: "30px",
-    paddingTop: "30px",
-  }
-
-  // 버튼
-  const btnStyle = {
-    background:"#2ca8ff",
-    border:"1px solid #2ca8ff",
-    width:"400px",
-    height:"80px",
-    color: "white",
-    fontWeight:1000,
-    fontSize:"30px",
-  }
-  
-    
+   
   return (
     <>
+      {document.getElementById("GraphExplanation") ? 
+      <UncontrolledTooltip placement="top" target="GraphExplanation">
+            <p>육각형이 클수록 <span style={{color: 'blue'}}>양호하다는 것을</span>
+            작을수록 <span style={{color: 'red'}}>좋지않다는 것을</span>의미합니다.</p>
+      </UncontrolledTooltip> : <></>}
+
       {isMobile?
         <>
         <IndexNavbar />
@@ -183,15 +185,18 @@ function ResultPage () {
                         <img src={url} width={"150px"} style={{ borderRadius: '30px', boxShadow: "0 2px 10px 3px #E1E1E1" }}></img>
                         <br />
                         <h5 className='title'>{nickname}님의 두피진단 결과입니다.</h5>
+                        
+                        <div style={divisionLine}></div> {/* 구분선 */}
                         <div className="wrapper text-center" style={{margin:'0 auto'}}>
                           <div style={{justifyContent: 'center', display: 'flex'}}>
                             <VBarChart graphData={renderGraphData(diagnosisData)}/>
                           </div>
-                          <div style={divisionLine}></div>
-                          <div style={{ justifyContent: 'center', display: 'flex' }}>
+                          <div style={divisionLine}></div> {/* 구분선 */}
+                          <div>
+                            <h4> 〃종합적으로 {nickname}님의 두피는 동년배 기준 <span style={{color: 'red'}}>상위 {diagnosisData.total}%</span>로 평가됩니다.〃</h4>
                           </div>
-                          <Button 
-                            
+
+                          <Button                             
                             onClick={toggle} 
                             style={{ 
                               width: '80%', 
@@ -203,12 +208,13 @@ function ResultPage () {
                           }}>
                             √ 검사결과 자세히 보기
                           </Button>
-                          <Collapse isOpen={collapseIsOpen} >
-                            <Card>
-                              <CardBody>
-                                <ResultGraph graphData={renderGraphData(diagnosisData)} avgGraphData={renderAvgGraphData(diagnosisData)} />
-                              </CardBody>
-                            </Card>
+                          <Collapse isOpen={collapseIsOpen}>
+                            <div id="GraphExplanation">
+                              <ResultGraph old={old} graphData={renderGraphData(diagnosisData)} avgGraphData={renderAvgGraphData(diagnosisData)} />
+                            </div>
+                            <div className="text-center">
+                              {renderRankText(diagnosisData)}
+                          </div>
                           </Collapse>
                         </div>
                       </div>
@@ -244,12 +250,14 @@ function ResultPage () {
                       <img src={url} width={"300px"} style={{ borderRadius: '30px', boxShadow: "0 2px 10px 3px #E1E1E1" }}></img>
                       <br />
                       <h3 className='title'>{nickname}님의 두피진단 결과입니다.</h3>
+                      <div style={divisionLine}></div> {/* 구분선 */}
                       <div className="wrapper text-center" style={{margin:'0 auto'}}>
                         <div style={{justifyContent: 'center', display: 'flex'}}>
                           <VBarChart graphData={renderGraphData(diagnosisData)}/>
                         </div>
-                        <div style={divisionLine}></div>
-                        <div style={{ justifyContent: 'center', display: 'flex' }}>
+                        <div style={divisionLine}></div> {/* 구분선 */}
+                        <div>
+                          <h4> 〃종합적으로 {nickname}님의 두피는 동년배 기준 <span style={{color: 'red'}}>상위 {diagnosisData.total}%</span>로 평가됩니다.〃</h4>
                         </div>
                         <Button 
                           onClick={toggle} 
@@ -265,11 +273,12 @@ function ResultPage () {
                           √ 검사결과 자세히 보기
                         </Button>
                         <Collapse isOpen={collapseIsOpen} >
-                          <Card>
-                            <CardBody>
-                              <ResultGraph graphData={renderGraphData(diagnosisData)} avgGraphData={renderAvgGraphData(diagnosisData)} />
-                            </CardBody>
-                          </Card>
+                          <div id="GraphExplanation">
+                              <ResultGraph old={old} graphData={renderGraphData(diagnosisData)} avgGraphData={renderAvgGraphData(diagnosisData)} />
+                          </div>                          
+                          <div className="text-center">
+                            {renderRankText(diagnosisData)}
+                          </div>
                         </Collapse>
                       </div>
                     </div>
@@ -287,8 +296,9 @@ function ResultPage () {
       <br /><br /><br />
       <DefaultFooter />
       {/* {ClearSessionItem()} */}
-    </>
+      </>
       }
+
     </>
   );
 }
@@ -329,4 +339,5 @@ export default ResultPage;
     └ㅡ DATA.각항목 ()
       msg: "Data saved to database successfully"
       url: " URL "
+      old: old데이터
   */

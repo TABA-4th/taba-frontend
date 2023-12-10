@@ -31,6 +31,7 @@ const ProductCard = (props) => {
 
   return (
     <>
+      {products.length == 0 ? <><p>추천드리고 싶으나 제품검색결과가 없습니다</p></>: <></>}
       {products.length > 0 && ( // products 배열이 비어있지 않으면 실행
       <Card style={{ width:'930px' ,borderRadius: '15px', backgroundColor: 'white', padding: '10px' }}>
           <CardBody>

@@ -32,30 +32,45 @@ const ProductCard = (props) => {
   return (
     <>
       {products.length > 0 && ( // products 배열이 비어있지 않으면 실행
-      <Card style={{ width:'800px' ,borderRadius: '15px', backgroundColor: 'white', padding: '10px' }}>
+      <Card style={{ width:'930px' ,borderRadius: '15px', backgroundColor: 'white', padding: '10px' }}>
           <CardBody>
             <Row>
               <Col>
               <CardTitle tag="h5" className="d-flex align-items-center justify-content-between">
                 <div style={{width: 'auto'}}>
                   <i className="fa fa-plus" aria-hidden="true"></i>
-                  <span style={{ fontSize: '20px', fontWeight: 'bold', marginLeft: '5px' }}> ● 검사결과를 바탕으로 추천드려요</span>
-                  <Button color="secondary" style={{ fontSize: '20px', borderRadius: "60", backgroundColor: '#90d8de', padding: '10px', marginLeft: '10px'}}>더 많은 상품보기</Button>
+                  <span style={{ fontSize: '18px', fontWeight: 'bold', marginLeft: '5px' }}> ● 검사결과를 바탕으로 추천드려요</span><br />
                 </div>
               </CardTitle>
                 {products.map((product, index) => (
                   <Row key={index} style={{ marginBottom: '10px' }}>
                     <Col md="3" sm="3" xs="3">
-                      <img src={product.imageUrl} alt={product.name} style={{ width: '150px', height: '150px', borderRadius: '10px' }} />
+                      <img src={product.imageUrl} alt={product.name} style={{ width: 'auto', height: 'auto', borderRadius: '10px' }} />
                     </Col>
                     <Col md="9" sm="9" xs="9">
-                      <div style={{ fontSize: '20px' }}>{product.name}</div>
-                      <Button className="btn-sm" color="primary" style={{ fontSize: '20px' }} href={product.purchaseUrl}>구매링크</Button>
-                      <span style={{ fontSize: '20px', marginLeft: '10px' }}>{product.price.toLocaleString()}원</span>
+                      <div style={{ fontSize: '18px', paddingTop: '5px' }}>{product.name}</div>
+                      <Button className="btn-sm" color="primary" style={{ fontSize: '20px', borderRadius: '15px' }} href={product.purchaseUrl}>구매링크</Button>
+                      <span style={{ fontSize: '17px', marginLeft: '10px' }}>{product.price.toLocaleString()}원</span>
                     </Col>
                   </Row>
                 ))}
               </Col>
+            </Row>
+            <Row>
+              <Button 
+                style={{ 
+                  fontSize: '18px', 
+                  fontWeight: "700",
+                  borderRadius: "15px", 
+                  backgroundColor: '#90d8de', 
+                  padding: '10px', 
+                  marginLeft: '30%',
+                  width: '40%'
+                  
+                }}
+              >
+                더 많은 상품보기
+              </Button>
             </Row>
           </CardBody>
        </Card>

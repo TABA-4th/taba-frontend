@@ -83,14 +83,11 @@ function ProfileMypageHeader() {
 
   return (
     <>
-      <div
-        className="page-header clear-filter page-header-small"
-        filter-color="blue"
-      >
+      <div className="page-header clear-filter">
         <div
-          className="page-header-image"
+          className="page-header-image "
           style={{
-            backgroundImage: "url(" + require("assets/img/bg5.jpg") + ")"  // 헤더 부분 배경 이미지
+            backgroundColor: "#fff" // 헤더 색상
           }}
           ref={pageHeader}
         >

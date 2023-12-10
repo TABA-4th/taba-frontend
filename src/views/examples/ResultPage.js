@@ -83,6 +83,8 @@ function ResultPage () {
   const [collapseIsOpen, setCollapseIsOpen] = useState(false);
   const toggle = () => setCollapseIsOpen(!collapseIsOpen);
 
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 992);
+
     // 세션 스토리지에서 nickname 가져오기
   const nickname = sessionStorage.getItem('nickname');
   const diagnosisData = JSON.parse(sessionStorage.getItem('diagnosisData'));
@@ -95,9 +97,14 @@ function ResultPage () {
     document.documentElement.classList.remove("nav-open");
     window.scrollTo(0, 0);
     document.body.scrollTop = 0;
+    // 화면 크기 변경 감지 함수
+    const handleResize = () => {setIsMobile(window.innerWidth <= 992);};
+    // 이벤트 리스너 등록
+    window.addEventListener('resize', handleResize);
     return function cleanup() {
       document.body.classList.remove("landing-page");
       document.body.classList.remove("sidebar-collapse");
+      window.removeEventListener('resize', handleResize);
     };
     }, []);
 
@@ -134,6 +141,17 @@ function ResultPage () {
     paddingTop: "30px",
   }
 
+  const mobileImgBox = {
+    boxShadow: "0 5px 100px 3px #E8E8E8",
+    borderRadius: "30px",
+    width: "100%",
+    minHeight: "800px",
+    paddingLeft: "30px",
+    paddingRight: "30px",
+    paddingBottom: "30px",
+    paddingTop: "30px",
+  }
+
   // 버튼
   const btnStyle = {
     background:"#2ca8ff",
@@ -148,6 +166,69 @@ function ResultPage () {
     
   return (
     <>
+      {isMobile?
+        <>
+        <IndexNavbar />
+        <div style={{width:"100%", height:"75px", backgroundColor:'#9ce8ee'}} /> {/*NavBar 스타일링*/}
+        <div className="wrapper">
+          <div className="section">
+              <Container className="mx-auto" >
+                  <Row>
+                  <Col className="ml-auto mr-auto text-center" md="12">
+                    <h4 className="title">📈 {nickname}님의 두피 분석 레포트</h4>
+                    <br />
+                    <div style = {{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                      <div style={mobileImgBox}>
+                        <h5 className='title'>검사일시 : {formattedDate} </h5>
+                        <img src={url} width={"150px"} style={{ borderRadius: '30px', boxShadow: "0 2px 10px 3px #E1E1E1" }}></img>
+                        <br />
+                        <h5 className='title'>{nickname}님의 두피진단 결과입니다.</h5>
+                        <div className="wrapper text-center" style={{margin:'0 auto'}}>
+                          <div style={{justifyContent: 'center', display: 'flex'}}>
+                            <VBarChart graphData={renderGraphData(diagnosisData)}/>
+                          </div>
+                          <div style={divisionLine}></div>
+                          <div style={{ justifyContent: 'center', display: 'flex' }}>
+                          </div>
+                          <Button 
+                            
+                            onClick={toggle} 
+                            style={{ 
+                              width: '80%', 
+                              marginBottom: '1rem', 
+                              borderRadius: '15px',
+                              fontWeight: '800',
+                              backgroundColor: "#9ce8ee",
+                              fontSize: 'larger'
+                          }}>
+                            √ 검사결과 자세히 보기
+                          </Button>
+                          <Collapse isOpen={collapseIsOpen} >
+                            <Card>
+                              <CardBody>
+                                <ResultGraph graphData={renderGraphData(diagnosisData)} avgGraphData={renderAvgGraphData(diagnosisData)} />
+                              </CardBody>
+                            </Card>
+                          </Collapse>
+                        </div>
+                      </div>
+                    </div>
+                  </Col>
+                  </Row>
+                  <br />
+                  <hr/><hr/>
+                  <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                    {recommendation == 1 && <ProductCard baseData={recommendBaseData(diagnosisData)}/>}
+                  </div>
+              </Container>
+          </div>
+        </div>
+        <br /><br /><br />
+        <DefaultFooter />
+        {/* {ClearSessionItem()} */}
+      </>
+        :
+        <>
       <IndexNavbar />
       <div style={{width:"100%", height:"75px", backgroundColor:'#9ce8ee'}} /> {/*NavBar 스타일링*/}
       <div className="wrapper">
@@ -170,7 +251,17 @@ function ResultPage () {
                         <div style={divisionLine}></div>
                         <div style={{ justifyContent: 'center', display: 'flex' }}>
                         </div>
-                        <Button color="info" onClick={toggle} style={{ width: '80%', marginBottom: '1rem' }}>
+                        <Button 
+                          onClick={toggle} 
+                          style={{ 
+                            width: '80%', 
+                            marginBottom: '1rem',
+                            borderRadius: '15px',
+                            backgroundColor: '#9ce8ee',
+                            fontSize: 'larger',
+                            fontWeight: '800',
+                          }}
+                        >
                           √ 검사결과 자세히 보기
                         </Button>
                         <Collapse isOpen={collapseIsOpen} >
@@ -196,6 +287,8 @@ function ResultPage () {
       <br /><br /><br />
       <DefaultFooter />
       {/* {ClearSessionItem()} */}
+    </>
+      }
     </>
   );
 }

@@ -280,8 +280,9 @@ const getDetailResult = async (d) => {
         fontSize:"13px",
         paddingTop: "15px",
         borderRadius: "13px",
+        
       }}>파마&염색 기록하기</Button>
-
+      <br /><br />
       <FullCalendar
         defaultView={defaultView}
         plugins={[dayGridPlugin]}

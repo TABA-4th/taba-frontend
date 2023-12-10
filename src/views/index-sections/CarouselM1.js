@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 
 // reactstrap components
 import {
@@ -31,6 +31,20 @@ const items = [
 ];
 
 function CarouselSection() {
+
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 992);
+
+  useEffect(()=> {
+    // 화면 크기 변경 감지 함수
+    const handleResize = () => {setIsMobile(window.innerWidth <= 992);};
+    // 이벤트 리스너 등록
+    window.addEventListener('resize', handleResize);
+
+    return function cleanup() {
+        window.removeEventListener('resize', handleResize);
+      };
+  },[]);
+
   const [activeIndex, setActiveIndex] = React.useState(0);
   const [animating, setAnimating] = React.useState(false);
   const onExiting = () => {
@@ -57,29 +71,58 @@ function CarouselSection() {
     <>
       <div className="section" id="carousel">
         <Container>
-          <br /><br /><br />
-          <div className="title">
-            <p
-            style={{
-              color: "#71D0D7",
-              textAlign: "center",
-              fontSize: "30px",
-              fontWeight: "600",
-            }}
-            >
-              AI를 통한 두피 상태 체크, 나만의 두피 캘린더, 맞춤형 제품 추천 
-            </p>
-            <div 
-              style={{
-                color: 'black',
-                fontSize:'50px',
-                textAlign:'center',
-                fontWeight:'700'
-              }}>
-              니모내모의 핵심 기능
-            </div>
-          </div>
-          <br /><br /><br />
+          {isMobile?
+            <>
+              <div className="title">
+                <p
+                style={{
+                  color: "#71D0D7",
+                  textAlign: "center",
+                  fontSize: "12px",
+                  fontWeight: "600",
+                }}
+                >
+                  AI를 통한 두피 상태 체크, 나만의 두피 캘린더, 맞춤형 제품 추천 
+                </p>
+                <div 
+                  style={{
+                    color: 'black',
+                    fontSize:'20px',
+                    textAlign:'center',
+                    fontWeight:'700'
+                  }}>
+                  니모내모의 핵심 기능
+                </div>
+              </div>
+              <br />
+            </>
+            :
+            <>
+              <br /><br /><br />
+              <div className="title">
+                <p
+                style={{
+                  color: "#71D0D7",
+                  textAlign: "center",
+                  fontSize: "30px",
+                  fontWeight: "600",
+                }}
+                >
+                  AI를 통한 두피 상태 체크, 나만의 두피 캘린더, 맞춤형 제품 추천 
+                </p>
+                <div 
+                  style={{
+                    color: 'black',
+                    fontSize:'50px',
+                    textAlign:'center',
+                    fontWeight:'700'
+                  }}>
+                  니모내모의 핵심 기능
+                </div>
+              </div>
+              <br /><br /><br />
+            </>
+          }
           <Row className="justify-content-center">
             <Col lg="8" md="12">
               <Carousel

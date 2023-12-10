@@ -86,7 +86,7 @@ function MagazinePage() {
                   <img 
                     src="https://i.postimg.cc/SKwTQcvr/pexels-mikhail-nilov-6964103.jpg" 
                     alt="Mountains" 
-                    style={{ width: "70%", height: "auto",  }}
+                    style={{ width: "100%", height: "auto",  }}
                   />
                   <h4>
                     <br/><br/>
@@ -109,7 +109,7 @@ function MagazinePage() {
                   <img 
                     src="https://i.postimg.cc/8zdPmbhF/pexels-jeshootscom-576831.jpg" 
                     alt="Mountains" 
-                    style={{ width: "70%", height: "auto" }}
+                    style={{ width: "100%", height: "auto" }}
                   />
                   <h4>
                     <br/><br/>
@@ -122,7 +122,7 @@ function MagazinePage() {
                   <img 
                     src="https://i.postimg.cc/5yMfzY65/pexels-sora-shimazaki-5938352.jpg" 
                     alt="Mountains" 
-                    style={{ width: "70%", height: "auto" }}
+                    style={{ width: "100%", height: "auto" }}
                   />
                   <h4 >
                     <br/><br/>
@@ -135,9 +135,9 @@ function MagazinePage() {
                 </Col>
                 <Col className="text-center" lg="8" md="12">
                   <img 
-                    src="https://i.postimg.cc/7ZPjnfbM/medical-5459633-1280.png" 
+                    src="https://taba-image.s3.ap-northeast-2.amazonaws.com/magazine/post1-1.png" 
                     alt="Mountains" 
-                    style={{ width: "70%", height: "auto" }}
+                    style={{ width: "100%", height: "auto" }}
                   />
                   <h4 >
                     <br/><br/>
@@ -151,9 +151,9 @@ function MagazinePage() {
                 </Col>
                 <Col className="text-center" lg="8" md="12">
                   <img 
-                    src="https://i.postimg.cc/6qL1dXXm/thermometer-1539191-1280.jpg" 
+                    src="https://taba-image.s3.ap-northeast-2.amazonaws.com/magazine/post1-2.png" 
                     alt="Mountains" 
-                    style={{ width: "70%", height: "auto" }}
+                    style={{ width: "100%", height: "auto" }}
                   />
                   <h4 >
                     <br/><br/>
@@ -172,7 +172,7 @@ function MagazinePage() {
                   <img 
                     src="https://i.postimg.cc/RhzD60jt/cream-4713579-1280.jpg" 
                     alt="Mountains" 
-                    style={{ width: "70%", height: "auto" }}
+                    style={{ width: "100%", height: "auto" }}
                   />
                   <h4 >
                     <br/><br/>
@@ -188,7 +188,7 @@ function MagazinePage() {
                     <img 
                     src="https://i.postimg.cc/W3Zy1Zfj/woman-3288365-1280.jpg" 
                     alt="Mountains" 
-                    style={{ width: "70%", height: "auto" }}
+                    style={{ width: "100%", height: "auto" }}
                     />
                     <br/><br/>
                     일반적인 사용법은<br/><br/>
@@ -206,7 +206,7 @@ function MagazinePage() {
                   <img 
                     src="https://i.postimg.cc/3rg6MgvF/medical-5459631-1280.png" 
                     alt="Mountains" 
-                    style={{ width: "70%", height: "auto" }}
+                    style={{ width: "100%", height: "auto" }}
                   />
                   <h4 >
                     <br/><br/>

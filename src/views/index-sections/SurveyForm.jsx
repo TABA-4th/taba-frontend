@@ -124,8 +124,8 @@ function SurveyForm() {
             color="info"
             type="button"
             onClick={() => {
-              handleNoButtonClick();
               setShowModal(false);
+              handleNoButtonClick();
             }}>
             추천 받겠습니다
           </Button>
@@ -133,7 +133,7 @@ function SurveyForm() {
         </Modal>
       
       
-      <h2 className='title'>✔ 설문 조사</h2>
+      <h1 className='title'>✔ 설문 조사</h1>
       <p style={{justifyContent: 'center', width: '100%'}}>보다 정확한 진단을 위해 필요하니 응답해주시면 감사하겠습니다.<br></br>
       <span style={{color:'red'}}>별 표시( * )가 있는 항목은 필수응답 항목입니다.</span></p>
       <br></br>

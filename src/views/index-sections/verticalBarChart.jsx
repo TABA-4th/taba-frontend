@@ -76,15 +76,18 @@ const VBarChart = (props) => {
 const CustomTooltip = ({ active, payload }) => {
   if (active && payload && payload.length) {
     const dataKey = payload[0].dataKey;
+    // console.log("아래는 순서대로 데이터키, 밸류");
+    // console.log(dataKey);
     const value = payload[0].value;
+    // console.log(value);
     let tooltipContent = '';
 
-    // Customize the tooltip content based on your logic
+    // 데이터 키에 따라 툴팁 내용을 사용자 정의
     switch (dataKey) {
       case 'value':
-        tooltipContent = `${dataKey.name}: ${getSeverity(value)}`;
+        tooltipContent = `${value}: ${getSeverity(value)}`;
         break;
-      // Add more cases for other data keys if needed
+      // 다른 데이터 키에 대한 추가 케이스가 필요하면 추가하세요.
 
       default:
         tooltipContent = '';
@@ -99,6 +102,7 @@ const CustomTooltip = ({ active, payload }) => {
 
   return null;
 };
+
 
 const getColor = (value) => {
   // Define your color logic based on the value

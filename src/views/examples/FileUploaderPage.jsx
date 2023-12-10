@@ -61,7 +61,7 @@ function FileUploaderPage() {
             // 이미지 url 
             console.log(response.data.url);
             sessionStorage.setItem('diagnosisData', JSON.stringify(response.data));
-            alert(response.data.old);
+            // alert(response.data.old);
 
           });
         console.log('이미지 업로드 성공');

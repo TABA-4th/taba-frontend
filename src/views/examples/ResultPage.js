@@ -19,8 +19,8 @@ const divisionLine = {
 
 function ClearSessionItem() {
   sessionStorage.removeItem('diagnosisData');
-  sessionStorage.removeItem('diagnosisDate');
   sessionStorage.removeItem('recommend_or_not');
+  sessionStorage.removeItem('old');
 }
 
 function renderRankText(d) {
@@ -52,7 +52,7 @@ function renderGraphData(DATA) {
     "erythema_between_hair_follicles" : erythemaBetweenHairFollicles,
     "dandruff" : dandruff,
     "loss" : loss,
-    "erythema_pustules" : erythemaPustules
+    "erythema_pustules" : erythemaPustules,
   };
   // console.log('데이터!');
   // console.log(Data);
@@ -72,7 +72,7 @@ function renderAvgGraphData(DATA) {
     "erythema_between_hair_follicles" : avgErythemaBetweenHairFollicles,
     "dandruff" : avgDandruff,
     "loss" : avgLoss,
-    "erythema_pustules" : avgErythemaPustules
+    "erythema_pustules" : avgErythemaPustules,
   };
   // console.log('데이터!');
   // console.log(Data);
@@ -87,6 +87,9 @@ function ResultPage () {
   const nickname = sessionStorage.getItem('nickname');
   const diagnosisData = JSON.parse(sessionStorage.getItem('diagnosisData'));
   const recommendation = sessionStorage.getItem('recommend_or_not');
+
+  // 사진업로드 -> 결과화면 & 마이페이지 -> 결과화면에서 넘겨주는 데이터가 서로 다르니.. 어쩔수 없는 부분이긴한데
+  const old = diagnosisData.old ? diagnosisData.old : sessionStorage.getItem('old');
 
 
   React.useEffect(() => {
@@ -119,7 +122,7 @@ function ResultPage () {
 
   // 현재 날짜 출력하기
   const today = new Date();
-  const formattedDate = `${today.getFullYear()}. ${today.getMonth() + 1}. ${today.getDate()}`;
+  const formattedDate = diagnosisData.diagnosisDate ? diagnosisData.diagnosisDate : `${today.getFullYear()}. ${today.getMonth() + 1}. ${today.getDate()}`;
   // const formattedDate = sessionStorage.getItem('diagnosisDate');
 
   // 박스 안에 글 넣기
@@ -176,7 +179,7 @@ function ResultPage () {
                         <Collapse isOpen={collapseIsOpen} >
                           <Card>
                             <CardBody>
-                              <ResultGraph graphData={renderGraphData(diagnosisData)} avgGraphData={renderAvgGraphData(diagnosisData)} />
+                              <ResultGraph old={old} graphData={renderGraphData(diagnosisData)} avgGraphData={renderAvgGraphData(diagnosisData)} />
                             </CardBody>
                           </Card>
                         </Collapse>
@@ -236,4 +239,5 @@ export default ResultPage;
     └ㅡ DATA.각항목 ()
       msg: "Data saved to database successfully"
       url: " URL "
+      old: old데이터
   */

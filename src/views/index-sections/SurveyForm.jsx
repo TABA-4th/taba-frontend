@@ -47,7 +47,7 @@ function SurveyForm() {
     formData.append("recommend_or_not", data.questRecommend);
     
     sessionStorage.setItem("recommend_or_not", data.questRecommend);
-    sessionStorage.setItem("old", data.questOld);
+    // sessionStorage.setItem("old", data.questOld);
 
     await axios.post('http://3.34.182.50:5000/survey', formData)
       .then(function(response) {

@@ -18,7 +18,7 @@ function ResultGraph(props) {
   const userName = sessionStorage.getItem("nickname");
   const graphData = props.graphData;
   const avgGraphData = props.avgGraphData || null;
-  const avgOld = avgGraphData ? `${sessionStorage.getItem("old")} 평균` : null;
+  const avgOld = props.old !== "0대" ? `${props.old} 평균` : `유아 평균`;
   
   // console.log(graphData);
   const data = {
@@ -79,7 +79,7 @@ function ResultGraph(props) {
         reverse: true,
         pointLabels: {
           font: {
-            size: 20, // Adjust the font size as needed
+            size: 22, // Adjust the font size as needed
           },
         },
       },
@@ -88,8 +88,8 @@ function ResultGraph(props) {
   };
   
   const chartStyle = {
-    width: '500px', // Set the width of the chart
-    height: '500px', // Set the height of the chart
+    width: '600px', // Set the width of the chart
+    height: '600px', // Set the height of the chart
   };
 
   return (

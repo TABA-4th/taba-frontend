@@ -22,7 +22,7 @@ function ResultGraph(props) {
   
   // console.log(graphData);
   const data = {
-    labels: ['미세각질', '피지과다', '모낭간 홍반', '비듬', '탈모', '모낭홍반농포'],
+    labels: ['미세각질', '피지과다', '모낭사이홍반', '비듬', '탈모', '모낭홍반농포'],
     datasets: [
       {
         label: userName,
@@ -79,21 +79,31 @@ function ResultGraph(props) {
         reverse: true,
         pointLabels: {
           font: {
-            size: 22, // Adjust the font size as needed
+            size: '15px', 
+            weight: '800',
           },
         },
       },
     },
+    layout: {
+      margin: {
+        left: '10px',
+        right: '10px',
+        top: '5px',
+        bottom: '10px'
+      }
+    },
     animation: true,
+
   };
   
   const chartStyle = {
-    width: '600px', // Set the width of the chart
-    height: '600px', // Set the height of the chart
+    width: '100%',
+    height: '400px', 
   };
 
   return (
-    <div style={{ marginTop: 20 }}> {/* Check for any unnecessary margin or padding */}
+    <div style={{ marginTop: 30, marginBottom: 30, }}> 
       <Radar 
         data={data}
         options={chartOptions}

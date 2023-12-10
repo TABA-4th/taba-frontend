@@ -53,15 +53,15 @@ const VBarChart = (props) => {
       value: props.graphData.loss
     },
     {
-      name: "모낭간 홍반 농포",
+      name: "모낭간 홍반농포",
       value: props.graphData.erythema_pustules
     },
   ];
 
   return (
-    <BarChart layout="vertical" width={500} height={300} data={data}>
+    <BarChart layout="vertical" width={500} height={300} data={data} style={{fontSize:'larger', fontWeight:"1000"}}>
       <CartesianGrid strokeDasharray="3 3" stroke="#f5f5f5" />
-      <YAxis dataKey="name" type="category" tickLine={false} axisLine={false} />
+      <YAxis dataKey="name" type="category" tickLine={false} axisLine={false} width={100}/>
       <XAxis type="number" tickLine={false} axisLine={false} domain={[0, 4]} />
       <Tooltip content={CustomTooltip} />
       <Bar dataKey="value" barSize={20} minPointSize={-1}>
@@ -76,10 +76,10 @@ const VBarChart = (props) => {
 const CustomTooltip = ({ active, payload }) => {
   if (active && payload && payload.length) {
     const dataKey = payload[0].dataKey;
-    console.log("아래는 순서대로 데이터키, 밸류");
-    console.log(dataKey);
+    // console.log("아래는 순서대로 데이터키, 밸류");
+    // console.log(dataKey);
     const value = payload[0].value;
-    console.log(value);
+    // console.log(value);
     let tooltipContent = '';
 
     // 데이터 키에 따라 툴팁 내용을 사용자 정의

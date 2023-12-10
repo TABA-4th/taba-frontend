@@ -30,6 +30,8 @@ import DefaultFooter from "components/Footers/DefaultFooter.js";
 import TransparentFooter from "components/Footers/TransparentFooter.js";
 import DarkNavbar from "components/Navbars/DarkNavbar.js";
 import Introduction from "./index-sections/Introduction.js";
+import MobileIndexHeader from "components/Headers/MobileIndexHeader.js";
+import MobileCompleteExamples from "./index-sections/MobileCompleteExamples.js";
 
 function Index() {
   React.useEffect(() => {
@@ -38,14 +40,20 @@ function Index() {
     document.documentElement.classList.remove("nav-open");
     window.scrollTo(0, 0);
     document.body.scrollTop = 0;
+
+    // 화면 크기 변경 감지 함수
+    const handleResize = () => {setIsMobile(window.innerWidth <= 992);};
+    // 이벤트 리스너 등록
+    window.addEventListener('resize', handleResize);
+
     return function cleanup() {
       document.body.classList.remove("index-page");
       document.body.classList.remove("sidebar-collapse");
+      window.removeEventListener('resize', handleResize);
     };
   });
 
-  const [isMobile, setIsMobile] = useState(window.innerWidth <= 992);
-
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 792);
 
   return (
     <>
@@ -53,9 +61,9 @@ function Index() {
         <>
           <IndexNavbar />
           <div className="wrapper">
-            <IndexHeader />
+            <MobileIndexHeader />
             <div className="main">
-              <CompleteExamples />
+              <MobileCompleteExamples />
               <Introduction/>
               <CarouselM1/>
               <Tabs/>

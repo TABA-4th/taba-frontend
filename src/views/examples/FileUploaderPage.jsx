@@ -148,7 +148,7 @@ function FileUploaderPage() {
       
                         <div style={explainImg}>
                           <div>
-                            <h6 style={{fontWeight:"1000"}}>
+                            <h6 style={{fontWeight:"700"}}>
                               🙆‍♀️ 이런 고화질 사진일수록 좋아요
                             </h6>
                             <img 
@@ -159,7 +159,7 @@ function FileUploaderPage() {
                           </div>
       
                           <div>
-                            <h6 style={{fontWeight:"1000"}}>
+                            <h6 style={{fontWeight:"700"}}>
                               🙅‍♀️ 더 높은 화질로 사진 찍어주세요
                             </h6>
                             <img 

@@ -37,47 +37,46 @@ function FileUploaderPage() {
     
   const onImageChange = async (e) => {
     const { files } = e.target;
-    
+  
     if (!files || !files[0]) return;
-    
+  
     const uploadImage = files[0];
     let nickname = sessionStorage.getItem('nickname');
-
+  
     createImageURL(uploadImage);
-
+  
     if (uploadImage) {
       let formData = new FormData();
       formData.append('file', uploadImage);
       formData.append('nickname', nickname);
+  
       try {
         setLoading(true);
-        await axios.post('http://3.34.182.50:5000/image', formData, {
+        const response = await axios.post('http://3.34.182.50:5000/image', formData, {
           headers: {
             'Content-Type': 'multipart/form-data',
           },
-        })
-          .then(response => {
-
-            // 이미지 url 
-            console.log(response.data.url);
-            sessionStorage.setItem('diagnosisData', JSON.stringify(response.data));
-            // alert(response.data.old);
-
-          });
+        });
+  
+        sessionStorage.setItem('diagnosisData', JSON.stringify(response.data));
+ 
         console.log('이미지 업로드 성공');
         navigate(`/result`);
-        setLoading(false);
       } catch (error) {
-        alert('이미지 업로드 실패');
-        console.error('이미지 업로드 실패', error);
+        if (error.response && error.response.data && error.response.data.error === 'Invalid Photo') {
+          alert('보다 명확한 이미지를 업로드해주세요');
+        } else {
+          alert('이미지 업로드 실패');
+          console.log(error);
+        }
       } finally {
         setLoading(false);
       }
     } else {
       console.error('이미지를 선택해주세요.');
     }
-
   };
+  
 
   React.useEffect(() => {
     document.body.classList.add("landing-page");

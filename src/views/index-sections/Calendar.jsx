@@ -28,6 +28,7 @@ function format2Json(d){
     "topPercentage": "67.2 70.3 42.9 48.4 38.8 49.0 84.1"
 }
   */
+  console.log(d.topPercentage);
   const rowDataArray = d.topPercentage.split(" ").map(Number);
   
   const JSONData = {

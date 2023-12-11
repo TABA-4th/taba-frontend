@@ -28,7 +28,6 @@ import TransparentFooter from "components/Footers/TransparentFooter.js";
 
 function LoginPage() {
   const { register, handleSubmit, control} = useForm();
-  const [loginResult, setLoginResult] = useState(""); // 로그인 결과를 저장할 상태
   const { login } = useContext(AuthContext); // AuthContext에서 login 함수 사용
   const navigate = useNavigate();
 
@@ -37,7 +36,7 @@ function LoginPage() {
   
 
   const onSubmit = async (formData) => {
-    console.log("보내기 전 데이터:", formData);
+    // console.log("보내기 전 데이터:", formData);
     try {
       const response = await axios.post(
         "http://13.113.206.129:8081/user/login",
@@ -55,13 +54,12 @@ function LoginPage() {
       sessionStorage.setItem("nickname", formData.nickname);
 
       login(); // 로그인 상태 업데이트
-      setLoginResult("로그인 성공!"); // 로그인 성공 메시지 설정
 
       navigate("/"); // 홈페이지로 이동
       //로그인 정보 key 값 nickname을 session storage에다 저장.
     } catch (error) {
+      alert('로그인에 실패했습니다. 아이디나 비밀번호를 체크해주세요');
       console.error("Error during login:", error);
-      setLoginResult("로그인 실패. 다시 시도해주세요."); // 로그인 실패 메시지 설정
     }
   };
 
@@ -116,7 +114,7 @@ function LoginPage() {
                     <Input
                       {...field}
                       type="text"
-                      placeholder="nickname"
+                      placeholder="ID"
                       style={{height:"40px", fontSize:"20px", fontWeight:"500", textAlign:"center"}}
                     />
                   )}

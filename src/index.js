@@ -24,6 +24,7 @@ import MagazinePage from 'views/examples/MagazinePage';
 
 import PublicRoute from "components/Functions/PublicRoute";
 import ProtectedRoute from "components/Functions/ProtectedRoute";
+import AboutPage from "views/examples/AboutPage";
 
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
@@ -44,6 +45,8 @@ root.render(
 
       <Route path="/survey" element={<ProtectedRoute><SurveyPage/></ProtectedRoute>}/>
       <Route path="/product" element={<HaircareProductPage/>}/>
+
+      <Route path="/about" element={<AboutPage></AboutPage>}/>
 
       <Route path="*" element={<Navigate to="/" replace />} />
     </Routes>

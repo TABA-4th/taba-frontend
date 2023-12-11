@@ -20,7 +20,7 @@ function TransparentFooter() {
             </li>
             <li>
               <a
-                href="https://github.com/TABA-4th"
+                href="/about"
                 target="_blank"
               >
                 About Us

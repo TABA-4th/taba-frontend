@@ -228,7 +228,7 @@ function AboutPage() {
                       <a href="#pablo" onClick={(e) => e.preventDefault()}>
                         links
                       </a>{" "}
-                      "Contribution : 각자 기여항목 : 각자 기여항목"
+                      "Contribution : 각자 기여항목"
                     </p>
                     {/* <Button
                       className="btn-icon btn-round"

@@ -99,7 +99,7 @@ function ResultGraph(props) {
   
   const chartStyle = {
     width: '100%',
-    height: '400px', 
+    height: '600px', 
   };
 
   return (

@@ -21,6 +21,7 @@ import styled from "styled-components";
 function AboutPage() {
   const [firstFocus, setFirstFocus] = React.useState(false);
   const [lastFocus, setLastFocus] = React.useState(false);
+
   React.useEffect(() => {
     document.body.classList.add("landing-page");
     document.body.classList.add("sidebar-collapse");
@@ -49,41 +50,23 @@ function AboutPage() {
                       alt="..."
                       className="rounded-circle img-fluid img-raised"
                       src={require("assets/img/teammate_image/kimjungwoo.png")}
-                      style={{width:'100px', height: '100px'}}
+                      style={{width:'100px', height: '105px'}}
                     ></img>{/* assets에 팀원사진 넣어둬야함 */}
                     <h4 className="title">김정우</h4>
-                    <p className="category text-info">Project Manager</p>
+                    <p className="category text-info">LEADER / INFRA / BACKEND</p>
                     <p className="description">
-                      안녕 내이름은 김정우야!{" "}
-                      <a href="#pablo" onClick={(e) => e.preventDefault()}>
-                        links
-                      </a>{" "}
-                      "Contribution : 각자 기여항목"
+                      <a href="https://github.com/kjungw1025">
+                        contact: github
+                      </a>
                     </p>
-                    {/* <Button
-                      className="btn-icon btn-round"
-                      color="info"
-                      href="#pablo"
-                      onClick={(e) => e.preventDefault()}
-                    >
-                      <i className="fab fa-twitter"></i>
-                    </Button>
-                    <Button
-                      className="btn-icon btn-round"
-                      color="info"
-                      href="#pablo"
-                      onClick={(e) => e.preventDefault()}
-                    >
-                      <i className="fab fa-instagram"></i>
-                    </Button>
-                    <Button
-                      className="btn-icon btn-round"
-                      color="info"
-                      href="#pablo"
-                      onClick={(e) => e.preventDefault()}
-                    >
-                      <i className="fab fa-facebook-square"></i>
-                    </Button> */}
+                    <p className="description" style={{textAlign: "left"}}>
+                      단국대 소프트웨어학과 19학번 김정우입니다. <br />
+                      니모내모 서비스에서 인프라 구축과 백엔드 개발을 담당했습니다. 
+                      AWS를 기반으로 Docker와 Github Actions를 활용하여 인프라를 구축하고
+                      SpringBoot와 Flask 프레임워크를 통해 백엔드 개발을 진행했습니다. 
+                      앞으로도 해당 분야를 발전시켜 백엔드 신입 개발자로 성장하고 싶습니다.
+                      <br /><br />
+                    </p>
                   </div>
                 </Col>
                 <Col md="4">  {/* 여기서 부터 한 Col당 팀원 한명씩 */}
@@ -91,41 +74,21 @@ function AboutPage() {
                     <img
                       alt="..."
                       className="rounded-circle img-fluid img-raised"
-                      src={require("assets/img/avatar.jpg")}  
+                      src={require("assets/img/teammate_image/kang.jpg")}  
+                      style={{width:'100px', height:'110px'}}
                     ></img>{/* assets에 팀원사진 넣어둬야함 */}
                     <h4 className="title">강형철</h4>
-                    <p className="category text-info">FrontEnd Features</p>
+                    <p className="category text-info">FRONTEND LEADER / FEATURES</p>
                     <p className="description">
-                      안녕 내이름은 강형철이야!{" "}
-                      <a href="#pablo" onClick={(e) => e.preventDefault()}>
-                        links
-                      </a>{" "}
-                      "Contribution : 각자 기여항목"
+                      <a href="https://github.com/hckang17">
+                        contact: github
+                      </a>
                     </p>
-                    {/* <Button
-                      className="btn-icon btn-round"
-                      color="info"
-                      href="#pablo"
-                      onClick={(e) => e.preventDefault()}
-                    >
-                      <i className="fab fa-twitter"></i>
-                    </Button>
-                    <Button
-                      className="btn-icon btn-round"
-                      color="info"
-                      href="#pablo"
-                      onClick={(e) => e.preventDefault()}
-                    >
-                      <i className="fab fa-instagram"></i>
-                    </Button>
-                    <Button
-                      className="btn-icon btn-round"
-                      color="info"
-                      href="#pablo"
-                      onClick={(e) => e.preventDefault()}
-                    >
-                      <i className="fab fa-facebook-square"></i>
-                    </Button> */}
+                    <p className="description" style={{textAlign: "left"}}>
+                      단국대 모바일시스템공학과 19학번 강형철입니다.
+                      이번 NIMONEMO 프로젝트에서 프론트엔드 팀장으로 전반적인 부분을 개발&관리하였습니다.
+                      REACT를 기반으로 Axios API통신(HTTP), 캘린더, 마이페이지, 결과페이지의 세부기능를 주로 개발하였습니다.<br />
+                    </p>
                   </div>
                 </Col>
 
@@ -138,38 +101,21 @@ function AboutPage() {
                       style={{width:'100px', height: '110px'}}
                     ></img>{/* assets에 팀원사진 넣어둬야함 */}
                     <h4 className="title">서원형</h4>
-                    <p className="category text-info">AI Model</p>
-                    <p className="description">
-                      안녕 내이름은 서원형이야!{" "}
-                      <a href="#pablo" onClick={(e) => e.preventDefault()}>
-                        links
-                      </a>{" "}
-                      "Contribution : 각자 기여항목"
+                    <p className="category text-info">AI / BACKEND </p>
+                    <p>
+                      <a href="https://github.com/kolo4917">
+                        contact: github
+                      </a>
                     </p>
-                    {/* <Button
-                      className="btn-icon btn-round"
-                      color="info"
-                      href="#pablo"
-                      onClick={(e) => e.preventDefault()}
-                    >
-                      <i className="fab fa-twitter"></i>
-                    </Button>
-                    <Button
-                      className="btn-icon btn-round"
-                      color="info"
-                      href="#pablo"
-                      onClick={(e) => e.preventDefault()}
-                    >
-                      <i className="fab fa-instagram"></i>
-                    </Button>
-                    <Button
-                      className="btn-icon btn-round"
-                      color="info"
-                      href="#pablo"
-                      onClick={(e) => e.preventDefault()}
-                    >
-                      <i className="fab fa-facebook-square"></i>
-                    </Button> */}
+                    <p className="description" style={{textAlign:'left'}}>
+                      단국대 모바일시스템공학과 19학번 서원형입니다. 
+                      니모내모 서비스에서 전 AI파트를 전담하여 데이터 수집부터 분석, 
+                      유효성 검증 모델 , 6가지 증상 판단모델을 구축하여 
+                      Flask 프레임워크를 통해 연결하였습니다. 
+                      AWS Sagemaker, CUDA ,WandB, Slack과 ML을 적합하게 연결하여 
+                      일의 효율성을 높히며 최적 모델을 개발하고자 노력하였으며, 
+                      앞으로도 해당 분야를 아우르는 백엔드 개발자가 되기 위해 노력하겠습니다.                     
+                    </p>
                   </div>
                 </Col>
 
@@ -180,41 +126,22 @@ function AboutPage() {
                     <img
                       alt="..."
                       className="rounded-circle img-fluid img-raised"
-                      src={require("assets/img/avatar.jpg")}  
+                      src={require("assets/img/teammate_image/lee.jpg")}  
                     ></img>{/* assets에 팀원사진 넣어둬야함 */}
                     <h4 className="title">이영주</h4>
-                    <p className="category text-info">Backend FLASK</p>
-                    <p className="description">
-                      안녕 내이름은 이영주야!{" "}
-                      <a href="#pablo" onClick={(e) => e.preventDefault()}>
-                        links
-                      </a>{" "}
-                      "Contribution : 각자 기여항목"
+                    <p className="category text-info">BACKEND FLASK</p>
+                    <p>
+                      <a href="https://github.com/0-zoo">
+                        contact: github
+                      </a>
                     </p>
-                    {/* <Button
-                      className="btn-icon btn-round"
-                      color="info"
-                      href="#pablo"
-                      onClick={(e) => e.preventDefault()}
-                    >
-                      <i className="fab fa-twitter"></i>
-                    </Button>
-                    <Button
-                      className="btn-icon btn-round"
-                      color="info"
-                      href="#pablo"
-                      onClick={(e) => e.preventDefault()}
-                    >
-                      <i className="fab fa-instagram"></i>
-                    </Button>
-                    <Button
-                      className="btn-icon btn-round"
-                      color="info"
-                      href="#pablo"
-                      onClick={(e) => e.preventDefault()}
-                    >
-                      <i className="fab fa-facebook-square"></i>
-                    </Button> */}
+                    <p className="description" style={{textAlign: "left"}}>
+                      단국대학교 모바일시스템공학과 21학번 이영주 입니다. 
+                      니모내모 서비스에서 전반적인 기획과 Flask프레임워크를 통한 
+                      백엔드 개발을 맡아 진행했습니다. 
+                      앞으로도 기술적인 역량뿐만 아니라 소통과 협업 능력을 더욱 강화하여, 
+                      경쟁력 있는 백엔드 개발자로 성장하겠습니다.
+                    </p>
                   </div>
                 </Col>
                 <Col md="4">  {/* 여기서 부터 한 Col당 팀원 한명씩 */}
@@ -226,43 +153,19 @@ function AboutPage() {
                       style={{width:'100px', height: '110px'}}
                     ></img>{/* assets에 팀원사진 넣어둬야함 */}
                     <h4 className="title">천은유</h4>
-                    <p className="category text-info">FRONTEND UI/UX</p>
-                    <p className="description" style={{textAlign: "left"}}>
-                      단국대 소프트웨어학과 20학번 천은유입니다. <br />
-                      니모내모 서비스에서 프론트엔드 및 UI/UX 디자인을 담당했습니다.
-                      웹 및 모바일 앱에서의 전체적인 디자인을 만들고, 검사 진단 및 결과 페이지를 리액트로 개발했습니다.<br />
-                      타바가 끝난 후 리액트 공부를 이어나가며, 프론트엔드 신입 개발자로 성장하고 싶습니다.
-                      <br />
-                    </p>
+                    <p className="category text-info">FRONTEND / UI/UX DESIGN</p>
                     <p className="description">
                       <a href="https://github.com/ChunEunyu" >
                         contact: github
-                      </a>{" "}
+                      </a>
                     </p>
-                    {/* <Button
-                      className="btn-icon btn-round"
-                      color="info"
-                      href="#pablo"
-                      onClick={(e) => e.preventDefault()}
-                    >
-                      <i className="fab fa-twitter"></i>
-                    </Button>
-                    <Button
-                      className="btn-icon btn-round"
-                      color="info"
-                      href="#pablo"
-                      onClick={(e) => e.preventDefault()}
-                    >
-                      <i className="fab fa-instagram"></i>
-                    </Button>
-                    <Button
-                      className="btn-icon btn-round"
-                      color="info"
-                      href="#pablo"
-                      onClick={(e) => e.preventDefault()}
-                    >
-                      <i className="fab fa-facebook-square"></i>
-                    </Button> */}
+                    <p className="description" style={{textAlign: "left"}}>
+                      단국대 소프트웨어학과 20학번 천은유입니다. <br />
+                      니모내모 서비스에서 프론트엔드 및 UI/UX 디자인을 담당했습니다.
+                      웹 및 모바일 앱에서의 전체적인 디자인을 만들고, 검사 진단 및 결과 페이지를 리액트로 개발했습니다.
+                      타바가 끝난 후 리액트 공부를 이어나가며, UI/UX에 대해 고민하는 프론트엔드 신입 개발자로 성장하기 위해 노력하겠습니다.
+                      <br />
+                    </p>
                   </div>
                 </Col>
 
@@ -274,38 +177,19 @@ function AboutPage() {
                       src={require("assets/img/teammate_image/jangsiwoo.png")}  
                     ></img>{/* assets에 팀원사진 넣어둬야함 */}
                     <h4 className="title">장시우</h4>
-                    <p className="category text-info">FrontEnd</p>
-                    <p className="description">
-                      안녕 내이름은 장시우야!{" "}
-                      <a href="#pablo" onClick={(e) => e.preventDefault()}>
-                        links
-                      </a>{" "}
-                      "Contribution : 각자 기여항목"
+                    <p className="category text-info">FRONTEND</p>
+                    <p>
+                      <a href="https://github.com/siwooJang">
+                        contact: github
+                      </a> 
                     </p>
-                    {/* <Button
-                      className="btn-icon btn-round"
-                      color="info"
-                      href="#pablo"
-                      onClick={(e) => e.preventDefault()}
-                    >
-                      <i className="fab fa-twitter"></i>
-                    </Button>
-                    <Button
-                      className="btn-icon btn-round"
-                      color="info"
-                      href="#pablo"
-                      onClick={(e) => e.preventDefault()}
-                    >
-                      <i className="fab fa-instagram"></i>
-                    </Button>
-                    <Button
-                      className="btn-icon btn-round"
-                      color="info"
-                      href="#pablo"
-                      onClick={(e) => e.preventDefault()}
-                    >
-                      <i className="fab fa-facebook-square"></i>
-                    </Button> */}
+                    <p className="description" style={{textAlign: "left"}}>
+                      단국대 소프트웨어학과 19학번 장시우입니다. 
+                      니모내모 서비스에서 프론트엔드 및 레이아웃 구성을 담당했습니다. 
+                      프로젝트 초기 구성을 만들고, 홈페이지,매거진 페이지를 만들고 
+                      회원가입 로직 등을 리액트로 구현했습니다.
+                      타바 후에도 서버 등 백엔드를 공부해 백엔드와 협업할 줄 아는 프론트엔드 신입 개발자로 성장하고 싶습니다.{" "}
+                    </p>
                   </div>
                 </Col>
 

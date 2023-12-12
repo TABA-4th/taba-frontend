@@ -36,7 +36,7 @@ function AboutpageHeader() {
         ></div>
         <div className="content-center">
           <Container>
-            <h2 className="title">NIMONEMO 팀을 소개합니다.</h2>
+            <h3 className="title">NIMONEMO 팀을 소개합니다.</h3>
             <div className="text-center">
             </div>
           </Container>

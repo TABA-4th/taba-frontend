@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Card, CardBody, CardTitle, Button, Row, Col, Badge } from 'reactstrap';
 import axios from 'axios';
 
@@ -9,14 +10,22 @@ const fetchProductData = async (payload) => { // 여기서 payload는 {dry:false
     return response.data;
   } catch (error) {
     console.log(error);
-    // alert('데이터 수신 문제');
-    // 여기서 각 error 종류별로 데이터 처리 필요함.
     return [];
-    
   }
 }
 
 const ProductCard = (props) => {
+  const navigate = useNavigate();
+  // 제품추천 클릭했을때 사용할 객체~
+  const [recommendFeature, setRecommendFeature] = useState({
+    dry: false,
+    greasy: false,
+    sensitive: false,
+    dermatitis: false,
+    neutral: false,
+    loss: false,
+  }); // 제품추천 페이지에 넘겨줄 아이 ^^
+
   const [products, setProducts] = useState([]); // 상품정보를 표시할 스테이트
   console.log("이 아래는 프로덕트카드 프롭");
   console.log(props.baseData);
@@ -29,9 +38,24 @@ const ProductCard = (props) => {
     fetchData();
   }, [props.baseData]);
 
+  const handleShowMoreProduct = () => {
+    console.log(props.baseData);
+    setRecommendFeature({
+      dry: props.baseData.dry,
+      greasy: props.baseData.greasy,
+      sensitive: props.baseData.sensitive,
+      dermatitis: props.baseData.dermatitis,
+      neutral: props.baseData.neutral,
+      loss: props.baseData.loss
+    });
+    console.log(recommendFeature);
+    navigate('/product', { state : props.baseData });
+  }
+
   return (
     <>
       {products.length == 0 ? <><p>추천드리고 싶으나 제품검색결과가 없습니다</p></>: <></>}
+      {/* 위 코드는 가독성을 위해서 작성한것임. 실제 출시때는 변경할것임. */}
       {products.length > 0 && ( // products 배열이 비어있지 않으면 실행
       <Card style={{ width:'930px' ,borderRadius: '15px', backgroundColor: 'white', padding: '10px' }}>
           <CardBody>
@@ -67,8 +91,9 @@ const ProductCard = (props) => {
                   padding: '10px', 
                   marginLeft: '30%',
                   width: '40%'
+                  
                 }}
-                href='/product'
+                onClick={handleShowMoreProduct}
               >
                 더 많은 상품보기
               </Button>

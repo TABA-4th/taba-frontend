@@ -8,18 +8,20 @@ const MobileIndexHeader = () => {
     let pageHeader = React.createRef();
 
     React.useEffect(() => {
-        if (window.innerWidth > 991) {
+      if (window.innerWidth > 991) {
         const updateScroll = () => {
+          if (pageHeader.current) {
             let windowScrollTop = window.pageYOffset / 3;
             pageHeader.current.style.transform =
-            "translate3d(0," + windowScrollTop + "px,0)";
+              "translate3d(0," + windowScrollTop + "px,0)";
+          }
         };
         window.addEventListener("scroll", updateScroll);
         return function cleanup() {
-            window.removeEventListener("scroll", updateScroll);
+          window.removeEventListener("scroll", updateScroll);
         };
-        }
-    });
+      }
+    }, [pageHeader]);
 
   return (
     <>

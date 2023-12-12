@@ -4,11 +4,7 @@ import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
 import axios from "axios";
 import {
-  Form,
-  FormGroup,
-  Input,
-  Button,
-  Modal,
+  Form,FormGroup,Input,Button,Modal,Label,
 } from "reactstrap";
 
 const nickname = sessionStorage.getItem("nickname");
@@ -30,12 +26,37 @@ function SurveyForm() {
   const [showModal, setShowModal] = useState(false);
   // 모달을 사용하기 위한 state
 
+  const [rememberAnswer, setRememberAnswer] = useState(true);
+  // 기억 체크박스를 위해
+  const [rememberGender, setRememberGender] = useState(sessionStorage.getItem("Qgender") ? sessionStorage.getItem("Qgender") : "");
+  const [rememberOld, setRememberOld] = useState(sessionStorage.getItem("Qold") ? sessionStorage.getItem("Qold") : "");
+  const [rememberUsageTerm, setRememberUsageTerm] = useState(sessionStorage.getItem("Quse_age_term") ? sessionStorage.getItem("Quse_age_term") : "");
+  const [rememberPermTerm, setRememberPermTerm] = useState(sessionStorage.getItem("Qperm_term") ? sessionStorage.getItem("Qperm_term") : "");
+  const [rememberDyeTerm, setRememberDyeTerm] = useState(sessionStorage.getItem("Qdye_term") ? sessionStorage.getItem("Qdye_term") :"");
+  const [rememberRecommend, setRememberRecommend] = useState(sessionStorage.getItem("Qrecommend_or_not") ? sessionStorage.getItem("Qrecommend_or_not") : 1);
+  // 기억요소..
+
+
   const { control, handleSubmit, setValue, formState: {errors}, watch } = useForm({
     resolver: yupResolver(schema),
-  });
-  // 폼을 작성하기 위한 메서드 집합들.
+  }); // 폼 제어(필수입력 등) 사용하기 위한 메서드 집합들. 핵심은 yup임.
   
   const onSubmit = async (data) => {
+    if(rememberAnswer){
+      sessionStorage.setItem("Qgender", data.questGender);
+      sessionStorage.setItem("Qold", data.questOld);
+      sessionStorage.setItem("Quse_age_term", data.questUsageTerm);
+      sessionStorage.setItem("Qperm_term", data.questPermTerm);
+      sessionStorage.setItem("Qdye_term", data.questDyeTerm);
+      sessionStorage.setItem("Qrecommend_or_not", data.questRecommend);
+    }else{
+      sessionStorage.removeItem("Qgender");
+      sessionStorage.removeItem("Qold");
+      sessionStorage.removeItem("Quse_age_term");
+      sessionStorage.removeItem("Qperm_term");
+      sessionStorage.removeItem("Qdye_term");
+      sessionStorage.removeItem("Qrecommend_or_not");
+    }
     // alert(JSON.stringify(data));
     let formData = new FormData();
     formData.append("nickname", nickname);
@@ -69,7 +90,6 @@ function SurveyForm() {
      */
   };  // '제출' 버튼을 클릭했을때 발생하는 것들.
 
-
   useEffect(() => {
     if (watch('questRecommend') == 0) {
       setShowModal(true);
@@ -77,7 +97,6 @@ function SurveyForm() {
   }, [watch('questRecommend')]);
 
   const handleYesButtonClick = () => {
-    setValue('questRecommend', 0);
     setShowModal(false);
   };
 
@@ -133,7 +152,7 @@ function SurveyForm() {
         </Modal>
       
       
-      <h1 className='title'>설문 조사</h1>
+      <h1 className='title'>✔ 설문 조사</h1>
       <p style={{justifyContent: 'center', width: '100%'}}>보다 정확한 진단을 위해 필요하니 응답해주시면 감사하겠습니다.<br></br>
       <span style={{color:'red'}}>별 표시( * )가 있는 항목은 필수응답 항목입니다.</span></p>
       <br></br>
@@ -144,7 +163,7 @@ function SurveyForm() {
           <Controller
               name="questGender" // 이름은 유일해야 합니다.
               control={control} // useForm에서 받은 control을 전달합니다.
-              defaultValue="" // 기본값을 설정할 수 있습니다.
+              defaultValue={rememberGender} // 기본값을 설정할 수 있습니다.
               render={({ field }) => (
                 <div>
                   <select {...field} className="form-control-lg" style={{ width: '100%' }}>
@@ -168,7 +187,7 @@ function SurveyForm() {
           <Controller
             name="questOld"
             control={control}
-            defaultValue=""
+            defaultValue={rememberOld}
             render={({ field }) => (
               <div>
                 <select {...field} className="form-control-lg" style={{ width: '100%' }}>
@@ -197,7 +216,7 @@ function SurveyForm() {
           <Controller
             name="questUsageTerm"
             control={control}
-            defaultValue=""
+            defaultValue={rememberUsageTerm}
             render={({ field }) => (
               <div>
                 <select {...field} className="form-control-lg" style={{ width: '100%' }}>
@@ -224,7 +243,7 @@ function SurveyForm() {
           <Controller
             name="questPermTerm"
             control={control}
-            defaultValue=""
+            defaultValue={rememberPermTerm}
             render={({ field }) => (
               <div>
                 <select {...field} className="form-control-lg" style={{ width: '100%' }}>
@@ -251,7 +270,7 @@ function SurveyForm() {
           <Controller
             name="questDyeTerm"
             control={control}
-            defaultValue=""
+            defaultValue={rememberDyeTerm}
             render={({ field }) => (
               <div>
                 <select {...field} className="form-control-lg" style={{ width: '100%' }}>
@@ -278,7 +297,7 @@ function SurveyForm() {
           <Controller
             name="questRecommend"
             control={control}
-            defaultValue={1}
+            defaultValue={rememberRecommend}
             render={({ field }) => (
               <div>
                 <select {...field} className="form-control-lg" style={{ width: '100%' }}>
@@ -294,6 +313,19 @@ function SurveyForm() {
         </FormGroup>
       </div>
       <br></br>
+
+      <div>
+        <FormGroup check>
+          <Label check>
+            <Input
+              type="checkbox"
+              checked={rememberAnswer}
+              onChange={() => setRememberAnswer(!rememberAnswer)}
+            />
+            <span className="form-check-sign">로그아웃시까지 이번 설문응답을 기억합니다.</span>
+          </Label>
+        </FormGroup>
+      </div>
 
       <Button 
         type="submit" 

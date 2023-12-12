@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import ResultGraph from 'views/index-sections/ResultChart';
 import VBarChart from 'views/index-sections/verticalBarChart';

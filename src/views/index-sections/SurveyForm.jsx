@@ -97,7 +97,6 @@ function SurveyForm() {
   }, [watch('questRecommend')]);
 
   const handleYesButtonClick = () => {
-    setValue('questRecommend', 0);
     setShowModal(false);
   };
 

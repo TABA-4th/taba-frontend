@@ -49,6 +49,13 @@ function SurveyForm() {
       sessionStorage.setItem("Qperm_term", data.questPermTerm);
       sessionStorage.setItem("Qdye_term", data.questDyeTerm);
       sessionStorage.setItem("Qrecommend_or_not", data.questRecommend);
+    }else{
+      sessionStorage.removeItem("Qgender");
+      sessionStorage.removeItem("Qold");
+      sessionStorage.removeItem("Quse_age_term");
+      sessionStorage.removeItem("Qperm_term");
+      sessionStorage.removeItem("Qdye_term");
+      sessionStorage.removeItem("Qrecommend_or_not");
     }
     // alert(JSON.stringify(data));
     let formData = new FormData();

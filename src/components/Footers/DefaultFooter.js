@@ -37,7 +37,7 @@ function DefaultFooter() {
             href="https://github.com/TABA-4th/taba-frontend"
             target="_blank"
           >
-            Nimonemo FE
+            Nimonemo
           </a>
         </div>
       </Container>

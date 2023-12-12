@@ -1,6 +1,7 @@
 // Import necessary components
 import React, { useState, useEffect } from "react";
 import axios from 'axios';
+import {useLocation} from 'react-router-dom';
 import { Row, Col, Button, ButtonGroup, Container } from 'reactstrap';
 //import DarkNavbar from 'components/Navbars/DarkNavbar';
 import HaircareProductCard from "views/index-sections/HaircareProductCard";
@@ -13,16 +14,20 @@ const noContentsImgURL = require("assets/img/NoContents.png");
 
 function HaircareProductPage() {
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 992);
+  const location = useLocation();
+  const dataFromResult = location.state;
+  console.log(dataFromResult);
 
   const [productInfo, setProductInfo] = useState([]);
   const [buttonStates, setButtonStates] = useState({
-    dry: { isActive: false, text: "건성" },
-    greasy: { isActive: false, text: "지성" },
-    sensitive: { isActive: false, text: "민감성" },
-    dermatitis: { isActive: false, text: "피부염" },
-    neutral: { isActive: false, text: "중성" },
-    loss: { isActive: false, text: "탈모" },
+    dry: { isActive: dataFromResult?.dry || false, text: "건성" },
+    greasy: { isActive: dataFromResult?.greasy || false, text: "지성" },
+    sensitive: { isActive: dataFromResult?.sensitive || false, text: "민감성" },
+    dermatitis: { isActive: dataFromResult?.dermatitis || false, text: "피부염" },
+    neutral: { isActive: dataFromResult?.neutral || false, text: "중성" },
+    loss: { isActive: dataFromResult?.loss || false, text: "탈모" },
   });
+
   const [comment, setComment] = useState("");
   const handleButtonClick = (button) => {
     setButtonStates((prevState) => ({
@@ -91,14 +96,12 @@ function HaircareProductPage() {
 
   useEffect(() => {
     fetchHairStatus();
+    setComment(stringifyProperties(buttonStates));
     // 화면 크기 변경 감지 함수
     const handleResize = () => {setIsMobile(window.innerWidth <= 992);};
     // 이벤트 리스너 등록
     window.addEventListener('resize', handleResize);
-
   }, []);
-
-  
 
   return (
     <>

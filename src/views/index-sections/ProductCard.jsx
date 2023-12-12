@@ -67,8 +67,8 @@ const ProductCard = (props) => {
                   padding: '10px', 
                   marginLeft: '30%',
                   width: '40%'
-                  
                 }}
+                href='/product'
               >
                 더 많은 상품보기
               </Button>

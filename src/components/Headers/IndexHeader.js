@@ -32,11 +32,11 @@ function IndexHeader() {
           }}
           ref={pageHeader}
         ></div>
-        <Container>
+        <Container style={{textAlign:'center'}}>
           <a href='/survey'>
-            <h3 className="category category-absolute" style={{color:'white'}}>
+            <h1 className="category category-absolute" style={{color:'white'}}>
               바로 시작해보세요!
-            </h3>
+            </h1>
           </a>
         </Container>
       </div>

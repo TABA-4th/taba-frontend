@@ -121,6 +121,9 @@ function IndexNavbar() {
 
                 </>
               )}
+              <NavItem>
+                    <NavLink href="/about" style={{color: 'white',fontSize:'20px'}}>About</NavLink>
+              </NavItem>
             {/* <UncontrolledDropdown nav style={{color: 'white'}}>
                 <DropdownToggle caret color="default" href="#pablo" nav onClick={(e) => e.preventDefault()}>
                   <i className="now-ui-icons design_app mr-1"></i>

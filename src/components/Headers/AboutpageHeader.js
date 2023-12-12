@@ -30,13 +30,13 @@ function AboutpageHeader() {
         <div
           className="page-header-image"
           style={{
-            backgroundImage: "url(" + require("assets/img/bg6.jpg") + ")" // 헤더 부분 배경 이미지
+            background: "linear-gradient(#90d8de 60%, white)" 
           }}
           ref={pageHeader}
         ></div>
         <div className="content-center">
           <Container>
-            <h1 className="title">NIMONEMO 팀을 소개합니다.</h1>
+            <h2 className="title">NIMONEMO 팀을 소개합니다.</h2>
             <div className="text-center">
             </div>
           </Container>

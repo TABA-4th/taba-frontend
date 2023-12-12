@@ -31,11 +31,11 @@ const MobileIndexHeader = () => {
           }}
           ref={pageHeader}
         ></div>
-        <Container>
+        <Container style={{textAlign:'center'}}>
           <a href='/survey'>
-            <h3 className="category category-absolute" style={{color:'white'}}>
+            <h2 className="category category-absolute" style={{color:'white'}}>
               바로 시작해보세요!
-            </h3>
+            </h2>
           </a>
         </Container>
       </div>

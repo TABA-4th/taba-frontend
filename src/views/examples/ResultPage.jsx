@@ -1,5 +1,4 @@
 import React, {useState} from 'react';
-import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import ResultGraph from 'views/index-sections/ResultChart';
 import VBarChart from 'views/index-sections/verticalBarChart';
@@ -111,14 +110,18 @@ function renderAvgGraphData(DATA) {
 }
 
 const renderRankText = (d) => {
+  const resultTextStyle = {
+    // marginBottom: 'px',
+  };
+
   return (
     <>
-      <h4> 미세각질 항목은 <span style={{color: 'red'}}>상위 {d.FINE_DEAD_SKIN_CELLS}%</span>입니다.</h4>
-      <h4> 피지과다 항목은 <span style={{color: 'red'}}>상위 {d.EXCESS_SEBUM}%</span>입니다.</h4>
-      <h4> 모낭간 홍반 항목 <span style={{color: 'red'}}>상위 {d.ERYTHEMA_BETWEEN_HAIR_FOLLICLES}%</span>입니다.</h4>
-      <h4> 비듬 항목은 상위 <span style={{color: 'red'}}>상위 {d.DANDRUFF}%</span>입니다.</h4>
-      <h4> 탈모위험성 항목은 <span style={{color: 'red'}}>상위 {d.HAIR_LOSS}%</span>입니다.</h4>
-      <h4> 모낭간 홍반농포 항목은 <span style={{color: 'red'}}>상위 {d.ERYTHEMA_PUSTULES}%</span>입니다.</h4>
+      <h5 style={resultTextStyle}> 미세각질 항목은 <span style={{color: 'red'}}>상위 {d.FINE_DEAD_SKIN_CELLS}%</span>입니다.</h5>
+      <h5 style={resultTextStyle}> 피지과다 항목은 <span style={{color: 'red'}}>상위 {d.EXCESS_SEBUM}%</span>입니다.</h5>
+      <h5 style={resultTextStyle}> 모낭간 홍반 항목 <span style={{color: 'red'}}>상위 {d.ERYTHEMA_BETWEEN_HAIR_FOLLICLES}%</span>입니다.</h5>
+      <h5 style={resultTextStyle}> 비듬 항목은 상위 <span style={{color: 'red'}}>상위 {d.DANDRUFF}%</span>입니다.</h5>
+      <h5 style={resultTextStyle}> 탈모위험성 항목은 <span style={{color: 'red'}}>상위 {d.HAIR_LOSS}%</span>입니다.</h5>
+      <h5 style={resultTextStyle}> 모낭간 홍반농포 항목은 <span style={{color: 'red'}}>상위 {d.ERYTHEMA_PUSTULES}%</span>입니다.</h5>
     </>
   );
 }
@@ -163,12 +166,6 @@ function ResultPage () {
    
   return (
     <>
-      {document.getElementById("GraphExplanation") ? 
-      <UncontrolledTooltip placement="top" target="GraphExplanation">
-            <p>육각형이 클수록 <span style={{color: 'blue'}}>양호하다는 것을</span>
-            작을수록 <span style={{color: 'red'}}>좋지않다는 것을</span>의미합니다.</p>
-      </UncontrolledTooltip> : <></>}
-
       {isMobile?
         <>
         <IndexNavbar />
@@ -210,12 +207,12 @@ function ResultPage () {
                             √ 검사결과 자세히 보기
                           </Button>
                           <Collapse isOpen={collapseIsOpen}>
-                            <div id="GraphExplanation">
+                            <div>
                               <ResultGraph old={old} graphData={renderGraphData(diagnosisData)} avgGraphData={renderAvgGraphData(diagnosisData)} />
                             </div>
                             <div className="text-center">
                               {renderRankText(diagnosisData)}
-                          </div>
+                            </div>
                           </Collapse>
                         </div>
                       </div>
@@ -274,7 +271,7 @@ function ResultPage () {
                           √ 검사결과 자세히 보기
                         </Button>
                         <Collapse isOpen={collapseIsOpen} >
-                          <div id="GraphExplanation">
+                          <div>
                               <ResultGraph old={old} graphData={renderGraphData(diagnosisData)} avgGraphData={renderAvgGraphData(diagnosisData)} />
                           </div>                          
                           <div className="text-center">

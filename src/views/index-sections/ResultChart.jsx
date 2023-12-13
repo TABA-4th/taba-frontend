@@ -1,6 +1,7 @@
 import React from 'react';
 import { Radar } from 'react-chartjs-2';
 import { Chart as ChartJS, RadialLinearScale, PointElement, LineElement, Filler, Tooltip, Legend } from 'chart.js';
+import {UncontrolledTooltip} from 'reactstrap';
 
 ChartJS.register(RadialLinearScale, PointElement, LineElement, Filler, Tooltip, Legend);
 
@@ -71,7 +72,7 @@ function ResultGraph(props) {
     ],
   };
   const chartOptions = {
-    maintainAspectRatio: false,
+    maintainAspectRatio: true,
     scales: {
       r: {
         suggestedMin: -1,
@@ -99,17 +100,26 @@ function ResultGraph(props) {
   
   const chartStyle = {
     width: '100%',
-    height: '600px', 
+    height: '100%', 
   };
 
   return (
-    <div style={{ marginTop: 30, marginBottom: 30, }}> 
-      <Radar 
-        data={data}
-        options={chartOptions}
-        style={chartStyle}
-      />
-    </div>
+    <>
+      <div>
+        {document.getElementById("GraphExplanation") ? 
+        <UncontrolledTooltip placement="top" target="GraphExplanation">
+            <p>육각형이 클수록 <span style={{color: 'blue'}}>양호하다는 것을</span>
+              작을수록 <span style={{color: 'red'}}>좋지않다는 것을</span>의미합니다.</p>
+        </UncontrolledTooltip> : <></>}
+      </div>
+      <div id="GraphExplanation" style={{ marginTop: 30, marginBottom: 30, width: '100%', overflowX: 'auto'}}> 
+        <Radar 
+          data={data}
+          options={chartOptions}
+          style={chartStyle}
+        />
+      </div>
+    </>
   );
 };
 

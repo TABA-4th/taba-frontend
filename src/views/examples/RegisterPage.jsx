@@ -49,7 +49,7 @@ function RegisterPage() {
   const [isInputDisabled, setIsInputDisabled] = useState(false);  // 인증번호입력창 & 검증버튼 관련 훅
   const [isRequestDisabled, setIsRequestDisabled] = useState(false);  // 인증번호 요청 관련 훅
   const [isNicknameValid, setIsNicknameValid] = useState(false); // 닉네임 중복확인 관련 훅
-  const currentNickname = watch("nickname"); // 닉네임 인풋값 변경시 확인하기 위한 훅
+  const currentNickname = watch("nickname"); // 닉네임 인풋값 변경 감지
 
 
   
@@ -128,12 +128,12 @@ const checkNicknameDuplicate = async () => {
     const response = await axios.post(`http://13.113.206.129:8081/user/signup/verify/${nickname}`);
     if (response.status === 200) {
       alert("사용 가능한 닉네임입니다.");
-      setIsNicknameValid(true); // 중복 확인 상태를 true로 설정합니다.
+      setIsNicknameValid(true); // 중복 확인 상태 = true
     }
   } catch (error) {
     if (error.response && error.response.status === 500) {
       alert("이미 사용중인 닉네임입니다.");
-      setIsNicknameValid(false); // 중복 확인 상태를 false로 설정합니다.
+      setIsNicknameValid(false); // 중복 확인 상태 = false
     } else {
       console.error('Error checking nickname:', error);
       alert('닉네임 중복 확인 중 오류가 발생했습니다.');
@@ -142,9 +142,9 @@ const checkNicknameDuplicate = async () => {
   }
 };
 
-// 닉네임 필드 값이 변경될 때마다 실행
+// 닉네임 인풋값 변경 감지
 useEffect(() => {
-  // 닉네임 필드가 변경되었다면 중복 확인 상태 초기화
+  // 닉네임 필드가 변경되었다면 중복 확인 상태 초기화, 에러를 방지하기 위함
   setIsNicknameValid(false);
 }, [currentNickname]);
 

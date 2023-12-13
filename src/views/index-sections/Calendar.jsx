@@ -28,7 +28,7 @@ function format2Json(d){
     "topPercentage": "67.2 70.3 42.9 48.4 38.8 49.0 84.1"
 }
   */
-  console.log(d.topPercentage);
+  // console.log(d.topPercentage);
   const rowDataArray = d.topPercentage.split(" ").map(Number);
   
   const JSONData = {
@@ -277,16 +277,36 @@ const getDetailResult = async (d) => {
         border:"1px solid #fff",
         width:"200px",
         height:"51px",
-        fontWeight: "#fff",
         fontWeight: '700',
         fontSize:"13px",
         paddingTop: "15px",
         borderRadius: "13px",
-        
       }}>파마&염색 기록하기</Button>
       <br /><br />
       <FullCalendar
-        defaultView={defaultView}
+        //   customButtons={{
+        //     myCustomButton: {
+        //         text: 'custom!',
+        //         click: function() {
+        //             alert('clicked the custom button!');
+        //         },
+        //         style : {
+        //           background:"#90d8de",
+        //           border:"1px solid #fff",
+        //           width:"200px",
+        //           height:"51px",
+        //           fontWeight: '700',
+        //           fontSize:"13px",
+        //           paddingTop: "15px",
+        //           borderRadius: "13px",
+        //         }
+        //     },
+        // }}
+        headerToolbar={{
+            left: 'prev',
+            center: 'title',
+            right: 'next'
+        }}
         plugins={[dayGridPlugin]}
         eventClick={handleDateClick}
         events={events}

@@ -1,4 +1,4 @@
-import React, { useState,useEffect } from "react";
+import React, { useState,useEffect} from "react";
 import { useForm,Controller } from "react-hook-form";
 import { useNavigate } from 'react-router-dom';
 import axios from "axios";
@@ -9,14 +9,9 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import {
   Button,
   Card,
-  CardHeader,
   CardBody,
   CardFooter,
-  Form,
   Input,
-  InputGroupAddon,
-  InputGroupText,
-  InputGroup,
   Container,
   Col,
   FormGroup,
@@ -53,6 +48,9 @@ function RegisterPage() {
   const navigate = useNavigate();  // 회원가입 성공시 페이지 이동시킬 useNavigate 훅
   const [isInputDisabled, setIsInputDisabled] = useState(false);  // 인증번호입력창 & 검증버튼 관련 훅
   const [isRequestDisabled, setIsRequestDisabled] = useState(false);  // 인증번호 요청 관련 훅
+  const [isNicknameValid, setIsNicknameValid] = useState(false); // 닉네임 중복확인 관련 훅
+  const currentNickname = watch("nickname"); // 닉네임 인풋값 변경 감지
+
 
   
   const password = watch("password"); // 현재 입력된 비밀번호 값을 추적합니다.
@@ -74,6 +72,8 @@ function RegisterPage() {
     try {
       await axios.post('http://13.113.206.129:8081/user/' + signupToken, { ...formData });
       console.log(formData, signupToken);
+
+
       navigate('/login'); // Redirect to the login page after successful registration
     } catch (error) {
       console.error('Error during login:', error);
@@ -114,6 +114,39 @@ function RegisterPage() {
           console.error('Error verifying SMS token:', error);
       }
   };
+
+
+  // 닉네임 중복 확인 함수
+const checkNicknameDuplicate = async () => {
+  const nickname = watch("nickname");
+  if (!nickname) {
+    alert("닉네임을 입력해주세요.");
+    return;
+  }
+
+  try {
+    const response = await axios.post(`http://13.113.206.129:8081/user/signup/verify/${nickname}`);
+    if (response.status === 200) {
+      alert("사용 가능한 닉네임입니다.");
+      setIsNicknameValid(true); // 중복 확인 상태 = true
+    }
+  } catch (error) {
+    if (error.response && error.response.status === 500) {
+      alert("이미 사용중인 닉네임입니다.");
+      setIsNicknameValid(false); // 중복 확인 상태 = false
+    } else {
+      console.error('Error checking nickname:', error);
+      alert('닉네임 중복 확인 중 오류가 발생했습니다.');
+      setIsNicknameValid(false);
+    }
+  }
+};
+
+// 닉네임 인풋값 변경 감지
+useEffect(() => {
+  // 닉네임 필드가 변경되었다면 중복 확인 상태 초기화, 에러를 방지하기 위함
+  setIsNicknameValid(false);
+}, [currentNickname]);
 
   const btnStyle = {
     background:"#fff",
@@ -158,6 +191,13 @@ function RegisterPage() {
                           />
                         )}
                       />
+                      <Button                     
+                      style={btnStyle}
+                      block
+                      className="btn-round"
+                      color="info"
+                      size="lg"
+                      type="submit"onClick={checkNicknameDuplicate}>ID 중복 확인</Button>
                       {errors.nickname && (
                         <UncontrolledTooltip placement="right" target="nicknameInput" isOpen={true}>
                           <span style={warningStyle}>{errors.nickname.message}</span>
@@ -291,6 +331,7 @@ function RegisterPage() {
                     color="info"
                     size="lg"
                     type="submit"
+                    disabled={!isNicknameValid} // 중복 확인이 완료되지 않았다면 버튼을 비활성화
                   >
                     회원가입하기
                   </Button>

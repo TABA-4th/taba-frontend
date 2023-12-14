@@ -1,5 +1,6 @@
 /*eslint-disable*/
 import React from "react";
+import { Link } from "react-router-dom";
 
 // reactstrap components
 import { Container,Button } from "reactstrap";
@@ -35,11 +36,12 @@ function IndexHeader() {
           ref={pageHeader}
         ></div>
         <Container style={{textAlign:'center'}}>
-          <a href='/survey'>
+        <Link to="/survey">
             <h1 className="category category-absolute" style={{color:'white'}}>
               바로 시작해보세요!
             </h1>
-          </a>
+        </Link>
+
         </Container>
       </div>
     </>

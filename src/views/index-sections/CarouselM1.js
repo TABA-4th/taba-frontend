@@ -69,7 +69,7 @@ function CarouselSection() {
   };
   return (
     <>
-      <div className="section" id="carousel">
+      <div className="section" id="carousel" style={{overflow:"hidden"}}>
         <Container>
           {isMobile?
             <>
@@ -129,7 +129,8 @@ function CarouselSection() {
                 activeIndex={activeIndex}
                 next={next}
                 previous={previous}
-                interval={2000}
+                interval={5000}
+                slide={false}
               >
                 <CarouselIndicators
                   items={items}
@@ -143,7 +144,7 @@ function CarouselSection() {
                       onExited={onExited}
                       key={item.src}
                     >
-                      <img src={item.src} alt={item.altText} />
+                      <img src={item.src} alt={item.altText} style={{width: "100%", height:"auto"}} />
                       <div className="carousel-caption d-none d-md-block">
                         <h5>{item.caption}</h5>
                       </div>

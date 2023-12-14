@@ -34,21 +34,19 @@ const MobileCompleteExamples = () => {
                         니모내모의 가치 
                     </div>
                     <br /><br />
-                    <h6 className="description">
+                    <h6 className="description" style={{fontSize:"14px", fontWeight:"1000"}}>
                         우리는 병이 나면 병원에 갑니다. <br/><br/>
 
-                        평소에는 컨디션을 관리하기 위해 평소에 꾸준히 ‘영양제’를 챙겨 먹습니다. <br/><br/>
+                        컨디션 관리를 위해 영양제를 챙겨 먹고, 피부 관리를 위해 좋다는 크림을 찾아 바르죠.  <br/><br/>
 
-                        또, 피부를 관리하기 위해서는 좋다는 크림을 열심히 찾아 바르죠. <br/><br/>
+                        하지만, 그만큼 중요한 <span style={{color:'#a078ff',fontSize:'16px'}}>두피</span>는 어떻게 관리하고 계신가요? <br/><br/>
 
-                        하지만 그만큼 중요한 두피 관리는요?  <br/><br/>
-                        샴푸, 린스 말고 어떻게 관리하고 계신가요? <br/><br/>
+                        <span style={{color:'#a078ff',fontSize:'16px'}}>니모내모</span>는 <span style={{color:'#a078ff',fontSize:'16px'}}>두피 관리</span>를 <span style={{color:'#a078ff',fontSize:'16px'}}>자기관리</span>의 영역으로 끌어들이고,  <br/><br/>
 
-                        우리는 두피 관리를 자기관리의 영역으로 끌어들여 <br/><br/>
+                        자기관리 분야의 새로운 지평을 열었습니다. <br/><br/>
 
-                        디지털 헬스케어 분야의 영역을 넓혀 <br/><br/>
+                        <span style={{color:'#a078ff',fontSize:'16px'}}>당신만을 위한 두피관리 서비스를 지금 만나보세요.</span> <br/><br/>
 
-                        자기관리 분야의 새로운 지평을 열 것입니다. <br/><br/><br /><br />
                     </h6>
                 </div>
                 </Col>

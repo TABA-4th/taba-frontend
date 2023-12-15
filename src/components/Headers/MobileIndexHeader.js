@@ -1,7 +1,7 @@
 import React from 'react';
 
 // reactstrap components
-import { Container,Button } from "reactstrap";
+import { Container,Button, UncontrolledTooltip } from "reactstrap";
 
 const MobileIndexHeader = () => {
 
@@ -33,12 +33,19 @@ const MobileIndexHeader = () => {
           }}
           ref={pageHeader}
         ></div>
-        <Container style={{textAlign:'center'}}>
-          <a href='/survey'>
-            <h2 className="category category-absolute" style={{color:'white'}}>
-              바로 시작해보세요!
+        <Container style={{textAlign:'center', display:'flex'}}>
+          <Button
+            color="link"
+            className="transparent-btn"
+            onClick={() => window.location.href = "/survey"}
+          >
+            <h2 id="quickStart" className="category category-absolute" style={{ color: "white" }}>
+              지금바로 시작하기
             </h2>
-          </a>
+          </Button>
+          <UncontrolledTooltip placement="bottom" target="quickStart" isOpen={true}>
+            <span style={{color: 'blue'}}>이곳을 클릭</span>하고 지금바로 시작해보세요!
+          </UncontrolledTooltip>
         </Container>
       </div>
     </>

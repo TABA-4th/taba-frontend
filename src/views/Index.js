@@ -8,6 +8,7 @@ import React, {useState} from "react";
 import IndexNavbar from "components/Navbars/IndexNavbar.js";
 import IndexHeader from "components/Headers/IndexHeader.js";
 import DarkFooter from "components/Footers/DarkFooter.js";
+import {UncontrolledTooltip} from 'reactstrap';
 
 // sections for this page
 import Images from "./index-sections/Images.js";
@@ -16,7 +17,7 @@ import Navbars from "./index-sections/Navbars.js";
 import Tabs from "./index-sections/Tabs.js";
 import Pagination from "./index-sections/Pagination.js";
 import Notifications from "./index-sections/Notifications.js";
-import Typography from "./index-sections/Typography.js";
+import Typography from "./index-sections/Typography.js";  
 import Javascript from "./index-sections/Javascript.js";
 import Carousel from "./index-sections/Carousel.js";
 import CarouselM1 from "./index-sections/CarouselM1.js";
@@ -61,7 +62,9 @@ function Index() {
         <>
           <IndexNavbar />
           <div className="wrapper">
-            <MobileIndexHeader />
+            <div id="mobileHeader">
+              <MobileIndexHeader />
+            </div>
             <div className="main">
               <MobileCompleteExamples />
               <Introduction/>
@@ -76,7 +79,9 @@ function Index() {
         <>
           <IndexNavbar />
           <div className="wrapper">
-            <IndexHeader />
+            <div id="desktopHeader">
+              <IndexHeader />  
+            </div>
             <div className="main">
               <CompleteExamples />
               <Introduction/>

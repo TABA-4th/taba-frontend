@@ -1,10 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
+import { useNavigate } from 'react-router-dom';
 import FullCalendar from '@fullcalendar/react';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import axios from 'axios';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter, Form, FormGroup, Label, Input, InputGroup } from 'reactstrap';
 import Cookies from 'js-cookie';
-// import {formatDiagnosisDate, formatDate} from MypageModule;
+import { AuthContext } from 'components/Functions/AuthContext';
 
 function format2Json(d){
   /*
@@ -26,9 +27,9 @@ function format2Json(d){
     "avgHairLoss": 0.34,
     "avgErythemaPustules": 0.17,
     "topPercentage": "67.2 70.3 42.9 48.4 38.8 49.0 84.1"
-}
+  }
   */
-  // console.log(d.topPercentage);
+
   const rowDataArray = d.topPercentage.split(" ").map(Number);
   
   const JSONData = {
@@ -62,6 +63,8 @@ const Calendar = () => {
   const refreshToken = Cookies.get('refresh-token');          // refreshToken
   const [lastDyeDate, setLastDyeDate] = useState(null);
   const [lastPermDate, setLastPermDate] = useState(null);
+  const { logout } = useContext(AuthContext);
+  const navigate = useNavigate();
   const getLastPermDyeDate = async() => { // lastDyeDate랑 lastPermDate를 받아오기 위한 것.
     const headers = {
       headers: {
@@ -74,7 +77,8 @@ const Calendar = () => {
       if(response.data.startDyeDate){setLastDyeDate(response.data.startDyeDate);}
       // alert(`${lastDyeDate}, ${lastPermDate}`);
     } catch (error) {
-      alert("파마 염색데이터 수신오류");
+      alert('로그인 시간이 만료되었습니다.');
+      handleLogout();
     }
   };
   const fetchDiagnoseData = async () => {
@@ -94,6 +98,11 @@ const Calendar = () => {
       // alert(`데이터 불러오기 실패. ${nickname}, ${formatDate(currentDate)}`);
     }
   };
+
+  const handleLogout = () => {
+    logout();
+    navigate("/login");
+  }
   
 
   //검사결과 모달 관련 변수
@@ -126,8 +135,8 @@ const getDetailResult = async (d) => {
         console.log(JSON.stringify(response.data));
         return JSON.stringify(response.data);
     } catch (error) {
-        alert('수신 문제');
-        return -1;
+      alert('세부데이터 수신 문제. 콘솔확인');
+      console.log(error);
     }
 };
 
@@ -284,24 +293,6 @@ const getDetailResult = async (d) => {
       }}>파마&염색 기록하기</Button>
       <br /><br />
       <FullCalendar
-        //   customButtons={{
-        //     myCustomButton: {
-        //         text: 'custom!',
-        //         click: function() {
-        //             alert('clicked the custom button!');
-        //         },
-        //         style : {
-        //           background:"#90d8de",
-        //           border:"1px solid #fff",
-        //           width:"200px",
-        //           height:"51px",
-        //           fontWeight: '700',
-        //           fontSize:"13px",
-        //           paddingTop: "15px",
-        //           borderRadius: "13px",
-        //         }
-        //     },
-        // }}
         headerToolbar={{
             left: 'prev',
             center: 'title',

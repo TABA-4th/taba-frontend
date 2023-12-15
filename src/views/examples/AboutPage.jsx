@@ -44,6 +44,29 @@ function AboutPage() {
             <br />
             <div className="team">
               <Row>
+              <Col md="4">  {/* 여기서 부터 한 Col당 팀원 한명씩 */}
+                  <div className="team-player">
+                    <img
+                      alt="..."
+                      className="rounded-circle img-fluid img-raised"
+                      src={require("assets/img/teammate_image/kang.jpg")}  
+                      style={{width:'100px', height:'110px'}}
+                    ></img>{/* assets에 팀원사진 넣어둬야함 */}
+                    <h4 className="title">강형철</h4>
+                    <p className="category text-info">FRONTEND</p>
+                    <p className="description">
+                      <a href="https://github.com/hckang17">
+                        CONTACT : GITHUB
+                      </a>
+                    </p>
+                    <p className="description" style={{textAlign: "left"}}>
+                      단국대 모바일시스템공학과 19학번 강형철입니다.
+                      이번 NIMONEMO 프로젝트에서 프론트엔드로 전반적인 부분을 개발&관리하였습니다.
+                      REACT를 기반으로 Axios API통신(HTTP), 캘린더, 마이페이지, 결과페이지의 세부기능를 주로 개발하였습니다.<br />
+                    </p>
+                  </div>
+                </Col>
+
                 <Col md="4">  {/* 여기서 부터 한 Col당 팀원 한명씩 */}
                   <div className="team-player">
                     <img
@@ -56,7 +79,7 @@ function AboutPage() {
                     <p className="category text-info">LEADER / INFRA / BACKEND</p>
                     <p className="description">
                       <a href="https://github.com/kjungw1025">
-                        contact: github
+                      CONTACT : GITHUB
                       </a>
                     </p>
                     <p className="description" style={{textAlign: "left"}}>
@@ -69,29 +92,7 @@ function AboutPage() {
                     </p>
                   </div>
                 </Col>
-                <Col md="4">  {/* 여기서 부터 한 Col당 팀원 한명씩 */}
-                  <div className="team-player">
-                    <img
-                      alt="..."
-                      className="rounded-circle img-fluid img-raised"
-                      src={require("assets/img/teammate_image/kang.jpg")}  
-                      style={{width:'100px', height:'110px'}}
-                    ></img>{/* assets에 팀원사진 넣어둬야함 */}
-                    <h4 className="title">강형철</h4>
-                    <p className="category text-info">FRONTEND LEADER / FEATURES</p>
-                    <p className="description">
-                      <a href="https://github.com/hckang17">
-                        contact: github
-                      </a>
-                    </p>
-                    <p className="description" style={{textAlign: "left"}}>
-                      단국대 모바일시스템공학과 19학번 강형철입니다.
-                      이번 NIMONEMO 프로젝트에서 프론트엔드 팀장으로 전반적인 부분을 개발&관리하였습니다.
-                      REACT를 기반으로 Axios API통신(HTTP), 캘린더, 마이페이지, 결과페이지의 세부기능를 주로 개발하였습니다.<br />
-                    </p>
-                  </div>
-                </Col>
-
+                
                 <Col md="4">  {/* 여기서 부터 한 Col당 팀원 한명씩 */}
                   <div className="team-player">
                     <img
@@ -104,7 +105,7 @@ function AboutPage() {
                     <p className="category text-info">AI / BACKEND </p>
                     <p>
                       <a href="https://github.com/kolo4917">
-                        contact: github
+                      CONTACT : GITHUB
                       </a>
                     </p>
                     <p className="description" style={{textAlign:'left'}}>
@@ -129,10 +130,10 @@ function AboutPage() {
                       src={require("assets/img/teammate_image/lee.jpg")}  
                     ></img>{/* assets에 팀원사진 넣어둬야함 */}
                     <h4 className="title">이영주</h4>
-                    <p className="category text-info">BACKEND FLASK</p>
+                    <p className="category text-info">BACKEND</p>
                     <p>
                       <a href="https://github.com/0-zoo">
-                        contact: github
+                      CONTACT : GITHUB
                       </a>
                     </p>
                     <p className="description" style={{textAlign: "left"}}>
@@ -148,15 +149,37 @@ function AboutPage() {
                   <div className="team-player">
                     <img
                       alt="..."
+                      className="rounded-circle img-fluid img-raised"
+                      src={require("assets/img/teammate_image/jangsiwoo.png")}  
+                    ></img>{/* assets에 팀원사진 넣어둬야함 */}
+                    <h4 className="title">장시우</h4>
+                    <p className="category text-info">FRONTEND</p>
+                    <p>
+                      <a href="https://github.com/siwooJang">
+                      CONTACT : GITHUB
+                      </a> 
+                    </p>
+                    <p className="description" style={{textAlign: "left"}}>
+                      단국대 소프트웨어학과 19학번 장시우입니다. 
+                      니모내모 서비스에서 프론트엔드 및 레이아웃 구성을 담당했습니다.
+                      프로젝트 초기 구성을 만들고, 홈페이지,매거진 페이지 등과 로그인/회원가입 기능을 구현했습니다. 
+                      앞으로도 리액트를 공부해 사용자 친화적인 웹앱을 만드는 프론트엔드 개발자로 성장하겠습니다.{" "}
+                    </p>
+                  </div>
+                </Col>
+                <Col md="4">  {/* 여기서 부터 한 Col당 팀원 한명씩 */}
+                  <div className="team-player">
+                    <img
+                      alt="..."
                       className="rounded-circle  img-raised"
                       src={require("assets/img/teammate_image/chuneunyu.jpg")}  
                       style={{width:'100px', height: '110px'}}
                     ></img>{/* assets에 팀원사진 넣어둬야함 */}
                     <h4 className="title">천은유</h4>
-                    <p className="category text-info">FRONTEND / UI/UX DESIGN</p>
+                    <p className="category text-info">FRONTEND</p>
                     <p className="description">
                       <a href="https://github.com/ChunEunyu" >
-                        contact: github
+                        CONTACT : GITHUB
                       </a>
                     </p>
                     <p className="description" style={{textAlign: "left"}}>
@@ -169,29 +192,7 @@ function AboutPage() {
                   </div>
                 </Col>
 
-                <Col md="4">  {/* 여기서 부터 한 Col당 팀원 한명씩 */}
-                  <div className="team-player">
-                    <img
-                      alt="..."
-                      className="rounded-circle img-fluid img-raised"
-                      src={require("assets/img/teammate_image/jangsiwoo.png")}  
-                    ></img>{/* assets에 팀원사진 넣어둬야함 */}
-                    <h4 className="title">장시우</h4>
-                    <p className="category text-info">FRONTEND</p>
-                    <p>
-                      <a href="https://github.com/siwooJang">
-                        contact: github
-                      </a> 
-                    </p>
-                    <p className="description" style={{textAlign: "left"}}>
-                      단국대 소프트웨어학과 19학번 장시우입니다. 
-                      니모내모 서비스에서 프론트엔드 및 레이아웃 구성을 담당했습니다. 
-                      프로젝트 초기 구성을 만들고, 홈페이지,매거진 페이지를 만들고 
-                      회원가입 로직 등을 리액트로 구현했습니다.
-                      타바 후에도 서버 등 백엔드를 공부해 백엔드와 협업할 줄 아는 프론트엔드 신입 개발자로 성장하고 싶습니다.{" "}
-                    </p>
-                  </div>
-                </Col>
+
 
               </Row>
             </div>

@@ -74,7 +74,7 @@ function RegisterPage() {
       console.log(formData, signupToken);
 
 
-      navigate('/login'); // Redirect to the login page after successful registration
+      navigate('/login'); // 회원가입 완료 후 로그인 페이지 페이지로 이동.
     } catch (error) {
       console.error('Error during login:', error);
     }
@@ -191,19 +191,22 @@ useEffect(() => {
                           />
                         )}
                       />
+                      <br/>
                       <Button                     
                       style={btnStyle}
                       block
                       className="btn-round"
                       color="info"
                       size="lg"
-                      type="submit"onClick={checkNicknameDuplicate}>ID 중복 확인</Button>
+                      type="submit"onClick={checkNicknameDuplicate}>ID CHECK</Button>
                       {errors.nickname && (
                         <UncontrolledTooltip placement="right" target="nicknameInput" isOpen={true}>
                           <span style={warningStyle}>{errors.nickname.message}</span>
                         </UncontrolledTooltip>
                       )}
                     </FormGroup>
+
+                    <br/>
 
                     <FormGroup>
                       <Controller
@@ -213,7 +216,7 @@ useEffect(() => {
                         render={({ field }) => (
                           <Input {...field} 
                             type="password" 
-                            placeholder="PS" 
+                            placeholder="PASSWORD" 
                             style={{height:"40px", fontSize:"20px", fontWeight:"500", textAlign:"center"}}
                             id="passwordInput"
                           />
@@ -224,7 +227,7 @@ useEffect(() => {
                           <span style={warningStyle}>{errors.password.message}</span>
                         </UncontrolledTooltip>)}
                     </FormGroup>
-
+                    <br/>
                     {/* 비밀번호 확인 필드 */}
                     <FormGroup>
                       <Controller
@@ -238,7 +241,7 @@ useEffect(() => {
                         render={({ field }) => (
                           <Input {...field} 
                             type="password" 
-                            placeholder="PS Verification"
+                            placeholder="PASSWORD VERIFICATION"
                             style={{height:"40px", fontSize:"20px", fontWeight:"500", textAlign:"center"}}
                             id="passwordConfirm"
                           />
@@ -250,7 +253,7 @@ useEffect(() => {
                         </UncontrolledTooltip>
                       )}
                     </FormGroup>
-
+                    <br/>
                     <FormGroup>
                       <Controller
                         name="name"
@@ -260,7 +263,7 @@ useEffect(() => {
                           <Input
                             {...field}
                             type="text"
-                            placeholder="Username"
+                            placeholder="USERNAME"
                             style={{height:"40px", fontSize:"20px", fontWeight:"500", textAlign:"center"}}
                             id="nameInput"
                           />
@@ -272,7 +275,7 @@ useEffect(() => {
                         </UncontrolledTooltip>
                       )}
                     </FormGroup>
-
+                    <br/>
                     <FormGroup>
                       <Controller
                         name="phone"
@@ -282,7 +285,7 @@ useEffect(() => {
                           <Input
                             {...field}
                             type="phone"
-                            placeholder="Phone Number"
+                            placeholder="PHONE NUMBER"
                             style={{height:"40px", fontSize:"20px", fontWeight:"500", textAlign:"center"}}
                             id="phoneInput"
                             disabled={isRequestDisabled}
@@ -294,6 +297,7 @@ useEffect(() => {
                           <span style={warningStyle}>{errors.phone.message}</span>
                         </UncontrolledTooltip>
                       )}
+                      <br/>
                     </FormGroup>
                         <Button 
                           block
@@ -302,7 +306,7 @@ useEffect(() => {
                           style={btnStyle}
                           onClick={requestSmsToken}
                           disabled={isRequestDisabled}>
-                          인증번호 요청하기
+                          SMS SEND
                         </Button>
                         <Collapse isOpen={smsSent}>
                           <Input
@@ -319,7 +323,7 @@ useEffect(() => {
                             style={btnStyle}
                             onClick={verifySmsToken}
                             disabled={isInputDisabled}>
-                              SMS 인증번호 확인
+                              SMS SEND
                           </Button>
                         </Collapse>                        
                   </CardBody>
@@ -333,7 +337,7 @@ useEffect(() => {
                     type="submit"
                     disabled={!isNicknameValid} // 중복 확인이 완료되지 않았다면 버튼을 비활성화
                   >
-                    회원가입하기
+                    REGISTER
                   </Button>
                   <div style={divisionLine} />
                   <div>

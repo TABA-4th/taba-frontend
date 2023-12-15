@@ -1,23 +1,23 @@
-/*eslint-disable*/
 import React from "react";
-import { Link } from "react-router-dom";
-
-// reactstrap components
-import { Container,Button } from "reactstrap";
-// core components
+import { Container, Button, UncontrolledTooltip } from "reactstrap";
+import {useNavigate} from 'react-router-dom';
 
 function IndexHeader() {
-  let pageHeader = React.createRef();
+  const pageHeader = React.useRef();
+  const warningStyle = {
+    color: "red",
+  };
 
   React.useEffect(() => {
+    const updateScroll = () => {
+      if (pageHeader.current) {
+        let windowScrollTop = window.pageYOffset / 3;
+        pageHeader.current.style.transform =
+          "translate3d(0," + windowScrollTop + "px,0)";
+      }
+    };
+
     if (window.innerWidth > 991) {
-      const updateScroll = () => {
-        if (pageHeader.current) {
-          let windowScrollTop = window.pageYOffset / 3;
-          pageHeader.current.style.transform =
-            "translate3d(0," + windowScrollTop + "px,0)";
-        }
-      };
       window.addEventListener("scroll", updateScroll);
       return function cleanup() {
         window.removeEventListener("scroll", updateScroll);
@@ -29,19 +29,26 @@ function IndexHeader() {
     <>
       <div className="page-header clear-filter">
         <div
-          className="page-header-image "
+          className="page-header-image"
           style={{
-            backgroundImage: "url(" + require("assets/img/header.png") + ")" // 헤더 부분 배경 이미지
+            backgroundImage: `url(${require("assets/img/header.png")})`,
           }}
           ref={pageHeader}
         ></div>
-        <Container style={{textAlign:'center'}}>
-        <Link to="/survey">
-            <h1 className="category category-absolute" style={{color:'white'}}>
-              바로 시작해보세요!
+        <Container style={{ textAlign: "center", display:'flex' }}>
+          {/* 리액트스트랩 Button 컴포넌트로 투명한 버튼 생성 */}
+          <Button
+            color="link"
+            className="transparent-btn"
+            onClick={() => window.location.href = "/survey"}
+          >
+            <h1 id="quickStart" className="category category-absolute" style={{ color: "white" }}>
+              <span style={{textDecoration : 'underline'}}>지금바로</span>시작하기
             </h1>
-        </Link>
-
+          </Button>
+          <UncontrolledTooltip placement="bottom" target="quickStart" isOpen={true}>
+            <span style={{color: 'blue'}}>이곳을 클릭</span>하면 지금바로 시작해보세요!
+          </UncontrolledTooltip>
         </Container>
       </div>
     </>

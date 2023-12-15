@@ -284,7 +284,7 @@ function ResultPage () {
                 </Col>
                 </Row>
                 <br />
-                <hr/><hr/>
+
                 <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
                   {recommendation == 1 && <ProductCard baseData={recommendBaseData(diagnosisData)}/>}
                 </div>

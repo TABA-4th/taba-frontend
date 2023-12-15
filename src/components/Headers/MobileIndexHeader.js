@@ -49,7 +49,7 @@ const MobileIndexHeader = () => {
             </h2>
           </Button>
           {tooltipVisible == true && <UncontrolledTooltip placement="bottom" target="quickStart" isOpen={true}>
-            <span style={{color: 'blue'}}>이곳을 클릭</span>하면 지금바로 시작해보세요!
+            <span style={{color: 'blue'}}>이곳을 클릭</span>하여 지금바로 시작해보세요!
           </UncontrolledTooltip>}
         </Container>
       </div>

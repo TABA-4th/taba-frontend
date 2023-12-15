@@ -1,4 +1,4 @@
-import React from "react";
+import React , { useEffect, useState } from "react";
 import { Container, Button, UncontrolledTooltip } from "reactstrap";
 import {useNavigate} from 'react-router-dom';
 
@@ -7,8 +7,13 @@ function IndexHeader() {
   const warningStyle = {
     color: "red",
   };
+  const [tooltipVisible, setTooltipVisible] = useState(false);
 
-  React.useEffect(() => {
+  useEffect(() => {
+    setTooltipVisible(true);
+  }, [])
+
+  useEffect(() => {
     const updateScroll = () => {
       if (pageHeader.current) {
         let windowScrollTop = window.pageYOffset / 3;
@@ -46,9 +51,9 @@ function IndexHeader() {
               <span style={{textDecoration : 'underline'}}>지금바로</span>시작하기
             </h1>
           </Button>
-          <UncontrolledTooltip placement="bottom" target="quickStart" isOpen={true}>
+          {tooltipVisible == true && <UncontrolledTooltip placement="bottom" target="quickStart" isOpen={true}>
             <span style={{color: 'blue'}}>이곳을 클릭</span>하면 지금바로 시작해보세요!
-          </UncontrolledTooltip>
+          </UncontrolledTooltip>}
         </Container>
       </div>
     </>

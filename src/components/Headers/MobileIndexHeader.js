@@ -1,9 +1,14 @@
-import React from 'react';
+import React , { useEffect, useState } from "react";
 
 // reactstrap components
 import { Container,Button, UncontrolledTooltip } from "reactstrap";
 
 const MobileIndexHeader = () => {
+  const [tooltipVisible, setTooltipVisible] = useState(false);
+
+  useEffect(() => {
+    setTooltipVisible(true);
+  }, [])
 
     let pageHeader = React.createRef();
 
@@ -43,9 +48,9 @@ const MobileIndexHeader = () => {
               지금바로 시작하기
             </h2>
           </Button>
-          <UncontrolledTooltip placement="bottom" target="quickStart" isOpen={true}>
-            <span style={{color: 'blue'}}>이곳을 클릭</span>하고 지금바로 시작해보세요!
-          </UncontrolledTooltip>
+          {tooltipVisible == true && <UncontrolledTooltip placement="bottom" target="quickStart" isOpen={true}>
+            <span style={{color: 'blue'}}>이곳을 클릭</span>하면 지금바로 시작해보세요!
+          </UncontrolledTooltip>}
         </Container>
       </div>
     </>

@@ -128,7 +128,7 @@ function LoginPage() {
                     <Input
                       {...field}
                       type="password"
-                      placeholder="password"
+                      placeholder="PASSWORD"
                       style={{height:"40px", fontSize:"20px", fontWeight:"500", textAlign:"center"}}
                     />
                   )}

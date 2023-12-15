@@ -9,22 +9,23 @@ export const AuthProvider = ({ children }) => {
 
   const login = () => {
     setIsLoggedIn(true);
-    console.log("login status is true")
+    console.log("login status is true");
   };
 
   const logout = () => {
-  // 세션 스토리지에서 모든 항목 삭제
-  sessionStorage.clear();
+    // 세션 스토리지에서 모든 항목 삭제
+    sessionStorage.clear();
 
-  // js-cookie를 사용하여 쿠키 삭제
-  Cookies.remove('access-token');
-  Cookies.remove('refresh-token');
-  Cookies.remove('nickname');
-  console.log("login status is false")
+    // js-cookie를 사용하여 쿠키 삭제
+    Cookies.remove('access-token');
+    Cookies.remove('refresh-token');
+    Cookies.remove('nickname');
+    console.log("login status is false");
   };
 
+
   return (
-    <AuthContext.Provider value={{ isLoggedIn, login, logout }}>
+    <AuthContext.Provider value={{ isLoggedIn, login, logout}}>
       {children}
     </AuthContext.Provider>
   );

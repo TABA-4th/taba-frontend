@@ -2,11 +2,6 @@ import React from "react";
 
 // reactstrap components
 import {
-  Button,
-  Input,
-  InputGroupAddon,
-  InputGroupText,
-  InputGroup,
   Container,
   Row,
   Col
@@ -16,11 +11,9 @@ import {
 import IndexNavbar from "components/Navbars/IndexNavbar";
 import AboutpageHeader from "components/Headers/AboutpageHeader";
 import DefaultFooter from "components/Footers/DefaultFooter.js";
-import styled from "styled-components";
 
 function AboutPage() {
-  const [firstFocus, setFirstFocus] = React.useState(false);
-  const [lastFocus, setLastFocus] = React.useState(false);
+
 
   React.useEffect(() => {
     document.body.classList.add("landing-page");

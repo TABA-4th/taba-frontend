@@ -1,27 +1,13 @@
     import React from "react";
     import Calendar from "views/index-sections/Calendar";
 
-    // reactstrap components
-    import {
-    Button,
-    NavItem,
-    NavLink,
-    Nav,
-    TabContent,
-    TabPane,
-    Container,
-    Row,
-    Col,
-    UncontrolledTooltip
-    } from "reactstrap";
-
     // core components
     import IndexNavbar from "components/Navbars/IndexNavbar";
     import ProfileMypageHeader from "components/Headers/ProfileMypage";
     import DefaultFooter from "components/Footers/DefaultFooter.js";
 
     function CalendarPage() {
-    const [pills, setPills] = React.useState("2");
+
     React.useEffect(() => {
         document.body.classList.add("profile-page");
         document.body.classList.add("sidebar-collapse");

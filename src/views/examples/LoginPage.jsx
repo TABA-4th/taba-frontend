@@ -30,9 +30,6 @@ function LoginPage() {
   const { register, handleSubmit, control} = useForm();
   const { login } = useContext(AuthContext); // AuthContext에서 login 함수 사용
   const navigate = useNavigate();
-
-  const [firstFocus, setFirstFocus] = React.useState(false);
-  const [lastFocus, setLastFocus] = React.useState(false);
   
 
   const onSubmit = async (formData) => {

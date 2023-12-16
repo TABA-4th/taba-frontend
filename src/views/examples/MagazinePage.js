@@ -2,11 +2,6 @@ import React,{ useState }from "react";
 
 // reactstrap components
 import {
-  Button,
-  Input,
-  InputGroupAddon,
-  InputGroupText,
-  InputGroup,
   Container,
   Row,
   Col,
@@ -14,7 +9,7 @@ import {
   CardBody,
   CardTitle,
   CardText,
-  CardImg
+
 } from "reactstrap";
 
 // core components
@@ -23,8 +18,7 @@ import MagazinePageHeader from 'components/Headers/MagazinePageHeader';
 import DefaultFooter from "components/Footers/DefaultFooter.js";
 
 function MagazinePage() {
-  const [firstFocus, setFirstFocus] = React.useState(false);
-  const [lastFocus, setLastFocus] = React.useState(false);
+
   const baseStyle = {
     padding: "0 6px",
     float: "auto",

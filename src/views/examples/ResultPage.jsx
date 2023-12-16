@@ -131,7 +131,8 @@ function ResultPage () {
   
   useEffect(() => {
     
-    // 세션 스토리지에 valid 있는지 CHECK
+    // image-upload,survey페이지에서 바로 넘어오는 것을 방지하기 위함
+    // 세션 스토리지에 result-valid 있는지 CHECK
     const isValid = sessionStorage.getItem('result-valid');
 
     // VALID 가 없을시에 ALERT 띄우고 HOME으로 이동

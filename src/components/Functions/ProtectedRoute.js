@@ -21,6 +21,7 @@ const ProtectedRoute = ({ children }) => {
           if (refreshToken) {
 
             try {
+              // 쿠키 post 할시 다음과 같은 형식으로 header와 같이 보낼것
               const response = await axios.post(
                 `http://13.113.206.129:8081/user/reissue?refreshToken=${refreshToken}`,
                 null,

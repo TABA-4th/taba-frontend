@@ -115,6 +115,7 @@ const Calendar = () => {
     const data = JSON.parse(rawData);
     // alert(data.topPercentage);
     sessionStorage.setItem('diagnosisData', JSON.stringify(format2Json(data)));
+    sessionStorage.setItem('recommend_or_not', 0);
     window.location.href = '/result';
 };
 
@@ -132,11 +133,11 @@ const getDetailResult = async (d) => {
             }
         });
 
-        console.log(JSON.stringify(response.data));
+        // console.log(JSON.stringify(response.data));
         return JSON.stringify(response.data);
     } catch (error) {
       alert('세부데이터 수신 문제. 콘솔확인');
-      console.log(error);
+      // console.log(error);
     }
 };
 
@@ -176,8 +177,8 @@ const getDetailResult = async (d) => {
       formData.append('PERM_FLAG', permChecked);
       formData.append('DYE_FLAG', dyeChecked);
       try {
-        console.log(selectedDate);
-        console.log(typeof(selectedDate));
+        // console.log(selectedDate);
+        // console.log(typeof(selectedDate));
         let headers = {
           headers: {
             Authorization: `Bearer ${accessToken}`,
@@ -233,7 +234,7 @@ const getDetailResult = async (d) => {
         toggleModal();  
       }else{
         if(info.event.title === "파마" || info.event.title === "염색"){
-          console.log(info.event.date);
+          // console.log(info.event.date);
           alert(`${info.event.title}기록이 존재합니다.`);
         }
       }

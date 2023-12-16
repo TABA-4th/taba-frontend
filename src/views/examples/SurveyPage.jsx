@@ -1,7 +1,5 @@
 import React from 'react';
 import SurveyForm from 'views/index-sections/SurveyForm';
-import DarkNavbar from 'components/Navbars/DarkNavbar';
-import ProfilePageHeader from "components/Headers/ProfilePageHeader.js";
 import IndexNavbar from 'components/Navbars/IndexNavbar';
 import DefaultFooter from "components/Footers/DefaultFooter.js";
 import { Container, Col } from 'reactstrap';

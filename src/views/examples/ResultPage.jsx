@@ -1,9 +1,9 @@
-import React, {useState} from 'react';
-import axios from 'axios';
+import React, {useState,useEffect} from 'react';
 import ResultGraph from 'views/index-sections/ResultChart';
 import VBarChart from 'views/index-sections/verticalBarChart';
+import { useNavigate } from 'react-router-dom';
 import {
-    Collapse, Button, CardBody, Card, CardTitle, UncontrolledTooltip,
+    Collapse, Button,
     Container,
     Row,
     Col,
@@ -11,6 +11,7 @@ import {
 import IndexNavbar from "components/Navbars/IndexNavbar";
 import DefaultFooter from "components/Footers/DefaultFooter.js";  
 import ProductCard from 'views/index-sections/ProductCard';
+
 
 const divisionLine = {
   borderTop: "5px solid #F0F0F0",
@@ -84,8 +85,7 @@ function renderGraphData(DATA) {
     "loss" : loss,
     "erythema_pustules" : erythemaPustules,
   };
-  // console.log('데이터!');
-  // console.log(Data);
+
   return Data;
 }
 
@@ -104,8 +104,7 @@ function renderAvgGraphData(DATA) {
     "loss" : avgLoss,
     "erythema_pustules" : avgErythemaPustules,
   };
-  // console.log('데이터!');
-  // console.log(Data);
+
   return Data;
 }
 
@@ -127,43 +126,46 @@ const renderRankText = (d) => {
 }
 
 function ResultPage () {
+  const navigate = useNavigate();  
+  
+  
+  useEffect(() => {
+    
+    // 세션 스토리지에 valid 있는지 CHECK
+    const isValid = sessionStorage.getItem('result-valid');
+
+    // VALID 가 없을시에 ALERT 띄우고 HOME으로 이동
+    if (!isValid) {
+      // Display alert and navigate to the home page
+      navigate('/');
+    }
+
+  }, [navigate]);
   const [collapseIsOpen, setCollapseIsOpen] = useState(false);  // 콜랍스 효과를 위한 스테이트 훅
   const toggle = () => setCollapseIsOpen(!collapseIsOpen);
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 992);
 
-    // 세션 스토리지에서 nickname 가져오기
+ // 세션 스토리지에서 닉네임 가져오기
   const nickname = sessionStorage.getItem('nickname');
   const diagnosisData = JSON.parse(sessionStorage.getItem('diagnosisData'));
   const recommendation = sessionStorage.getItem('recommend_or_not');
 
-  // 사진업로드 -> 결과화면 & 마이페이지 -> 결과화면에서 넘겨주는 데이터가 서로 다르니.. 어쩔수 없는 부분이긴한데
-  const old = diagnosisData.old ? diagnosisData.old : sessionStorage.getItem('old');
+ // diagnosisData 확인
+  if (!diagnosisData ) {
+   // diagnosisData가 없으면 ALERT 표시하고 홈페이지로 이동
+    alert('올바르지 않은 결과 페이지 접근입니다. 홈페이지로 이동합니다.');
+    navigate('/');
+   return null; // 컴포넌트를 더 렌더링하지 않도록 하기 위해 null 반환
+  }
+
+  const old = diagnosisData.old || sessionStorage.getItem('old');
   const url = diagnosisData.url;
 
-  React.useEffect(() => {
-    document.body.classList.add("landing-page");
-    document.body.classList.add("sidebar-collapse");
-    document.documentElement.classList.remove("nav-open");
-    window.scrollTo(0, 0);
-    document.body.scrollTop = 0;
-    // 화면 크기 변경 감지 함수
-    const handleResize = () => {setIsMobile(window.innerWidth <= 992);};
-    // 이벤트 리스너 등록
-    window.addEventListener('resize', handleResize);
-    return function cleanup() {
-      document.body.classList.remove("landing-page");
-      document.body.classList.remove("sidebar-collapse");
-      window.removeEventListener('resize', handleResize);
-    };
-    }, []);
-
-  // console.log(diagnosisData.url);
 
   // 현재 날짜 출력하기
   const today = new Date();
   const formattedDate = diagnosisData.diagnosisDate ? diagnosisData.diagnosisDate : `${today.getFullYear()}. ${today.getMonth() + 1}. ${today.getDate()}`;
-  // const formattedDate = sessionStorage.getItem('diagnosisDate');
-   
+
   return (
     <>
       {isMobile?

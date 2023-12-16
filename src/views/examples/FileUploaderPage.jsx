@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState,useEffect} from 'react';
 import axios from 'axios';
 import FileUpload from 'components/Functions/FileUpload';
 import FileUploadMobileView from 'components/Functions/FileUploadMobileView';
@@ -8,7 +8,6 @@ import LoadingSpinner from 'views/index-sections/LoadingSpinner';
 // reactstrap components
 import {
   Container,
-  Row,
   Col,
 } from "reactstrap";
 
@@ -26,6 +25,23 @@ function FileUploaderPage() {
   // 로딩 스피너
   const [loading, setLoading] = useState(false);
   const [URLThumbnail, setURLThumbnail] = useState();
+
+
+  useEffect(() => {
+    
+    // 세션 스토리지에 valid 있는지 CHECK
+    const isValid = sessionStorage.getItem('valid');
+
+    // VALID 가 없을시에 ALERT 띄우고 HOME으로 이동
+    if (!isValid) {
+      // Display alert and navigate to the home page
+      alert('잘못된 접근입니다! ');
+      navigate('/');
+    }
+
+  }, [navigate]);
+
+
 
   const createImageURL = (fileBlob) => {  // createObjectURL 방식
     if (URLThumbnail) URL.revokeObjectURL(URLThumbnail);
@@ -59,17 +75,19 @@ function FileUploaderPage() {
         });
   
         sessionStorage.setItem('diagnosisData', JSON.stringify(response.data));
- 
-        console.log('이미지 업로드 성공');
+        
+        sessionStorage.removeItem('valid'); // 이미지 업로드 성공시 session storage에서 valid 제거 
+        sessionStorage.setItem('result-valid', 'true'); // 이미지 업로드 성공시 result-valid 를 session storage에 저장
+
         navigate(`/result`);
       } catch (error) {
-        console.log(error.request);
+
         if (error.request) {
           alert('보다 명확한 이미지를 업로드해주세요');
         } else {
-          console.log(typeof(error));
+
           alert('이미지 업로드 실패');
-          console.log(error);
+
         }
       } finally {
         setLoading(false);
@@ -79,24 +97,6 @@ function FileUploaderPage() {
     }
   };
   
-
-  React.useEffect(() => {
-    document.body.classList.add("landing-page");
-    document.body.classList.add("sidebar-collapse");
-    document.documentElement.classList.remove("nav-open");
-    window.scrollTo(0, 0);
-    document.body.scrollTop = 0;
-    // 화면 크기 변경 감지 함수
-    const handleResize = () => {setIsMobile(window.innerWidth <= 992);};
-    // 이벤트 리스너 등록
-    window.addEventListener('resize', handleResize);
-    return function cleanup() {
-      document.body.classList.remove("landing-page");
-      document.body.classList.remove("sidebar-collapse");
-      window.removeEventListener('resize', handleResize);
-    };
-  }, []);
-
   const imgBox = {
     boxShadow: "0 5px 80px 3px #E1E1E1",
     borderRadius: "10px",

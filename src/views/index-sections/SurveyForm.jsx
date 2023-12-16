@@ -72,7 +72,7 @@ function SurveyForm() {
       sessionStorage.removeItem("Qreuse_image");
       sessionStorage.removeItem("Qagreement");
     }
-    // alert(JSON.stringify(data));
+
     let formData = new FormData();
     formData.append("nickname", nickname);
     formData.append("gender", data.questGender);
@@ -88,13 +88,13 @@ function SurveyForm() {
 
     await axios.post('http://3.34.182.50:5000/survey', formData)
       .then(function(response) {
-        console.log('설문조사 업로드 성공');
-        // alert(formData);
+
+        sessionStorage.setItem('valid', 'true'); // 설문조사 업로드 성공시 valid를 true 바꾸기 
+        
         window.location.href = '/file-upload';
       })
       .catch(function(error) {
         alert("설문조사 폼 제출에 실패했습니다.");
-        console.log('설문조사 업로드 실패', error);
       });
     /*
      * gender

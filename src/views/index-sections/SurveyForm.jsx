@@ -90,7 +90,6 @@ function SurveyForm() {
       .then(function(response) {
         console.log('설문조사 업로드 성공');
         // alert(formData);
-        alert('콘솔콘솔ㅋ놋로확');
         window.location.href = '/file-upload';
       })
       .catch(function(error) {

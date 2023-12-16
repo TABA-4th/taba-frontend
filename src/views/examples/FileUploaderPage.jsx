@@ -27,6 +27,7 @@ function FileUploaderPage() {
   const [URLThumbnail, setURLThumbnail] = useState();
 
 
+  // file-upload 페이지 유효성 관리 체크 
   useEffect(() => {
     
     // 세션 스토리지에 valid 있는지 CHECK
@@ -34,7 +35,7 @@ function FileUploaderPage() {
 
     // VALID 가 없을시에 ALERT 띄우고 HOME으로 이동
     if (!isValid) {
-      // Display alert and navigate to the home page
+
       alert('잘못된 접근입니다! ');
       navigate('/');
     }

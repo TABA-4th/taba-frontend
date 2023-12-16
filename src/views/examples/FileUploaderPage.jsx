@@ -8,7 +8,6 @@ import LoadingSpinner from 'views/index-sections/LoadingSpinner';
 // reactstrap components
 import {
   Container,
-  Row,
   Col,
 } from "reactstrap";
 

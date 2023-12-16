@@ -77,6 +77,7 @@ function FileUploaderPage() {
         sessionStorage.setItem('diagnosisData', JSON.stringify(response.data));
         
         sessionStorage.removeItem('valid'); // 이미지 업로드 성공시 session storage에서 valid 제거 
+        sessionStorage.setItem('result-valid', 'true'); // 이미지 업로드 성공시 result-valid 를 session storage에 저장
         console.log('이미지 업로드 성공');
         navigate(`/result`);
       } catch (error) {

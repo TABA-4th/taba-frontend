@@ -147,24 +147,21 @@ function ResultPage () {
   const toggle = () => setCollapseIsOpen(!collapseIsOpen);
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 992);
 
-  // 세션 스토리지에서 닉네임 가져오기
+ // 세션 스토리지에서 닉네임 가져오기
   const nickname = sessionStorage.getItem('nickname');
   const diagnosisData = JSON.parse(sessionStorage.getItem('diagnosisData'));
   const recommendation = sessionStorage.getItem('recommend_or_not');
 
-  // diagnosisData에서 'old' 속성이 존재하는지 확인
-  const old = diagnosisData?.old || sessionStorage.getItem('old');
-  const url = diagnosisData?.url;
-
-  // 'old' 속성 추가적인 확인
-  if (old === null || old === undefined) {
-    // 'old'가 없으면 ALERT을 표시하고 홈페이지로 이동
+ // diagnosisData 확인
+  if (!diagnosisData ) {
+   // diagnosisData가 없으면 ALERT 표시하고 홈페이지로 이동
     alert('올바르지 않은 결과 페이지 접근입니다. 홈페이지로 이동합니다.');
     navigate('/');
-    return null; // 컴포넌트를 더 렌더링하지 않도록 하기 위해 null 반환
+   return null; // 컴포넌트를 더 렌더링하지 않도록 하기 위해 null 반환
   }
 
-
+  const old = diagnosisData.old || sessionStorage.getItem('old');
+  const url = diagnosisData.url;
 
   // console.log(diagnosisData.url);
 

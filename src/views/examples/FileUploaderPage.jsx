@@ -78,16 +78,16 @@ function FileUploaderPage() {
         
         sessionStorage.removeItem('valid'); // 이미지 업로드 성공시 session storage에서 valid 제거 
         sessionStorage.setItem('result-valid', 'true'); // 이미지 업로드 성공시 result-valid 를 session storage에 저장
-        console.log('이미지 업로드 성공');
+
         navigate(`/result`);
       } catch (error) {
-        console.log(error.request);
+
         if (error.request) {
           alert('보다 명확한 이미지를 업로드해주세요');
         } else {
-          console.log(typeof(error));
+
           alert('이미지 업로드 실패');
-          console.log(error);
+
         }
       } finally {
         setLoading(false);

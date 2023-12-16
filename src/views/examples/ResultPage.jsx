@@ -85,8 +85,7 @@ function renderGraphData(DATA) {
     "loss" : loss,
     "erythema_pustules" : erythemaPustules,
   };
-  // console.log('데이터!');
-  // console.log(Data);
+
   return Data;
 }
 
@@ -105,8 +104,7 @@ function renderAvgGraphData(DATA) {
     "loss" : avgLoss,
     "erythema_pustules" : avgErythemaPustules,
   };
-  // console.log('데이터!');
-  // console.log(Data);
+
   return Data;
 }
 
@@ -163,13 +161,11 @@ function ResultPage () {
   const old = diagnosisData.old || sessionStorage.getItem('old');
   const url = diagnosisData.url;
 
-  // console.log(diagnosisData.url);
 
   // 현재 날짜 출력하기
   const today = new Date();
   const formattedDate = diagnosisData.diagnosisDate ? diagnosisData.diagnosisDate : `${today.getFullYear()}. ${today.getMonth() + 1}. ${today.getDate()}`;
-  // const formattedDate = sessionStorage.getItem('diagnosisDate');
-   
+
   return (
     <>
       {isMobile?

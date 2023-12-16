@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState,useEffect} from 'react';
 import axios from 'axios';
 import ResultGraph from 'views/index-sections/ResultChart';
 import VBarChart from 'views/index-sections/verticalBarChart';
@@ -140,22 +140,19 @@ function ResultPage () {
   const old = diagnosisData.old ? diagnosisData.old : sessionStorage.getItem('old');
   const url = diagnosisData.url;
 
-  React.useEffect(() => {
-    document.body.classList.add("landing-page");
-    document.body.classList.add("sidebar-collapse");
-    document.documentElement.classList.remove("nav-open");
-    window.scrollTo(0, 0);
-    document.body.scrollTop = 0;
-    // 화면 크기 변경 감지 함수
-    const handleResize = () => {setIsMobile(window.innerWidth <= 992);};
-    // 이벤트 리스너 등록
-    window.addEventListener('resize', handleResize);
-    return function cleanup() {
-      document.body.classList.remove("landing-page");
-      document.body.classList.remove("sidebar-collapse");
-      window.removeEventListener('resize', handleResize);
-    };
-    }, []);
+  useEffect(() => {
+    
+    // 세션 스토리지에 valid 있는지 CHECK
+    const isValid = sessionStorage.getItem('result-valid');
+
+    // VALID 가 없을시에 ALERT 띄우고 HOME으로 이동
+    if (!isValid) {
+      // Display alert and navigate to the home page
+      alert('잘못된 접근입니다! ');
+      navigate('/');
+    }
+
+  }, [navigate]);
 
   // console.log(diagnosisData.url);
 

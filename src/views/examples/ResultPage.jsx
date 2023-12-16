@@ -1,9 +1,9 @@
 import React, {useState,useEffect} from 'react';
-import axios from 'axios';
 import ResultGraph from 'views/index-sections/ResultChart';
 import VBarChart from 'views/index-sections/verticalBarChart';
+import { useNavigate } from 'react-router-dom';
 import {
-    Collapse, Button, CardBody, Card, CardTitle, UncontrolledTooltip,
+    Collapse, Button,
     Container,
     Row,
     Col,
@@ -11,6 +11,7 @@ import {
 import IndexNavbar from "components/Navbars/IndexNavbar";
 import DefaultFooter from "components/Footers/DefaultFooter.js";  
 import ProductCard from 'views/index-sections/ProductCard';
+
 
 const divisionLine = {
   borderTop: "5px solid #F0F0F0",
@@ -127,19 +128,9 @@ const renderRankText = (d) => {
 }
 
 function ResultPage () {
-  const [collapseIsOpen, setCollapseIsOpen] = useState(false);  // 콜랍스 효과를 위한 스테이트 훅
-  const toggle = () => setCollapseIsOpen(!collapseIsOpen);
-  const [isMobile, setIsMobile] = useState(window.innerWidth <= 992);
-
-    // 세션 스토리지에서 nickname 가져오기
-  const nickname = sessionStorage.getItem('nickname');
-  const diagnosisData = JSON.parse(sessionStorage.getItem('diagnosisData'));
-  const recommendation = sessionStorage.getItem('recommend_or_not');
-
-  // 사진업로드 -> 결과화면 & 마이페이지 -> 결과화면에서 넘겨주는 데이터가 서로 다르니.. 어쩔수 없는 부분이긴한데
-  const old = diagnosisData.old ? diagnosisData.old : sessionStorage.getItem('old');
-  const url = diagnosisData.url;
-
+  const navigate = useNavigate();  
+  
+  
   useEffect(() => {
     
     // 세션 스토리지에 valid 있는지 CHECK
@@ -148,11 +139,32 @@ function ResultPage () {
     // VALID 가 없을시에 ALERT 띄우고 HOME으로 이동
     if (!isValid) {
       // Display alert and navigate to the home page
-      alert('잘못된 접근입니다! ');
       navigate('/');
     }
 
   }, [navigate]);
+  const [collapseIsOpen, setCollapseIsOpen] = useState(false);  // 콜랍스 효과를 위한 스테이트 훅
+  const toggle = () => setCollapseIsOpen(!collapseIsOpen);
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 992);
+
+  // 세션 스토리지에서 닉네임 가져오기
+  const nickname = sessionStorage.getItem('nickname');
+  const diagnosisData = JSON.parse(sessionStorage.getItem('diagnosisData'));
+  const recommendation = sessionStorage.getItem('recommend_or_not');
+
+  // diagnosisData에서 'old' 속성이 존재하는지 확인
+  const old = diagnosisData?.old || sessionStorage.getItem('old');
+  const url = diagnosisData?.url;
+
+  // 'old' 속성 추가적인 확인
+  if (old === null || old === undefined) {
+    // 'old'가 없으면 ALERT을 표시하고 홈페이지로 이동
+    alert('올바르지 않은 결과 페이지 접근입니다. 홈페이지로 이동합니다.');
+    navigate('/');
+    return null; // 컴포넌트를 더 렌더링하지 않도록 하기 위해 null 반환
+  }
+
+
 
   // console.log(diagnosisData.url);
 

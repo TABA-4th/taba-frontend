@@ -1,4 +1,5 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import ResultGraph from 'views/index-sections/ResultChart';
 import VBarChart from 'views/index-sections/verticalBarChart';
@@ -139,6 +140,22 @@ function ResultPage () {
   // 사진업로드 -> 결과화면 & 마이페이지 -> 결과화면에서 넘겨주는 데이터가 서로 다르니.. 어쩔수 없는 부분이긴한데
   const old = diagnosisData.old ? diagnosisData.old : sessionStorage.getItem('old');
   const url = diagnosisData.url;
+
+  const navigate = useNavigate();
+  useEffect(() => {
+    // 페이지가 로드될 때 바로 /home으로 리다이렉션
+    // navigate('/home');
+    // 뒤로가기 이벤트가 발생할 때 /home으로 리다이렉션
+    const handleBack = (event) => {
+      event.preventDefault();  // 뒤로가기 이벤트를 취소합니다.
+      navigate('/home');
+    };
+    window.addEventListener('popstate', handleBack);
+    // 컴포넌트 언마운트 시 이벤트 리스너 제거
+    return () => {
+      window.removeEventListener('popstate', handleBack);
+    };
+  }, [navigate]);
 
   React.useEffect(() => {
     document.body.classList.add("landing-page");

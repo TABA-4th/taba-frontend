@@ -116,6 +116,7 @@ const Calendar = () => {
     // alert(data.topPercentage);
     sessionStorage.setItem('diagnosisData', JSON.stringify(format2Json(data)));
     sessionStorage.setItem('recommend_or_not', 0);
+    sessionStorage.setItem('result-valid', 'true'); // 이미지 업로드 성공시 result-valid 를 session storage에 저장
     window.location.href = '/result';
 };
 
@@ -128,7 +129,7 @@ const getDetailResult = async (d) => {
 
         const response = await axios.post("http://13.113.206.129:8081/diagnosis/result/detail", formData, {
             headers: {
-                'Content-Type': 'application/json', // 'multipart/form-data'로 변경
+                'Content-Type': 'application/json', //
                 'accept': '*/*',
             }
         });
@@ -136,7 +137,7 @@ const getDetailResult = async (d) => {
         // console.log(JSON.stringify(response.data));
         return JSON.stringify(response.data);
     } catch (error) {
-      alert('세부데이터 수신 문제. 콘솔확인');
+      alert('데이터 취득에 실패하였습니다');
       // console.log(error);
     }
 };

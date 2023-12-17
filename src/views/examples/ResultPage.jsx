@@ -137,11 +137,14 @@ function ResultPage () {
 
     // VALID 가 없을시에 ALERT 띄우고 HOME으로 이동
     if (!isValid) {
+      alert('잘못된 접근입니다.');
       // Display alert and navigate to the home page
       navigate('/');
     }
 
+    sessionStorage.removeItem('result-valid');
   }, [navigate]);
+
   const [collapseIsOpen, setCollapseIsOpen] = useState(false);  // 콜랍스 효과를 위한 스테이트 훅
   const toggle = () => setCollapseIsOpen(!collapseIsOpen);
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 992);
@@ -154,14 +157,13 @@ function ResultPage () {
  // diagnosisData 확인
   if (!diagnosisData ) {
    // diagnosisData가 없으면 ALERT 표시하고 홈페이지로 이동
-    alert('올바르지 않은 결과 페이지 접근입니다. 홈페이지로 이동합니다.');
+    alert('올바르지 않은 결과 페이지 접근입니다.=');
     navigate('/');
    return null; // 컴포넌트를 더 렌더링하지 않도록 하기 위해 null 반환
   }
 
   const old = diagnosisData.old || sessionStorage.getItem('old');
   const url = diagnosisData.url;
-
 
   // 현재 날짜 출력하기
   const today = new Date();

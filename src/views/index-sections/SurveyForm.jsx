@@ -35,7 +35,7 @@ function SurveyForm() {
   const [rememberAnswer, setRememberAnswer] = useState(true);
   // 기억 체크박스를 위해
 
-  const [agreementOfTerm, setAgreementOfTerm] = useState(false);
+  // const [agreementOfTerm, setAgreementOfTerm] = useState(false);
 
   const [rememberGender, setRememberGender] = useState(sessionStorage.getItem("Qgender") ? sessionStorage.getItem("Qgender") : "");
   const [rememberOld, setRememberOld] = useState(sessionStorage.getItem("Qold") ? sessionStorage.getItem("Qold") : "");
@@ -357,8 +357,8 @@ function SurveyForm() {
                     <Input
                       id="agreeCheckbox"
                       type="checkbox"
-                      checked={agreementOfTerm}
-                      onChange={() => setAgreementOfTerm(!agreementOfTerm)}
+                      checked={rememberAgreement}
+                      onChange={() => setRememberAgreement(!rememberAgreement)}
                     />
                     <span className="form-check-sign">두피체크 약관에 동의합니다.　
                     </span>

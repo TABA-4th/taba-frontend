@@ -12,10 +12,10 @@ const SurveyPage = () => {
     <div style={{width:"100%", height:"75px", backgroundColor:'#9ce8ee'}} />
     {/*<ProfilePageHeader />*/}
     <div className="content">
-      <Container style={{paddingLeft: "15%", paddingRight: "15%"}}>
+      <Container style={{paddingLeft: "5%", paddingRight: "5%"}}>
         <Col className="ml-auto mr-auto text-center" md="10">
           <br></br>
-          <div className="section">
+          <div className="section" style={{display: 'flex', allignItem:'center', justifyContent:'center'}}>
             <SurveyForm />
           </div>
         </Col>

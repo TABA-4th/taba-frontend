@@ -237,7 +237,7 @@ useEffect(() => {
                         defaultValue=""
                         rules={{ 
                           validate: value =>
-                            value === password || "The passwords do not match"
+                            value == password || "The passwords do not match"
                         }}
                         render={({ field }) => (
                           <Input {...field} 

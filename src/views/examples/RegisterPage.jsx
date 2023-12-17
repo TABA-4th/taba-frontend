@@ -34,7 +34,8 @@ const schema = yup.object().shape({
   nickname : yup.string().required(requiredMessage),
   phone : yup.string().required(requiredMessage),
   password : yup.string().required(requiredMessage),
-  passwordConfirm : yup.string().required(requiredMessage),
+  passwordConfirm : yup.string().oneOf([yup.ref('password'), null], '비밀번호가 일치하지 않습니다')
+  .required(requiredMessage),
 });
 
 function RegisterPage() {
@@ -198,7 +199,7 @@ useEffect(() => {
                       className="btn-round"
                       color="info"
                       size="lg"
-                      type="submit"onClick={checkNicknameDuplicate}>ID CHECK</Button>
+                      onClick={checkNicknameDuplicate}>ID CHECK</Button>
                       {errors.nickname && (
                         <UncontrolledTooltip placement="right" target="nicknameInput" isOpen={true}>
                           <span style={warningStyle}>{errors.nickname.message}</span>
@@ -323,7 +324,7 @@ useEffect(() => {
                             style={btnStyle}
                             onClick={verifySmsToken}
                             disabled={isInputDisabled}>
-                              SMS SEND
+                              SMS CHECK
                           </Button>
                         </Collapse>                        
                   </CardBody>

@@ -10,9 +10,7 @@ import "assets/demo/demo.css?v=1.5.0";
 import "assets/demo/nucleo-icons-page-styles.css?v=1.5.0";
 
 import Index from "views/Index.js";
-import NucleoIcons from "views/NucleoIcons.js";
 import LoginPage from "views/examples/LoginPage.jsx";
-import LandingPage from "views/examples/LandingPage.js";
 import ProfilePage from "views/examples/ProfilePage.js";
 import RegisterPage from "views/examples/RegisterPage";
 import CalendarPage from "views/examples/CalendarPage";

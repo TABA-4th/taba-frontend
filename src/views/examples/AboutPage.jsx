@@ -2,11 +2,6 @@ import React from "react";
 
 // reactstrap components
 import {
-  Button,
-  Input,
-  InputGroupAddon,
-  InputGroupText,
-  InputGroup,
   Container,
   Row,
   Col
@@ -16,11 +11,9 @@ import {
 import IndexNavbar from "components/Navbars/IndexNavbar";
 import AboutpageHeader from "components/Headers/AboutpageHeader";
 import DefaultFooter from "components/Footers/DefaultFooter.js";
-import styled from "styled-components";
 
 function AboutPage() {
-  const [firstFocus, setFirstFocus] = React.useState(false);
-  const [lastFocus, setLastFocus] = React.useState(false);
+
 
   React.useEffect(() => {
     document.body.classList.add("landing-page");
@@ -162,10 +155,13 @@ function AboutPage() {
                       </a> 
                     </p>
                     <p className="description" style={{textAlign: "left"}}>
-                      단국대 소프트웨어학과 19학번 장시우입니다. 
-                      니모내모 서비스에서 프론트엔드 및 레이아웃 구성을 담당했습니다.
-                      프로젝트 초기 구성을 만들고, 홈페이지,매거진 페이지 등과 로그인/회원가입 기능을 구현했습니다. 
-                      앞으로도 리액트를 공부해 사용자 친화적인 웹앱을 만드는 프론트엔드 개발자로 성장하겠습니다.{" "}
+                    단국대 소프트웨어학과 19학번 장시우입니다. 
+                    니모내모 서비스에서 프론트엔드 및 웹사이트 전반적인 구성을 담당했습니다. 
+                    React로 홈페이지,매거진 페이지를 구성하고, 검사 진단 및 결과 페이지 개발에 참여했습니다.
+                    로그인/회원가입 기능을 만들고 Context API를 이용한 전역 상태관리, AXIOS API 통신 등을 개발하고 
+                    핵심 기능 알고리즘에서 예외가 발생하지 않도록 유효성을 관리했습니다.
+                    앞으로도 리액트를 공부해 사용자 친화적인 웹앱을 만드는 
+                    프론트엔드 개발자로 성장하겠습니다.
                     </p>
                   </div>
                 </Col>

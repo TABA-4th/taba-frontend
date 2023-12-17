@@ -198,7 +198,7 @@ useEffect(() => {
                       className="btn-round"
                       color="info"
                       size="lg"
-                      type="submit"onClick={checkNicknameDuplicate}>ID CHECK</Button>
+                      type="submit" onClick={checkNicknameDuplicate}>ID CHECK</Button>
                       {errors.nickname && (
                         <UncontrolledTooltip placement="right" target="nicknameInput" isOpen={true}>
                           <span style={warningStyle}>{errors.nickname.message}</span>
@@ -236,7 +236,7 @@ useEffect(() => {
                         defaultValue=""
                         rules={{ 
                           validate: value =>
-                            value === password || "The passwords do not match"
+                            value == password || "The passwords do not match"
                         }}
                         render={({ field }) => (
                           <Input {...field} 

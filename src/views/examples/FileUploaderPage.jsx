@@ -84,7 +84,7 @@ function FileUploaderPage() {
       } catch (error) {
 
         if (error.request) {
-          alert('보다 명확한 이미지를 업로드해주세요');
+          alert('두피 인식에 실패하였습니다. 보다 명확한 이미지로 다시 업로드 해주세요.');
         } else {
 
           alert('이미지 업로드 실패');

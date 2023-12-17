@@ -361,16 +361,16 @@ function SurveyForm() {
                       onChange={() => setAgreementOfTerm(!agreementOfTerm)}
                     />
                     <span className="form-check-sign">두피체크 약관에 동의합니다.　
-                      <a
+                    </span>
+                  </Label>
+                  <a
                         onClick={() => {
                           window.open(Nimonemo_terms, "_blank", "noopener, noreferrer");
                         }}
                         style={{ textDecoration: 'underline' }}
                       >
                         약관보기
-                      </a>
-                    </span>
-                  </Label>
+                  </a>
                 </div>
               )}
             />
@@ -405,12 +405,12 @@ function SurveyForm() {
             block
             className="btn-icon btn-round" 
             style={btnStyle}
-            disabled={!agreementOfTerm}
+            disabled={!rememberAgreement}
             >
             제출하기
           </Button>
           {                  
-            <Collapse isOpen={!agreementOfTerm}>
+            <Collapse isOpen={!rememberAgreement}>
               <span style={warningStyle}>이용약관 미동의시, 서비스 이용이 불가능합니다.</span>
             </Collapse>          
             }

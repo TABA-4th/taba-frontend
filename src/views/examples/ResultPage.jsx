@@ -117,10 +117,10 @@ const renderRankText = (d) => {
     <>
       <h5 style={resultTextStyle}> 미세각질 항목은 <span style={{color: 'red'}}>상위 {d.FINE_DEAD_SKIN_CELLS}%</span>입니다.</h5>
       <h5 style={resultTextStyle}> 피지과다 항목은 <span style={{color: 'red'}}>상위 {d.EXCESS_SEBUM}%</span>입니다.</h5>
-      <h5 style={resultTextStyle}> 모낭간 홍반 항목 <span style={{color: 'red'}}>상위 {d.ERYTHEMA_BETWEEN_HAIR_FOLLICLES}%</span>입니다.</h5>
+      <h5 style={resultTextStyle}> 모낭사이홍반 항목 <span style={{color: 'red'}}>상위 {d.ERYTHEMA_BETWEEN_HAIR_FOLLICLES}%</span>입니다.</h5>
       <h5 style={resultTextStyle}> 비듬 항목은 상위 <span style={{color: 'red'}}>상위 {d.DANDRUFF}%</span>입니다.</h5>
       <h5 style={resultTextStyle}> 탈모위험성 항목은 <span style={{color: 'red'}}>상위 {d.HAIR_LOSS}%</span>입니다.</h5>
-      <h5 style={resultTextStyle}> 모낭간 홍반농포 항목은 <span style={{color: 'red'}}>상위 {d.ERYTHEMA_PUSTULES}%</span>입니다.</h5>
+      <h5 style={resultTextStyle}> 모낭홍반농포 항목은 <span style={{color: 'red'}}>상위 {d.ERYTHEMA_PUSTULES}%</span>입니다.</h5>
     </>
   );
 }

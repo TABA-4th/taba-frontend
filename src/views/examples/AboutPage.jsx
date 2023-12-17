@@ -55,6 +55,7 @@ function AboutPage() {
                     <p className="description" style={{textAlign: "left"}}>
                       단국대 모바일시스템공학과 19학번 강형철입니다.
                       이번 NIMONEMO 프로젝트에서 React, Axios API통신(HTTP)를 활용하여 마이페이지 전기능, 설문조사부터 결과페이지 전반의 세부기능, 제품추천 페이지 알고리즘을 주로 개발&관리하였습니다.
+                      무작정 프로그램을 작성하기 보다는 플로우 차트를 그리며 적절한 구조로 서비스를 개발하기 위해 노력했습니다.
                       <br />
                     </p>
                   </div>

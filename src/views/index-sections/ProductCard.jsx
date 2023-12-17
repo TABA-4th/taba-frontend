@@ -74,7 +74,9 @@ const ProductCard = (props) => {
                     </Col>
                     <Col md="9" sm="9" xs="9">
                       <div style={{ fontSize: '18px', paddingTop: '5px' }}>{product.name}</div>
-                      <Button className="btn-sm" color="primary" style={{ fontSize: '20px', borderRadius: '15px' }} href={product.purchaseUrl}>구매링크</Button>
+                      <Button className="btn-sm" color="primary" style={{ fontSize: '20px', borderRadius: '15px' }} onClick={() =>{
+                        window.open(product.purchaseUrl, "_blank", "noopener, noreferrer");
+                      }}>구매링크</Button>
                       <span style={{ fontSize: '17px', marginLeft: '10px' }}>{product.price.toLocaleString()}원</span>
                     </Col>
                   </Row>

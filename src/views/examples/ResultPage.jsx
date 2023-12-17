@@ -157,7 +157,7 @@ function ResultPage () {
  // diagnosisData 확인
   if (!diagnosisData ) {
    // diagnosisData가 없으면 ALERT 표시하고 홈페이지로 이동
-    alert('올바르지 않은 결과 페이지 접근입니다.=');
+    alert('올바르지 않은 결과 페이지 접근입니다.');
     navigate('/');
    return null; // 컴포넌트를 더 렌더링하지 않도록 하기 위해 null 반환
   }

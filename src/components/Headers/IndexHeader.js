@@ -48,7 +48,7 @@ function IndexHeader() {
             onClick={() => window.location.href = "/survey"}
           >
             <h1 id="quickStart" className="category category-absolute" style={{ color: "white" }}>
-              <span style={{textDecoration : 'underline'}}>지금바로</span>시작하기
+              <span style={{textDecoration : 'underline'}}>지금 바로 시작하기</span>
             </h1>
           </Button>
           {tooltipVisible == true && <UncontrolledTooltip placement="bottom" target="quickStart" isOpen={true}>

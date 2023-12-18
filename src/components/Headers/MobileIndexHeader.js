@@ -44,9 +44,13 @@ const MobileIndexHeader = () => {
             className="transparent-btn"
             onClick={() => window.location.href = "/survey"}
           >
-            <h2 id="quickStart" className="category category-absolute" style={{ color: "white", textAlign:'left', paddingLeft: "65px" }}>
-              바로 시작하기
-            </h2>
+          <h2 
+            id="quickStart" 
+            className="category category-absolute"               
+            style={{ color: "white", paddingRight: '80px', paddingLeft: '30px'}}
+          >
+            지금 바로 시작하기
+          </h2>    
           </Button>
           {tooltipVisible == true && <UncontrolledTooltip placement="bottom" target="quickStart" isOpen={true}>
             <span style={{color: 'blue'}}>이곳을 클릭</span>하여 지금바로 시작해보세요!

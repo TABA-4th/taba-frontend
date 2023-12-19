@@ -34,3 +34,30 @@
 
 ## Frontend Repository
 [Tmax AI Bigdata Academy 4기 3조]
+</br></br>
+
+## Main function (PC)
+<img src="https://github.com/TABA-4th/taba-frontend/assets/120318020/aaf93c71-48f1-43e4-9f15-d881d3ecec88" width="800" height="400"></img>
+</br></br>
+
+<img src="https://github.com/TABA-4th/taba-frontend/assets/120318020/5bb49ee8-2bb4-43bc-9458-e1c65129ca2e" width="800" height="400"></img>
+</br></br>
+
+## Main function (Mobile)
+<div style="display: flex">
+  <img src="https://github.com/TABA-4th/taba-frontend/assets/120318020/3a735fc3-912b-4d42-b695-a3436bbc5381" width="300" height="450"></img>
+  <img src="https://github.com/TABA-4th/taba-frontend/assets/120318020/fc02d83a-4d46-4636-820f-600158b3a3ff" width="300" height="450"></img>
+</div>
+</br></br>
+
+## Magazine Page (PC)
+<img src="https://github.com/TABA-4th/taba-frontend/assets/120318020/af8c4110-6e8e-45e1-9fbb-f8b5855da95b" width="800" height="400"></img>
+</br></br>
+
+## Sign Up, Sign In (PC)
+<img src="https://github.com/TABA-4th/taba-frontend/assets/120318020/b41312dd-95df-4dd3-bda6-98e7b367d9ec" width="800" height="400"></img>
+</br></br>
+
+## Sign Up, Sign In (Mobile)
+<img src="https://github.com/TABA-4th/taba-frontend/assets/120318020/dda2f8f1-6bc6-4b80-984e-df6811547aca" width="300" height="450"></img>
+</br></br>
